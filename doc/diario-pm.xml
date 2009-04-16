@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?oxygen RNGSchema="http://www.oasis-open.org/docbook/xml/5.0/rng/docbookxi.rng" type="xml"?>
+<!--  Diario del PM - contiene la tabella del diario, aggiungete righe per i giorni di lavoro -->
+<!DOCTYPE article [
+<!ENTITY % myent SYSTEM "entities.ent">
+%myent;
+]>
+<article xml:lang="it" xmlns="http://docbook.org/ns/docbook" 
+        xmlns:xi="http://www.w3.org/2001/XInclude"
+        xmlns:xlink="http://www.w3.org/1999/xlink" version="5.0">
+    <title/>
+    <section xml:id="diario-pm">
+        <title>Diario di &ppm;</title>
+        <table>
+            <title>Diario del &rpm;</title>
+            <tgroup cols="3">
+                <colspec colname="0" align="center" colwidth="60"/>
+                <colspec colname="1" align="center" colwidth="60"/>
+                <colspec colname="2" align="justify"/>
+                <!-- non modificare questo header -->
+                <thead>
+                    <row>
+                        <entry>&diaries-data;</entry>
+                        <entry>&diaries-hours;</entry>
+                        <entry align="center">&diaries-task;</entry>
+                    </row>
+                </thead>
+                <!-- nel footer si tiene traccia delle ore di lavoro complessive e della data dell'ultimo lavoro. -->
+                <!-- Modificate di conseguenza secondo l'esempio -->
+                <tfoot>
+                    <row>
+                        <entry>Totale</entry>
+                        <entry>24 ore</entry>
+                        <entry>Fino al 14/01/2008</entry>
+                    </row>
+                </tfoot>
+                <tbody>
+                    <row>
+                        <entry>?/04/2009</entry>
+                        <entry>1</entry>
+                        <entry>?</entry>
+                    </row>
+                    <!-- Aggiungere nuove righe qui copiando la <row> precedente -->
+                </tbody>
+            </tgroup>
+        </table>
+    </section>
+</article>

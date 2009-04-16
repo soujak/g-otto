@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?oxygen RNGSchema="http://www.oasis-open.org/docbook/xml/5.0/rng/docbookxi.rng" type="xml"?>
+<!-- Questo file contiene la tabella dei requisiti -->
+<!DOCTYPE book [
+<!ENTITY % myent SYSTEM "entities.ent">
+%myent;
+]>
+<book xml:lang="it" xmlns="http://docbook.org/ns/docbook" xmlns:xi="http://www.w3.org/2001/XInclude"
+    xmlns:xlink="http://www.w3.org/1999/xlink" version="5.0">
+    <chapter xml:id="chap-requisiti">
+        <title>Requisiti</title>
+        <!-- Empty PARA for SPACING -->
+        <table xml:id="requisiti">
+            <title>Tabella dei requisiti</title>
+            <tgroup cols="3">
+                <colspec colname="0" align="center" colwidth="60"/>
+                <colspec colname="1" align="center" colwidth="60"/>
+                <colspec colname="2" align="justify"/>
+                <thead>
+                    <row>
+                        <entry>Priorita</entry>
+                        <entry>Tipo</entry>
+                        <entry align="center">Descrizione</entry>
+                    </row>
+                </thead>
+                <tbody>
+                    <row>
+                        <entry>1</entry>
+                        <entry>Non funzionale</entry>
+                        <entry>Whatever</entry>
+                    </row>
+                    <!-- Aggiungere nuove righe qui copiando la <row> precedente -->
+                </tbody>
+            </tgroup>
+        </table>
+    </chapter>
+</book>
