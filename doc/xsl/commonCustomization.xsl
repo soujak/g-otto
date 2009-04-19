@@ -13,5 +13,6 @@
         section   nop
         set       toc
     </xsl:param>
+    <xsl:param name="glossary.sort" select="1"></xsl:param>
 <!--    <xsl:param name="admon.graphics" select="1"/>-->
 </xsl:stylesheet>

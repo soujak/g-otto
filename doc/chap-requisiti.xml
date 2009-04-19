@@ -36,7 +36,7 @@
             </tgroup>
         </table>
     </section>
-    <section>
+<!--    <section>
         <title>Matrice di mappatura dei requisiti</title>
         <table frame="none">
             <title>Tabella di mappatura dei requisiti</title>
@@ -149,5 +149,5 @@
             </tgroup>
         </table>
         <para>..</para>
-    </section>
+    </section>-->
 </chapter>
