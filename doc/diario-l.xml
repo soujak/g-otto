@@ -61,6 +61,7 @@
                         <entry>
                             <itemizedlist>
                                 <listitem><para>rielaborazione dello stylesheet di formattazione dei diari</para></listitem>
+                                <listitem><para>bugfix motore di traduzione</para></listitem>
                             </itemizedlist>
                         </entry>
                     </row>
