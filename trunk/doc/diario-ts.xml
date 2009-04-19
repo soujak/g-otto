@@ -30,8 +30,8 @@
                 <tfoot>
                     <row>
                         <entry>Totale</entry>
-                        <entry>9 ore</entry>
-                        <entry>Fino al ?/?/2009</entry>
+                        <entry>17 ore</entry>
+                        <entry>Fino al 19/4/2009</entry>
                     </row>
                 </tfoot>
                 <tbody>
@@ -44,6 +44,16 @@
                         <entry>15/04/2009</entry>
                         <entry>3</entry>
                         <entry>Sviluppo di alcuni fogli di stile specifici per il mantenimento coerente della documentazione sul wiki e in forma di pdf. Creazione di tabella preliminare per i requisiti.</entry>
+                    </row>
+                    <row>
+                        <entry>16/04/2009</entry>
+                        <entry>4</entry>
+                        <entry>Modifiche e tentativi di bugfix nel processo di generazione automatico dei diari. Studio sui casi d'uso e i diagrammi UML.</entry>
+                    </row>
+                    <row>
+                        <entry>19/04/2009</entry>
+                        <entry>4</entry>
+                        <entry>Bugfix su generazione automatica diari. Configurazione di alcuni strumenti tra cui il client svn e il pluging Omondo per Eclipse. Primi passi con ArgoUML. Studio su UML.</entry>
                     </row>
                     <!-- Aggiungere nuove righe qui copiando la <row> precedente -->
                 </tbody>
