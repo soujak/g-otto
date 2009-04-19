@@ -1,51 +1,79 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?oxygen RNGSchema="http://www.oasis-open.org/docbook/xml/5.0/rng/docbookxi.rng" type="xml"?>
-<!--  Diario del L - contiene la tabella del diario, aggiungete righe per i giorni di lavoro -->
-<!DOCTYPE article [
-<!ENTITY % myent SYSTEM "entities.ent">
-%myent;
-]>
+
 <article xml:lang="it" xmlns="http://docbook.org/ns/docbook" xmlns:xi="http://www.w3.org/2001/XInclude"
     xmlns:xlink="http://www.w3.org/1999/xlink" version="5.0">
-        <title/>
-        <section xml:id="diario-l">
-            <title>Diario di &pl;</title>
-            <table>
-                <title>Diario del &rl;</title>
-                <tgroup cols="3">
-                    <colspec colname="0" align="center" colwidth="60"/>
-                    <colspec colname="1" align="center" colwidth="60"/>
-                    <colspec colname="2" align="justify"/>
-                    <!-- non modificare questo header -->
-                    <thead>
-                        <row>
-                            <entry>&diaries-data;</entry>
-                            <entry>&diaries-hours;</entry>
-                            <entry align="center">&diaries-task;</entry>
-                        </row>
-                    </thead>
-                    <!-- nel footer si tiene traccia delle ore di lavoro complessive e della data dell'ultimo lavoro. -->
-                    <!-- Modificate di conseguenza secondo l'esempio -->
-                    <tfoot>
-                        <row>
-                            <entry>Totale</entry>
-                            <entry>N ore</entry>
-                            <entry>Fino al ?/?/2009</entry>
-                        </row>
-                    </tfoot>
-                    <tbody>
-                        <row>
-                            <entry>08/04/2009</entry>
-                            <entry>3</entry>
-                            <entry>
-                               Aggiornamento del wiki di gruppo. Trascrizione degli appunti formulati durante la seduta
-                                    del 07/04. Studio documentazione tecnica JBOSS e delle relative
-                                    tecnologie.
-                            </entry>
-                        </row>
-                        <!-- Aggiungere nuove righe qui copiando la <row> precedente -->
-                    </tbody>
-                </tgroup>
-            </table>
-        </section>
+    <title/>
+    <section xml:id="diario-l">
+        <title>Diario di Francesco Draicchio</title>
+        <table>
+            <title>Diario del Librarian</title>
+            <tgroup cols="3">
+                <colspec colname="0" colwidth="60"/>
+                
+                <colspec colname="1" colwidth="60"/>
+                <colspec colname="2"/>
+                <thead>
+                    <row>
+                        <entry>Giorno</entry>
+                        <entry>Quantita' di Ore</entry>
+                        <entry>Descrizione</entry>     
+                    </row>
+                </thead>
+                <tfoot>
+                    <row>
+                        <entry>Totale</entry>
+                        <entry> - </entry>
+                        <entry> - </entry>
+                        
+                    </row>
+                </tfoot>
+                <tbody>
+                    <!-- INSERIRE LE ENTRY -->                   
+                   <row>
+                        <entry>08/04/2009</entry>
+                        <entry>3</entry>
+                        
+                        <entry>
+                            <itemizedlist><listitem>
+                                <para>aggiornamento del wiki di gruppo</para></listitem>
+                                <listitem><para>trascrizione degli appunti formulati durante la seduta
+                                    del 07/04</para></listitem>
+                                <listitem><para>studio documentazione tecnica JBOSS e delle relative
+                                    tecnologie</para>
+                                </listitem>
+                            </itemizedlist>
+                            
+                        </entry>
+                    </row>
+                    
+                    <row>
+                        <entry>16/04/2009</entry>
+                        <entry>3</entry>
+                        <entry>
+                            <itemizedlist>
+                                
+                                <listitem><para>progettazione del sistema di formattazione automatica dei diari</para></listitem>
+                                <listitem><para>realizzazione (proof of concept) del sistema di redazione automatica dei diari</para></listitem>
+                            </itemizedlist>
+                        </entry>
+                    </row>
+                    
+                    <row>
+                        <entry>17/04/2009</entry>
+                        
+                        <entry>2</entry>
+                        <entry>
+                            <itemizedlist>
+                                <listitem><para>realizzazione stili di formattazione dei diari</para></listitem>
+                            </itemizedlist>
+                        </entry>
+                    </row>
+                    
+                    <!-- FINE -->
+                    
+                </tbody>
+            </tgroup>
+        </table>
+    </section>
 </article>
