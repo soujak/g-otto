@@ -30,15 +30,35 @@
                 <tfoot>
                     <row>
                         <entry>Totale</entry>
-                        <entry>24 ore</entry>
-                        <entry>Fino al 14/01/2008</entry>
+                        <entry>-</entry>
+                        <entry>-</entry>
                     </row>
                 </tfoot>
                 <tbody>
                     <row>
-                        <entry>4/4/09</entry>
-                        <entry>2</entry>
-                        <entry>Task</entry>
+                        <entry>8/4/09</entry>
+                        <entry>1.5</entry>
+                        <entry>Studio delle attivita' per SQA</entry>
+                    </row>
+                    <row>
+                        <entry>9/4/09</entry>
+                        <entry>3</entry>
+                        <entry>Studio delle attivita' per SQA e bozza</entry>
+                    </row>
+                    <row>
+                        <entry>10/4/09</entry>
+                        <entry>3</entry>
+                        <entry>Analisi dei requisiti e studio di JBOSS</entry>
+                    </row>
+                    <row>
+                        <entry>14/4/09</entry>
+                        <entry>1</entry>
+                        <entry>Studio di JBOSS</entry>
+                    </row>
+                    <row>
+                        <entry>16/4/09</entry>
+                        <entry>4.25</entry>
+                        <entry>Definizione preliminare del processo e valutazione preliminare dello sforzo (metodo dei punti funzione)</entry>
                     </row>
                     <!-- Aggiungere nuove righe qui copiando la <row> precedente -->
                 </tbody>
