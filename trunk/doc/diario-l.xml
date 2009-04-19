@@ -29,21 +29,18 @@
                     </row>
                 </tfoot>
                 <tbody>
-                    <!-- INSERIRE LE ENTRY -->                   
+
+                    <!-- QUI INSERIRE LE RIGHE DELLA TABELLA -->                   
+
                    <row>
                         <entry>08/04/2009</entry>
                         <entry>3</entry>
-                        
                         <entry>
-                            <itemizedlist><listitem>
-                                <para>aggiornamento del wiki di gruppo</para></listitem>
-                                <listitem><para>trascrizione degli appunti formulati durante la seduta
-                                    del 07/04</para></listitem>
-                                <listitem><para>studio documentazione tecnica JBOSS e delle relative
-                                    tecnologie</para>
-                                </listitem>
+                            <itemizedlist>
+                                <listitem><para>aggiornamento del wiki di gruppo</para></listitem>
+                                <listitem><para>trascrizione degli appunti formulati durante la seduta del 07/04</para></listitem>
+                                <listitem><para>studio della documentazione tecnica JBOSS e delle relative tecnologie</para></listitem>
                             </itemizedlist>
-                            
                         </entry>
                     </row>
                     
@@ -52,20 +49,18 @@
                         <entry>3</entry>
                         <entry>
                             <itemizedlist>
-                                
                                 <listitem><para>progettazione del sistema di formattazione automatica dei diari</para></listitem>
-                                <listitem><para>realizzazione (proof of concept) del sistema di redazione automatica dei diari</para></listitem>
+                                <listitem><para>realizzazione (proof of concept) del sistema di formattazione automatica dei diari (sincronizzazione repository SVN)</para></listitem>
                             </itemizedlist>
                         </entry>
                     </row>
                     
                     <row>
                         <entry>17/04/2009</entry>
-                        
                         <entry>2</entry>
                         <entry>
                             <itemizedlist>
-                                <listitem><para>realizzazione stili di formattazione dei diari</para></listitem>
+                                <listitem><para>rielaborazione dello stylesheet di formattazione dei diari</para></listitem>
                             </itemizedlist>
                         </entry>
                     </row>
