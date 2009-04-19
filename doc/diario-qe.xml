@@ -2,7 +2,6 @@
 <?oxygen RNGSchema="http://www.oasis-open.org/docbook/xml/5.0/rng/docbookxi.rng" type="xml"?>
 <!--  Diario del QE - contiene la tabella del diario, aggiungete righe per i giorni di lavoro -->
 <!DOCTYPE article [
-<!ENTITY % myent SYSTEM "entities.ent">
 %myent;
 ]>
 <article xml:lang="it" xmlns="http://docbook.org/ns/docbook" 
@@ -10,9 +9,9 @@
         xmlns:xlink="http://www.w3.org/1999/xlink" version="5.0">
 <title/>
     <section xml:id="diario-qe">
-        <title>Diario di &pqe;</title>
+        <title>Diario di Andrea Rappini</title>
         <table>
-            <title>Diario del &rqe;</title>
+            <title>Diario del Quality Engineer</title>
             <tgroup cols="3">
                 <colspec colname="0" align="center" colwidth="60"/>
                 <colspec colname="1" align="center" colwidth="60"/>
@@ -20,9 +19,9 @@
                 <!-- non modificare questo header -->
                 <thead>
                     <row>
-                        <entry>&diaries-data;</entry>
-                        <entry>&diaries-hours;</entry>
-                        <entry align="center">&diaries-task;</entry>
+                        <entry>Giorno</entry>
+                        <entry>Quantita' di ore</entry>
+                        <entry align="center">Descrizione</entry>
                     </row>
                 </thead>
                 <!-- nel footer si tiene traccia delle ore di lavoro complessive e della data dell'ultimo lavoro. -->
@@ -58,7 +57,7 @@
                     <row>
                         <entry>16/4/09</entry>
                         <entry>4.25</entry>
-                        <entry>Definizione preliminare del processo e valutazione preliminare dello sforzo (metodo dei punti funzione)</entry>
+                        <entry>Con PM: definizione preliminare del processo e valutazione preliminare dello sforzo (metodo dei punti funzione)</entry>
                     </row>
                     <!-- Aggiungere nuove righe qui copiando la <row> precedente -->
                 </tbody>
