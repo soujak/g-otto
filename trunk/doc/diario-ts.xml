@@ -10,9 +10,9 @@
         xmlns:xlink="http://www.w3.org/1999/xlink" version="5.0">
     <title/>
     <section xml:id="diario-ts">
-        <title>Diario di Silvia Righini</title>
+        <title>Diario di &pts;</title>
         <table>
-            <title>Diario del Tool Specialist</title>
+            <title>Diario del &rts;</title>
             <tgroup cols="3">
                 <colspec colname="0" align="center" colwidth="60"/>
                 <colspec colname="1" align="center" colwidth="60"/>
