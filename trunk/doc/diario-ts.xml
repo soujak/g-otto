@@ -53,7 +53,7 @@
                     <row>
                         <entry>19/04/2009</entry>
                         <entry>4</entry>
-                        <entry>Bugfix su generazione automatica diari. Configurazione di alcuni strumenti tra cui il client svn e il pluging Omondo per Eclipse. Primi passi con ArgoUML. Studio su UML.</entry>
+                        <entry>Bugfix su generazione automatica diari. Configurazione di alcuni strumenti tra cui il client svn e pluging Eclipse. Primi passi con ArgoUML. Studio su UML.</entry>
                     </row>
                     <!-- Aggiungere nuove righe qui copiando la <row> precedente -->
                 </tbody>
