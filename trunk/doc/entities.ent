@@ -2,6 +2,13 @@
 <!-- Se dovesse venirvi il dubbio che qualche nome o altro possa venir riutilizato di frequente e magari cambiato in -->
 <!-- seguito a una decisione collettiva, mettetelo qua e non fara' male a nessuno.. -->
 
+<!ENTITY agrave "&#224;">
+<!ENTITY egrave "&#232;">
+<!ENTITY eacute "&#233;">
+<!ENTITY igrave "&#236;">
+<!ENTITY ograve "&#242;">
+<!ENTITY ugrave "&#249;">
+
 <!-- Header delle 3 colonne che compongono le tabelle dei diari -->
 <!ENTITY diaries-data "Data">
 <!ENTITY diaries-hours "Numero di ore">
