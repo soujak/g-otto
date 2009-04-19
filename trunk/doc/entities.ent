@@ -16,10 +16,10 @@
 
 <!-- Ruoli "ingegneristici".. r sta per role, tipo rl sta per role librarian. -->
 <!-- parametrizzati nel caso dovessimo decidere di metterli sempre in corsivo, con la maiuscola o che altro.. -->
-<!ENTITY rl "librarian">
-<!ENTITY rqe "quality engineer">
-<!ENTITY rpm "project manager">
-<!ENTITY rts "tool specialist">
+<!ENTITY rl "Librarian">
+<!ENTITY rqe "Quality Engineer">
+<!ENTITY rpm "Project Manager">
+<!ENTITY rts "Tool Specialist">
 <!-- Nostri nomi di persona (evidentemente). p sta per person. Parametrizzati per comodita'. -->
 <!ENTITY pl "Francesco Draicchio">
 <!ENTITY pqe "Andrea Rappini">
