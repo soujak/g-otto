@@ -21,14 +21,14 @@
                 <thead>
                     <row>
                         <entry>Priorita</entry>
-                        <entry>Tipo</entry>
+                        <!--<entry>Tipo</entry>-->
                         <entry align="center">Descrizione</entry>
                     </row>
                 </thead>
                 <tbody>
                     <row>
                         <entry>1</entry>
-                        <entry>Non funzionale</entry>
+                        <!--<entry>Non funzionale</entry>-->
                         <entry>Whatever</entry>
                     </row>
                     <!-- Aggiungere nuove righe qui copiando la <row> precedente -->
