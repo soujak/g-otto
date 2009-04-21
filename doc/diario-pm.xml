@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<?oxygen RNGSchema="http://www.oasis-open.org/docbook/xml/5.0/rng/docbookxi.rng" type="xml"?>
-<!--  Diario del PM - contiene la tabella del diario, aggiungete righe per i giorni di lavoro -->
+<!--  Diario del Project Manager -->
 <!DOCTYPE article [
 <!ENTITY % myent SYSTEM "entities.ent">
 %myent;
@@ -17,31 +16,63 @@
                 <colspec colname="0" align="center" colwidth="60"/>
                 <colspec colname="1" align="center" colwidth="60"/>
                 <colspec colname="2" align="justify"/>
-                <!-- non modificare questo header -->
                 <thead>
                     <row>
-                        <entry>Giorno</entry>
-                        <entry>Quantit&agrave; di ore</entry>
+                        <entry>Data</entry>
+                        <entry>Durata (ore)</entry>
                         <entry align="center">Descrizione</entry>
                     </row>
                 </thead>
-                <!-- nel footer si tiene traccia delle ore di lavoro complessive e della data dell'ultimo lavoro. -->
-                <!-- Modificate di conseguenza secondo l'esempio -->
-                <tfoot>
+                <tbody>
+		    <!--
+                    <row>
+                        <entry>/04/2009</entry>
+                        <entry>durata</entry>
+                        <entry>descrizione</entry>
+                    </row>
+		    -->
+		    <row>
+                        <entry>07/04/2009</entry>
+                        <entry>1.5</entry>
+                        <entry>Approfondimenti di gestione di progetti. Analisi modelli di processo agili (XP, AUP), scelta e documentazione approfondita</entry>
+                    </row><row>
+                        <entry>15/04/2009</entry>
+                        <entry>1.5</entry>
+                        <entry>Approfondimenti su J2EE e JBoss. Analisi delle specifiche e modellazione preliminare dei requisiti.</entry>
+                    </row><row>
+                        <entry>16/04/2009</entry>
+                        <entry>2</entry>
+                        <entry>Approfondimento di AUP, definizione preliminare del piano di processo (fase di avvio).</entry>
+                    </row><row>
+                        <entry>16/04/2009</entry>
+                        <entry>1.3</entry>
+                        <entry>Impostazione deposito versionato (SVN), aggiornamento wiki, programmazione prossimo incontro</entry>
+                    </row><row>
+                        <entry>16/04/2009</entry>
+                        <entry>0.7</entry>
+                        <entry>Approfondimento sulle metriche di valutazione dello sforzo (FP)</entry>
+                    </row><row>
+                        <entry>17/04/2009</entry>
+                        <entry>3</entry>
+                        <entry>Approfondimento di AUP, definizione preliminare piano di processo (fasi di elaborazione e costruzione)</entry>
+                    </row><row>
+                        <entry>10/04/2009</entry>
+                        <entry>3</entry>
+                        <entry>Definizione preliminare piano di processo (fase di transizione). Analisi strumenti per la gestione di progetti (scelto KPlato), definizione dettagliata piano di processo della fase corrente.</entry>
+                    </row><row>
+                        <entry>21/04/2009</entry>
+                        <entry>1</entry>
+                        <entry>Analisi di strumenti di elaborazione DocBook (OpenOffice), aggiornamento del presente Diario.</entry>
+                    </row>
+                </tbody>
+		<!-- Durata totale del lavoro individuale e data ultimo aggiornamento. -->
+		<tfoot>
                     <row>
                         <entry>Totale</entry>
-                        <entry>0 ore</entry>
-                        <entry>Fino al ?/?/2009</entry>
+                        <entry>10</entry>
+                        <entry>Aggiornato al 21/04/09</entry>
                     </row>
                 </tfoot>
-                <tbody>
-                    <row>
-                        <entry>?/04/2009</entry>
-                        <entry>?</entry>
-                        <entry>?</entry>
-                    </row>
-                    <!-- Aggiungere nuove righe qui copiando la <row> precedente -->
-                </tbody>
             </tgroup>
         </table>
     </section>
