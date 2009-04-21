@@ -30,8 +30,8 @@
                 <tfoot>
                     <row>
                         <entry>Totale</entry>
-                        <entry>8 ore</entry>
-                        <entry>Fino al ?/?/2009</entry>
+                        <entry>9.5 ore</entry>
+                        <entry>Fino al 20/4/2009</entry>
                     </row>
                 </tfoot>
                 <tbody>
@@ -51,12 +51,11 @@
                         <entry>3</entry>
                         <entry>Prima stesura dei requisiti.</entry>
                     </row>
-                   <!-- <row>
-                        <entry>15/04/2009</entry>
-                        <entry>3</entry>
-                        <entry>Prima stesura dei requisiti.</entry>
-                    </row>-->
-                    <!-- Aggiungere nuove righe qui copiando la <row> precedente -->
+                    <row>
+                        <entry>20/04/2009</entry>
+                        <entry>1.5</entry>
+                        <entry>Decisioni su specifici punti del piano di processo e punto della situazione attuale. Divisione di compiti relativi alla fae di avvio.</entry>
+                    </row>
                 </tbody>
             </tgroup>
         </table>
