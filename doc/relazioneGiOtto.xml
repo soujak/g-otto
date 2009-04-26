@@ -45,6 +45,7 @@
         </authorgroup>
     </info>
     <xi:include href="chap-requisiti.xml" xpointer="chap-requisiti"/>
+    <xi:include href="chap-environment.xml" xpointer="chap-environment"/>
     <xi:include href="chap-diari.xml" xpointer="diari"/>
     <xi:include href="glossary.xml"/>
 </book>
