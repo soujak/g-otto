@@ -4,9 +4,9 @@
 <!ENTITY % myent SYSTEM "entities.ent">
 %myent;
 ]>
-<article xml:lang="it" xmlns="http://docbook.org/ns/docbook" 
-        xmlns:xi="http://www.w3.org/2001/XInclude"
-        xmlns:xlink="http://www.w3.org/1999/xlink" version="5.0">
+<article xml:lang="it" xmlns="http://docbook.org/ns/docbook"
+    xmlns:xi="http://www.w3.org/2001/XInclude" xmlns:xlink="http://www.w3.org/1999/xlink"
+    version="5.0">
     <title/>
     <section xml:id="diario-pm">
         <title>Diario di &ppm;</title>
@@ -23,56 +23,72 @@
                         <entry align="center">Descrizione</entry>
                     </row>
                 </thead>
-                <tbody>
-		    <!--
-                    <row>
-                        <entry>/04/2009</entry>
-                        <entry>durata</entry>
-                        <entry>descrizione</entry>
-                    </row>
-		    -->
-		    <row>
-                        <entry>07/04/2009</entry>
-                        <entry>1.5</entry>
-                        <entry>Approfondimenti di gestione di progetti. Analisi modelli di processo agili (XP, AUP), scelta e documentazione approfondita</entry>
-                    </row><row>
-                        <entry>15/04/2009</entry>
-                        <entry>1.5</entry>
-                        <entry>Approfondimenti su J2EE e JBoss. Analisi delle specifiche e modellazione preliminare dei requisiti.</entry>
-                    </row><row>
-                        <entry>16/04/2009</entry>
-                        <entry>2</entry>
-                        <entry>Approfondimento di AUP, definizione preliminare del piano di processo (fase di avvio).</entry>
-                    </row><row>
-                        <entry>16/04/2009</entry>
-                        <entry>1.3</entry>
-                        <entry>Impostazione deposito versionato (SVN), aggiornamento wiki, programmazione prossimo incontro</entry>
-                    </row><row>
-                        <entry>16/04/2009</entry>
-                        <entry>0.7</entry>
-                        <entry>Approfondimento sulle metriche di valutazione dello sforzo (FP)</entry>
-                    </row><row>
-                        <entry>17/04/2009</entry>
-                        <entry>3</entry>
-                        <entry>Approfondimento di AUP, definizione preliminare piano di processo (fasi di elaborazione e costruzione)</entry>
-                    </row><row>
-                        <entry>20/04/2009</entry>
-                        <entry>3</entry>
-                        <entry>Definizione preliminare piano di processo (fase di transizione). Analisi strumenti per la gestione di progetti (scelto KPlato), definizione dettagliata piano di processo della fase corrente.</entry>
-                    </row><row>
-                        <entry>21/04/2009</entry>
-                        <entry>1</entry>
-                        <entry>Analisi di strumenti di elaborazione DocBook (OpenOffice), aggiornamento del presente Diario.</entry>
-                    </row>
-                </tbody>
-		<!-- Durata totale del lavoro individuale e data ultimo aggiornamento. -->
-		<tfoot>
+                <!-- Durata totale del lavoro individuale e data ultimo aggiornamento. -->
+                <tfoot>
                     <row>
                         <entry>Totale</entry>
                         <entry>14</entry>
                         <entry>Aggiornato al 21/04/09</entry>
                     </row>
                 </tfoot>
+                <tbody>
+                    <!--
+                    <row>
+                        <entry>/04/2009</entry>
+                        <entry>durata</entry>
+                        <entry>descrizione</entry>
+                    </row>
+		    -->
+                    <row>
+                        <entry>07/04/2009</entry>
+                        <entry>1.5</entry>
+                        <entry>Approfondimenti di gestione di progetti. Analisi modelli di processo
+                            agili (XP, AUP), scelta e documentazione approfondita</entry>
+                    </row>
+                    <row>
+                        <entry>15/04/2009</entry>
+                        <entry>1.5</entry>
+                        <entry>Approfondimenti su J2EE e JBoss. Analisi delle specifiche e
+                            modellazione preliminare dei requisiti.</entry>
+                    </row>
+                    <row>
+                        <entry>16/04/2009</entry>
+                        <entry>2</entry>
+                        <entry>Approfondimento di AUP, definizione preliminare del piano di processo
+                            (fase di avvio).</entry>
+                    </row>
+                    <row>
+                        <entry>16/04/2009</entry>
+                        <entry>1.3</entry>
+                        <entry>Impostazione deposito versionato (SVN), aggiornamento wiki,
+                            programmazione prossimo incontro</entry>
+                    </row>
+                    <row>
+                        <entry>16/04/2009</entry>
+                        <entry>0.7</entry>
+                        <entry>Approfondimento sulle metriche di valutazione dello sforzo
+                            (FP)</entry>
+                    </row>
+                    <row>
+                        <entry>17/04/2009</entry>
+                        <entry>3</entry>
+                        <entry>Approfondimento di AUP, definizione preliminare piano di processo
+                            (fasi di elaborazione e costruzione)</entry>
+                    </row>
+                    <row>
+                        <entry>20/04/2009</entry>
+                        <entry>3</entry>
+                        <entry>Definizione preliminare piano di processo (fase di transizione).
+                            Analisi strumenti per la gestione di progetti (scelto KPlato),
+                            definizione dettagliata piano di processo della fase corrente.</entry>
+                    </row>
+                    <row>
+                        <entry>21/04/2009</entry>
+                        <entry>1</entry>
+                        <entry>Analisi di strumenti di elaborazione DocBook (OpenOffice),
+                            aggiornamento del presente Diario.</entry>
+                    </row>
+                </tbody>
             </tgroup>
         </table>
     </section>
