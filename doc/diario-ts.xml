@@ -30,7 +30,7 @@
                 <tfoot>
                     <row>
                         <entry>Totale</entry>
-                        <entry>17 ore</entry>
+                        <entry>26.5 ore</entry>
                         <entry>Fino al 19/4/2009</entry>
                     </row>
                 </tfoot>
@@ -54,6 +54,21 @@
                         <entry>19/04/2009</entry>
                         <entry>4</entry>
                         <entry>Bugfix su generazione automatica diari. Configurazione di alcuni strumenti tra cui il client svn e pluging Eclipse. Primi passi con ArgoUML. Studio su UML.</entry>
+                    </row>
+                    <row>
+                        <entry>22/04/2009</entry>
+                        <entry>2</entry>
+                        <entry>Prove con JBoss.</entry>
+                    </row>
+                    <row>
+                        <entry>24/04/2009</entry>
+                        <entry>3.5</entry>
+                        <entry>Prove con JBoss. Prima bozza documento relativo all'environment.</entry>
+                    </row>
+                    <row>
+                        <entry>26/04/2009</entry>
+                        <entry>4</entry>
+                        <entry>Prima bozza casi d'uso.</entry>
                     </row>
                     <!-- Aggiungere nuove righe qui copiando la <row> precedente -->
                 </tbody>
