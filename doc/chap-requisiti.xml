@@ -28,77 +28,71 @@
                     </row>
                 </thead>
                 <tbody>
-                    <row>
+		     <row>
                         <entry></entry>
-                        <entry></entry>
-                        <entry>Funzionale</entry>
-                        <entry>Memorizzazione del catalogo</entry>
-                    </row>
-                    <row>
-                        <entry></entry>
-                        <entry></entry>
+                        <entry>0</entry>
                         <entry>Funzionale</entry>
                         <entry>Ricerca nel catalogo per autore e per titolo</entry>
                     </row>
                     <row>
                         <entry></entry>
-                        <entry></entry>
+                        <entry>3</entry>
                         <entry>Funzionale</entry>
                         <entry>Autenticazione utente</entry>
                     </row>
                     <row>
                         <entry></entry>
-                        <entry></entry>
+                        <entry>0</entry>
                         <entry>Funzionale</entry>
-			<entry>Selezione nel carello per utenti autenticati</entry>
+			<entry>Selezione libri per l'acquisto da parte di utenti autenticati (inserimento nel carrello)</entry>
                     </row>
                     <row>
                         <entry></entry>
-                        <entry></entry>
+                        <entry>0</entry>
                         <entry>Funzionale</entry>
-                        <entry>Acquisto del carrello per utenti autenticati</entry>
+                        <entry>Acquisto del carrello da parte di utenti autenticati</entry>
                     </row>
                     <row>
                         <entry></entry>
-                        <entry></entry>
+                        <entry>3</entry>
                         <entry>Non funzionale</entry>
-                        <entry>Memorizzazione del catalogo in memoria secondaria</entry>
+                        <entry>Memorizzazione persistente del catalogo in memoria secondaria</entry>
                     </row>
                     <row>
                         <entry></entry>
-                        <entry></entry>
+                        <entry>0</entry>
                         <entry>Non funzionale</entry>
-                        <entry>Sviluppo su application server JBOSS 5.0</entry>
+                        <entry>Sviluppo su piattaforma JBOSS 5.0</entry>
                     </row>
                     <row>
                         <entry></entry>
-                        <entry></entry>
+                        <entry>1</entry>
                         <entry>Non funzionale</entry>
-                        <entry>Utilizzo della tecnologia EJB 3.0 per la modellazione del livello business e del livello informativo</entry>
+                        <entry>Utilizzo della versione 3.0 della tecnologia EJB</entry>
                     </row>
                     <row>
                         <entry></entry>
-                        <entry></entry>
+                        <entry>2</entry>
                         <entry>Non funzionale</entry>
                         <entry>Schieramento dell'applicazione in cluster</entry>
                     </row>
                     <row>
                         <entry></entry>
-                        <entry></entry>
+                        <entry>3</entry>
                         <entry>Non funzionale</entry>
-                        <entry>Autenticazione con username e password</entry>
+                        <entry>Realizzazione autenticazione con validazione di nome utente e password</entry>
                     </row>
                     <row>
                         <entry></entry>
-                        <entry></entry>
+                        <entry>3</entry>
                         <entry>Non funzionale</entry>
-                        <entry>Tipologia interfaccia utente: web oppure grafica</entry>
+                        <entry>Realizzazione interfaccia utente con pagine web</entry>
                     </row>
                     <row>
                         <entry></entry>
-                        <entry></entry>
+                        <entry>2</entry>
                         <entry>Non funzionale</entry>
-                        <entry>Accesso mediante Web Service dall'interfaccia utente verso il servizio</entry>
+                        <entry>Comunicazione fra interfaccia utente e livello business mediante web service.</entry>
                     </row>
                     <!-- Aggiungere nuove righe qui copiando la <row> precedente -->
                 </tbody>
