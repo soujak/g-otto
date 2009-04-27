@@ -68,10 +68,10 @@
 
                     <row>
                         <entry>21/04/2009</entry>
-                        <entry>2</entry>
+                        <entry>3</entry>
                         <entry>
                             <itemizedlist>
-                                <listitem><para>elaborazione dei diagrammi a blocchi rappresentanti la struttura dei componenti dell'applicazione e modello dell'architettura clinet-server (livello di descrizione: alto)</para></listitem>
+                                <listitem><para>elaborazione dei diagrammi a blocchi rappresentanti la struttura dei componenti dell'applicazione e modello dell'architettura client-server (livello di descrizione: alto)</para></listitem>
                                 <listitem><para>studio e inizializzazione dell'ambiente di sviluppo composto da eclipse e jboss tools</para></listitem>
                                 <listitem><para>inizializzazione del run-time enviroment: JBoss Server</para></listitem>
                             </itemizedlist>
@@ -80,7 +80,7 @@
 
                     <row>
                         <entry>23/04/2009</entry>
-                        <entry>1.5</entry>
+                        <entry>2</entry>
                         <entry>
                             <itemizedlist>
                                 <listitem><para>PROOF OF CONCEPT: elaborazione di un webservice minimale (bean: HelloService)</para></listitem>
@@ -91,7 +91,7 @@
 
                     <row>
                         <entry>25/04/2009</entry>
-                        <entry>2</entry>
+                        <entry>2.5</entry>
                         <entry>
                             <itemizedlist>
                                 <listitem><para>elaborazione dell'applicazione client per verificare il funzionamento e l'effettivo deploy del webservice Hello</para></listitem>
