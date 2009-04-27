@@ -30,8 +30,8 @@
                 <tfoot>
                     <row>
                         <entry>Totale</entry>
-                        <entry>9.5 ore</entry>
-                        <entry>Fino al 20/4/2009</entry>
+                        <entry>12 ore</entry>
+                        <entry>Fino al 27/4/2009</entry>
                     </row>
                 </tfoot>
                 <tbody>
@@ -44,7 +44,7 @@
                         <entry>07/04/2009</entry>
                         <entry>3</entry>
                         <entry><itemizedlist><listitem><para>Definizione del piano di processo.</para></listitem>
-                            <listitem><para>Prima bozza di definizione dell Environment.</para></listitem></itemizedlist></entry>
+                            <listitem><para>Prima bozza di definizione dell'Environment.</para></listitem></itemizedlist></entry>
                     </row>
                     <row>
                         <entry>15/04/2009</entry>
@@ -54,7 +54,15 @@
                     <row>
                         <entry>20/04/2009</entry>
                         <entry>1.5</entry>
-                        <entry>Decisioni su specifici punti del piano di processo e punto della situazione attuale. Divisione di compiti relativi alla fae di avvio.</entry>
+                        <entry>Decisioni su specifici punti del piano di processo e punto della situazione attuale. Divisione di compiti relativi alla fase di avvio.</entry>
+                    </row>
+                    <row>
+                        <entry>27/04/2009</entry>
+                        <entry>2.5</entry>
+                        <entry>Condivisione di alcune conoscenze acquisite in maniera individuale 
+                            (principalmente su JBoss). Notifica di alcuni problemi relativi all'uso di 
+                            Docbook e loro risoluzione. Analisi collettiva di una prima bozza di casi d'uso, 
+                            chiarimenti sugli attori coinvolti e modifiche terminologiche (con conseguente aggiornamento del glossario).</entry>
                     </row>
                 </tbody>
             </tgroup>
