@@ -27,8 +27,8 @@
                 <tfoot>
                     <row>
                         <entry>Totale</entry>
-                        <entry>14</entry>
-                        <entry>Aggiornato al 21/04/09</entry>
+                        <entry>20.5</entry>
+                        <entry>Aggiornato al 22/04/09</entry>
                     </row>
                 </tfoot>
                 <tbody>
@@ -87,6 +87,11 @@
                         <entry>1</entry>
                         <entry>Analisi di strumenti di elaborazione DocBook (OpenOffice),
                             aggiornamento del presente Diario.</entry>
+                    </row>
+		    <row>
+                        <entry>22/04/2009</entry>
+                        <entry>3.5</entry>
+                        <entry>Studio distrumenti di gestione progetto alternativi e più confacenti le esigenze, apprendimento d'uso di TaskJuggler. Analisi dipendenze delle attività della fase Avvio.</entry>
                     </row>
                 </tbody>
             </tgroup>
