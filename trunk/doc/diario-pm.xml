@@ -27,8 +27,8 @@
                 <tfoot>
                     <row>
                         <entry>Totale</entry>
-                        <entry>23</entry>
-                        <entry>Aggiornato al 27/04/09</entry>
+                        <entry>25.5</entry>
+                        <entry>Aggiornato al 28/04/09</entry>
                     </row>
                 </tfoot>
                 <tbody>
@@ -104,6 +104,11 @@
                         <entry>Aggiornamento del documento dei requisiti e del glossario. Installazione xsltproc e trasformatore da DB a XHTML e apprendimento d'uso.
 			</entry>
                     </row>
+		    <row>
+		    <entry>28/04/2009</entry>
+                        <entry>2.5</entry>
+                        <entry>Impostazione preliminare del piano di progetto e apprendimento d'uso di TaskJuggler.</entry>
+		    </row>
                 </tbody>
             </tgroup>
         </table>
