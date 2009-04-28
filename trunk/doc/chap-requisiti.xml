@@ -29,75 +29,73 @@
                 </thead>
                 <tbody>
 		     <row>
-                        <entry></entry>
-                        <entry>0</entry>
+                        <entry>R1F.1</entry>
+                        <entry>1</entry>
                         <entry>Funzionale</entry>
                         <entry>Ricerca nel catalogo per autore e per titolo</entry>
                     </row>
                     <row>
-                        <entry></entry>
-                        <entry>3</entry>
-                        <entry>Funzionale</entry>
-                        <entry>Autenticazione utente</entry>
-                    </row>
-                    <row>
-                        <entry></entry>
-                        <entry>0</entry>
+                        <entry>R1F.2</entry>
+                        <entry>1</entry>
                         <entry>Funzionale</entry>
 			<entry>Selezione libri per l'acquisto da parte di utenti autenticati (inserimento nel carrello)</entry>
                     </row>
                     <row>
-                        <entry></entry>
-                        <entry>0</entry>
+                        <entry>R1F.3</entry>
+                        <entry>1</entry>
                         <entry>Funzionale</entry>
                         <entry>Acquisto del carrello da parte di utenti autenticati</entry>
                     </row>
-                    <row>
-                        <entry></entry>
-                        <entry>3</entry>
-                        <entry>Non funzionale</entry>
-                        <entry>Memorizzazione persistente del catalogo in memoria secondaria</entry>
-                    </row>
-                    <row>
-                        <entry></entry>
-                        <entry>0</entry>
+		    <row>
+                        <entry>R1N</entry>
+                        <entry>1</entry>
                         <entry>Non funzionale</entry>
                         <entry>Sviluppo su piattaforma JBOSS 5.0</entry>
                     </row>
                     <row>
-                        <entry></entry>
-                        <entry>1</entry>
+                        <entry>R2N</entry>
+                        <entry>2</entry>
                         <entry>Non funzionale</entry>
                         <entry>Utilizzo della versione 3.0 della tecnologia EJB</entry>
                     </row>
-                    <row>
-                        <entry></entry>
-                        <entry>2</entry>
+		    <row>
+                        <entry>R3N.1</entry>
+                        <entry>3</entry>
                         <entry>Non funzionale</entry>
                         <entry>Schieramento dell'applicazione in cluster</entry>
                     </row>
-                    <row>
-                        <entry></entry>
+		    <row>
+                        <entry>R3N.2</entry>
                         <entry>3</entry>
+                        <entry>Non funzionale</entry>
+                        <entry>Comunicazione fra interfaccia utente e livello business mediante web service.</entry>
+                    </row>
+                    <row>
+                        <entry>R4F</entry>
+                        <entry>4</entry>
+                        <entry>Funzionale</entry>
+                        <entry>Autenticazione utente</entry>
+                    </row>
+                    <row>
+                        <entry>R4N.1</entry>
+                        <entry>4</entry>
+                        <entry>Non funzionale</entry>
+                        <entry>Memorizzazione persistente del catalogo in memoria secondaria</entry>
+                    </row>
+		    <row>
+                        <entry>R4N.2</entry>
+                        <entry>4</entry>
                         <entry>Non funzionale</entry>
                         <entry>Realizzazione autenticazione con validazione di nome utente e password</entry>
                     </row>
                     <row>
-                        <entry></entry>
-                        <entry>3</entry>
+                        <entry>R4N.3</entry>
+                        <entry>4</entry>
                         <entry>Non funzionale</entry>
                         <entry>Realizzazione interfaccia utente con pagine web</entry>
                     </row>
-                    <row>
-                        <entry></entry>
-                        <entry>2</entry>
-                        <entry>Non funzionale</entry>
-                        <entry>Comunicazione fra interfaccia utente e livello business mediante web service.</entry>
-                    </row>
-                    <!-- Aggiungere nuove righe qui copiando la <row> precedente -->
                 </tbody>
             </tgroup>
         </table>
     </section>
-
 </chapter>
