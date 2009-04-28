@@ -27,8 +27,8 @@
                 <tfoot>
                     <row>
                         <entry>Totale</entry>
-                        <entry>20.5</entry>
-                        <entry>Aggiornato al 22/04/09</entry>
+                        <entry>23</entry>
+                        <entry>Aggiornato al 27/04/09</entry>
                     </row>
                 </tfoot>
                 <tbody>
@@ -92,6 +92,17 @@
                         <entry>22/04/2009</entry>
                         <entry>3.5</entry>
                         <entry>Studio distrumenti di gestione progetto alternativi e più confacenti le esigenze, apprendimento d'uso di TaskJuggler. Analisi dipendenze delle attività della fase Avvio.</entry>
+                    </row>
+		    <row>
+                        <entry>27/04/2009</entry>
+                        <entry>1</entry>
+                        <entry>Analisi requisiti e relative priorità e aggiornamento del glossario (col QE). Tentativi d'utilizzo di DBLaTeX.</entry>
+                    </row>
+                    <row>
+                        <entry>27/04/2009</entry>
+                        <entry>1.5</entry>
+                        <entry>Aggiornamento del documento dei requisiti e del glossario. Installazione xsltproc e trasformatore da DB a XHTML e apprendimento d'uso.
+			</entry>
                     </row>
                 </tbody>
             </tgroup>
