@@ -29,36 +29,91 @@
                 <!-- Modificate di conseguenza secondo l'esempio -->
                 <tfoot>
                     <row>
-                        <entry>Totale</entry>
-                        <entry>-</entry>
-                        <entry>-</entry>
+                        <entry>Totale </entry>
+                        <entry>30.25 </entry>
+                        <entry>Aggiornato al 29/4/2009</entry>
                     </row>
                 </tfoot>
                 <tbody>
                     <row>
+                        <entry>5/4/09</entry>
+                        <entry>4</entry>
+                        <entry>Studio delle attivit&agrave; per SQA.</entry>
+                    </row>
+                    <row>
                         <entry>8/4/09</entry>
                         <entry>1.5</entry>
-                        <entry>Studio delle attivit&agrave; per SQA</entry>
+                        <entry>Studio delle attivit&agrave; per SQA.</entry>
                     </row>
                     <row>
                         <entry>9/4/09</entry>
                         <entry>3</entry>
-                        <entry>Studio delle attivit&agrave; per SQA e bozza</entry>
+                        <entry>Studio delle attivit&agrave; per SQA e bozza.</entry>
                     </row>
                     <row>
                         <entry>10/4/09</entry>
                         <entry>3</entry>
-                        <entry>Analisi dei requisiti e studio di JBOSS</entry>
+                        <entry>Analisi dei requisiti e studio di JBOSS.</entry>
                     </row>
                     <row>
                         <entry>14/4/09</entry>
                         <entry>1</entry>
-                        <entry>Studio di JBOSS</entry>
+                        <entry>Studio di JBOSS.</entry>
                     </row>
                     <row>
                         <entry>16/4/09</entry>
                         <entry>4.25</entry>
-                        <entry>Con PM: definizione preliminare del processo e valutazione preliminare dello sforzo (metodo dei punti funzione)</entry>
+                        <entry>Con PM: definizione preliminare del processo e valutazione preliminare dello sforzo (metodo dei punti funzione).</entry>
+                    </row>
+                    <row>
+                        <entry>21/4/09</entry>
+                        <entry>1</entry>
+                        <entry>Valutazione di strumenti per la scrittura di documenti DocBook.</entry>
+                    </row>
+                    <row>
+                        <entry>22/4/09</entry>
+                        <entry>1</entry>
+                        <entry>Gestione del processo (con PM).</entry>
+                    </row>
+                    <row>
+                        <entry>25/4/09</entry>
+                        <entry>1</entry>
+                        <entry>Studio documentazione su JBOSS.</entry>
+                    </row>
+                    <row>
+                        <entry>25/4/09</entry>
+                        <entry>0.5</entry>
+                        <entry>Prima stesura specifiche dei requisiti.</entry>
+                    </row>
+                    <row>
+                        <entry>25/4/09</entry>
+                        <entry>0.5</entry>
+                        <entry>Bozza di piano di qualità.</entry>
+                    </row>
+                    <row>
+                        <entry>26/4/09</entry>
+                        <entry>3</entry>
+                        <entry>Valutazione di strumenti per il collaudo.</entry>
+                    </row>
+                    <row>
+                        <entry>27/4/09</entry>
+                        <entry>1</entry>
+                        <entry>Con il PM: priorità dei requisiti</entry>
+                    </row>
+                    <row>
+                        <entry>27/4/09</entry>
+                        <entry>0.5</entry>
+                        <entry>Con il PM: gestione del progetto</entry>
+                    </row>
+                    <row>
+                        <entry>28/4/09</entry>
+                        <entry>4</entry>
+                        <entry>Studio di JBOSS: prototipi minimali.</entry>
+                    </row>
+                    <row>
+                        <entry>29/4/09</entry>
+                        <entry>1</entry>
+                        <entry>Revisione incrociata con il PM della prima versione del piano preliminare di processo e del piano preliminare di qualità.</entry>
                     </row>
                     <!-- Aggiungere nuove righe qui copiando la <row> precedente -->
                 </tbody>
