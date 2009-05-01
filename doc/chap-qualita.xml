@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?oxygen RNGSchema="http://www.oasis-open.org/docbook/xml/5.0/rng/docbookxi.rng" type="xml"?>
+<!-- Questo file contiene la tabella dei requisiti -->
+<!DOCTYPE chapter [
+<!ENTITY % myent SYSTEM "entities.ent">
+%myent;
+]>
+<chapter xml:lang="it" xmlns="http://docbook.org/ns/docbook"
+    xmlns:xi="http://www.w3.org/2001/XInclude" xmlns:xlink="http://www.w3.org/1999/xlink"
+    version="5.0" xml:id="chap-qualita">
+    <title>Piano di qualità</title>
+    <!-- Empty PARA for SPACING -->
+    <section>
+        <title>Manufatti soggetti a controllo di qualità</title>
+    </section>
+    <section>
+        <title>Pratiche e strumenti a supporto della qualità</title>
+    </section>
+    <section>
+        <title>Attività per la garanzia della qualità</title>
+        <section>
+            <title>Fase di avvio</title>
+                <section>
+                    <title>Revisione delle specifiche dei requisiti</title>
+                    <para>
+                        Verifiche: completezza delle specifiche dei requisiti rispetto al documento dei requisiti, chiarezza, coerenza, tracciabilità, precisione, assenza di ambiguità nella comprensione tra i membri della squadra, convergenza nell'assegnazione delle priorità.
+                    </para>
+                    <para>
+                        Esito:
+                    </para>
+                </section>
+                <section>
+                    <title>Revisione del modello dei casi d'uso</title>
+                </section>
+                <section>
+                    <title>Revisione del modello architetturale</title>
+                </section>
+                <section>
+                    <title>Revisione del piano di schieramento</title>
+                </section>
+        </section>
+        <section>
+            <title>Fase di elaborazione</title>
+            <para>
+            </para>
+        </section>
+        <section>
+            <title>Fase di costruzione</title>
+            <para>
+            </para>
+        </section>
+        <section>
+            <title>Fase di transizione</title>
+            <para>
+            </para>
+        </section>
+    </section>
+</chapter>
