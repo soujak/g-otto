@@ -22,30 +22,76 @@
             <title>Fase di avvio</title>
                 <section>
                     <title>Revisione delle specifiche dei requisiti</title>
+                    <para> Revisori: squadra.</para>
                     <para>
-                        Verifiche: completezza delle specifiche dei requisiti rispetto al documento dei requisiti, chiarezza, coerenza, tracciabilità, precisione, assenza di ambiguità nella comprensione tra i membri della squadra, convergenza nell'assegnazione delle priorità.
+                        Verifiche: completezza delle specifiche dei requisiti rispetto al documento dei requisiti, chiarezza, coerenza, tracciabilità, precisione, assenza di ambiguità nella comprensione tra i membri della squadra, convergenza sull'assegnazione delle priorità.
+                    </para>
+                    <para>
+                        Esito: revisione effettuata in data 30/04/2009. Chiarite alcune divergenze sull'assegnazione delle priorità.
+                    </para>
+                </section>
+                <section>
+                    <title>Revisione del modello dei casi d'uso</title>
+                    <para> Revisori: squadra.</para>
+                    <para>
+                        Verifiche: completezza e coerenza dei casi d'uso rispetto ai requisiti funzionali e viceversa, corretta identificazione degli attori, coerenza chiarezza e completezza nella descrizione degli scenari e dei flussi alternativi, completezza e correttezza delle relazioni tra casi d'uso.
+                    </para>
+                    <para>
+                        Esito: revisione effettuata in data 30/04/2009. Ristrutturazione di parte del diagramma UML: eliminazione di qualche caso d'uso, individuazione di nuove relazioni tra casi d'uso. Chiarimenti sul flusso degli eventi.
+                    </para>
+                </section>
+                <section>
+                    <title>Revisione del modello architetturale</title>
+                    <para> Revisori: TS.</para>
+                    <para>
+                        Verifiche: complessità, coesione, completezza rispetto al problema, compatibilità con le specifiche dei requisiti, dimensioni, chiarezza.
                     </para>
                     <para>
                         Esito:
                     </para>
                 </section>
                 <section>
-                    <title>Revisione del modello dei casi d'uso</title>
-                </section>
-                <section>
-                    <title>Revisione del modello architetturale</title>
-                </section>
-                <section>
                     <title>Revisione del piano di schieramento</title>
+                    <para> La revisione del piano di schieramento sarà informale e non necessiterà di essere documentata.</para>
                 </section>
         </section>
         <section>
             <title>Fase di elaborazione</title>
-            <para>
-            </para>
+                <section>
+                    <title>Revisione del modello architetturale</title>
+                    <para> Revisori: QE.</para>
+                    <para>
+                        Verifiche: complessità, coesione, completezza rispetto al problema, compatibilità con le specifiche dei requisiti, dimensioni, chiarezza, calcolo dell'indice di qualità strutturale DSQI.
+                    </para>
+                    <para>
+                        Esito:
+                    </para>
+                </section>
+                <section>
+                    <title>Collaudo del prototipo architetturale</title>
+                    <para>Collaudatori: </para>
+                    <para>
+                        Verifiche: collaudare le collaborazioni tra i componenti architetturali.
+                    </para>
+                    <para>
+                        Esito:
+                    </para>
+                </section>
         </section>
         <section>
             <title>Fase di costruzione</title>
+                <section>
+                    <title>Collaudo delle unità</title>
+                </section>
+                <section>
+                    <title>Collaudo di integrazione</title>
+                </section>
+                <section>
+                    <title>Collaudo dello schieramento</title>
+                </section>
+                <section>
+                    <title>Validazione</title>
+                </section>
             <para>
             </para>
         </section>
