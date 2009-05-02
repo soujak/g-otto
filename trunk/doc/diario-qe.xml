@@ -30,8 +30,8 @@
                 <tfoot>
                     <row>
                         <entry>Totale </entry>
-                        <entry>30.25 </entry>
-                        <entry>Aggiornato al 29/4/2009</entry>
+                        <entry>36 </entry>
+                        <entry>Aggiornato al 2/5/2009</entry>
                     </row>
                 </tfoot>
                 <tbody>
@@ -108,12 +108,37 @@
                     <row>
                         <entry>28/4/09</entry>
                         <entry>4</entry>
-                        <entry>Studio di JBOSS: prototipi minimali.</entry>
+                        <entry>Studio di JBOSS: realizzazione di prototipi minimali.</entry>
                     </row>
                     <row>
                         <entry>29/4/09</entry>
                         <entry>1</entry>
                         <entry>Revisione incrociata con il PM della prima versione del piano preliminare di processo e del piano preliminare di qualità.</entry>
+                    </row>
+                    <row>
+                        <entry>30/4/09</entry>
+                        <entry>2</entry>
+                        <entry>Revisione con il PM del piano preliminare di qualità e prima integrazione nel piano di processo.</entry>
+                    </row>
+                    <row>
+                        <entry>1/5/09</entry>
+                        <entry>0.5</entry>
+                        <entry>Aggiornamento diario.</entry>
+                    </row>
+                    <row>
+                        <entry>1/5/09</entry>
+                        <entry>0.5</entry>
+                        <entry>Installazione e collaudo di strumenti per la conversione di documenti DocBook.</entry>
+                    </row>
+                    <row>
+                        <entry>1/5/09</entry>
+                        <entry>1</entry>
+                        <entry>Prima stesura e versionamento del piano di qualità.</entry>
+                    </row>
+                    <row>
+                        <entry>2/5/09</entry>
+                        <entry>1.75</entry>
+                        <entry>Approfondimento delle attività di SQA. Aggiornamento ed estensione del piano di qualità.</entry>
                     </row>
                     <!-- Aggiungere nuove righe qui copiando la <row> precedente -->
                 </tbody>
