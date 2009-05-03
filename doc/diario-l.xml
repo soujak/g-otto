@@ -80,7 +80,7 @@
 
                     <row>
                         <entry>23/04/2009</entry>
-                        <entry>2</entry>
+                        <entry>4</entry>
                         <entry>
                             <itemizedlist>
                                 <listitem><para>PROOF OF CONCEPT: elaborazione di un webservice minimale (bean: HelloService)</para></listitem>
