@@ -12,9 +12,11 @@
     <!-- Empty PARA for SPACING -->
     <section>
         <title>Manufatti soggetti a controllo di qualità</title>
+        <para></para>
     </section>
     <section>
         <title>Pratiche e strumenti a supporto della qualità</title>
+        <para></para>
     </section>
     <section>
         <title>Attività per la garanzia della qualità</title>
@@ -82,18 +84,20 @@
             <title>Fase di costruzione</title>
                 <section>
                     <title>Collaudo delle unità</title>
+                    <para></para>
                 </section>
                 <section>
                     <title>Collaudo di integrazione</title>
+                    <para></para>
                 </section>
                 <section>
                     <title>Collaudo dello schieramento</title>
+                    <para></para>
                 </section>
                 <section>
                     <title>Validazione</title>
+                    <para></para>
                 </section>
-            <para>
-            </para>
         </section>
         <section>
             <title>Fase di transizione</title>
