@@ -11,7 +11,7 @@
     <!-- Diari e Resoconti -->
     <chapter xml:id="diari">
         <title>Diari</title>
-        <subtitle>Resoconti dell'attività</subtitle>
+       <!-- <subtitle>Resoconti dell'attività</subtitle>-->
         <!-- Empty PARA for SPACING -->
         <xi:include href="diario-gruppo.xml" xpointer="diario-gruppo"/>
         <xi:include href="diario-pm.xml" xpointer="diario-pm"/>

@@ -106,12 +106,11 @@
                         <entry>BUGFIX: correzione di un problema riguardante il motore di trasformazione docbook->html: valutazione xi:xinclude, generalizzazione del processo di trasformazione.</entry>
                     </row>
 
-
-
                     <!-- FINE -->
                     
                 </tbody>
             </tgroup>
         </table>
+        <?very-hard-pagebreak?>
     </section>
 </article>

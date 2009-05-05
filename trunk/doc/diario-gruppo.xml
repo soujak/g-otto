@@ -30,8 +30,8 @@
                 <tfoot>
                     <row>
                         <entry>Totale</entry>
-                        <entry>12 ore</entry>
-                        <entry>Fino al 27/4/2009</entry>
+                        <entry>14.5 ore</entry>
+                        <entry>Fino al 30/4/2009</entry>
                     </row>
                 </tfoot>
                 <tbody>
@@ -86,5 +86,6 @@
                 </tbody>
             </tgroup>
         </table>
+        <?very-hard-pagebreak?>
     </section>
 </article>
