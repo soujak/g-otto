@@ -38,7 +38,8 @@
                     <row>
                         <entry>06/04/2009</entry>
                         <entry>2</entry>
-                        <entry>Scelta del nome del gruppo, divisione dei ruoli.</entry>
+                        <entry><itemizedlist><listitem><para>Scelta del nome del gruppo</para></listitem><listitem><para>Divisione dei ruoli</para></listitem></itemizedlist>
+             </entry>
                     </row>
                     <row>
                         <entry>07/04/2009</entry>
@@ -49,20 +50,38 @@
                     <row>
                         <entry>15/04/2009</entry>
                         <entry>3</entry>
-                        <entry>Prima stesura dei requisiti.</entry>
+                        <entry><itemizedlist><listitem><para>Prima stesura dei requisiti.</para></listitem></itemizedlist></entry>
                     </row>
                     <row>
                         <entry>20/04/2009</entry>
                         <entry>1.5</entry>
-                        <entry>Decisioni su specifici punti del piano di processo e punto della situazione attuale. Divisione di compiti relativi alla fase di avvio.</entry>
+                        <entry>
+                            
+                        <itemizedlist>    <listitem><para>Decisioni su specifici punti del piano di processo.</para></listitem> 
+                           <listitem><para>Punto della situazione attuale. </para></listitem>
+                           <listitem><para>Divisione di compiti relativi alla fase di avvio.</para></listitem>
+                        </itemizedlist></entry>
                     </row>
                     <row>
                         <entry>27/04/2009</entry>
                         <entry>2.5</entry>
-                        <entry>Condivisione di alcune conoscenze acquisite in maniera individuale 
-                            (principalmente su JBoss). Notifica di alcuni problemi relativi all'uso di 
-                            Docbook e loro risoluzione. Analisi collettiva di una prima bozza di casi d'uso, 
-                            chiarimenti sugli attori coinvolti e modifiche terminologiche (con conseguente aggiornamento del glossario).</entry>
+                        <entry><itemizedlist><listitem><para>Condivisione di alcune conoscenze acquisite in maniera individuale 
+                            (principalmente su JBoss).</para></listitem> 
+                            <listitem><para>Notifica di alcuni problemi relativi all'uso di 
+                            Docbook e loro risoluzione. 
+                            </para></listitem><listitem><para>Analisi collettiva di una prima bozza di casi d'uso e 
+                            chiarimenti sugli attori coinvolti.</para></listitem> 
+                            <listitem><para>Modifiche terminologiche e aggiornamento del glossario.</para></listitem></itemizedlist></entry>
+                    </row>
+                    <row>
+                        <entry>30/04/2009</entry>
+                        <entry>2.5</entry>
+                        <entry>
+                            <itemizedlist><listitem><para>Revisione piano di progetto: definizione prossime scadenze, pianificazione prossime attivit&agrave;.</para></listitem>
+                            <listitem><para>Revisione dell'architettura.</para></listitem>
+                                <listitem><para>Revisione casi d'uso.</para></listitem>
+                                <listitem><para>Aggiornamenti.</para></listitem></itemizedlist>
+                        </entry>
                     </row>
                 </tbody>
             </tgroup>
