@@ -16,10 +16,27 @@
 -->
     <title>Casi d'uso</title>
     <section>
-        <title>Casi d'uso</title>
+        <title>Diagrammi dei casi d'uso</title>
+        <para/>
+        <para/>
+        <mediaobject>
+            <imageobject>
+                <imagedata fileref="imgs/usecases01.svg" align="center" scalefit="1" depth="245"
+                    format="SVG"/>
+            </imageobject>
+            <caption>
+                <para>Diagramma dei casi d'uso.</para>
+            </caption>
+        </mediaobject>
+        <para/>
+        <para/>
+    </section>
+    <section>
+        <title>Tabelle dei casi d'uso</title>
         <!-- Bozza tabella use case -->
         <table border="1" xml:id="uc01-ricerca">
-            <caption/>
+            <caption> UC01 (RicercaLibri)</caption>
+            <?dbfo keep-together="always" ?>
             <thead>
                 <tr>
                     <th align="center">Caso d'uso: RicercaLibri</th>
@@ -50,8 +67,7 @@
                     <td>
                         <formalpara>
                             <title>Precondizioni</title>
-                            <para>L'utente si trova nella pagina contenente l'interfaccia di
-                                ricerca.</para>
+                            <para>Nessuna.</para>
                         </formalpara>
                     </td>
                 </tr>
@@ -70,10 +86,12 @@
                             <para>
                                 <orderedlist>
                                     <listitem>
-                                        <para>L'utente compila i campi di ricerca e conferma.</para>
+                                        <para>L'utente inserisce i valori sui quali effettuare la
+                                            ricerca nei campi della maschera di ricerca e
+                                            conferma.</para>
                                     </listitem>
                                     <listitem>
-                                        <para>Il sistema mostra l'elenco di tutti i libri del
+                                        <para>Il sistema restituisce l'elenco di tutti i libri del
                                             catalogo coerenti coi valori di ricerca immessi. Nel
                                             caso nessun libro risponda ai criteri di ricerca, il
                                             sistema lo notifica con un messaggio appropriato.</para>
@@ -105,32 +123,17 @@
                     <td>
                         <formalpara>
                             <title>Postcondizioni</title>
-                            <para>Nessuna.</para>
-                        </formalpara>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <formalpara>
-                            <title>Note</title>
-                            <para>
-                                <orderedlist>
-                                    <listitem>
-                                        <para>Potremmo inserire la possibilit&agrave; di ordinare i
-                                            risultati della ricerca in base a qualche criterio.
-                                            Questo originerebbe un altro caso d'uso OrdinaRicerca?
-                                            Oppure consideriamo che l'ordinamento sia una delle
-                                            opzioni del form di ricerca? [PRIORITA BASSA]</para>
-                                    </listitem>
-                                </orderedlist>
-                            </para>
+                            <para/>
                         </formalpara>
                     </td>
                 </tr>
             </tbody>
         </table>
+        <para/>
+        <para/>
         <table border="1" xml:id="uc02-selezione">
-            <caption/>
+            <caption> UC02 (SelezioneLibri)</caption>
+            <?dbfo keep-together="always" ?>
             <thead>
                 <tr>
                     <th align="center">Caso d'uso: SelezioneLibri</th>
@@ -152,8 +155,8 @@
                     <td>
                         <formalpara>
                             <title>Funzione</title>
-                            <para>Permettere al cliente di selezionare alcuni libri per un eventuale
-                                successivo acquisto. </para>
+                            <para>Permettere al cliente di selezionare uno o pi&ugrave; libri per un
+                                eventuale successivo acquisto. </para>
                         </formalpara>
                     </td>
                 </tr>
@@ -161,8 +164,9 @@
                     <td>
                         <formalpara>
                             <title>Precondizioni</title>
-                            <para>Il cliente deve aver effettuato una ricerca e trovarsi di fronte
-                                ad una lista di libri.</para>
+                            <para>Il cliente deve aver effettuato una ricerca (caso d'uso UC01) e
+                                trovarsi di fronte all'elenco di libri (non vuoto) mostratogli dal
+                                sistema.</para>
                         </formalpara>
                     </td>
                 </tr>
@@ -171,7 +175,7 @@
                         <formalpara>
                             <title>Trigger (innesco)</title>
                             <para>Il cliente autenticato desidera selezionare alcuni libri di suo
-                                interesse.</para>
+                                interesse per acquistarli.</para>
                         </formalpara>
                     </td>
                 </tr>
@@ -182,15 +186,15 @@
                             <para>
                                 <orderedlist>
                                     <listitem>
-                                        <para>il cliente indica uno o pi&ugrave; libri,
-                                            specificandone la quantit&agrave;, attraverso
-                                            l'interfaccia, che deve presentare questa
+                                        <para>il cliente indica uno o pi&ugrave; libri
+                                            (eventualmente specificandone la quantit&agrave;)
+                                            attraverso l'interfaccia, che deve presentare questa
                                             possibilit&agrave; in modo chiaro per ogni singolo
                                             libro.</para>
                                     </listitem>
                                     <listitem>
-                                        <para>(eventualmente il sistema pu&ograve; richiedere
-                                            conferma dell'operazione al cliente)</para>
+                                        <para>Il sistema inserisce i libri, nella quantit&agrave;
+                                            specificata, nel carrello del cliente.</para>
                                     </listitem>
                                 </orderedlist>
                             </para>
@@ -200,14 +204,14 @@
                 <tr>
                     <td>
                         <formalpara>
-                            <title>Scenari secondari</title>
+                            <title>Sequenza alternativa</title>
                             <para>
                                 <orderedlist>
                                     <listitem>
                                         <para>Il cliente non desidera selezionare nessuno dei libri
-                                            risultanti dalla sua ricerca. Effettua una seconda
-                                            ricerca: si passa nuovamente al caso d'uso
-                                            RicercaLibri.</para>
+                                            risultanti dalla sua ricerca. Abbandona la schermata ed
+                                            effettua una nuova ricerca, passando nuovamente al caso
+                                            d'uso RicercaLibri.</para>
                                     </listitem>
                                 </orderedlist>
                             </para>
@@ -222,7 +226,8 @@
                                 cliente, in aggiunta ad eventuali libri gi&agrave; presenti. Qualora
                                 il cliente avesse selezionato libri gi&agrave; inseriti nel carrello
                                 in precedenza, il numero di nuove copie viene sommato alle copie
-                                gi&agrave; inserite.</para>
+                                gi&agrave; inserite. Il carrello non &egrave; vuoto ed &egrave;
+                                quindi possibile acquistarne il contenuto. </para>
                         </formalpara>
                     </td>
                 </tr>
@@ -243,8 +248,11 @@
                 </tr>
             </tbody>
         </table>
+        <para/>
+        <para/>
         <table border="1" xml:id="uc03-autenticazione">
-            <caption/>
+            <caption> UC03 (Autenticazione)</caption>
+            <?dbfo keep-together="always" ?>
             <thead>
                 <tr>
                     <th align="center">Caso d'uso: AutenticazioneUtente</th>
@@ -275,8 +283,8 @@
                     <td>
                         <formalpara>
                             <title>Funzione</title>
-                            <para>Permettere ad un visitatore di autenticarsi presso il sistema e di
-                                conseguenza accedere alle funzioni di selezione e acquisto libri.
+                            <para>Permettere ad un visitatore di autenticarsi presso il sistema e al
+                                fine di accedere alle funzioni di selezione e acquisto libri.
                             </para>
                         </formalpara>
                     </td>
@@ -313,14 +321,28 @@
                                             password.</para>
                                     </listitem>
                                     <listitem>
-                                        <para>Il sistema identifica il visitatore e cambia il suo
-                                            stato in cliente. Nel caso le credenziali del visitatore
-                                            non fossero corrette (il login non corrisponde a un
-                                            login valido o la password non &egrave; corretta) il
-                                            sistema notifica il visitatore con un messaggio di
-                                            errore generico di autenticazione fallita. Il visitatore
-                                            pu&ograve; riprovare l'autenticazione ripartendo al
-                                            punto 2.</para>
+                                        <para>Se le credenziali del visitatore risultano corrette
+                                            (il login corrisponde a un login riconosciuto e la
+                                            password inserita &egrave; quella attesa per il login
+                                                dato)<orderedlist numeration="loweralpha">
+                                                <listitem>
+                                                  <para>Il sistema identifica il visitatore e cambia
+                                                  il suo stato in cliente.</para>
+                                                </listitem>
+                                            </orderedlist></para>
+                                        <para> Altrimenti, se il login non corrisponde a un login
+                                            valido o la password non corrisponde al login
+                                                <orderedlist continuation="continues">
+                                                <listitem>
+                                                  <para> Il sistema notifica il visitatore con un
+                                                  messaggio di errore generico di autenticazione
+                                                  fallita.</para>
+                                                </listitem>
+                                                <listitem>
+                                                  <para> Il visitatore pu&ograve; riprovare
+                                                  l'autenticazione ripartendo al punto 2.</para>
+                                                </listitem>
+                                            </orderedlist></para>
                                     </listitem>
                                 </orderedlist>
                             </para>
@@ -332,158 +354,23 @@
                         <formalpara>
                             <title>Postcondizioni</title>
                             <para>L'utente &egrave; riconosciuto dal sistema e gli &egrave;
-                                possibile visualizzare il suo carrello. </para>
-                        </formalpara>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <formalpara>
-                            <title>Note</title>
-                            <para>
-                                <orderedlist>
-                                    <listitem>
-                                        <para>Se l'utente &egrave; gi&agrave; autenticato non
-                                            dovrebbe essere neanche possibile iniziare il caso
-                                            d'uso.</para>
-                                    </listitem>
-                                    <listitem>
-                                        <para>Se il cliente ha in precedenza selezionato dei libri,
-                                            il suo carrello dovrebbe essere caricato nel momento in
-                                            cui si autentica. Se invece il sistema non aveva memoria
-                                            di carrelli del cliente dovrebbe assegnargliene uno
-                                            vuoto. Dove &egrave; opportuno specificare questa
-                                            cosa?</para>
-                                    </listitem>
-                                </orderedlist>
-                            </para>
+                                possibile selezionare libri e procedere all'acquisto. </para>
                         </formalpara>
                     </td>
                 </tr>
             </tbody>
         </table>
-        <table border="1" xml:id="uc04-visualizza">
-            <caption/>
-            <thead>
-                <tr>
-                    <th align="center">Caso d'uso: VisualizzaCarrello</th>
-                </tr>
-                <tr>
-                    <th align="center">ID: UC04</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>
-                        <formalpara>
-                            <title>Attori coinvolti</title>
-                            <para>Cliente</para>
-                        </formalpara>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <formalpara>
-                            <title>Funzione</title>
-                            <para>Mostrare il contenuto del carrello del cliente. </para>
-                        </formalpara>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <formalpara>
-                            <title>Precondizioni</title>
-                            <para>Nessuna.</para>
-                        </formalpara>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <formalpara>
-                            <title>Trigger (innesco)</title>
-                            <para>Il cliente desidera visualizzare i libri che ha
-                                selezionato.</para>
-                        </formalpara>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <formalpara>
-                            <title>Sequenza degli eventi</title>
-                            <para>
-                                <orderedlist>
-                                    <listitem>
-                                        <para>Il clinete richiede di vedere il contenuto del suo
-                                            carrello</para>
-                                    </listitem>
-                                    <listitem>
-                                        <para>Il sistema presenta al cliente la lista dei libri che
-                                            egli ha inserito nel carrello (in vari momenti o anche
-                                            in varie sessioni distinte). Qualora nessun libro sia
-                                            presente nel carrello il sistema notifica che il
-                                            carrello &egrave; vuoto.</para>
-                                    </listitem>
-                                </orderedlist>
-                            </para>
-                        </formalpara>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <formalpara>
-                            <title>Scenari secondari</title>
-                            <para>
-                                <orderedlist>
-                                    <listitem>
-                                        <para>Il cliente pu&ograve; proseguire all'acquisto passando
-                                            al caso d'uso AcquistoCarrello</para>
-                                    </listitem>
-                                    <listitem>
-                                        <para>Il cliente pu&ograve; passare alla RicercaLibri e
-                                            cercare nuovi libri da inserire nel carrello.</para>
-                                    </listitem>
-                                    <listitem>
-                                        <para>Il cliente pu&ograve; modificare il contenuto del suo
-                                            carrello entrando nel caso d'uso
-                                            ModificaCarrello.</para>
-                                    </listitem>
-                                </orderedlist>
-                            </para>
-                        </formalpara>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <formalpara>
-                            <title>Postcondizioni</title>
-                            <para>Nessuna.</para>
-                        </formalpara>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <formalpara>
-                            <title>Note</title>
-                            <para>
-                                <orderedlist>
-                                    <listitem>
-                                        <para>Ci sono commenti?</para>
-                                    </listitem>
-                                </orderedlist>
-                            </para>
-                        </formalpara>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-        <table border="1" xml:id="uc05-acquista">
-            <caption/>
+        <para/>
+        <para/>
+        <table border="1" xml:id="uc04-acquista">
+            <caption> UC04 (Acquista)</caption>
+            <?dbfo keep-together="always" ?>
             <thead>
                 <tr>
                     <th align="center">Caso d'uso: AcquistaCarrello</th>
                 </tr>
                 <tr>
-                    <th align="center">ID: UC05</th>
+                    <th align="center">ID: UC04</th>
                 </tr>
             </thead>
             <tbody>
@@ -527,19 +414,34 @@
                             <para>
                                 <orderedlist>
                                     <listitem>
+                                        <para>include(RicercaLibri)</para>
+                                    </listitem>
+                                    <listitem>
+                                        <para>include(SelezionaLibri)</para>
+                                    </listitem>
+                                    <listitem>
                                         <para>Il cliente specifica al sistema mediante l'interfaccia
                                             preposta la volont&agrave; di acquistare i libri nel suo
                                             carrello.</para>
                                     </listitem>
                                     <listitem>
+                                        <para>[opzionale] Il sistema mostra al cliente il contenuto
+                                            del suo carrello. [a questo punto il cliente pu&ograve;
+                                            decidere di proseguire all'acquisto o abbandonare la
+                                            schermata]</para>
+                                    </listitem>
+                                    <listitem>
                                         <para>Il sistema conferma l'acquisto.</para>
+                                    </listitem>
+                                    <listitem>
+                                        <para>include(Disconnessione)</para>
                                     </listitem>
                                 </orderedlist>
                             </para>
                         </formalpara>
                     </td>
                 </tr>
-                <tr>
+                <!--               <tr>
                     <td>
                         <formalpara>
                             <title>Eccezioni</title>
@@ -552,8 +454,8 @@
                             </para>
                         </formalpara>
                     </td>
-                </tr>
-                <tr>
+                </tr>-->
+                <!--                <tr>
                     <td>
                         <formalpara>
                             <title>Sequenza alternativa</title>
@@ -568,8 +470,8 @@
                             </para>
                         </formalpara>
                     </td>
-                </tr>
-                <tr>
+                </tr>-->
+                <!--                <tr>
                     <td>
                         <formalpara>
                             <title>Scenari secondari</title>
@@ -585,6 +487,96 @@
                             </para>
                         </formalpara>
                     </td>
+                </tr>-->
+                <tr>
+                    <td>
+                        <formalpara>
+                            <title>Postcondizioni</title>
+                            <para>Il carrello &egrave; svuotato.</para>
+                        </formalpara>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <para/>
+        <para/>
+        <table border="1" xml:id="uc05-disconnessione">
+            <caption> UC05 (Disconnessione)</caption>
+            <?dbfo keep-together="always" ?>
+            <thead>
+                <tr>
+                    <th align="center">Caso d'uso: Disconnessione</th>
+                </tr>
+                <tr>
+                    <th align="center">ID: UC05</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>
+                        <formalpara>
+                            <title>Attori coinvolti</title>
+                            <para>Cliente</para>
+                        </formalpara>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <formalpara>
+                            <title>Funzione</title>
+                            <para>Permette di terminare la comunicazione col sistema da parte di un
+                                cliente.</para>
+                        </formalpara>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <formalpara>
+                            <title>Precondizioni</title>
+                            <para>Nessuna.</para>
+                        </formalpara>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <formalpara>
+                            <title>Trigger (innesco)</title>
+                            <para>
+                                <itemizedlist>
+                                    <listitem>
+                                        <para>Possibile innesco 1: il cliente desidera non essere
+                                            pi&ugrave; riconosciuto dal sistema (tipicamente
+                                            perch&eacute; ha terminato di utilizzarlo o non desidera
+                                            pi&ugrave; fare acquisti).</para>
+                                    </listitem>
+                                    <listitem>
+                                        <para>Possibile innesco 2: il sistema al termine di un
+                                            acquisto ritiene conclusa la comunicazione con un
+                                            cliente e lo disconnette dal sistema.</para>
+                                    </listitem>
+                                </itemizedlist>
+                            </para>
+                        </formalpara>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <formalpara>
+                            <title>Sequenza degli eventi</title>
+                            <para>
+                                <orderedlist>
+                                    <listitem>
+                                        <para>Il cliente o il sistema richiedono la disconnessione
+                                            del cliente.</para>
+                                    </listitem>
+                                    <listitem>
+                                        <para>Il cliente viene disconnesso dal sistema e ritorna
+                                            nello stato di Visitatore.</para>
+                                    </listitem>
+                                </orderedlist>
+                            </para>
+                        </formalpara>
+                    </td>
                 </tr>
                 <tr>
                     <td>
@@ -594,27 +586,16 @@
                         </formalpara>
                     </td>
                 </tr>
-                <tr>
-                    <td>
-                        <formalpara>
-                            <title>Note</title>
-                            <para>
-                                <orderedlist>
-                                    <listitem>
-                                        <para>Nota</para>
-                                    </listitem>
-                                </orderedlist>
-                            </para>
-                        </formalpara>
-                    </td>
-                </tr>
             </tbody>
         </table>
-        <table border="1" xml:id="uc06-logout">
-            <caption/>
+        <para/>
+        <para/>
+        <table border="1" xml:id="uc06-modifica">
+            <caption> UC06 (ModificaCarrello)</caption>
+            <?dbfo keep-together="always" ?>
             <thead>
                 <tr>
-                    <th align="center">Caso d'uso: Logout</th>
+                    <th align="center">Caso d'uso: ModificaCarrello</th>
                 </tr>
                 <tr>
                     <th align="center">ID: UC06</th>
@@ -625,7 +606,7 @@
                     <td>
                         <formalpara>
                             <title>Attori coinvolti</title>
-                            <para>Utente autenticato</para>
+                            <para>Cliente</para>
                         </formalpara>
                     </td>
                 </tr>
@@ -643,7 +624,7 @@
                     <td>
                         <formalpara>
                             <title>Precondizioni</title>
-                            <para>L'utente ha inserito almeno un libro nel carrello. L'utente sta
+                            <para>Il cliente ha inserito almeno un libro nel carrello. L'utente sta
                                 visualizzando il carrello.</para>
                         </formalpara>
                     </td>
@@ -666,17 +647,20 @@
                                 <orderedlist>
                                     <listitem>
                                         <para>L'utente modifica il valore indicante la
-                                            quantit&agrave;</para>
+                                            quantit&agrave; per uno o pi&ugrave; libri</para>
                                     </listitem>
                                     <listitem>
-                                        <para>passo 2</para>
+                                        <para>L'utente conferma la modifica.</para>
+                                    </listitem>
+                                    <listitem>
+                                        <para>Il sistema mostra il nuovo carrello con le quantit&agrave; modificate. I libri la cui quantit&agrave; &egrave; stata portata a zero o a un numero negativo vengono eliminati e non compaiono pi&ugrave; nel carrello.</para>
                                     </listitem>
                                 </orderedlist>
                             </para>
                         </formalpara>
                     </td>
                 </tr>
-                <tr>
+<!--                <tr>
                     <td>
                         <formalpara>
                             <title>Eccezioni</title>
@@ -689,69 +673,25 @@
                             </para>
                         </formalpara>
                     </td>
-                </tr>
-                <tr>
-                    <td>
-                        <formalpara>
-                            <title>Sequenza alternativa</title>
-                            <para>
-                                <orderedlist>
-                                    <listitem>
-                                        <para>L'utente potrebbe semplicemente richiedere che il
-                                            contenuto del suo carrello venga interamente
-                                            cancellato.</para>
-                                    </listitem>
-                                </orderedlist>
-                            </para>
-                        </formalpara>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <formalpara>
-                            <title>Scenari secondari</title>
-                            <para>
-                                <orderedlist>
-                                    <listitem>
-                                        <para>Scenario secondario 1</para>
-                                    </listitem>
-                                    <listitem>
-                                        <para>Scenario secondario 2</para>
-                                    </listitem>
-                                </orderedlist>
-                            </para>
-                        </formalpara>
-                    </td>
-                </tr>
+                </tr>-->
                 <tr>
                     <td>
                         <formalpara>
                             <title>Postcondizioni</title>
-                            <para>Nessuna.</para>
-                        </formalpara>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <formalpara>
-                            <title>Note</title>
-                            <para>
-                                <orderedlist>
-                                    <listitem>
-                                        <para>Nota</para>
-                                    </listitem>
-                                </orderedlist>
-                            </para>
+                            <para>Il nuovo carrello &egrave; visualizzato. I libri contenuti nel carrello hanno subtio modifiche.</para>
                         </formalpara>
                     </td>
                 </tr>
             </tbody>
         </table>
-        <table border="1" xml:id="uc07-modifica">
-            <caption/>
+        <para/>
+        <para/>
+        <table border="1" xml:id="uc07-visualizza">
+            <caption> UC07 (VisualizzaCarrello)</caption>
+            <?dbfo keep-together="always" ?>
             <thead>
                 <tr>
-                    <th align="center">Caso d'uso: ModificaCarrello</th>
+                    <th align="center">Caso d'uso: VisualizzaCarrello</th>
                 </tr>
                 <tr>
                     <th align="center">ID: UC07</th>
@@ -762,7 +702,7 @@
                     <td>
                         <formalpara>
                             <title>Attori coinvolti</title>
-                            <para>Utente autenticato</para>
+                            <para>Cliente</para>
                         </formalpara>
                     </td>
                 </tr>
@@ -770,9 +710,7 @@
                     <td>
                         <formalpara>
                             <title>Funzione</title>
-                            <para>Permette di modificare il numero di copie specificato per ogni
-                                libro presente nel carrello, fino a portarlo a zero (che coincide
-                                con l'eliminazione del libro dal carrello.) </para>
+                            <para>Mostrare il contenuto del carrello del cliente. </para>
                         </formalpara>
                     </td>
                 </tr>
@@ -780,8 +718,7 @@
                     <td>
                         <formalpara>
                             <title>Precondizioni</title>
-                            <para>L'utente ha inserito almeno un libro nel carrello. L'utente sta
-                                visualizzando il carrello.</para>
+                            <para>Nessuna.</para>
                         </formalpara>
                     </td>
                 </tr>
@@ -789,9 +726,8 @@
                     <td>
                         <formalpara>
                             <title>Trigger (innesco)</title>
-                            <para>L'utente desidera modificare il contenuto del suo carrello
-                                eliminando libri o modificando per un libro inserito il numero di
-                                copie.</para>
+                            <para>Il cliente desidera visualizzare i libri che ha
+                                selezionato.</para>
                         </formalpara>
                     </td>
                 </tr>
@@ -802,58 +738,15 @@
                             <para>
                                 <orderedlist>
                                     <listitem>
-                                        <para>L'utente modifica il valore indicante la
-                                            quantit&agrave;</para>
+                                        <para>Il cliente richiede di vedere il contenuto del suo
+                                            carrello.</para>
                                     </listitem>
                                     <listitem>
-                                        <para>passo 2</para>
-                                    </listitem>
-                                </orderedlist>
-                            </para>
-                        </formalpara>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <formalpara>
-                            <title>Eccezioni</title>
-                            <para>
-                                <orderedlist>
-                                    <listitem>
-                                        <para>eccezione 1</para>
-                                    </listitem>
-                                </orderedlist>
-                            </para>
-                        </formalpara>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <formalpara>
-                            <title>Sequenza alternativa</title>
-                            <para>
-                                <orderedlist>
-                                    <listitem>
-                                        <para>L'utente potrebbe semplicemente richiedere che il
-                                            contenuto del suo carrello venga interamente
-                                            cancellato.</para>
-                                    </listitem>
-                                </orderedlist>
-                            </para>
-                        </formalpara>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <formalpara>
-                            <title>Scenari secondari</title>
-                            <para>
-                                <orderedlist>
-                                    <listitem>
-                                        <para>Scenario secondario 1</para>
-                                    </listitem>
-                                    <listitem>
-                                        <para>Scenario secondario 2</para>
+                                        <para>Il sistema presenta al cliente la lista dei libri che
+                                            egli ha inserito nel carrello (in vari momenti o anche
+                                            in varie sessioni distinte). Qualora nessun libro sia
+                                            presente nel carrello il sistema notifica che il
+                                            carrello &egrave; vuoto.</para>
                                     </listitem>
                                 </orderedlist>
                             </para>
@@ -868,19 +761,63 @@
                         </formalpara>
                     </td>
                 </tr>
-                <tr>
-                    <td>
-                        <formalpara>
-                            <title>Note</title>
-                            <para>
-                                <orderedlist>
-                                    <listitem>
-                                        <para>Nota</para>
-                                    </listitem>
-                                </orderedlist>
-                            </para>
-                        </formalpara>
-                    </td>
+            </tbody>
+        </table>
+        <para/>
+        <para/>
+    </section>
+    <section>
+        <title>Matrice di mappatura dei requisiti</title>
+        <table border="1">
+            <caption/>
+            <col width="1.03*"/>
+            <col width="1.0*"/>
+            <col width="1.0*"/>
+            <col width="1.0*"/>
+            <col width="1.0*"/>
+            <col width="1.0*"/>
+            <thead align="center">
+                <tr align="center">
+                    <th/>
+                    <th>UC01</th>
+                    <th align="center">UC02</th>
+                    <th>UC03</th>
+                    <th>UC04</th>
+                    <th>UC05</th>
+                </tr>
+            </thead>
+            <tbody align="center">
+                <tr align="center">
+                    <td>R1F.1</td>
+                    <td align="center">X</td>
+                    <td/>
+                    <td/>
+                    <td/>
+                    <td/>
+                </tr>
+                <tr align="center">
+                    <td>R1F.2</td>
+                    <td/>
+                    <td>X</td>
+                    <td/>
+                    <td/>
+                    <td/>
+                </tr>
+                <tr align="center">
+                    <td>R1F.3</td>
+                    <td/>
+                    <td/>
+                    <td/>
+                    <td>X</td>
+                    <td/>
+                </tr>
+                <tr align="center">
+                    <td>R4F</td>
+                    <td/>
+                    <td/>
+                    <td>X</td>
+                    <td/>
+                    <td/>
                 </tr>
             </tbody>
         </table>

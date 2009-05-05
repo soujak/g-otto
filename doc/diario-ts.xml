@@ -5,9 +5,9 @@
 <!ENTITY % myent SYSTEM "entities.ent">
 %myent;
 ]>
-<article xml:lang="it" xmlns="http://docbook.org/ns/docbook" 
-        xmlns:xi="http://www.w3.org/2001/XInclude"
-        xmlns:xlink="http://www.w3.org/1999/xlink" version="5.0">
+<article xml:lang="it" xmlns="http://docbook.org/ns/docbook"
+    xmlns:xi="http://www.w3.org/2001/XInclude" xmlns:xlink="http://www.w3.org/1999/xlink"
+    version="5.0">
     <title/>
     <section xml:id="diario-ts">
         <title>Diario di &pts;</title>
@@ -30,49 +30,154 @@
                 <tfoot>
                     <row>
                         <entry>Totale</entry>
-                        <entry>26.5 ore</entry>
-                        <entry>Fino al 19/4/2009</entry>
+                        <entry>31.5 ore</entry>
+                        <entry>Fino al 5/5/2009</entry>
                     </row>
                 </tfoot>
                 <tbody>
                     <row>
                         <entry>10/04/2009</entry>
                         <entry>6</entry>
-                        <entry>Analisi di Docbook e degli strumenti per un suo utilizzo. Prima stesura della bozza di relazione. Preparazione tabelle per il mantenimento dei diari.</entry>
+                        <entry>
+
+                            <itemizedlist>
+                                <listitem>
+                                    <para>Analisi di Docbook e degli strumenti per un suo utilizzo.
+                                    </para>
+                                </listitem>
+                                <listitem>
+                                    <para>Prima stesura della bozza di relazione. </para>
+                                </listitem>
+                                <listitem>
+                                    <para>Preparazione tabelle per il mantenimento dei diari.
+                                    </para>
+                                </listitem>
+                            </itemizedlist>
+                        </entry>
                     </row>
                     <row>
                         <entry>15/04/2009</entry>
                         <entry>3</entry>
-                        <entry>Sviluppo di alcuni fogli di stile specifici per il mantenimento coerente della documentazione sul wiki e in forma di pdf. Creazione di tabella preliminare per i requisiti.</entry>
+                        <entry>
+                            <itemizedlist>
+                                <listitem>
+                                    <para> Sviluppo di alcuni fogli di stile specifici per il
+                                        mantenimento coerente della documentazione sul wiki e in
+                                        forma di pdf. </para>
+                                </listitem>
+                                <listitem>
+                                    <para>Creazione di tabella preliminare per i requisiti.</para>
+                                </listitem>
+                            </itemizedlist>
+                        </entry>
                     </row>
                     <row>
                         <entry>16/04/2009</entry>
                         <entry>4</entry>
-                        <entry>Modifiche e tentativi di bugfix nel processo di generazione automatico dei diari. Studio sui casi d'uso e i diagrammi UML.</entry>
+                        <entry>
+                            <itemizedlist>
+                                <listitem>
+                                    <para>Modifiche e tentativi di bugfix nel processo di
+                                        generazione automatico dei diari. </para>
+                                </listitem>
+                                <listitem>
+                                    <para>Studio sui casi d'uso e i diagrammi UML.</para>
+                                </listitem>
+                            </itemizedlist>
+                        </entry>
                     </row>
                     <row>
                         <entry>19/04/2009</entry>
                         <entry>4</entry>
-                        <entry>Bugfix su generazione automatica diari. Configurazione di alcuni strumenti tra cui il client svn e pluging Eclipse. Primi passi con ArgoUML. Studio su UML.</entry>
+                        <entry>
+                            <itemizedlist>
+                                <listitem>
+                                    <para>Bugfix su generazione automatica diari.</para>
+                                </listitem>
+                                <listitem>
+                                    <para> Configurazione di alcuni strumenti tra cui il client svn
+                                        e pluging Eclipse. </para>
+                                </listitem>
+                                <listitem>
+                                    <para> Primi passi con ArgoUML. </para>
+                                </listitem>
+                                <listitem>
+                                    <para> Studio su UML.</para>
+                                </listitem>
+                            </itemizedlist>
+                        </entry>
                     </row>
                     <row>
                         <entry>22/04/2009</entry>
                         <entry>2</entry>
-                        <entry>Prove con JBoss.</entry>
+                        <entry>
+                            <itemizedlist>
+                                <listitem>
+                                    <para>Prove con JBoss.</para>
+                                </listitem>
+                            </itemizedlist>
+                        </entry>
                     </row>
                     <row>
                         <entry>24/04/2009</entry>
                         <entry>3.5</entry>
-                        <entry>Prove con JBoss. Prima bozza documento relativo all'environment.</entry>
+                        <entry>
+                            <itemizedlist>
+                                <listitem>
+                                    <para>Prove con JBoss. </para>
+                                </listitem>
+                                <listitem>
+                                    <para>Prima bozza documento relativo all'environment.</para>
+                                </listitem>
+                            </itemizedlist>
+                        </entry>
                     </row>
                     <row>
                         <entry>26/04/2009</entry>
                         <entry>4</entry>
-                        <entry>Prima bozza casi d'uso.</entry>
+                        <entry>
+                            <itemizedlist>
+                                <listitem>
+                                    <para>Prima bozza casi d'uso.</para>
+                                </listitem>
+                            </itemizedlist>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry>4/05/2009</entry>
+                        <entry>3</entry>
+                        <entry>
+                            <itemizedlist>
+                                <listitem>
+                                    <para>Aggiornamento diari e formalizzazione documentazione prodotta nell'incontro di gruppo precedente.</para>
+                                </listitem>
+                                <listitem>
+                                    <para>Versione rivista dei casi d'uso: tabelle riviste, nuovo diagramma UML.</para>
+                                </listitem>
+                                <listitem>
+                                    <para>Aggiornamento tabella di mappatura dei requisiti.</para>
+                                </listitem>                                
+                            </itemizedlist>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry>5/05/2009</entry>
+                        <entry>2</entry>
+                        <entry>
+                            <itemizedlist>
+                                <listitem>
+                                    <para>Revisione della bozza della relazione dal punto di vista grafico.</para>
+                                </listitem>
+                                <listitem>
+                                    <para>Commento/revisione al diagramma preliminare dell'architettura.</para>
+                                </listitem>
+                            </itemizedlist>
+                        </entry>
                     </row>
                     <!-- Aggiungere nuove righe qui copiando la <row> precedente -->
                 </tbody>
             </tgroup>
         </table>
-    </section>   
+        <?very-hard-pagebreak?>
+    </section>
 </article>
