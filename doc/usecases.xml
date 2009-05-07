@@ -21,7 +21,7 @@
         <para/>
         <mediaobject>
             <imageobject>
-                <imagedata fileref="imgs/usecases01.svg" align="center" scalefit="1" depth="245"
+                <imagedata fileref="ModelloCasiUso/usecases01.svg" align="center" scalefit="1" depth="245"
                     format="SVG"/>
             </imageobject>
             <caption>
