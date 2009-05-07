@@ -30,8 +30,8 @@
                 <tfoot>
                     <row>
                         <entry>Totale </entry>
-                        <entry>36 </entry>
-                        <entry>Aggiornato al 2/5/2009</entry>
+                        <entry>41.5 </entry>
+                        <entry>Aggiornato al 7/5/2009</entry>
                     </row>
                 </tfoot>
                 <tbody>
@@ -139,6 +139,21 @@
                         <entry>2/5/09</entry>
                         <entry>1.75</entry>
                         <entry>Approfondimento delle attività di SQA. Aggiornamento ed estensione del piano di qualità.</entry>
+                    </row>
+                    <row>
+                        <entry>3/5/09</entry>
+                        <entry>2.5</entry>
+                        <entry>Installazione e apprendimento di Eclipse TPTP per i collaudi d'unità e integrazione.</entry>
+                    </row>
+                    <row>
+                        <entry>4/5/09</entry>
+                        <entry>2</entry>
+                        <entry>Realizzazione prototipo interfaccia.</entry>
+                    </row>
+                    <row>
+                        <entry>5/5/09</entry>
+                        <entry>1</entry>
+                        <entry>Formazione su Eclipse TPTP.</entry>
                     </row>
                     <!-- Aggiungere nuove righe qui copiando la <row> precedente -->
                 </tbody>
