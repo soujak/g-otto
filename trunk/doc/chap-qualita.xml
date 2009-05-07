@@ -45,16 +45,23 @@
             </section>
             <section>
                 <title>Revisione del modello architetturale</title>
-                <para> Revisori: TS.</para>
+                <para> Revisori: TS, PM.</para>
                 <para> Verifiche: complessità, coesione, completezza rispetto al problema,
                     compatibilità con le specifiche dei requisiti, dimensioni, chiarezza. </para>
-                <para> Esito: revisione effettuata in data 4/5/2009. Entrambi i modelli sono
+                <para> Esito (TS): revisione effettuata in data 4/5/2009. Entrambi i modelli sono
                     semplici e abbastanza astratti: il sistema che rappresentano non &egrave;
                     pi&ugrave; complesso del previsto, e di sicura fattibilit&agrave;. I modelli
                     sono compatibili coi requisiti, non propongono soluzioni non necessarie agli
                     scopi del progetto, ma si limitano a soddisfare alcuni dei requisiti di base.
                     Non si rileva che vi siano requisiti che avrebbero dovuto essere espressi nel
                     modello che siano stati tralasciati.</para>
+                    <para> Esito (PM): revisione effettuata in data 6/5/2009.
+                      I diagrammi non rispettano del tutto i requisiti R1N e
+											R2N, poiché non aderiscono allo schema a tre livelli
+											consueto per le applicazioni realizzate con tecnologia
+											J2EE (in particolare la comunicazione fra il livello
+											informativo e il livello di interfaccia utente dovrebbe
+											sempre essere veicolata attraverso il livello business).
             </section>
             <section>
                 <title>Revisione del piano di schieramento</title>

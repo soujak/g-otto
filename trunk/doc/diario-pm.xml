@@ -27,8 +27,8 @@
 				<tfoot>
 					<row>
 						<entry>Totale</entry>
-						<entry>30.5</entry>
-						<entry>Aggiornato al 29/04/09</entry>
+						<entry>32.5</entry>
+						<entry>Aggiornato al 07/05/09</entry>
 					</row>
 				</tfoot>
 				<tbody>
@@ -138,6 +138,26 @@
 						<entry>2</entry>
 						<entry> Formazione sulla gestione di progetto in generale e nel modello AUP.
 							Ampliamento del preliminare alla fase di elaborazione. </entry>
+					</row>
+					<row>
+						<entry>05/05/2009</entry>
+						<entry>1</entry>
+						<entry> Chiusura fase di avvio, condivisione artefatti di processo:
+							riordinamenti nel deposito di versionamento, condivisione dei prototipi
+							implementativi, del calendario e del rapporto di stato del processo.
+						</entry>
+					</row>
+					<row>
+						<entry>06/05/2009</entry>
+						<entry>0.5</entry>
+						<entry> Revisione modellazione dell'architettura.
+						</entry>
+					</row>
+					<row>
+						<entry>07/05/2009</entry>
+						<entry>0.5</entry>
+						<entry> Modellazione preliminare dell'architettura: correzione diagramma.
+						</entry>
 					</row>
 				</tbody>
 			</tgroup>
