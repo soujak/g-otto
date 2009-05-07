@@ -57,11 +57,12 @@
                     modello che siano stati tralasciati.</para>
                     <para> Esito (PM): revisione effettuata in data 6/5/2009.
                       I diagrammi non rispettano del tutto i requisiti R1N e
-											R2N, poiché non aderiscono allo schema a tre livelli
-											consueto per le applicazioni realizzate con tecnologia
-											J2EE (in particolare la comunicazione fra il livello
-											informativo e il livello di interfaccia utente dovrebbe
-											sempre essere veicolata attraverso il livello business).
+                      R2N, poiché non aderiscono allo schema a tre livelli
+                      consueto per le applicazioni realizzate con tecnologia
+                      J2EE (in particolare la comunicazione fra il livello
+                      informativo e il livello di interfaccia utente dovrebbe
+                      sempre essere veicolata attraverso il livello business).
+                    </para>
             </section>
             <section>
                 <title>Revisione del piano di schieramento</title>
