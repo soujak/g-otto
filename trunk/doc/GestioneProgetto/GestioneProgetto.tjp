@@ -131,7 +131,7 @@ task G8 "GiOtto" {
     task ProgArch "Progettazione preliminare archittettura" {
       depends !ProgReq
       task ModArch "Modello architetturale approssimativo" {
-        effort 2d
+        effort 0.5d
         allocate Fra
         complete 100
       }
@@ -168,7 +168,8 @@ task G8 "GiOtto" {
     # Collaudo
     task PianoTest "Piano preliminare del collaudo" {
       note "Progettazione ad alto livello dell'accuratezza e dell'estensione dei collaudi"
-      effort 2.5d
+      effort 2d
+      real:effort 2.5d
       allocate Gnp
       complete 100
     }
@@ -182,6 +183,7 @@ task G8 "GiOtto" {
       task RevModReq "Revisione modellazione dei requisiti"{
         depends !!ProgReq.AnReq
         effort 1d
+        real:effort 4d
         allocate ${G8all}
         complete 100
       }
@@ -194,15 +196,17 @@ task G8 "GiOtto" {
       }
       task RevModArch "Revisione modellazione dell'architettura"{
         depends !!ProgArch
-        effort 1d
-        allocate Sil
-        complete 0
+        effort 2d
+        real:effort 4d
+        allocate Sil,Sjk
+        complete 100
       }
-      task RevProt "Revisione implementazione prototipale"{
+      task RevProt "Revisione prototipi"{
+        note "Revisione prototipo di interfaccia utente e implementazione"
         depends !!ImplProto
-        effort 1d
+        effort 2d
         allocate Sjk
-        complete 10
+        complete 100
       }
     }
     # Schieramento
@@ -237,7 +241,7 @@ task G8 "GiOtto" {
         depends !DepVers, !PostLav
         effort 6d
         allocate ${?G8all}
-        complete 90
+        complete 100
       }
     }
     # Gestione del progetto - - - - - - - - - - - - - -
@@ -250,20 +254,21 @@ task G8 "GiOtto" {
     }
     task GestRiscTecn "Gestione dei rischi" {
       note "Gestione dei rischi business, tecnici e organizzativi"
-      depends !ProgReq, !ProgArch, !PianoTest, !PianoSchier
-      effort 2d
+      depends !ProgReq, !ProgArch, !PianoTest, !PianoSchier, !ImplProto
+      effort 1d
       allocate ${G8all}
-      complete 85
+      complete 100
     }
     task ChiusFA "Chiusura fase" {
+      priority 1
       effort 1d
       allocate Sjk
-      complete 33
+      complete 50
     }
     # Ambiente -------------------------------------------------
     task ImpAmb "Impostazione ambiente" {
       depends !ImpConfAmb
-      effort 10d
+      effort 8d
       allocate ${G8all}
       complete 100
     }
@@ -271,7 +276,7 @@ task G8 "GiOtto" {
 
   # Elaborazione =========================================================
   task FE "Fase elaborazione" {
-    note "Provare l'archiettura del sistema"
+    note "Validare l'archiettura del sistema"
     depends !MOb
     task t "Attività della fase" {
       effort 44d
