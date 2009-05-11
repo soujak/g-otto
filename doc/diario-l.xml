@@ -106,6 +106,18 @@
                         <entry>BUGFIX: correzione di un problema riguardante il motore di trasformazione docbook->html: valutazione xi:xinclude, generalizzazione del processo di trasformazione.</entry>
                     </row>
 
+                    <row>
+                        <entry>08/05/2009</entry>
+                        <entry>2</entry>
+                        <entry>prove di trasformazione della documentazione da formato DocBook a Latex: rilevati alcuni problemi nella codifica.</entry>
+                    </row>
+
+                    <row>
+                        <entry>11/05/2009</entry>
+                        <entry>3.5</entry>
+                        <entry>esercitazione JBoss: comunicazione tra componenti: in modo particolare tra Servlet e SessionBean tramite WebService.</entry>
+                    </row>
+
                     <!-- FINE -->
                     
                 </tbody>
