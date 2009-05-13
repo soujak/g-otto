@@ -18,7 +18,7 @@
                 <listitem>
                     <para>
                         <link xmlns:ns1="http://www.w3.org/1999/xlink"
-                            ns1:href="http://www.docbook.org/">Sito dedicato</link>
+                            ns1:href="http://www.docbook.org/"> Sito dedicato</link>
                     </para>
                 </listitem>
             </varlistentry>
@@ -31,7 +31,7 @@
             <varlistentry>
                 <term>Scopo</term>
                 <listitem>
-                    <para> Vocabolario XML per la redazione di documentazione </para>
+                    <para> Linguaggi di markup semantico, basato su XML, per la redazione di documentazione tecnica. </para>
                 </listitem>
             </varlistentry>
             <varlistentry>
