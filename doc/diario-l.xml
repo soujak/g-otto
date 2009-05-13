@@ -105,9 +105,7 @@
                         <entry>1.5</entry>
                         <entry>
                             <itemizedlist>
-			        <listitem>
-				    <para>BUGFIX: correzione di un problema riguardante il motore di trasformazione docbook->html: valutazione xi:xinclude, generalizzazione del processo di trasformazione</para>
-			        </listitem>
+			        <listitem><para>BUGFIX: correzione di un problema riguardante il motore di trasformazione docbook->html: valutazione xi:xinclude, generalizzazione del processo di trasformazione</para></listitem>
                             </itemizedlist>
 			</entry>
                     </row>
@@ -117,9 +115,7 @@
                         <entry>2</entry>
                         <entry>
                             <itemizedlist>
-			        <listitem>
-				    <para>prove di trasformazione della documentazione da formato DocBook a Latex: rilevati alcuni problemi nella codifica</para>
-			        </listitem>
+			        <listitem><para>prove di trasformazione della documentazione da formato DocBook a Latex: rilevati alcuni problemi nella codifica</para></listitem>
                             </itemizedlist>
 			</entry>
                     </row>
@@ -129,10 +125,8 @@
                         <entry>3.5</entry>
                         <entry>
                             <itemizedlist>
-                                <listitem>
-                                    <para>esercitazione JBoss: comunicazione tra componenti: in modo particolare tra Servlet e SessionBean tramite WebService</para>
-                                </listitem>
-                            <itemizedlist>
+                                <listitem><para>esercitazione JBoss: comunicazione tra componenti: in modo particolare tra Servlet e SessionBean tramite WebService</para></listitem>
+                            </itemizedlist>
                         </entry>
                     </row>
 
@@ -141,10 +135,8 @@
                         <entry>2</entry>
                         <entry>
                             <itemizedlist>
-                                <listitem>
-                                    <para>prove di comunicazione tra componenti: WebService e SessionBean</para>
-                                </listitem>
-                            <itemizedlist>
+                                <listitem><para>prove di comunicazione tra componenti: WebService e SessionBean</para></listitem>
+                            </itemizedlist>
                         </entry>
                     </row>
 
@@ -153,13 +145,9 @@
                         <entry>4</entry>
                         <entry>
                             <itemizedlist>
-                                <listitem>
-                                    <para>realizzazione architettura di comunicazione: bw -> servlet -> ws -> sessionbean</para>
-                                </listitem>
-                            <itemizedlist>
+                                <listitem><para>realizzazione architettura di comunicazione: bw -> servlet -> ws -> sessionbean</para></listitem>
+                            </itemizedlist>
                         </entry>
-
-                        <entry>.</entry>
                     </row>
 
                     <!-- FINE -->
