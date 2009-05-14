@@ -1,0 +1,264 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?oxygen RNGSchema="http://www.oasis-open.org/docbook/xml/5.0/rng/docbookxi.rng" type="xml"?>
+<!-- Questo file contiene la definizione dell'environment e una descrizione di tutti i tools utilizzati -->
+<!DOCTYPE chapter [
+<!ENTITY % myent SYSTEM "entities.ent">
+%myent;
+]>
+<chapter xml:lang="it" xmlns="http://docbook.org/ns/docbook"
+    xmlns:xi="http://www.w3.org/2001/XInclude" xmlns:xlink="http://www.w3.org/1999/xlink"
+    version="5.0" xml:id="chap-environment">
+    <title>Tools utilizzati</title>
+    <section xml:id="sect-documentazione">
+        <title>Strumenti per la documentazione</title>
+        <variablelist xml:id="docbook">
+            <title>Docbook</title>
+            <varlistentry>
+                <term>Riferimento</term>
+                <listitem>
+                    <para>
+                        <link xmlns:ns1="http://www.w3.org/1999/xlink"
+                            ns1:href="http://www.docbook.org/"> Sito dedicato</link>
+                    </para>
+                </listitem>
+            </varlistentry>
+            <varlistentry>
+                <term>Licenza</term>
+                <listitem>
+                    <para> Oasis Open Standard </para>
+                </listitem>
+            </varlistentry>
+            <varlistentry>
+                <term>Scopo</term>
+                <listitem>
+                    <para> Linguaggi di markup semantico, basato su XML, per la redazione di documentazione tecnica. </para>
+                </listitem>
+            </varlistentry>
+            <varlistentry>
+                <term>Descrizione</term>
+                <listitem>
+                    <para> Descrizione. --> dblatex </para>
+                </listitem>
+            </varlistentry>
+        </variablelist>
+        <variablelist xml:id="oxygen">
+            <title>Oxygen</title>
+            <varlistentry>
+                <term>Riferimento</term>
+                <listitem>
+                    <para>
+                        <link xmlns:ns1="http://www.w3.org/1999/xlink"
+                            ns1:href="http://www.docbook.org/">Sito dedicato</link>
+                    </para>
+                </listitem>
+            </varlistentry>
+            <varlistentry>
+                <term>Licenza</term>
+                <listitem>
+                    <para>licenza</para>
+                </listitem>
+            </varlistentry>
+            <varlistentry>
+                <term>Scopo</term>
+                <listitem>
+                    <para> scopo</para>
+                </listitem>
+            </varlistentry>
+            <varlistentry>
+                <term>Descrizione</term>
+                <listitem>
+                    <para> Descrizione</para>
+                </listitem>
+            </varlistentry>
+        </variablelist>
+    </section>
+    <section xml:id="sect-ide">
+        <title>IDE di programmazione</title>
+        <variablelist xml:id="eclipse">
+            <title>Eclipse</title>
+            <varlistentry>
+                <term>Riferimento</term>
+                <listitem>
+                    <para>
+                        <link xmlns:ns1="http://www.w3.org/1999/xlink"
+                            ns1:href="http://www.docbook.org/">Sito dedicato</link>
+                    </para>
+                </listitem>
+            </varlistentry>
+            <varlistentry>
+                <term>Licenza</term>
+                <listitem>
+                    <para> tipo di licenza </para>
+                </listitem>
+            </varlistentry>
+            <varlistentry>
+                <term>Scopo</term>
+                <listitem>
+                    <para> Scopo </para>
+                </listitem>
+            </varlistentry>
+            <varlistentry>
+                <term>Descrizione</term>
+                <listitem>
+                    <para> Descrizione </para>
+                </listitem>
+            </varlistentry>
+        </variablelist>
+    </section>
+    <section xml:id="sect-uml">
+        <title>Strumenti UML</title>
+        <variablelist xml:id="greenuml">
+            <title>Green UML</title>
+            <varlistentry>
+                <term>Riferimento</term>
+                <listitem>
+                    <para>
+                        <link xmlns:ns1="http://www.w3.org/1999/xlink"
+                            ns1:href="http://www.docbook.org/">Sito dedicato</link>
+                    </para>
+                </listitem>
+            </varlistentry>
+            <varlistentry>
+                <term>Licenza</term>
+                <listitem>
+                    <para> tipo di licenza </para>
+                </listitem>
+            </varlistentry>
+            <varlistentry>
+                <term>Scopo</term>
+                <listitem>
+                    <para> Scopo </para>
+                </listitem>
+            </varlistentry>
+            <varlistentry>
+                <term>Descrizione</term>
+                <listitem>
+                    <para> Descrizione </para>
+                </listitem>
+            </varlistentry>
+        </variablelist>
+        <variablelist xml:id="argouml">
+            <title>ArgoUML</title>
+            <varlistentry>
+                <term>Riferimento</term>
+                <listitem>
+                    <para>
+                        <link xmlns:ns1="http://www.w3.org/1999/xlink"
+                            ns1:href="http://www.docbook.org/">Sito dedicato</link>
+                    </para>
+                </listitem>
+            </varlistentry>
+            <varlistentry>
+                <term>Licenza</term>
+                <listitem>
+                    <para> tipo di licenza </para>
+                </listitem>
+            </varlistentry>
+            <varlistentry>
+                <term>Scopo</term>
+                <listitem>
+                    <para> Scopo </para>
+                </listitem>
+            </varlistentry>
+            <varlistentry>
+                <term>Descrizione</term>
+                <listitem>
+                    <para> Descrizione </para>
+                </listitem>
+            </varlistentry>
+        </variablelist>
+    </section>
+    <section xml:id="sect-managing">
+        <title>Managing</title>
+        <variablelist xml:id="googlecode">
+            <title>Google code</title>
+            <varlistentry>
+                <term>Riferimento</term>
+                <listitem>
+                    <para>
+                        <link xmlns:ns1="http://www.w3.org/1999/xlink"
+                            ns1:href="http://www.docbook.org/">Sito dedicato</link>
+                    </para>
+                </listitem>
+            </varlistentry>
+            <varlistentry>
+                <term>Licenza</term>
+                <listitem>
+                    <para> tipo di licenza </para>
+                </listitem>
+            </varlistentry>
+            <varlistentry>
+                <term>Scopo</term>
+                <listitem>
+                    <para> Scopo </para>
+                </listitem>
+            </varlistentry>
+            <varlistentry>
+                <term>Descrizione</term>
+                <listitem>
+                    <para> Descrizione: 1. subversion 2. issue tracking </para>
+                </listitem>
+            </varlistentry>
+        </variablelist>
+        <variablelist xml:id="googlecalendar">
+            <title>Google Calendar</title>
+            <varlistentry>
+                <term>Riferimento</term>
+                <listitem>
+                    <para>
+                        <link xmlns:ns1="http://www.w3.org/1999/xlink"
+                            ns1:href="http://www.docbook.org/">Sito dedicato</link>
+                    </para>
+                </listitem>
+            </varlistentry>
+            <varlistentry>
+                <term>Licenza</term>
+                <listitem>
+                    <para> tipo di licenza </para>
+                </listitem>
+            </varlistentry>
+            <varlistentry>
+                <term>Scopo</term>
+                <listitem>
+                    <para> Scopo </para>
+                </listitem>
+            </varlistentry>
+            <varlistentry>
+                <term>Descrizione</term>
+                <listitem>
+                    <para> Descrizione </para>
+                </listitem>
+            </varlistentry>
+        </variablelist>
+        <variablelist xml:id="googlegroups">
+            <title>Google Groups</title>
+            <varlistentry>
+                <term>Riferimento</term>
+                <listitem>
+                    <para>
+                        <link xmlns:ns1="http://www.w3.org/1999/xlink"
+                            ns1:href="http://www.docbook.org/">Sito dedicato</link>
+                    </para>
+                </listitem>
+            </varlistentry>
+            <varlistentry>
+                <term>Licenza</term>
+                <listitem>
+                    <para> tipo di licenza </para>
+                </listitem>
+            </varlistentry>
+            <varlistentry>
+                <term>Scopo</term>
+                <listitem>
+                    <para> Scopo </para>
+                </listitem>
+            </varlistentry>
+            <varlistentry>
+                <term>Descrizione</term>
+                <listitem>
+                    <para> Descrizione </para>
+                </listitem>
+            </varlistentry>
+        </variablelist>
+    </section>
+</chapter>

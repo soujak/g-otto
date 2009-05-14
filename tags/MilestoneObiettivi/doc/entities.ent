@@ -1,0 +1,27 @@
+<!-- Questo file contiene un insieme di entita'( ovvero di costanti) utilizzate all'interno di tutta la relazione -->
+<!-- Se dovesse venirvi il dubbio che qualche nome o altro possa venir riutilizato di frequente e magari cambiato in -->
+<!-- seguito a una decisione collettiva, mettetelo qua e non fara' male a nessuno.. -->
+
+<!ENTITY agrave "&#224;">
+<!ENTITY egrave "&#232;">
+<!ENTITY eacute "&#233;">
+<!ENTITY igrave "&#236;">
+<!ENTITY ograve "&#242;">
+<!ENTITY ugrave "&#249;">
+
+<!-- Header delle 3 colonne che compongono le tabelle dei diari -->
+<!ENTITY diaries-data "Data">
+<!ENTITY diaries-hours "Numero di ore">
+<!ENTITY diaries-task "Resoconto">
+
+<!-- Ruoli "ingegneristici".. r sta per role, tipo rl sta per role librarian. -->
+<!-- parametrizzati nel caso dovessimo decidere di metterli sempre in corsivo, con la maiuscola o che altro.. -->
+<!ENTITY rl "Librarian">
+<!ENTITY rqe "Quality Engineer">
+<!ENTITY rpm "Project Manager">
+<!ENTITY rts "Tool Specialist">
+<!-- Nostri nomi di persona (evidentemente). p sta per person. Parametrizzati per comodita'. -->
+<!ENTITY pl "Francesco Draicchio">
+<!ENTITY pqe "Andrea Rappini">
+<!ENTITY ppm "Marco Solieri">
+<!ENTITY pts "Silvia Righini">

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?oxygen RNGSchema="http://www.oasis-open.org/docbook/xml/5.0/rng/docbookxi.rng" type="xml"?>
+<!DOCTYPE glossary [
+<!ENTITY % myent SYSTEM "entities.ent">
+%myent;
+]>
+<glossary xml:lang="it" xmlns="http://docbook.org/ns/docbook"
+    xmlns:xi="http://www.w3.org/2001/XInclude" xmlns:xlink="http://www.w3.org/1999/xlink"
+    version="5.0" xml:id="glossary">
+    
+  <glossdiv><title>C</title>
+    <glossentry>
+        <glossterm>Carrello</glossterm>
+        <glossdef><para>Insieme di libri selezionati per l'acquisto.</para></glossdef>
+    </glossentry>
+    <glossentry>
+      <glossterm>Catalogo</glossterm>
+      <glossdef>
+	  <para>Insieme delle informazioni sui libri in vendita: titolo, autore, ISBN, editore, anno.</para>
+      </glossdef>
+    </glossentry>
+    <glossentry>
+      <glossterm>Cliente</glossterm>
+      <glossdef><para>Utente riconosciuto dal sistema.</para></glossdef>
+    </glossentry>
+  </glossdiv>
+  <glossdiv><title>U</title>
+    <glossentry>
+        <glossterm>Utente</glossterm>
+        <glossdef><para>Generico utilizzatore del sistema.</para></glossdef>
+    </glossentry>
+  </glossdiv>
+  <glossdiv>
+    <title>V</title>
+    <glossentry>
+        <glossterm>Visitatore</glossterm>
+        <glossdef><para>Utente sconosciuto al sistema.</para></glossdef>
+    </glossentry>
+  </glossdiv>
+ 
+</glossary>
