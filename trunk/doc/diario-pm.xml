@@ -27,8 +27,8 @@
 				<tfoot>
 					<row>
 						<entry>Totale</entry>
-						<entry>36</entry>
-						<entry>Aggiornato al 08/05/09</entry>
+						<entry>47</entry>
+						<entry>Aggiornato al 14/05/2009</entry>
 					</row>
 				</tfoot>
 				<tbody>
@@ -175,6 +175,55 @@
 						<entry>08/05/2009</entry>
 						<entry>2</entry>
 						<entry>Formazione architetturale e implementativa: studio tecnologia J2EE e prove con JBoss AS.
+						</entry>
+					</row>
+					///
+					<row>
+						<entry>11/05/2009</entry>
+						<entry>1</entry>
+						<entry>Formazione architetturale e implementativa: studio J2EE e JBoss AS.
+						</entry>
+					</row>
+					<row>
+						<entry>11/05/2009</entry>
+						<entry>4</entry>
+						<entry>Prototipazione architetturale: prime bozze implementative e prove di schieramento su CS.
+						</entry>
+					</row>
+					<row>
+						<entry>11/05/2009</entry>
+						<entry>0.5</entry>
+						<entry>Configurazione ambiente: aggiornamento di JBOSS AS e installazione plugin JBOSS Tools.
+						</entry>
+					</row>
+					<row>
+						<entry>12/05/2009</entry>
+						<entry>0.5</entry>
+						<entry>Formazione architetturale e implementativa: studio J2EE e JBoss AS.
+						</entry>
+					</row>
+					<row>
+						<entry>12/05/2009</entry>
+						<entry>1.5</entry>
+						<entry>Prototipazione architetturale: esposizione di un EJB tramite WS.
+						</entry>
+					</row>
+					<row>
+						<entry>13/05/2009</entry>
+						<entry>1.5</entry>
+						<entry>Prototipazione architetturale: generazione di un end-point di un WS.
+						</entry>
+					</row>
+					<row>
+						<entry>14/05/2009</entry>
+						<entry>1.5</entry>
+						<entry>Prototipazione architetturale: collegamento di una servlet ad un end-point di un WS.
+						</entry>
+					</row>
+					<row>
+						<entry>14/05/2009</entry>
+						<entry>0.5</entry>
+						<entry>Condivisione artefatti: aggiornamento diario personale.
 						</entry>
 					</row>
 				</tbody>
