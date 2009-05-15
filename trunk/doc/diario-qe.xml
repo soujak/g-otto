@@ -30,8 +30,8 @@
                 <tfoot>
                     <row>
                         <entry>Totale </entry>
-                        <entry>41.5 </entry>
-                        <entry>Aggiornato al 7/5/2009</entry>
+                        <entry>53.75 </entry>
+                        <entry>Aggiornato al 15/5/2009</entry>
                     </row>
                 </tfoot>
                 <tbody>
@@ -154,6 +154,46 @@
                         <entry>5/5/09</entry>
                         <entry>1</entry>
                         <entry>Formazione su Eclipse TPTP.</entry>
+                    </row>
+                    <row>
+                        <entry>7/5/09</entry>
+                        <entry>0.5</entry>
+                        <entry>Revisione del modello architetturale preliminare (con PM).</entry>
+                    </row>
+                    <row>
+                        <entry>7/5/09</entry>
+                        <entry>1</entry>
+                        <entry>Revisione del prototipo dell'interfaccia (con PM).</entry>
+                    </row>
+                    <row>
+                        <entry>8/5/09</entry>
+                        <entry>1.25</entry>
+                        <entry>Formazione sui Web Services.</entry>
+                    </row>
+                    <row>
+                        <entry>11/5/09</entry>
+                        <entry>4.5</entry>
+                        <entry>Realizzazione di prototipi minimali con JBoss e prove di schieramento su CS.</entry>
+                    </row>
+                    <row>
+                        <entry>12/5/09</entry>
+                        <entry>1</entry>
+                        <entry>Prototipi architetturali: esposizione di una EJB come Web Service.</entry>
+                    </row>
+                    <row>
+                        <entry>13/5/09</entry>
+                        <entry>2.5</entry>
+                        <entry>Prototipi architetturali: esposizione di una EJB come Web Service e creazione del relativo client.</entry>
+                    </row>
+                    <row>
+                        <entry>15/5/09</entry>
+                        <entry>1</entry>
+                        <entry>Prototipi architetturali: esposizione di una EJB come Web Service e creazione del relativo client.</entry>
+                    </row>
+                    <row>
+                        <entry>15/5/09</entry>
+                        <entry>0.5</entry>
+                        <entry>Aggiornamento del diario personale.</entry>
                     </row>
                     <!-- Aggiungere nuove righe qui copiando la <row> precedente -->
                 </tbody>
