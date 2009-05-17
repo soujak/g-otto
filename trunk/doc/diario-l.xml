@@ -150,6 +150,17 @@
                         </entry>
                     </row>
 
+                    <row>
+                        <entry>15/05/2009</entry>
+                        <entry>1.5</entry>
+                        <entry>
+                            <itemizedlist>
+                                <listitem><para>studio ed esercitazione per quanto riguarda la parte persistente. EntityBean, DBMS.</para></listitem>
+                            </itemizedlist>
+                        </entry>
+                    </row>
+
+
                     <!-- FINE -->
                     
                 </tbody>
