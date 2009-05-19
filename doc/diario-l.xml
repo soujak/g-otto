@@ -155,7 +155,19 @@
                         <entry>1.5</entry>
                         <entry>
                             <itemizedlist>
-                                <listitem><para>studio ed esercitazione per quanto riguarda la parte persistente. EntityBean, DBMS.</para></listitem>
+                                <listitem><para>prove di comunicazione tra la logica di business e la parte informativa</para></listitem>
+                                <listitem><para>inizializzazione DB e persistenza</para></listitem>
+                            </itemizedlist>
+                        </entry>
+                    </row>
+
+                    <row>
+                        <entry>19/05/2009</entry>
+                        <entry>2</entry>
+                        <entry>
+                            <itemizedlist>
+                                <listitem><para>test sulla persistenza del DataSource</para></listitem>
+                                <listitem><para>interrogazione DB di prova</para></listitem>
                             </itemizedlist>
                         </entry>
                     </row>
