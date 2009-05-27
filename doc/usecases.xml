@@ -34,7 +34,7 @@
     <section>
         <title>Tabelle dei casi d'uso</title>
         <!-- Bozza tabella use case -->
-        <table border="1" xml:id="uc01-ricerca">
+        <table border="1" xml:id="uc01-ricercalibri">
             <caption> UC01 (RicercaLibri)</caption>
             <?dbfo keep-together="always" ?>
             <thead>
@@ -131,7 +131,7 @@
         </table>
         <para/>
         <para/>
-        <table border="1" xml:id="uc02-selezione">
+        <table border="1" xml:id="uc02-selezionelibri">
             <caption> UC02 (SelezioneLibri)</caption>
             <?dbfo keep-together="always" ?>
             <thead>
@@ -255,7 +255,7 @@
             <?dbfo keep-together="always" ?>
             <thead>
                 <tr>
-                    <th align="center">Caso d'uso: AutenticazioneUtente</th>
+                    <th align="center">Caso d'uso: Autenticazione</th>
                 </tr>
                 <tr>
                     <th align="center">ID: UC03</th>
@@ -362,12 +362,12 @@
         </table>
         <para/>
         <para/>
-        <table border="1" xml:id="uc04-acquista">
-            <caption> UC04 (Acquista)</caption>
+        <table border="1" xml:id="uc04-acquisto">
+            <caption> UC04 (Acquisto)</caption>
             <?dbfo keep-together="always" ?>
             <thead>
                 <tr>
-                    <th align="center">Caso d'uso: AcquistaCarrello</th>
+                    <th align="center">Caso d'uso: Acquisto</th>
                 </tr>
                 <tr>
                     <th align="center">ID: UC04</th>
@@ -590,7 +590,7 @@
         </table>
         <para/>
         <para/>
-        <table border="1" xml:id="uc06-modifica">
+        <table border="1" xml:id="uc06-modificacarrello">
             <caption> UC06 (ModificaCarrello)</caption>
             <?dbfo keep-together="always" ?>
             <thead>
@@ -686,7 +686,7 @@
         </table>
         <para/>
         <para/>
-        <table border="1" xml:id="uc07-visualizza">
+        <table border="1" xml:id="uc07-visualizzacarrello">
             <caption> UC07 (VisualizzaCarrello)</caption>
             <?dbfo keep-together="always" ?>
             <thead>
