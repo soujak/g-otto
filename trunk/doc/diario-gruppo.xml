@@ -83,6 +83,64 @@
                                 <listitem><para>Aggiornamenti vari.</para></listitem></itemizedlist>
                         </entry>
                     </row>
+                    <row>
+                        <entry>5/05/2009</entry>
+                        <entry>1.5</entry>
+                        <entry>
+                            
+                        </entry>
+                    </row>
+                    <row>
+                        <entry>7/05/2009</entry>
+                        <entry>3.5</entry>
+                        <entry>
+                            
+                        </entry>
+                    </row>
+                    <row>
+                        <entry>12/05/2009</entry>
+                        <entry>3.5</entry>
+                        <entry>
+                            
+                        </entry>
+                    </row>
+                    <row>
+                        <entry>18/05/2009</entry>
+                        <entry>3</entry>
+                        <entry>
+                            
+                        </entry>
+                    </row>
+                    <row>
+                        <entry>19/05/2009</entry>
+                        <entry>2.5</entry>
+                        <entry>
+                            
+                        </entry>
+                    </row>
+                    <row>
+                        <entry>21/05/2009</entry>
+                        <entry>1.5</entry>
+                        <entry>
+                            <para>Prototipazione tecnica.</para>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry>25/05/2009</entry>
+                        <entry>2</entry>
+                        <entry>
+                            
+                        </entry>
+                    </row>
+                    <row>
+                        <entry>27/05/2009</entry>
+                        <entry></entry>
+                        <entry>
+                            <itemizedlist><listitem><para>Modellazione delle componenti.</para></listitem>
+                                <listitem><para>Modellazione logica di business.</para></listitem>
+                              </itemizedlist> 
+                        </entry>
+                    </row>
                 </tbody>
             </tgroup>
         </table>
