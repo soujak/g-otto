@@ -21,8 +21,8 @@
         <para/>
         <mediaobject>
             <imageobject>
-                <imagedata fileref="ModelloCasiUso/usecases01.svg" align="center" scalefit="1" depth="245"
-                    format="SVG"/>
+                <imagedata fileref="ModelloCasiUso/usecases01.svg" align="center" scalefit="1"
+                    depth="245" format="SVG"/>
             </imageobject>
             <caption>
                 <para>Diagramma dei casi d'uso.</para>
@@ -354,7 +354,8 @@
                         <formalpara>
                             <title>Postcondizioni</title>
                             <para>L'utente &egrave; riconosciuto dal sistema e gli &egrave;
-                                possibile selezionare libri e procedere all'acquisto. </para>
+                                possibile selezionare libri e procedere all'acquisto. L'utente pasa
+                                quindi dallo stato di Visitatore a quello di Cliente.</para>
                         </formalpara>
                     </td>
                 </tr>
@@ -653,14 +654,18 @@
                                         <para>L'utente conferma la modifica.</para>
                                     </listitem>
                                     <listitem>
-                                        <para>Il sistema mostra il nuovo carrello con le quantit&agrave; modificate. I libri la cui quantit&agrave; &egrave; stata portata a zero o a un numero negativo vengono eliminati e non compaiono pi&ugrave; nel carrello.</para>
+                                        <para>Il sistema mostra il nuovo carrello con le
+                                            quantit&agrave; modificate. I libri la cui
+                                            quantit&agrave; &egrave; stata portata a zero o a un
+                                            numero negativo vengono eliminati e non compaiono
+                                            pi&ugrave; nel carrello.</para>
                                     </listitem>
                                 </orderedlist>
                             </para>
                         </formalpara>
                     </td>
                 </tr>
-<!--                <tr>
+                <!--                <tr>
                     <td>
                         <formalpara>
                             <title>Eccezioni</title>
@@ -678,7 +683,8 @@
                     <td>
                         <formalpara>
                             <title>Postcondizioni</title>
-                            <para>Il nuovo carrello &egrave; visualizzato. I libri contenuti nel carrello hanno subtio modifiche.</para>
+                            <para>Il nuovo carrello &egrave; visualizzato. I libri contenuti nel
+                                carrello hanno subtio modifiche.</para>
                         </formalpara>
                     </td>
                 </tr>
