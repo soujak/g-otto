@@ -194,6 +194,17 @@
                         </entry>
                     </row>
 
+                    <row>
+                        <entry>28/05/2009</entry>
+                        <entry>6</entry>
+                        <entry>
+                            <itemizedlist>
+                                <listitem><para>sperimentazioni con session bean stateful</para></listitem>
+                            </itemizedlist>
+                        </entry>
+                    </row>
+
+
 
                     <!-- FINE -->
                     
