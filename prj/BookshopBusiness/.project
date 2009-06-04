@@ -3,8 +3,8 @@
 	<name>BookshopBusiness</name>
 	<comment></comment>
 	<projects>
-		<project>Core</project>
-		<project>InformationManager</project>
+		<project>BookshopBusinessCore</project>
+		<project>BookshopBusinessInformationManager</project>
 	</projects>
 	<buildSpec>
 		<buildCommand>
