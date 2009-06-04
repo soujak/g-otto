@@ -11,7 +11,7 @@ import java.util.TreeMap;
  * @author soujak
  *
  */
-public class ShoppingCart {
+public class ShoppingCart implements ShoppingCartLocal {
 
 	private SortedMap<String,Order> orders;
 

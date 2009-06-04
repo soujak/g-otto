@@ -7,7 +7,7 @@ package g8.bookshop.business.core;
  * @author soujak
  *
  */
-public abstract class User {
+public abstract class User implements UserLocal {
 	private String id;
 	private boolean customer;
 	

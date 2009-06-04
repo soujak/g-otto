@@ -7,14 +7,14 @@ package g8.bookshop.business.core;
  * @author soujak
  *
  */
-public class Order {
-	private Book book;
+public class Order implements OrderLocal {
+	private BookLocal book;
 	private int quantity;
 	
 	/**
 	 * @return the book
 	 */
-	Book getBook() {
+	BookLocal getBook() {
 		return book;
 	}
 	/**
@@ -34,7 +34,7 @@ public class Order {
 	 * @param b
 	 * @param q
 	 */
-	Order(Book b, int q) {
+	Order(BookLocal b, int q) {
 		super();
 		this.book = b;
 		this.quantity = q;

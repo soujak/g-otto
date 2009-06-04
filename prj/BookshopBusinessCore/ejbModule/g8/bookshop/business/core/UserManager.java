@@ -14,8 +14,8 @@ import javax.ejb.Stateful;
  *
  */
 @Stateful
-public class UserManager {
-	private static UserManager uniqueUserManager = null;
+public class UserManager implements UserManagerLocal {
+	private static UserManagerLocal uniqueUserManager = null;
 	private static SortedMap<String,User> userMap;
 	
 	
@@ -23,14 +23,14 @@ public class UserManager {
 	 * @param id user id
 	 * @return user to which the specified id is mapped, or null if id does not exists 
 	 */
-	User lookup(String id) {
+	UserLocal lookup(String id) {
 		return userMap.get(id);
 	}
 	
 	/**
 	 * @return the unique instance of UserManager
 	 */
-	static UserManager Instance() {
+	static UserManagerLocal Instance() {
 		if (uniqueUserManager == null)
 			uniqueUserManager = new UserManager();
 		return uniqueUserManager;

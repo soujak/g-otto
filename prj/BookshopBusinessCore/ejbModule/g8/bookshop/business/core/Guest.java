@@ -10,7 +10,7 @@ import javax.ejb.Stateful;
  *
  */
 @Stateful
-public class Guest extends User {
+public class Guest extends User implements GuestLocal {
 
 	/**
 	 * @param id user id
