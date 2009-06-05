@@ -10,11 +10,7 @@
     <chapter xml:id="chap-relazionediprogetto">
         <title>Relazione di progetto</title>
         <!-- Empty PARA for SPACING -->
-<!--        <xi:include href="diario-gruppo.xml" xpointer="diario-gruppo"/>
-        <xi:include href="diario-pm.xml" xpointer="diario-pm"/>
-        <xi:include href="diario-qe.xml" xpointer="diario-qe"/>
-        <xi:include href="diario-ts.xml" xpointer="diario-ts"/>
-        <xi:include href="diario-l.xml" xpointer="diario-l"/>-->
-        <para/>
+        <xi:include href="sect-usecases.xml" xpointer="sect-usecases"/>
+<!--       <xi:include href="sect-diagrammistati.xml" xpointer="sect-diagrammistati"/>-->
     </chapter>
 </book>
