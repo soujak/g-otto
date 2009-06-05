@@ -3,7 +3,6 @@
 	<persistence-unit name="InformationManager" transaction-type="JTA">
 		<jta-data-source>java:MySQL</jta-data-source>
 		<properties>
-			<property name=""/>
 			<property name="hibernate.dialect" value="org.hibernate.dialect.MySQLDialect"/>
 			<property name="hibernate.hbm2ddl.auto" value="create-drop" />
 		</properties>

@@ -16,6 +16,7 @@ public class Book implements Serializable {
 	private int Year;
 	private String Editor;
 	private String ISBN;
+	@Id
 	private String id;
 	private static final long serialVersionUID = 1L;
 
@@ -59,7 +60,6 @@ public class Book implements Serializable {
 		this.ISBN = ISBN;
 	}
 	
-	@Id @GeneratedValue
 	String getId() {
 		return id;
 	}
