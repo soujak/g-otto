@@ -8,7 +8,15 @@ import javax.persistence.*;
  * Entity implementation class for Entity: Book
  * @author soujak
  */
+
+@NamedQueries({
+	@NamedQuery(  
+			name="getTitles", 
+			query="SELECT Title FROM Book")
+}) 
+
 @Entity
+@Table(name = "Book", schema = "Bookshop")
 public class Book implements Serializable {
 
 	private String Title;
@@ -16,8 +24,8 @@ public class Book implements Serializable {
 	private int Year;
 	private String Editor;
 	private String ISBN;
-	@Id
-	private String id;
+	@Id @GeneratedValue
+	private long id;
 	private static final long serialVersionUID = 1L;
 
 	public Book() {
@@ -60,10 +68,10 @@ public class Book implements Serializable {
 		this.ISBN = ISBN;
 	}
 	
-	String getId() {
+	long getId() {
 		return id;
 	}
-	void setId(String id) {
+	void setId(long id) {
 		this.id = id;
 	}
 }
