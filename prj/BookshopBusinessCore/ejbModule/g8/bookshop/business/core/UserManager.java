@@ -15,7 +15,7 @@ import javax.ejb.Stateful;
  */
 @Stateful
 public class UserManager implements UserManagerLocal {
-	private static UserManagerLocal uniqueUserManager = null;
+	private static UserManager uniqueUserManager = null;
 	private static SortedMap<String,User> userMap;
 	
 	
@@ -28,9 +28,9 @@ public class UserManager implements UserManagerLocal {
 	}
 	
 	/**
-	 * @return the unique instance of UserManager
+	 * @return the unique instance of UserManagerService
 	 */
-	static UserManagerLocal Instance() {
+	public static UserManager Instance() {
 		if (uniqueUserManager == null)
 			uniqueUserManager = new UserManager();
 		return uniqueUserManager;
