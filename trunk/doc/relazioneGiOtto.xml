@@ -51,8 +51,7 @@
     
     <!-- Relazione di progetto: contiene la specifica UML di progetto in termini di diagrammi UML(almeno sei tipi diversi inclusi casi d'uso, classi, activity, state, sequence e deployment).  -->
     <xi:include href="chap-relazionediprogetto.xml" xpointer="chap-relazionediprogetto"/>
-    <xi:include href="usecases.xml" xpointer="chap-usecases"/>
-    
+   
     <!-- Piano di processo: contiene le descrizioni GANTT sia del processo di produzione preventivo che di quello consuntivo effettivamente svolto. -->
     <xi:include href="chap-qualita.xml" xpointer="chap-qualita"/>
     
