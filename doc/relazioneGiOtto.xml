@@ -44,10 +44,32 @@
             </author>
         </authorgroup>
     </info>
+    <!--  Riassunto dalle specifiche -->
+    
+    <!-- Specifica dei requisiti: contiene la riformulazione del documento dei requisiti. -->
     <xi:include href="chap-requisiti.xml" xpointer="chap-requisiti"/>
-    <xi:include href="chap-qualita.xml" xpointer="chap-qualita"/>
+    
+    <!-- Relazione di progetto: contiene la specifica UML di progetto in termini di diagrammi UML(almeno sei tipi diversi inclusi casi d'uso, classi, activity, state, sequence e deployment).  -->
+    <xi:include href="chap-relazionediprogetto.xml" xpointer="chap-relazionediprogetto"/>
     <xi:include href="usecases.xml" xpointer="chap-usecases"/>
+    
+    <!-- Piano di processo: contiene le descrizioni GANTT sia del processo di produzione preventivo che di quello consuntivo effettivamente svolto. -->
+    <xi:include href="chap-qualita.xml" xpointer="chap-qualita"/>
+    
+    <!-- Descrizione degli strumenti utilizzati e ragione della scelta -->
     <xi:include href="chap-environment.xml" xpointer="chap-environment"/>
-    <xi:include href="chap-diari.xml" xpointer="diari"/>
+    
+    <!-- Piano di qualita' e test del prodotto: contiene il piano di qualita' del gruppo. Contiene la descrizione ed i risultati dell'attivita' di testing -->
+    
+    <!-- Manuale d'utente: breve descrizione delle funzionalita' dal punto di vista utente. -->
+    <!--<xi:include href="chap-manualeutente.xml" xpointer="chap-manualeutente"/> -->
+    
+    <!-- Valutazione dello sforzo: contiene sia una valutazione preventiva dello sforzo, ottenuta usando FP, sia una tabella riassuntiva degli sforzi a consuntivo di tutti i membri del gruppo. -->
+    
+    <!-- Diari -->
+<!--    <xi:include href="chap-diari.xml" xpointer="diari"/>--> <!-- questo da errore-->
+    
     <xi:include href="glossary.xml"/>
+    
+
 </book>
