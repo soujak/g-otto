@@ -5,11 +5,11 @@ import javax.jws.WebMethod;
 import javax.jws.WebService;
 
 /**
- * Session Bean implementation class ShoppingCart
+ * Session Bean implementation class ShoppingCartService
  */
 @WebService
 @Stateless
-public class ShoppingCart {
+public class ShoppingCartService {
 
 	/**
 	 * @param id User id
@@ -53,7 +53,7 @@ public class ShoppingCart {
     /**
      * Default constructor
      */
-    public ShoppingCart() {
+    public ShoppingCartService() {
         // TODO
     }
 }

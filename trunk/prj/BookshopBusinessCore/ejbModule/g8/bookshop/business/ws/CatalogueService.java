@@ -5,11 +5,11 @@ import javax.jws.WebMethod;
 import javax.jws.WebService;
 
 /**
- * Session Bean implementation class Catalogue
+ * Session Bean implementation class CatalogueService
  */
 @WebService
 @Stateless
-public class Catalogue {
+public class CatalogueService {
 
 	/**
      * Advanced search
@@ -29,7 +29,7 @@ public class Catalogue {
 	 * @return corresponding books in XML format
 	 */
 	@WebMethod
-	String FullSearch(String s) {
+	String FullSearch(String id, String s) {
 		// TODO
 		return null;
 	}
@@ -37,7 +37,7 @@ public class Catalogue {
     /**
      * Default constructor 
      */
-    public Catalogue() {
+    public CatalogueService() {
         // TODO
     }
 }
