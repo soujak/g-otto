@@ -1,18 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?oxygen RNGSchema="http://www.oasis-open.org/docbook/xml/5.0/rng/docbookxi.rng" type="xml"?>
 <!--  Diario di gruppo - contiene la tabella del diario, aggiungete righe per i giorni di lavoro -->
-<!DOCTYPE section [
+<!DOCTYPE article [
 <!ENTITY % myent SYSTEM "entities.ent">
 %myent;
 ]>
-<!--
 <article xml:lang="it" xmlns="http://docbook.org/ns/docbook"
     xmlns:xi="http://www.w3.org/2001/XInclude" xmlns:xlink="http://www.w3.org/1999/xlink"
     version="5.0">
-    <title/>-->
-<section xml:id="diario-gruppo" xml:lang="it" xmlns="http://docbook.org/ns/docbook"
-    xmlns:xi="http://www.w3.org/2001/XInclude" xmlns:xlink="http://www.w3.org/1999/xlink"
-    version="5.0">
+    <title/>
+<section xml:id="diario-gruppo">
         <title>Diario di Gruppo</title>
         <table>
             <title>Diario di gruppo</title>
@@ -230,4 +227,4 @@
         </table>
         <?very-hard-pagebreak?>
     </section>
-<!--</article>-->
+</article>
