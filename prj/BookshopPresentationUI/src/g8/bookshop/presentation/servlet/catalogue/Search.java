@@ -1,8 +1,8 @@
 package g8.bookshop.presentation.servlet.catalogue;
 
-import java.io.IOException;
+import g8.bookshop.presentation.content.manager.DataExchange;
 
-import g8.bookshop.presentation.content.manager.ContentManager;
+import java.io.IOException;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -25,27 +25,23 @@ public class Search extends HttpServlet {
         // TODO Auto-generated constructor stub
     }
 
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException {
-		String out = "It Works!";
-		
-		// richiesta al web service dei risultati della ricerca
-		
-		ContentManager contentManager = new ContentManager();
-		contentManager.setBooklist(out);
-		contentManager.setUsername("foo");
-		
-		request.getSession().setAttribute("ContentManager", contentManager);
-		forwardToPage("/pages/index.jsp", request, response);
-	}
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
+		DataExchange dataExchange = new DataExchange();
+		dataExchange.setKey(request.getParameter("key").toString());
+				
+		// richiesta al web service dei risultati della ricerca
+		// tramite il valore key
+		
+		dataExchange.setBooklist("");
+		dataExchange.setUsername("guest");
+		
+		
+		request.getSession().setAttribute("DataExchange", dataExchange);
+		forwardToPage("/pages/index.jsp", request, response);
 	}
 	
 	private void forwardToPage(String address, HttpServletRequest request, HttpServletResponse response) 

@@ -1,8 +1,8 @@
-        <div id="ssearch">
-        <form name="ssearch_form" action="g8.bookshop.presentation.servlet.Catalogue.Search.jsp" method="post" enctype="text/plain">
-         <input name="ssearch_string" type="text" size="60"/>
-            <input type="submit" value="search!"/>
-            <input type="reset" value="clear"/>
-            <!-- dovremmo inserire un campo hidden che specifica che si tratta di una simplesearch non autenticata...  -->
-        </form>
-        </div>
+<div id="ssearch">
+<form action="Search"
+	method="post">
+	<input name="key" type="text" size="60" />
+	<input type="submit" value="search"/>
+	<input type="reset" value="clear" />
+</form>
+</div>

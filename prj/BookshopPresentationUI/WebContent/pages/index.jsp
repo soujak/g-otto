@@ -1,9 +1,27 @@
-<%@ include file="/template/top.jspf" %>
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+                      "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
 
-<%@ include file="/template/simple_search.jspf" %>
+<%@ include file="/template/head.jspf"%>
 
-<jsp:useBean id="ContentManager" class="g8.bookshop.presentation.content.manager.ContentManager" scope="session" />
-user: <jsp:getProperty property="username" name="ContentManager"/>
-response: <jsp:getProperty property="booklist" name="ContentManager"/>
+<body>
+<jsp:useBean id="DataExchange"
+	class="g8.bookshop.presentation.content.manager.DataExchange"
+	scope="session" />
 
-<%@ include file="/template/bottom.jspf" %>
+<div id="top">
+<h1>G8 Bookshop</h1>
+<p>Welcome <jsp:getProperty property="username" name="DataExchange" /></p>
+</div>
+
+<%@ include file="/template/simple_search.jspf"%>
+
+<div id="results"> 
+    <jsp:getProperty property="booklist" name="DataExchange" />
+</div>
+
+<%@include file="/template/bottom.jspf"%>
+
+</body>
+</html>
