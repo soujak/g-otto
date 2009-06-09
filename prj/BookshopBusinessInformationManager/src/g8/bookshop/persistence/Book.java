@@ -5,7 +5,7 @@ import java.lang.String;
 import javax.persistence.*;
 
 /**
- * Entity implementation class for Entity: Book
+ * Entity implementation class Book
  * @author soujak
  */
 
