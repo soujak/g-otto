@@ -1,5 +1,9 @@
 package g8.bookshop.business.ws;
 
+import g8.bookshop.business.core.Customer;
+import g8.bookshop.business.core.ShoppingCart;
+import g8.bookshop.business.core.UserManager;
+
 import javax.ejb.Stateless;
 import javax.jws.WebMethod;
 import javax.jws.WebService;
@@ -10,6 +14,15 @@ import javax.jws.WebService;
 @WebService
 @Stateless
 public class ShoppingCartService {
+	
+	private UserManager um;
+	
+	/**
+	 * Default constructor
+	 */
+	public ShoppingCartService() {
+		// TODO
+	}
 
 	/**
 	 * @param id User id
@@ -18,6 +31,7 @@ public class ShoppingCartService {
 	@WebMethod
 	String View(String id) {
 		 // TODO
+//		return um.getCustomer(id).getShoppingCart().toXML;
 		return null;
 	}
 	/**
@@ -28,6 +42,8 @@ public class ShoppingCartService {
 	@WebMethod
 	boolean AddOrders(String id, String ords) {
 		 // TODO
+//		orders=ords.toOrder;
+//		return um.getCustomer(id).getShoppingCart().addOrders(orders);
 		return false;
 	}
 	/**
@@ -48,12 +64,5 @@ public class ShoppingCartService {
 	boolean Checkout(String id) {
 		 // TODO
 		return false;
-	}
-	
-    /**
-     * Default constructor
-     */
-    public ShoppingCartService() {
-        // TODO
-    }
+	}	
 }
