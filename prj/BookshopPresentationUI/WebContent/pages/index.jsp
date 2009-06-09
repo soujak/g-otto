@@ -17,9 +17,9 @@
 
 <%@ include file="/template/simple_search.jspf"%>
 
-<div id="results"> 
-    <jsp:getProperty property="booklist" name="DataExchange" />
-</div>
+
+<jsp:getProperty property="booklist" name="DataExchange" />
+
 
 <%@include file="/template/bottom.jspf"%>
 
