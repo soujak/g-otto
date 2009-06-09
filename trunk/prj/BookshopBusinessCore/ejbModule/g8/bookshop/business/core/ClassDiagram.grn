@@ -1,39 +1,32 @@
 <uml>
    <greenVersion="30100"/>
    <type>
-      <name="=BookshopBusinessCore/ejbModule<g8.bookshop.business.core{Book.java[Book"/>
-      <height="-1"/>
-      <width="-1"/>
-      <x="96"/>
-      <y="425"/>
-   </type>
-   <type>
       <name="=BookshopBusinessCore/ejbModule<g8.bookshop.business.core{Customer.java[Customer"/>
       <height="-1"/>
       <width="-1"/>
-      <x="548"/>
-      <y="161"/>
+      <x="545"/>
+      <y="173"/>
    </type>
    <type>
       <name="=BookshopBusinessCore/ejbModule<g8.bookshop.business.core{Guest.java[Guest"/>
       <height="-1"/>
       <width="-1"/>
-      <x="277"/>
-      <y="163"/>
+      <x="282"/>
+      <y="170"/>
    </type>
    <type>
       <name="=BookshopBusinessCore/ejbModule<g8.bookshop.business.core{Order.java[Order"/>
       <height="-1"/>
       <width="-1"/>
-      <x="273"/>
-      <y="276"/>
+      <x="538"/>
+      <y="466"/>
    </type>
    <type>
       <name="=BookshopBusinessCore/ejbModule<g8.bookshop.business.core{ShoppingCart.java[ShoppingCart"/>
       <height="-1"/>
       <width="-1"/>
-      <x="538"/>
-      <y="274"/>
+      <x="534"/>
+      <y="324"/>
    </type>
    <type>
       <name="=BookshopBusinessCore/ejbModule<g8.bookshop.business.core{User.java[User"/>
@@ -46,13 +39,20 @@
       <name="=BookshopBusinessCore/ejbModule<g8.bookshop.business.core{UserManager.java[UserManager"/>
       <height="-1"/>
       <width="-1"/>
-      <x="91"/>
-      <y="19"/>
+      <x="-73"/>
+      <y="56"/>
    </type>
    <relationship>
       <class="edu.buffalo.cse.green.relationship.generalization.GeneralizationPart"/>
       <sourceType="=BookshopBusinessCore/ejbModule<g8.bookshop.business.core{Guest.java[Guest"/>
       <targetType="=BookshopBusinessCore/ejbModule<g8.bookshop.business.core{User.java[User"/>
+      <bendpoints>
+      </bendpoints>
+   </relationship>
+   <relationship>
+      <class="edu.buffalo.cse.green.relationship.composition.CompositionPart"/>
+      <sourceType="=BookshopBusinessCore/ejbModule<g8.bookshop.business.core{Customer.java[Customer"/>
+      <targetType="=BookshopBusinessCore/ejbModule<g8.bookshop.business.core{ShoppingCart.java[ShoppingCart"/>
       <bendpoints>
       </bendpoints>
    </relationship>

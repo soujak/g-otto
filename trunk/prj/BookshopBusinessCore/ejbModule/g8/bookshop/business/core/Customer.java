@@ -9,12 +9,12 @@ package g8.bookshop.business.core;
  */
 public class Customer extends User implements CustomerLocal {
 
-	private ShoppingCartLocal shoppingCart;
+	private ShoppingCart shoppingCart;
 
 	/* (non-Javadoc)
 	 * @see g8.bookshop.business.core.CustomerLocal#getShoppingCart()
 	 */
-	public ShoppingCartLocal getShoppingCart() {
+	public ShoppingCart getShoppingCart() {
 		return shoppingCart;
 	}
 

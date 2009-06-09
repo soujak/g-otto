@@ -3,18 +3,20 @@
  */
 package g8.bookshop.business.core;
 
+import g8.bookshop.persistence.Book;
+
 /**
  * @author soujak
  *
  */
 public class Order implements OrderLocal {
-	private BookLocal book;
+	private Book book;
 	private int quantity;
 	
 	/**
 	 * @return the book
 	 */
-	BookLocal getBook() {
+	Book getBook() {
 		return book;
 	}
 	/**
@@ -34,10 +36,9 @@ public class Order implements OrderLocal {
 	 * @param b
 	 * @param q
 	 */
-	Order(BookLocal b, int q) {
+	Order(Book b, int q) {
 		super();
 		this.book = b;
 		this.quantity = q;
 	}
-	
 }

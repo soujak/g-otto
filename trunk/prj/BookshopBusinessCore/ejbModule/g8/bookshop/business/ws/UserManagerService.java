@@ -1,7 +1,5 @@
 package g8.bookshop.business.ws;
-
 import g8.bookshop.business.core.UserManager;
-import g8.bookshop.business.core.UserManagerLocal;
 
 import javax.ejb.Stateless;
 import javax.jws.WebMethod;
@@ -13,7 +11,17 @@ import javax.jws.WebService;
 @WebService
 @Stateless
 public class UserManagerService {
+	
+	private UserManager um;
 
+	/**
+	 * Default constructor 
+	 */
+	public UserManagerService() {
+		// TODO
+//		this.um = UserManager.Instance(); 
+	}
+	
 	/**
 	 * Authenticate a user to become a customer
 	 * @param id user id
@@ -24,7 +32,7 @@ public class UserManagerService {
 	@WebMethod
 	boolean Authenticate(String id, String name, String pwd) {
         // TODO
-		UserManagerLocal um = UserManager.Instance();
+//		return um.authenticate(um.getUser(id), name, pwd);
 		return false;
 	}
 	
@@ -36,14 +44,7 @@ public class UserManagerService {
 	@WebMethod
 	boolean Disconnect(String id) {
         // TODO
+//		return this.um.disconnect(this.um.getUser(id));
 		return false;
-	}
-	
-    /**
-     * Default constructor 
-     */
-    public UserManagerService() {
-        // TODO
-    }
-
+	}	
 }

@@ -13,10 +13,10 @@ import java.util.TreeMap;
  */
 public class ShoppingCart implements ShoppingCartLocal {
 
-	private SortedMap<String,Order> orders;
+	private SortedMap<Long,Order> orders;
 
 	public ShoppingCart() {
-		orders = Collections.synchronizedSortedMap(new TreeMap<String,Order>());
+		orders = Collections.synchronizedSortedMap(new TreeMap<Long,Order>());
 	}
 	
 	public void addOrder(Order o) {
@@ -24,7 +24,6 @@ public class ShoppingCart implements ShoppingCartLocal {
 		if (oldOrder != null)
 			oldOrder.setQuantity(o.getQuantity()+oldOrder.getQuantity());
 		else
-			this.orders.put(o.getBook().getId(),o);
+			this.orders.put(Long.valueOf(o.getBook().getId()),o);
 	}
-
 }
