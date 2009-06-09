@@ -15,10 +15,17 @@ public class ShoppingCart implements ShoppingCartLocal {
 
 	private SortedMap<Long,Order> orders;
 
+	/**
+	 * Constructor
+	 */
 	public ShoppingCart() {
 		orders = Collections.synchronizedSortedMap(new TreeMap<Long,Order>());
 	}
 	
+	/**
+	 * Add an order in the shopping cart
+	 * @param o order to add
+	 */
 	public void addOrder(Order o) {
 		Order oldOrder = orders.get(o.getBook().getId()); 
 		if (oldOrder != null)

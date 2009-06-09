@@ -1,8 +1,8 @@
 package g8.bookshop.business.ws;
 
-import g8.bookshop.business.core.Customer;
-import g8.bookshop.business.core.ShoppingCart;
-import g8.bookshop.business.core.UserManager;
+import g8.bookshop.business.core.CustomerLocal;
+import g8.bookshop.business.core.ShoppingCartLocal;
+import g8.bookshop.business.core.UserManagerLocal;
 
 import javax.ejb.Stateless;
 import javax.jws.WebMethod;
@@ -15,7 +15,7 @@ import javax.jws.WebService;
 @Stateless
 public class ShoppingCartService {
 	
-	private UserManager um;
+	private UserManagerLocal um;
 	
 	/**
 	 * Default constructor
