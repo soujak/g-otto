@@ -9,5 +9,4 @@ public interface CustomerLocal {
 	 * @return the shoppingCart
 	 */
 	public abstract ShoppingCartLocal getShoppingCart();
-
 }

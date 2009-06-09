@@ -1,16 +1,20 @@
 package g8.bookshop.business.ws;
 
+import g8.bookshop.business.core.UserManager;
+
 import javax.ejb.Stateless;
 import javax.jws.WebMethod;
 import javax.jws.WebService;
 
 /**
- * Session Bean implementation class CatalogueService
+ * WebService Session Bean implementation class CatalogueService
  */
 @WebService
 @Stateless
 public class CatalogueService {
 
+	private UserManager um;
+	
 	/**
      * Advanced search
      * @param id user id
@@ -20,12 +24,15 @@ public class CatalogueService {
 	@WebMethod
 	String Search(String id, String s) {
 		// TODO
+//		r = Book.find(s);
+//		um.lookup(id).setLastSearchResult(r);
+//		return r;
 		return null;
 	}
 	/**
      * Full-text search
      * @param id user id 
-     * @param s simple string
+     * @param s simple string to search for
 	 * @return corresponding books in XML format
 	 */
 	@WebMethod
