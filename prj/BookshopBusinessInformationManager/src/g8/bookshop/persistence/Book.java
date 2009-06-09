@@ -1,4 +1,4 @@
-package g8.bookshop.business.ds;
+package g8.bookshop.persistence;
 
 import java.io.Serializable;
 import java.lang.String;
@@ -68,7 +68,7 @@ public class Book implements Serializable {
 		this.ISBN = ISBN;
 	}
 	
-	long getId() {
+	public long getId() {
 		return id;
 	}
 	void setId(long id) {
