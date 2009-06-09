@@ -1,5 +1,7 @@
 package g8.bookshop.business.core;
 
+import g8.bookshop.persistence.Credential;
+
 import java.util.Collections;
 import java.util.SortedMap;
 import java.util.TreeMap;
@@ -23,13 +25,13 @@ public class UserManager implements UserManagerLocal {
 	@PersistenceUnit(unitName="")
 	private EntityManagerFactory entManFactory; 
 	
-	
 	public UserManager() {
+		super();
 		userMap = Collections.synchronizedSortedMap(new TreeMap<String,User>());
-		// TODO
 	}
 	
 	/**
+	 * Lookup for a user in the bookshop from his id
 	 * @param id user id
 	 * @return user to which the specified id is mapped, or null if id does not exists 
 	 */
@@ -38,6 +40,7 @@ public class UserManager implements UserManagerLocal {
 	}
 	
 	/**
+	 * Search a user in the bookshop from his id (possibly new) 
 	 * @param id user id.
 	 * @return User to which the specified id is mapped,
 	 * 		if id is not mapped create a new guest with the given id. 
@@ -50,20 +53,36 @@ public class UserManager implements UserManagerLocal {
 	}
 	
 	/**
-	 * Authenticate guest's identity checking given credentials. 
-	 * @param g Guest to authenticate.
-	 * @param n Guest's name.
-	 * @param p Guest's password.
-	 * @return true if the guest is successfully authenticated, false otherwise.
+	 * Authenticate a customer in the bookshop, verifying his credentials 
+	 * @param g Guest to authenticate
+	 * @param n Guest's name
+	 * @param p Guest's password
+	 * @return true if the guest is successfully authenticated, false otherwise
 	 */
 	public boolean authenticate(GuestLocal g, String n, String p) {
+		boolean ret;
 		EntityManager em = this.entManFactory.createEntityManager();
-		// TODO check customer's name and password
-		return false;
+		Credential c = em.find(Credential.class, n);
+		if (c != null)
+			if (c.getPassword().equals(p)) {
+				String id = g.getId(); 
+				this.userMap.put(id, new Customer(id));
+				ret = true;
+			}
+			else
+				ret = false;
+		else
+			ret = false;
+		return ret;
 	}
 
+	/**
+	 * Disconnect a given customer from the bookshop
+	 * @param c Customer to disconnect
+	 * @return true if the customer is successfully disconnected, false otherwise
+	 */
 	public boolean disconnect(CustomerLocal c) {
-		if (this.userMap.remove(((UserLocal) c).getId()) != null)
+		if (this.userMap.remove(c.getId()) != null)
 			return true;
 		else
 			return false;

@@ -3,6 +3,7 @@ import g8.bookshop.business.core.CustomerLocal;
 import g8.bookshop.business.core.GuestLocal;
 import g8.bookshop.business.core.UserLocal;
 import g8.bookshop.business.core.UserManager;
+import g8.bookshop.business.core.UserManagerLocal;
 
 import javax.ejb.Stateless;
 import javax.jws.WebMethod;
@@ -16,13 +17,13 @@ import javax.jws.WebService;
 @Stateless
 public class UserManagerService {
 	
-	private UserManager um;
+	private UserManagerLocal um;
 
 	/**
 	 * Constructor 
 	 */
 	public UserManagerService() {
-		// TODO
+		super();
 	}
 	
 	/**

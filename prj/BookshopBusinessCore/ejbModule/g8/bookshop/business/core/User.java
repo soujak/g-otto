@@ -16,10 +16,12 @@ public abstract class User implements UserLocal {
 	private String lastSearchResults;
 	
 	/**
-	 * @return true if it is a customer, false if it is a guest 
+	 * @param id user id
+	 * @param customer user type
 	 */
-	public boolean isCustomer() {
-		return this.customer;
+	public User(String id, boolean customer) {
+		this.id = id;
+		this.customer = customer;
 	}
 	
 	/**
@@ -30,11 +32,10 @@ public abstract class User implements UserLocal {
 	}
 	
 	/**
-	 * @param id user id
-	 * @param customer user type
+	 * Check the kind of the user
+	 * @return true if it is a customer, false if it is a guest 
 	 */
-	public User(String id, boolean customer) {
-		this.id = id;
-		this.customer = customer;
+	public boolean isCustomer() {
+		return this.customer;
 	}
 }

@@ -14,25 +14,7 @@ public class Order implements OrderLocal {
 	private int quantity;
 	
 	/**
-	 * @return the book
-	 */
-	Book getBook() {
-		return book;
-	}
-	/**
-	 * @return the quantity
-	 */
-	int getQuantity() {
-		return quantity;
-	}
-	/**
-	 * @param quantity
-	 */
-	void setQuantity(int q) {
-		this.quantity = q; 
-	}
-	
-	/**
+	 * Constructor
 	 * @param b
 	 * @param q
 	 */
@@ -41,4 +23,24 @@ public class Order implements OrderLocal {
 		this.book = b;
 		this.quantity = q;
 	}
+	
+	/**
+	 * @return the book
+	 */
+	public Book getBook() {
+		return book;
+	}
+	/**
+	 * @return the quantity
+	 */
+	public int getQuantity() {
+		return quantity;
+	}
+	/**
+	 * @param quantity
+	 */
+	public void setQuantity(int q) {
+		this.quantity = q; 
+	}
+	
 }
