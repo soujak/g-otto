@@ -39,20 +39,20 @@
       <name="=BookshopBusinessCore/ejbModule<g8.bookshop.business.core{UserManager.java[UserManager"/>
       <height="-1"/>
       <width="-1"/>
-      <x="-73"/>
-      <y="56"/>
+      <x="168"/>
+      <y="359"/>
    </type>
-   <relationship>
-      <class="edu.buffalo.cse.green.relationship.generalization.GeneralizationPart"/>
-      <sourceType="=BookshopBusinessCore/ejbModule<g8.bookshop.business.core{Guest.java[Guest"/>
-      <targetType="=BookshopBusinessCore/ejbModule<g8.bookshop.business.core{User.java[User"/>
-      <bendpoints>
-      </bendpoints>
-   </relationship>
    <relationship>
       <class="edu.buffalo.cse.green.relationship.composition.CompositionPart"/>
       <sourceType="=BookshopBusinessCore/ejbModule<g8.bookshop.business.core{Customer.java[Customer"/>
       <targetType="=BookshopBusinessCore/ejbModule<g8.bookshop.business.core{ShoppingCart.java[ShoppingCart"/>
+      <bendpoints>
+      </bendpoints>
+   </relationship>
+   <relationship>
+      <class="edu.buffalo.cse.green.relationship.generalization.GeneralizationPart"/>
+      <sourceType="=BookshopBusinessCore/ejbModule<g8.bookshop.business.core{Guest.java[Guest"/>
+      <targetType="=BookshopBusinessCore/ejbModule<g8.bookshop.business.core{User.java[User"/>
       <bendpoints>
       </bendpoints>
    </relationship>

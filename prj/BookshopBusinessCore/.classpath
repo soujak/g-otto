@@ -4,6 +4,6 @@
 	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.module.container"/>
 	<classpathentry kind="con" path="org.eclipse.jst.server.core.container/org.jboss.ide.eclipse.as.core.server.runtime.runtimeTarget/JBoss AS v5.0 (jdk6) Runtime"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/java-6-sun-1.6.0.14"/>
-	<classpathentry combineaccessrules="false" kind="src" path="/BookshopBusinessInformationManager"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/BookshopInformationManager"/>
 	<classpathentry kind="output" path="build/classes"/>
 </classpath>

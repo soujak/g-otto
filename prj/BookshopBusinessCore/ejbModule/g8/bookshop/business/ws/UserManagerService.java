@@ -1,4 +1,7 @@
 package g8.bookshop.business.ws;
+import g8.bookshop.business.core.CustomerLocal;
+import g8.bookshop.business.core.GuestLocal;
+import g8.bookshop.business.core.UserLocal;
 import g8.bookshop.business.core.UserManager;
 
 import javax.ejb.Stateless;
@@ -6,7 +9,8 @@ import javax.jws.WebMethod;
 import javax.jws.WebService;
 
 /**
- * Session Bean implementation class UserManagerService
+ * WebService Session Bean implementation class UserManagerService
+ * @author soujak
  */
 @WebService
 @Stateless
@@ -15,25 +19,26 @@ public class UserManagerService {
 	private UserManager um;
 
 	/**
-	 * Default constructor 
+	 * Constructor 
 	 */
 	public UserManagerService() {
 		// TODO
-//		this.um = UserManager.Instance(); 
 	}
 	
 	/**
-	 * Authenticate a user to become a customer
-	 * @param id user id
+	 * Authenticate guest's identity checking given credentials.
+	 * @param id Guest's id
 	 * @param name customer name
 	 * @param pwd customer password
-	 * @return
+	 * @return true if the guest is successfully authenticated, false otherwise.
 	 */
 	@WebMethod
 	boolean Authenticate(String id, String name, String pwd) {
-        // TODO
-//		return um.authenticate(um.getUser(id), name, pwd);
-		return false;
+		UserLocal user = um.getUser(id);
+		if (!user.isCustomer())
+			return um.authenticate((GuestLocal) user, name, pwd);
+		else
+			return false;
 	}
 	
 	/**
@@ -43,8 +48,12 @@ public class UserManagerService {
 	 */
 	@WebMethod
 	boolean Disconnect(String id) {
-        // TODO
-//		return this.um.disconnect(this.um.getUser(id));
+		UserLocal user = um.lookup(id);
+		if (user != null)
+			if (user.isCustomer())
+				return um.disconnect((CustomerLocal) user);
+			else
+				return false;
 		return false;
-	}	
+	}
 }

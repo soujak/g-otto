@@ -9,7 +9,7 @@ import javax.jws.WebMethod;
 import javax.jws.WebService;
 
 /**
- * Session Bean implementation class ShoppingCartService
+ * WebService Session Bean implementation class ShoppingCartService
  */
 @WebService
 @Stateless
