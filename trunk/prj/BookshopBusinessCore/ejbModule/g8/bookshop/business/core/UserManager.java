@@ -12,6 +12,8 @@ import javax.persistence.PersistenceUnit;
 
 import org.jboss.ejb3.annotation.Service;
 
+import com.sun.tools.xjc.reader.xmlschema.bindinfo.BIConversion.User;
+
 /**
  * HASingleton Service Bean implementation class UserManager
  * @author soujak
@@ -47,8 +49,10 @@ public class UserManager implements UserManagerLocal {
 	 */
 	public UserLocal getUser(String id) {
 		UserLocal u = userMap.get(id);
-		if (u == null)
+		if (u == null) {
 			u = new Guest(id);
+			userMap.put(id, u);
+		}
 		return u;
 	}
 	
