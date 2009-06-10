@@ -2,17 +2,11 @@ package g8.bookshop.business.ws;
 
 import g8.bookshop.business.core.UserManagerLocal;
 
-import javax.ejb.Stateless;
-import javax.jws.WebMethod;
-import javax.jws.WebService;
-
 /**
  * WebService Session Bean implementation class CatalogueService
  */
-@WebService
-@Stateless
-public class CatalogueService {
-
+public class CatalogueService implements CatalogueServiceRemote {
+	
 	private UserManagerLocal um;
 	
 	/**
@@ -21,7 +15,7 @@ public class CatalogueService {
      * @param s book definition in XML format
      * @return corresponding books in XML format
      */
-	@WebMethod
+	public
 	String Search(String id, String s) {
 		// TODO
 //		r = Book.find(s);
@@ -35,7 +29,7 @@ public class CatalogueService {
      * @param s simple string to search for
 	 * @return corresponding books in XML format
 	 */
-	@WebMethod
+	public
 	String FullSearch(String id, String s) {
 		// TODO
 		return null;
