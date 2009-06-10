@@ -11,38 +11,38 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 /**
- * Servlet implementation class Disconnect
+ * Servlet implementation class Authenticate
  */
-public class Disconnect extends HttpServlet {
+public class Authenticate extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public Disconnect() {
+    public Authenticate() {
         super();
-
     }
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doPost(HttpServletRequest request, 
+			HttpServletResponse response) throws ServletException, IOException {
 		// retrieves user session...
 		HttpSession session = request.getSession();
 		// retrieves DataExchage user instance...
 		DataExchange dataExchange = Utils.getDataExchange(session);
-		// retrieves session ID...
+		// retrieves parameter to evaluate post request
+		String username = request.getParameter("username");
+		String password = request.getParameter("password");
 		String id = session.getId();
-
+		
 		// TODO: web service call
-		// UserManager.Disconnect(id)
-		
-		dataExchange.setUsername(DataExchange.GUESTNAME);
-		dataExchange.setAuthenticated(false);
-		Utils.forwardToPage("/pages/index.jsp", getServletContext(), 
+		// if(UserManager.Authenticate(sessionID, username, password)) ...
+		dataExchange.setUsername(username);
+		dataExchange.setAuthenticated(true);
+		Utils.forwardToPage("/pages/home.jsp", getServletContext(), 
 				request, response);
-		
 	}
 
 }

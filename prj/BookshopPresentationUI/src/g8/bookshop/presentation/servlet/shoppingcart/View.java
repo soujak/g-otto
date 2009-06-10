@@ -1,4 +1,4 @@
-package g8.bookshop.presentation.servlet.usermanager;
+package g8.bookshop.presentation.servlet.shoppingcart;
 
 import g8.bookshop.presentation.content.manager.DataExchange;
 import g8.bookshop.presentation.servlet.Utils;
@@ -11,17 +11,16 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 /**
- * Servlet implementation class Disconnect
+ * Servlet implementation class View
  */
-public class Disconnect extends HttpServlet {
+public class View extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public Disconnect() {
+    public View() {
         super();
-
     }
 
 	/**
@@ -32,17 +31,6 @@ public class Disconnect extends HttpServlet {
 		HttpSession session = request.getSession();
 		// retrieves DataExchage user instance...
 		DataExchange dataExchange = Utils.getDataExchange(session);
-		// retrieves session ID...
-		String id = session.getId();
-
-		// TODO: web service call
-		// UserManager.Disconnect(id)
-		
-		dataExchange.setUsername(DataExchange.GUESTNAME);
-		dataExchange.setAuthenticated(false);
-		Utils.forwardToPage("/pages/index.jsp", getServletContext(), 
-				request, response);
-		
 	}
 
 }

@@ -15,7 +15,7 @@
 <p>User: <jsp:getProperty property="username" name="DataExchange" /></p>
 </div>
 
-<%@include file="/template/guest_menu.jspf"%>
+<%@include file="/template/customer_menu.jspf"%>
 
 <%@ include file="/template/simple_search.jspf"%>
 

@@ -10,12 +10,25 @@ import javax.xml.transform.TransformerException;
 
 import org.xml.sax.SAXException;
 
+
+
 public class DataExchange {
+	
+	public static final String GUESTNAME = "Guest";
 
 	private String booklist = "";
-	private String username = "";
+	private String username = DataExchange.GUESTNAME;
 	private String key = "";
 	private String xslt_location = "formatter.xsl";
+	private boolean authenticated = false;
+
+	public boolean getAuthenticated() {
+		return authenticated;
+	}
+
+	public void setAuthenticated(boolean authenticated) {
+		this.authenticated = authenticated;
+	}
 
 	public String getKey() {
 		return key;
