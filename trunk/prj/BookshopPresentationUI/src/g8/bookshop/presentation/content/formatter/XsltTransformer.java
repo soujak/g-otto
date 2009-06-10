@@ -54,8 +54,10 @@ public class XsltTransformer {
 
 		TransformerFactory tfactory = TransformerFactory.newInstance();
 		Transformer trans = tfactory.newTransformer();
-		trans.setOutputProperty(OutputKeys.OMIT_XML_DECLARATION, "false");
+		trans.setOutputProperty(OutputKeys.OMIT_XML_DECLARATION, "yes");
 		trans.setOutputProperty(OutputKeys.INDENT, "yes");
+		trans.setOutputProperty(OutputKeys.ENCODING, "utf-8");
+
 		// trans.setOutputProperty(OutputKeys.DOCTYPE_SYSTEM, "file.dtd");
 
 		trans.transform(source, result);
