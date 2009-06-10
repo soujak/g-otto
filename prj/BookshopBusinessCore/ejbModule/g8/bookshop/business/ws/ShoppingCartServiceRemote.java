@@ -14,32 +14,36 @@ import javax.jws.WebService;
 public interface ShoppingCartServiceRemote {
 
 	/**
+	 * View the shopping cart
 	 * @param id User id
 	 * @return Shopping cart in XML format
 	 */
 	@WebMethod
-	String View(String id);
+	String view(String id);
 
 	/**
+	 * Add orders to the shopping cart
 	 * @param id User id
 	 * @param ords Orders in XML format
-	 * @return
+	 * @return true if the orders is successfully added, false otherwise
 	 */
 	@WebMethod
-	boolean AddOrders(String id, String ords);
+	boolean addOrders(String id, String ords);
 
 	/**
+	 * Update the shopping cart with the given orders
 	 * @param id User id
 	 * @param ords Orders in XML format
-	 * @return 
+	 * @return true if the shopping cart is successfully updated, false otherwise
 	 */
 	@WebMethod
-	boolean Update(String id, String ords);
+	boolean update(String id, String ords);
 	
 	/**
+	 * Check out the shopping cart with the given orders
 	 * @param id User id
-	 * @return
+	 * @return true if the shopping cart is successfully checked out, false otherwise
 	 */
 	@WebMethod
-	boolean Checkout(String id);
+	boolean checkOut(String id);
 }
