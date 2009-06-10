@@ -1,8 +1,15 @@
 package g8.bookshop.business.ws;
 
-// import g8.bookshop.business.core.CustomerLocal;
-// import g8.bookshop.business.core.ShoppingCartLocal;
-// import g8.bookshop.business.core.UserManagerLocal;
+import javax.ejb.EJB;
+
+import org.jboss.beans.metadata.api.annotations.Inject;
+
+import g8.bookshop.business.core.Customer;
+import g8.bookshop.business.core.CustomerLocal;
+import g8.bookshop.business.core.ShoppingCartLocal;
+import g8.bookshop.business.core.UserLocal;
+import g8.bookshop.business.core.UserManagerLocal;
+import g8.bookshop.business.util.Converter;
 
 
 /**
@@ -10,23 +17,27 @@ package g8.bookshop.business.ws;
  */
 public class ShoppingCartService implements ShoppingCartServiceRemote {
 	
-//	private UserManagerLocal um;
+	@EJB private UserManagerLocal um;
 	
 	/**
 	 * Default constructor
 	 */
 	public ShoppingCartService() {
-		// TODO
+		super();
 	}
 
 	/**
+	 * View the shopping cart
 	 * @param id User id
 	 * @return Shopping cart in XML format
 	 */
 	public String View(String id) {
-		 // TODO
-//		return um.getCustomer(id).getShoppingCart().toXML;
-		return null;
+		UserLocal u = um.lookup(id);
+		String ret = null;
+		if (u != null)
+			if (u.isCustomer())
+				ret = Converter.toXML(((Customer) u).getShoppingCart());
+		return ret;
 	}
 	/**
 	 * @param id User id
@@ -55,5 +66,5 @@ public class ShoppingCartService implements ShoppingCartServiceRemote {
 	public boolean Checkout(String id) {
 		 // TODO
 		return false;
-	}	
+	}
 }
