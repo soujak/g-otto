@@ -11,15 +11,10 @@
 	scope="session" />
 
 <div id="top">
-<h1>G8 Bookshop</h1>
-<p>User: <jsp:getProperty property="username" name="DataExchange" /></p>
+<h1>G8 Cart</h1>
 </div>
 
-<%@include file="/template/guest_menu.jspf"%>
-
-<%@ include file="/template/simple_search.jspf"%>
-
-<jsp:getProperty property="booklist" name="DataExchange" />
+<%@include file="/template/cart_menu.jspf"%>
 
 <%@include file="/template/bottom.jspf"%>
 
