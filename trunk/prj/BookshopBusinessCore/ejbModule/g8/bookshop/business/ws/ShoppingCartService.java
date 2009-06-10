@@ -17,7 +17,8 @@ import g8.bookshop.business.util.Converter;
  */
 public class ShoppingCartService implements ShoppingCartServiceRemote {
 	
-	@EJB private UserManagerLocal um;
+	@EJB
+	private UserManagerLocal um;
 	
 	/**
 	 * Default constructor
@@ -31,40 +32,58 @@ public class ShoppingCartService implements ShoppingCartServiceRemote {
 	 * @param id User id
 	 * @return Shopping cart in XML format
 	 */
-	public String View(String id) {
-		UserLocal u = um.lookup(id);
+	public String view(String id) {
 		String ret = null;
+		UserLocal u = um.lookup(id);
 		if (u != null)
 			if (u.isCustomer())
-				ret = Converter.toXML(((Customer) u).getShoppingCart());
+				ret = Converter.toXML(((CustomerLocal) u).getShoppingCart());
 		return ret;
 	}
+	
 	/**
+	 * Add orders to the shopping cart
 	 * @param id User id
 	 * @param ords Orders in XML format
-	 * @return
+	 * @return true if the orders is successfully added, false otherwise
 	 */
-	public boolean AddOrders(String id, String ords) {
-		 // TODO
-//		orders=ords.toOrder;
-//		return um.getCustomer(id).getShoppingCart().addOrders(orders);
-		return false;
+	public boolean addOrders(String id, String ords) {
+		boolean ret = false;
+		UserLocal u = um.lookup(id);
+		if (u != null)
+			if (u.isCustomer())
+				ret = ((CustomerLocal) u).getShoppingCart().addOrders(Converter.toOrders(ords));
+		return ret;
 	}
+	
 	/**
+	 * Update the shopping cart with the given orders
 	 * @param id User id
 	 * @param ords Orders in XML format
-	 * @return 
+	 * @return true if the shopping cart is successfully updated, false otherwise
 	 */
-	public boolean Update(String id, String ords) {
+	public boolean update(String id, String ords) {
 		 // TODO
-		return false;
+		boolean ret = false;
+		UserLocal u = um.lookup(id);
+		if (u != null)
+			if (u.isCustomer())
+				ret = ((CustomerLocal) u).getShoppingCart().update(Converter.toOrders(ords));
+		return ret;
 	}
+	
 	/**
+	 * Check out the shopping cart with the given orders
 	 * @param id User id
-	 * @return
+	 * @return true if the shopping cart is successfully checked out, false otherwise
 	 */
-	public boolean Checkout(String id) {
+	public boolean checkOut(String id) {
 		 // TODO
-		return false;
+		boolean ret = false;
+		UserLocal u = um.lookup(id);
+		if (u != null)
+			if (u.isCustomer())
+				ret = ((CustomerLocal) u).getShoppingCart().checkOut();
+		return ret;
 	}
 }
