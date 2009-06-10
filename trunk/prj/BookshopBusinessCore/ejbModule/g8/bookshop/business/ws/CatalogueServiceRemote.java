@@ -16,19 +16,17 @@ public interface CatalogueServiceRemote {
 	
 	/**
      * Advanced search
-     * @param id user id
-     * @param s book definition in XML format
+	 * @param s book definition in XML format
      * @return corresponding books in XML format
      */
 	@WebMethod
-	String Search(String id, String s);
+	String Search(String s);
 
 	/**
      * Full-text search
-     * @param id user id 
-     * @param s simple string to search for
-	 * @return corresponding books in XML format
+	 * @param s simple string to search for
+     * @return corresponding books in XML format
 	 */
 	@WebMethod
-	String FullSearch(String id, String s);
+	String FullSearch(String s);
 }
