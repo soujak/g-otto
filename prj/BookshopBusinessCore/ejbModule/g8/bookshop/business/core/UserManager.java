@@ -82,9 +82,6 @@ public class UserManager implements UserManagerLocal {
 	 * @return true if the customer is successfully disconnected, false otherwise
 	 */
 	public boolean disconnect(CustomerLocal c) {
-		if (this.userMap.remove(c.getId()) != null)
-			return true;
-		else
-			return false;
+		return (this.userMap.remove(c.getId()) != null);
 	}
 }
