@@ -22,7 +22,7 @@ import org.jboss.ejb3.annotation.Service;
 public class UserManager implements UserManagerLocal {
 
 	private SortedMap<String,User> userMap;
-	@PersistenceUnit(unitName="")
+	@PersistenceUnit(unitName="InformationManager")
 	private EntityManagerFactory entManFactory; 
 	
 	public UserManager() {
