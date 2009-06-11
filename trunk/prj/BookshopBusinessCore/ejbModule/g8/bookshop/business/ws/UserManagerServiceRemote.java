@@ -1,14 +1,11 @@
 package g8.bookshop.business.ws;
 
 import javax.ejb.Remote;
-import javax.jws.WebMethod;
-import javax.jws.WebService;
 
 /**
  * WebService Session Bean remote interface UserManagerServiceRemote
  * @author soujak
  */
-@WebService
 @Remote
 public interface UserManagerServiceRemote {
 	/**
@@ -18,7 +15,6 @@ public interface UserManagerServiceRemote {
 	 * @param pwd customer password
 	 * @return true if the guest is successfully authenticated, false otherwise.
 	 */
-	@WebMethod
 	boolean Authenticate(String id, String name, String pwd);
 	
 	/**
@@ -26,6 +22,5 @@ public interface UserManagerServiceRemote {
 	 * @param id user id
 	 * @return
 	 */
-	@WebMethod
 	boolean Disconnect(String id);
 }

@@ -7,12 +7,15 @@ import g8.bookshop.business.core.UserManagerLocal;
 
 import javax.ejb.EJB;
 import javax.ejb.Stateless;
+import javax.jws.WebMethod;
+import javax.jws.WebService;
 
 /**
  * WebService Session Bean implementation class UserManagerService
  * @author soujak
  */
 @Stateless
+@WebService
 public class UserManagerService implements UserManagerServiceRemote {
 	
 	@EJB
@@ -32,6 +35,7 @@ public class UserManagerService implements UserManagerServiceRemote {
 	 * @param pwd customer password
 	 * @return true if the guest is successfully authenticated, false otherwise.
 	 */
+	@WebMethod
 	public boolean Authenticate(String id, String name, String pwd) {
 		UserLocal user = um.getUser(id);
 		if (!user.isCustomer())
@@ -45,6 +49,7 @@ public class UserManagerService implements UserManagerServiceRemote {
 	 * @param id user id
 	 * @return
 	 */
+	@WebMethod
 	public boolean Disconnect(String id) {
 		UserLocal user = um.lookup(id);
 		if (user != null)
