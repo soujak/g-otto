@@ -9,11 +9,8 @@
 <jsp:useBean id="DataExchange"
 	class="g8.bookshop.presentation.content.manager.DataExchange"
 	scope="session" />
-
-<div id="top">
-<h1>G8 Bookshop</h1>
-<p>User: <jsp:getProperty property="username" name="DataExchange" /></p>
-</div>
+	
+<%@include file="/template/top.jspf"%>
 
 <%@include file="/template/guest_menu.jspf"%>
 

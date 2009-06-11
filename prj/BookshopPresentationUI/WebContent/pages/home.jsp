@@ -10,16 +10,15 @@
 	class="g8.bookshop.presentation.content.manager.DataExchange"
 	scope="session" />
 
-<div id="top">
-<h1>G8 Bookshop</h1>
-<p>User: <jsp:getProperty property="username" name="DataExchange" /></p>
-</div>
+<%@include file="/template/top.jspf"%>
 
 <%@include file="/template/customer_menu.jspf"%>
 
 <%@ include file="/template/simple_search.jspf"%>
 
-<jsp:getProperty property="booklist" name="DataExchange" />
+<c:if test="${!empty param.DataExchange}">
+	<jsp:getProperty property="booklist" name="DataExchange" />
+</c:if>
 
 <%@include file="/template/bottom.jspf"%>
 
