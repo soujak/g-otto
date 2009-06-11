@@ -54,6 +54,10 @@ public class CatalogueService implements CatalogueServiceRemote {
 	public String FullSearch(String s) {
 		List<Book> res = em.createNamedQuery("fullSearch")
 			.setParameter("arg",s).getResultList();
-		return Converter.toXML(res);
+		String ret = "";
+		try {
+			ret = Converter.toXML(res);
+		} catch(Exception e) {}
+		return ret;
 	}
 }

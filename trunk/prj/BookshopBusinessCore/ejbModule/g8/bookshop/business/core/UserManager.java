@@ -7,7 +7,6 @@ import java.util.SortedMap;
 import java.util.TreeMap;
 
 import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
 import javax.persistence.PersistenceContext;
 
 import org.jboss.ejb3.annotation.Service;
