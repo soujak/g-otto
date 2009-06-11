@@ -4,6 +4,10 @@ import java.util.List;
 
 import javax.ejb.Local;
 
+/**
+ * Local interface ShoppingCart
+ * @author soujak
+ */
 @Local
 public interface ShoppingCartLocal {
 	/**
@@ -18,7 +22,17 @@ public interface ShoppingCartLocal {
 	 */
 	public boolean addOrders(List<Order> l);
 
+	/**
+	 * Update the shopping cart with the given orders
+	 * @param ords Orders
+	 * @return true if the shopping cart is successfully updated, false otherwise
+	 */
 	public boolean update(List<Order> ords);
-
+	
+	/**
+	 * Check out the shopping cart with the given orders
+	 * @param id User id
+	 * @return true
+	 */
 	public boolean checkOut();
 }
