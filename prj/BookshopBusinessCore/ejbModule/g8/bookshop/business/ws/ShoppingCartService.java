@@ -1,20 +1,18 @@
 package g8.bookshop.business.ws;
 
-import javax.ejb.EJB;
-
-import org.jboss.beans.metadata.api.annotations.Inject;
-
-import g8.bookshop.business.core.Customer;
 import g8.bookshop.business.core.CustomerLocal;
-import g8.bookshop.business.core.ShoppingCartLocal;
 import g8.bookshop.business.core.UserLocal;
 import g8.bookshop.business.core.UserManagerLocal;
 import g8.bookshop.business.util.Converter;
+
+import javax.ejb.EJB;
+import javax.ejb.Stateless;
 
 
 /**
  * WebService Session Bean implementation class ShoppingCartService
  */
+@Stateless
 public class ShoppingCartService implements ShoppingCartServiceRemote {
 	
 	@EJB

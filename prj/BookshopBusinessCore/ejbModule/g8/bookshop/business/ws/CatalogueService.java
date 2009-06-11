@@ -5,6 +5,7 @@ import g8.bookshop.persistence.Book;
 
 import java.util.List;
 
+import javax.ejb.Stateless;
 import javax.ejb.TransactionAttribute;
 import javax.ejb.TransactionAttributeType;
 import javax.persistence.EntityManager;
@@ -15,6 +16,7 @@ import javax.persistence.PersistenceContext;
 /**
  * WebService Session Bean implementation class CatalogueService
  */
+@Stateless
 public class CatalogueService implements CatalogueServiceRemote {
 	
 	@PersistenceContext(unitName="InformationManager")
