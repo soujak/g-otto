@@ -1,6 +1,7 @@
 <head>
 <link rel="stylesheet" type="text/css" href="layout.css" />
 <link rel="stylesheet" type="text/css" href="pages/layout.css" />
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <title>G8 bookstore</title>
 </head>
 

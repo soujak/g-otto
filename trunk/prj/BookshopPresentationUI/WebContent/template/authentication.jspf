@@ -3,6 +3,7 @@
 	method="post">
 	<input name="username" type="text" size="10" />
 	<input name="password" type="password" size="10" />
+	<br/>
 	<input type="submit" value="Authenticate"/>
 </form>
 </div>

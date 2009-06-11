@@ -10,7 +10,6 @@
 	class="g8.bookshop.presentation.content.manager.DataExchange"
 	scope="session" />
 
-
 <div id="top">
 <h1>G8 Authentication</h1>
 </div>

@@ -1,4 +1,4 @@
 <div id="menu">
-<p><a href="/BookshopPresentationUI/Search">Home</a></p>
-<p><a href="/BookshopPresentationUI/Disconnect">Disconnect</a></p>
+<div class="menuitemleft"><a class="mil" href="/BookshopPresentationUI/Search">Home</a></div>
+<div class="menuitemright"><a class="mil" href="/BookshopPresentationUI/Disconnect">Disconnect</a></div>
 </div>

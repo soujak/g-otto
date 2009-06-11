@@ -3,14 +3,47 @@ body {
     text-align: center;
 }
 
+a {	text-decoration: none;}
+/*a:link {color:#FF0000}
+a:visited {color:#00FF00}
+a:hover {color:#FF00FF}
+a:active {color:#0000FF}*/
+
 div#top {
-	margin-bottom: 40px;
+/*    background-color: yellow;*/
+	margin-top: 20pt;
+	margin-bottom: 30pt;
 }
 
 div#bottom {
+/*    background-color: red;*/
     font-style: italic;
     text-align: center;
     text-transform:capitalize;
     font-size: smaller;
-	margin-top: 100px;
+    margin-top: 60pt;
+}
+
+#menu {
+/*    background-color:orange; */
+    /*order: top right bottom left */
+    margin: 40pt 35% 70pt 35%;
+    width: 30%;
+}
+
+.menuitemleft {
+/*    padding-left: 5%;*/
+/*    background-color: yellow;*/
+    width: 50%;
+	float: left;
+}
+.menuitemright {
+/*    padding-right: 5%;*/
+/*    background-color:orange;*/
+	width: 50%;
+	float: right;
+}
+
+#ssearch{
+/*    background-color:blue;*/
 }
