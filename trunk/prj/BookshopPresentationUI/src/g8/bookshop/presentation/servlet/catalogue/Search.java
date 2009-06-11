@@ -1,5 +1,6 @@
 package g8.bookshop.presentation.servlet.catalogue;
 
+import g8.bookshop.business.ws.CatalogueServiceRemoteServiceLocator;
 import g8.bookshop.presentation.content.manager.DataExchange;
 import g8.bookshop.presentation.servlet.Utils;
 
@@ -11,6 +12,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import javax.xml.parsers.ParserConfigurationException;
+import javax.xml.rpc.ServiceException;
 
 import org.xml.sax.SAXException;
 
@@ -33,19 +35,26 @@ public class Search extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException {
-		String result;
+		String result = "";
+		// retrieve search parameter
+		String key = request.getParameter("key").toString();
 		// retrieves user session...
 		HttpSession session = request.getSession();
 		// retrieves DataExchage user instance...
 		DataExchange dataExchange = Utils.getDataExchange(session);
+		// create service client instance...
+		CatalogueServiceRemoteServiceLocator service = new CatalogueServiceRemoteServiceLocator();
 
+		// Catalogue WebService call 
+		try {
+			result = service.getCatalogueServiceRemotePort().fullSearch(key);
+		} catch (ServiceException se) {
+			System.err.println("Exception occurs calling Catalogue WebService: fullSearch method");
+			se.printStackTrace();
+		}
 		
-		result = "";
-		// TODO: web service call 
-		// result  = Catalogue.Search(key)
-
 		// filling dataExchange instance fields
-		dataExchange.setKey(request.getParameter("key").toString());
+		dataExchange.setKey(key);
 		try {
 			dataExchange.setBooklist(result);
 		} catch (ParserConfigurationException e) {
