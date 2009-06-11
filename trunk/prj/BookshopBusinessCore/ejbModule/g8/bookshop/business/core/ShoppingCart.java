@@ -4,15 +4,14 @@
 package g8.bookshop.business.core;
 
 import java.util.Collections;
-import java.util.Iterator;
 import java.util.List;
 import java.util.ListIterator;
 import java.util.SortedMap;
 import java.util.TreeMap;
 
 /**
+ * Implementation class ShoppingCart
  * @author soujak
- *
  */
 public class ShoppingCart implements ShoppingCartLocal {
 
@@ -45,7 +44,7 @@ public class ShoppingCart implements ShoppingCartLocal {
 	 */
 	public boolean addOrders(List<Order> l) {
 		boolean ret = false;
-		for (Iterator<Order> i = l.listIterator(); i.hasNext();) {
+		for (ListIterator<Order> i = l.listIterator(); i.hasNext();) {
 			Order o = i.next();
 			// TODO check validity of the short hand version:
 			// ret &= addOrder(o);
@@ -54,11 +53,21 @@ public class ShoppingCart implements ShoppingCartLocal {
 		return ret;
 	}
 
+	/**
+	 * Update the shopping cart with the given orders
+	 * @param ords Orders
+	 * @return true if the shopping cart is successfully updated, false otherwise
+	 */
 	public boolean update(List<Order> ords) {
 		this.orders = Collections.synchronizedSortedMap(new TreeMap<Long,Order>());
 		return this.addOrders(ords);
 	}
-
+	
+	/**
+	 * Check out the shopping cart with the given orders
+	 * @param id User id
+	 * @return true
+	 */
 	public boolean checkOut() {
 		// TODO
 		// I am dummy! Huh?
