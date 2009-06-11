@@ -10,12 +10,18 @@
 	<title/>
 	<section xml:id="diario-pm">
 		<title>Diario di &ppm;</title>
-		<table>
-			<title>Diario del &rpm;</title>
+		<!-- Piccola modifica per dblatex: da table a informaltable, di conseguenza nessun <title> -->
+		<informaltable>
+			<!--<title>Diario del &rpm;</title>-->
 			<tgroup cols="3">
-				<colspec colname="0" align="center" colwidth="60"/>
-				<colspec colname="1" align="center" colwidth="60"/>
+				<!-- colwidth ottimali: settare 50pt se avete nelle celle itemizedlist, 60pt altrimenti -->
+				<colspec colname="0" align="center" colwidth="60pt"/>
+				<!-- colwidth ottimali: settare 40pt se avete nelle celle itemizedlist, 60pt altrimenti -->
+				<colspec colname="1" align="center" colwidth="60pt"/>
+				<!-- colwidth ottimali: non settare -->
+				<!-- attenzione, modifiche errate ai colwidth creano problemi a dblatex -->
 				<colspec colname="2" align="justify"/>
+				<!-- non modificare questo header -->
 				<thead>
 					<row>
 						<entry>Data</entry>
@@ -150,8 +156,7 @@
 					<row>
 						<entry>06/05/2009</entry>
 						<entry>0.5</entry>
-						<entry>Revisione modellazione dell'architettura.
-						</entry>
+						<entry>Revisione modellazione dell'architettura. </entry>
 					</row>
 					<row>
 						<entry>07/05/2009</entry>
@@ -162,20 +167,20 @@
 					<row>
 						<entry>07/05/2009</entry>
 						<entry>1</entry>
-						<entry>Revisione modelli: revisione del prototipo di interfaccia utente (con QE).
-						</entry>
+						<entry>Revisione modelli: revisione del prototipo di interfaccia utente (con
+							QE). </entry>
 					</row>
 					<row>
 						<entry>07/05/2009</entry>
 						<entry>0.5</entry>
-						<entry>Gestione progetto: aggiornamento dello stato di avanzamento e dello sforzo consuntivo.
-						</entry>
+						<entry>Gestione progetto: aggiornamento dello stato di avanzamento e dello
+							sforzo consuntivo. </entry>
 					</row>
 					<row>
 						<entry>08/05/2009</entry>
 						<entry>2</entry>
-						<entry>Formazione architetturale e implementativa: studio tecnologia J2EE e prove con JBoss AS.
-						</entry>
+						<entry>Formazione architetturale e implementativa: studio tecnologia J2EE e
+							prove con JBoss AS. </entry>
 					</row>
 					<row>
 						<entry>11/05/2009</entry>
@@ -186,14 +191,14 @@
 					<row>
 						<entry>11/05/2009</entry>
 						<entry>4</entry>
-						<entry>Prototipazione architetturale: prime bozze implementative e prove di schieramento su CS.
-						</entry>
+						<entry>Prototipazione architetturale: prime bozze implementative e prove di
+							schieramento su CS. </entry>
 					</row>
 					<row>
 						<entry>11/05/2009</entry>
 						<entry>0.5</entry>
-						<entry>Configurazione ambiente: aggiornamento di JBOSS AS e installazione plugin JBOSS Tools.
-						</entry>
+						<entry>Configurazione ambiente: aggiornamento di JBOSS AS e installazione
+							plugin JBOSS Tools. </entry>
 					</row>
 					<row>
 						<entry>12/05/2009</entry>
@@ -216,18 +221,17 @@
 					<row>
 						<entry>14/05/2009</entry>
 						<entry>1.5</entry>
-						<entry>Prototipazione architetturale: collegamento di una servlet ad un end-point di un WS.
-						</entry>
+						<entry>Prototipazione architetturale: collegamento di una servlet ad un
+							end-point di un WS. </entry>
 					</row>
 					<row>
 						<entry>14/05/2009</entry>
 						<entry>0.5</entry>
-						<entry>Condivisione artefatti: aggiornamento diario personale.
-						</entry>
+						<entry>Condivisione artefatti: aggiornamento diario personale. </entry>
 					</row>
 				</tbody>
 			</tgroup>
-		</table>
+		</informaltable>
 		<?very-hard-pagebreak?>
 	</section>
 </article>

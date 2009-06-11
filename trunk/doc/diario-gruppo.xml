@@ -9,14 +9,19 @@
     xmlns:xi="http://www.w3.org/2001/XInclude" xmlns:xlink="http://www.w3.org/1999/xlink"
     version="5.0">
     <title/>
-<section xml:id="diario-gruppo">
+    <section xml:id="diario-gruppo">
         <title>Diario di Gruppo</title>
-        <table>
-            <title>Diario di gruppo</title>
+        <!-- Piccola modifica per dblatex: da table a informaltable, di conseguenza nessun <title> -->
+        <informaltable>
+            <!--<title>Diario di gruppo</title>-->
             <tgroup cols="3">
-                <colspec colname="0" align="center" colwidth="77.49pt"/>
-                <colspec colname="1" align="center" colwidth="43.2pt"/>
-                <colspec colname="2" align="justify" colwidth="346.29pt"/>
+                <!-- colwidth ottimali: settare 50pt se avete nelle celle itemizedlist, 60pt altrimenti -->
+                <colspec colname="0" align="center" colwidth="50pt"/>
+                <!-- colwidth ottimali: settare 40pt se avete nelle celle itemizedlist, 60pt altrimenti -->
+                <colspec colname="1" align="center" colwidth="40pt"/>
+                <!-- colwidth ottimali: non settare -->
+                <!-- attenzione, modifiche errate ai colwidth creano problemi a dblatex -->
+                <colspec colname="2" align="justify"/>
                 <!-- non modificare questo header -->
                 <thead>
                     <row>
@@ -30,8 +35,8 @@
                 <tfoot>
                     <row>
                         <entry>Totale</entry>
-                        <entry>32.5 ore</entry>
-                        <entry>Fino al 4/6/2009</entry>
+                        <entry>40.5 ore</entry>
+                        <entry>Fino al 5/6/2009</entry>
                     </row>
                 </tfoot>
                 <tbody>
@@ -122,7 +127,8 @@
                             <itemizedlist>
                                 <listitem>
                                     <para>Revisione piano di progetto: definizione prossime
-                                        scadenze, pianificazione prossime attivit&agrave;.</para>
+                                        scadenze, pianificazione prossime
+                                        attivit&agrave;.</para>
                                 </listitem>
                                 <listitem>
                                     <para>Revisione dell'architettura.</para>
@@ -139,17 +145,35 @@
                     <row>
                         <entry>5/05/2009</entry>
                         <entry>1.5</entry>
-                        <entry>Prototipazione tecnica.</entry>
+                        <entry>
+                            <itemizedlist>
+                                <listitem>
+                                    <para>Prototipazione tecnica.</para>
+                                </listitem>
+                            </itemizedlist>
+                        </entry>
                     </row>
                     <row>
                         <entry>7/05/2009</entry>
                         <entry>3.5</entry>
-                        <entry>Prototipazione tecnica.</entry>
+                        <entry>
+                            <itemizedlist>
+                                <listitem>
+                                    <para>Prototipazione tecnica.</para>
+                                </listitem>
+                            </itemizedlist>
+                        </entry>
                     </row>
                     <row>
                         <entry>12/05/2009</entry>
                         <entry>3.5</entry>
-                        <entry>Prototipazione tecnica.</entry>
+                        <entry>
+                            <itemizedlist>
+                                <listitem>
+                                    <para>Prototipazione tecnica.</para>
+                                </listitem>
+                            </itemizedlist>
+                        </entry>
                     </row>
                     <row>
                         <entry>18/05/2009</entry>
@@ -159,19 +183,35 @@
                     <row>
                         <entry>19/05/2009</entry>
                         <entry>2.5</entry>
-                        <entry>Prototipazione tecnica.</entry>
+                        <entry>
+                            <itemizedlist>
+                                <listitem>
+                                    <para>Prototipazione tecnica.</para>
+                                </listitem>
+                            </itemizedlist>
+                        </entry>
                     </row>
                     <row>
                         <entry>21/05/2009</entry>
                         <entry>1.5</entry>
                         <entry>
-                            <para>Prototipazione tecnica.</para>
+                            <itemizedlist>
+                                <listitem>
+                                    <para>Prototipazione tecnica.</para>
+                                </listitem>
+                            </itemizedlist>
                         </entry>
                     </row>
                     <row>
                         <entry>25/05/2009</entry>
                         <entry>2</entry>
-                        <entry>Prototipazione tecnica.</entry>
+                        <entry>
+                            <itemizedlist>
+                                <listitem>
+                                    <para>Prototipazione tecnica.</para>
+                                </listitem>
+                            </itemizedlist>
+                        </entry>
                     </row>
                     <row>
                         <entry>27/05/2009</entry>
@@ -190,7 +230,13 @@
                     <row>
                         <entry>03/06/2009</entry>
                         <entry>3</entry>
-                        <entry>Elaborazione. </entry>
+                        <entry>
+                            <itemizedlist>
+                                <listitem>
+                                    <para>Prototipazione tecnica.</para>
+                                </listitem>
+                            </itemizedlist>
+                        </entry>
                     </row>
                     <row>
                         <entry>04/06/2009</entry>
@@ -209,7 +255,7 @@
                     </row>
                     <row>
                         <entry>05/06/2009</entry>
-                        <entry>6+</entry>
+                        <entry>8</entry>
                         <entry>
                             <itemizedlist>
                                 <listitem>
@@ -224,7 +270,7 @@
                     </row>
                 </tbody>
             </tgroup>
-        </table>
+        </informaltable>
         <?very-hard-pagebreak?>
     </section>
 </article>
