@@ -10,7 +10,9 @@
     <chapter xml:id="chap-relazionediprogetto">
         <title>Relazione di progetto</title>
         <!-- Empty PARA for SPACING -->
-        <xi:include href="sect-usecases.xml" xpointer="sect-usecases"/>
+        <xi:include href="sect-usecases.xml" xpointer="sect-diagrammi-usecases"/>
+        <xi:include href="sect-usecases.xml" xpointer="sect-tabelle-usecases"/>
+        <xi:include href="sect-usecases.xml" xpointer="sect-matricemappaturarequisiti"/>
 <!--       <xi:include href="sect-diagrammistati.xml" xpointer="sect-diagrammistati"/>-->
     </chapter>
 </book>
