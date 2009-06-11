@@ -3,15 +3,11 @@
  */
 package g8.bookshop.business.util;
 
-import java.util.Collections;
-import java.util.List;
-import java.util.TreeMap;
-
-import g8.bookshop.business.core.Customer;
 import g8.bookshop.business.core.Order;
-import g8.bookshop.business.core.ShoppingCart;
 import g8.bookshop.business.core.ShoppingCartLocal;
-import g8.bookshop.business.core.User;
+import g8.bookshop.persistence.Book;
+
+import java.util.List;
 
 /**
  * @author soujak
@@ -26,6 +22,11 @@ public class Converter {
 
 	public static List<Order> toOrders(String ords) {
 		// TODO
+		return null;
+	}
+
+	public static String toXML(List<Book> res) {
+		// TODO Auto-generated method stub
 		return null;
 	}
 
