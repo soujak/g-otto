@@ -8,7 +8,7 @@ import java.util.TreeMap;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
-import javax.persistence.PersistenceUnit;
+import javax.persistence.PersistenceContext;
 
 import org.jboss.ejb3.annotation.Service;
 
@@ -22,8 +22,8 @@ import org.jboss.ejb3.annotation.Service;
 public class UserManager implements UserManagerLocal {
 
 	private SortedMap<String,User> userMap;
-	@PersistenceUnit(unitName="InformationManager")
-	private EntityManagerFactory entManFactory; 
+	@PersistenceContext(unitName="InformationManager")
+	private EntityManager em; 
 	
 	public UserManager() {
 		super();
@@ -63,7 +63,6 @@ public class UserManager implements UserManagerLocal {
 	 */
 	public boolean authenticate(GuestLocal g, String n, String p) {
 		boolean ret;
-		EntityManager em = this.entManFactory.createEntityManager();
 		Credential c = em.find(Credential.class, n);
 		if (c != null)
 			if (c.getPassword().equals(p)) {
