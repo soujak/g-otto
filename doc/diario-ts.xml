@@ -11,11 +11,16 @@
     <title/>
     <section xml:id="diario-ts">
         <title>Diario di &pts;</title>
-        <table>
-            <title>Diario del &rts;</title>
+        <!-- Piccola modifica per dblatex: da table a informaltable, di conseguenza nessun <title> -->
+        <informaltable>
+            <!--<title>Diario del &rts;</title>-->
             <tgroup cols="3">
-                <colspec colname="0" align="center" colwidth="60"/>
-                <colspec colname="1" align="center" colwidth="60"/>
+                <!-- colwidth ottimali: settare 50pt se avete nelle celle itemizedlist, 60pt altrimenti -->
+                <colspec colname="0" align="center" colwidth="50pt"/>
+                <!-- colwidth ottimali: settare 40pt se avete nelle celle itemizedlist, 60pt altrimenti -->
+                <colspec colname="1" align="center" colwidth="40pt"/>
+                <!-- colwidth ottimali: non settare -->
+                <!-- attenzione, modifiche errate ai colwidth creano problemi a dblatex -->
                 <colspec colname="2" align="justify"/>
                 <!-- non modificare questo header -->
                 <thead>
@@ -30,8 +35,8 @@
                 <tfoot>
                     <row>
                         <entry>Totale</entry>
-                        <entry>31.5 ore</entry>
-                        <entry>Fino al 5/5/2009</entry>
+                        <entry>58 ore</entry>
+                        <entry>Fino al 8/6/2009</entry>
                     </row>
                 </tfoot>
                 <tbody>
@@ -39,7 +44,6 @@
                         <entry>10/04/2009</entry>
                         <entry>6</entry>
                         <entry>
-
                             <itemizedlist>
                                 <listitem>
                                     <para>Analisi di Docbook e degli strumenti per un suo utilizzo.
@@ -120,7 +124,7 @@
                     </row>
                     <row>
                         <entry>24/04/2009</entry>
-                        <entry>3.5</entry>
+                        <entry>3</entry>
                         <entry>
                             <itemizedlist>
                                 <listitem>
@@ -144,42 +148,216 @@
                         </entry>
                     </row>
                     <row>
+                        <entry>27/04/2009</entry>
+                        <entry>2</entry>
+                        <entry>
+                            <itemizedlist>
+                                <listitem>
+                                    <para>Documentazione su J2EE e web services.</para>
+                                </listitem>
+                            </itemizedlist>
+                        </entry>
+                    </row>
+                    <row>
                         <entry>4/05/2009</entry>
                         <entry>3</entry>
                         <entry>
                             <itemizedlist>
                                 <listitem>
-                                    <para>Aggiornamento diari e formalizzazione documentazione prodotta nell'incontro di gruppo precedente.</para>
+                                    <para>Formalizzazione documentazione prodotta nell'incontro di
+                                        gruppo precedente.</para>
                                 </listitem>
                                 <listitem>
-                                    <para>Versione rivista dei casi d'uso: tabelle riviste, nuovo diagramma UML.</para>
+                                    <para>Versione rivista dei casi d'uso: tabelle riviste, nuovo
+                                        diagramma UML.</para>
                                 </listitem>
                                 <listitem>
                                     <para>Aggiornamento tabella di mappatura dei requisiti.</para>
-                                </listitem>                                
+                                </listitem>
                             </itemizedlist>
                         </entry>
                     </row>
+                    <!-- MAGGIO -->
                     <row>
                         <entry>5/05/2009</entry>
                         <entry>2</entry>
                         <entry>
                             <itemizedlist>
                                 <listitem>
-                                    <para>Revisione della bozza della relazione dal punto di vista grafico.</para>
+                                    <para>Revisione della bozza della relazione dal punto di vista
+                                        grafico.</para>
                                 </listitem>
                                 <listitem>
-                                    <para>Commento/revisione al diagramma preliminare dell'architettura.</para>
+                                    <para>Commento/revisione al diagramma preliminare
+                                        dell'architettura.</para>
                                 </listitem>
                             </itemizedlist>
                         </entry>
                     </row>
-                   
-
-                   
+                    <row>
+                        <entry>11/05/2009</entry>
+                        <entry>2</entry>
+                        <entry>
+                            <itemizedlist>
+                                <listitem>
+                                    <para>prove con JBoss (EntityBean)</para>
+                                </listitem>
+                            </itemizedlist>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry>13/05/2009</entry>
+                        <entry>4</entry>
+                        <entry>
+                            <itemizedlist>
+                                <listitem>
+                                    <para>prove con JBoss (comunicazione Servlet/SessionBean)</para>
+                                </listitem>
+                                <listitem>
+                                    <para>Tentativo di fix problema relativo a Java 6 su Mac.</para>
+                                </listitem>
+                            </itemizedlist>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry>14/05/2009</entry>
+                        <entry>2</entry>
+                        <entry>
+                            <itemizedlist>
+                                <listitem>
+                                    <para>prove con JBoss (comunicazione Servlet/SessionBean)</para>
+                                </listitem>
+                                <listitem>
+                                    <para>Fix problema relativo a Java 6 su Mac.</para>
+                                </listitem>
+                            </itemizedlist>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry>20/05/2009</entry>
+                        <entry>1</entry>
+                        <entry>
+                            <itemizedlist>
+                                <listitem>
+                                    <para>prove con JBoss.</para>
+                                </listitem>
+                            </itemizedlist>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry>25/05/2009</entry>
+                        <entry>2</entry>
+                        <entry>
+                            <itemizedlist>
+                                <listitem>
+                                    <para>Documentazione ed elaborazione: JSP e servlet.</para>
+                                </listitem>
+                            </itemizedlist>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry>26/05/2009</entry>
+                        <entry>4</entry>
+                        <entry>
+                            <itemizedlist>
+                                <listitem>
+                                    <para>Documentazione ed elaborazione: JSP e servlet.</para>
+                                </listitem>
+                            </itemizedlist>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry>29/05/2009</entry>
+                        <entry>4</entry>
+                        <entry>
+                            <itemizedlist>
+                                <listitem>
+                                    <para>Documentazione ed elaborazione: JSP e servlet,
+                                        JSTL.</para>
+                                </listitem>
+                                <listitem>
+                                    <para>Installazione dblatex.</para>
+                                </listitem>
+                            </itemizedlist>
+                        </entry>
+                    </row>
+                    <!-- GIUGNO -->
+                    <row>
+                        <entry>6/06/2009</entry>
+                        <entry>2</entry>
+                        <entry>
+                            <itemizedlist>
+                                <listitem>
+                                    <para>Documentazione ed elaborazione: CSS e JSPF.</para>
+                                </listitem>
+                            </itemizedlist>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry>8/06/2009</entry>
+                        <entry>4</entry>
+                        <entry>
+                            <itemizedlist>
+                                <listitem>
+                                    <para>Elaborazione: JSP, servlet.</para>
+                                </listitem>
+                                <listitem>
+                                    <para>Documentazione su trasformazioni XSLT.</para>
+                                </listitem>
+                                <listitem>
+                                    <para>Aggiornamento diario.</para>
+                                </listitem>
+                            </itemizedlist>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry>9/06/2009</entry>
+                        <entry>6</entry>
+                        <entry>
+                            <itemizedlist>
+                                <listitem>
+                                    <para>Elaborazione: JSP, servlet.</para>
+                                </listitem>
+                                <listitem>
+                                    <para>Elaborazione: prove di trasformazioni XSLT, preparazione
+                                        librerie e funzioni necessarie e di ausilio.</para>
+                                </listitem>
+                            </itemizedlist>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry>10/06/2009</entry>
+                        <entry>3</entry>
+                        <entry>
+                            <itemizedlist>
+                                <listitem>
+                                    <para>Elaborazione: fogli di stile XSLT per la parte
+                                        presentazionale.</para>
+                                </listitem>
+                                <listitem>
+                                    <para>Elaborazione: css e JSP.</para>
+                                </listitem>
+                            </itemizedlist>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry>11/06/2009</entry>
+                        <entry>_</entry>
+                        <entry>
+                            <itemizedlist>
+                                <listitem>
+                                    <para>Controllo funzionamento effettivo di dblatex e modifica
+                                        file della relazione per output ottimale.</para>
+                                </listitem>
+                                <listitem>
+                                    <para>?</para>
+                                </listitem>
+                            </itemizedlist>
+                        </entry>
+                    </row>
                 </tbody>
             </tgroup>
-        </table>
+        </informaltable>
         <?very-hard-pagebreak?>
     </section>
 </article>
