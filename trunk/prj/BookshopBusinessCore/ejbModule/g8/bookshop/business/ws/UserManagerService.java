@@ -5,12 +5,17 @@ import g8.bookshop.business.core.GuestLocal;
 import g8.bookshop.business.core.UserLocal;
 import g8.bookshop.business.core.UserManagerLocal;
 
+import javax.ejb.EJB;
+import javax.ejb.Stateless;
+
 /**
  * WebService Session Bean implementation class UserManagerService
  * @author soujak
  */
+@Stateless
 public class UserManagerService implements UserManagerServiceRemote {
 	
+	@EJB
 	private UserManagerLocal um;
 
 	/**

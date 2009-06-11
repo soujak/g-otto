@@ -1,7 +1,6 @@
 package g8.bookshop.business.ws;
 
 import javax.ejb.Remote;
-import javax.ejb.Stateless;
 import javax.jws.WebMethod;
 import javax.jws.WebService;
 
@@ -10,7 +9,6 @@ import javax.jws.WebService;
  */
 
 @Remote
-@Stateless
 @WebService
 public interface CatalogueServiceRemote {
 	
