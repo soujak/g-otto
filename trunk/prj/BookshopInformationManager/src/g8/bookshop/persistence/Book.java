@@ -11,8 +11,12 @@ import javax.persistence.*;
 
 @NamedQueries({
 	@NamedQuery(  
-			name="getTitles", 
-			query="SELECT Title FROM Book")
+			name="fullSearch", 
+			query="SELECT b FROM Book b WHERE " +
+					"b.Title = :arg " +
+					"OR b.Author = :arg " +
+					"OR b.Editor = :arg " +
+					"OR b.ISBN = :arg")
 }) 
 
 @Entity
