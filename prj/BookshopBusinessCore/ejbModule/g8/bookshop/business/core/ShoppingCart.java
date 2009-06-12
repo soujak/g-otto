@@ -13,7 +13,7 @@ import java.util.TreeMap;
  * Implementation class ShoppingCart
  * @author soujak
  */
-public class ShoppingCart implements ShoppingCartLocal {
+public class ShoppingCart implements ShoppingCartLocal, ShoppingCartRemote {
 
 	private SortedMap<Long,Order> orders;
 
@@ -65,7 +65,6 @@ public class ShoppingCart implements ShoppingCartLocal {
 	
 	/**
 	 * Check out the shopping cart with the given orders
-	 * @param id User id
 	 * @return true
 	 */
 	public boolean checkOut() {

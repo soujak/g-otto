@@ -2,14 +2,14 @@ package g8.bookshop.business.core;
 
 import java.util.List;
 
-import javax.ejb.Local;
+import javax.ejb.Remote;
 
 /**
  * Local interface ShoppingCart
  * @author soujak
  */
-@Local
-public interface ShoppingCartLocal {
+@Remote
+public interface ShoppingCartRemote {
 	/**
 	 * Add an order in the shopping cart
 	 * @param o order to add

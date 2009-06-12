@@ -10,13 +10,14 @@ import javax.ejb.Stateful;
  * @author soujak
  */
 @Stateful
-public class Guest extends User implements GuestLocal {
+public class Guest extends User implements GuestLocal, GuestRemote {
 
 	/**
-	 * @param id user id
+	 * Minimal constructor
 	 */
-	public Guest(String id) {
-		super(id, false);
+	public Guest() {
+		super();
+		this.customer = false;
 	}
 	
 }

@@ -4,7 +4,7 @@
 package g8.bookshop.business.util;
 
 import g8.bookshop.business.core.Order;
-import g8.bookshop.business.core.ShoppingCartLocal;
+import g8.bookshop.business.core.ShoppingCartRemote;
 import g8.bookshop.persistence.Book;
 
 import java.io.StringWriter;
@@ -85,7 +85,7 @@ public class Converter {
 		return writer.toString();
 	}
 
-	public static String toXML(ShoppingCartLocal sc) {
+	public static String toXML(ShoppingCartRemote sc) {
 		// TODO
 		return null;
 	}

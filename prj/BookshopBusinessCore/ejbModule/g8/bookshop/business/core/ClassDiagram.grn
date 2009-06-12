@@ -4,44 +4,66 @@
       <name="=BookshopBusinessCore/ejbModule<g8.bookshop.business.core{Customer.java[Customer"/>
       <height="-1"/>
       <width="-1"/>
-      <x="545"/>
-      <y="173"/>
+      <x="641"/>
+      <y="95"/>
    </type>
    <type>
       <name="=BookshopBusinessCore/ejbModule<g8.bookshop.business.core{Guest.java[Guest"/>
       <height="-1"/>
       <width="-1"/>
-      <x="282"/>
-      <y="170"/>
+      <x="640"/>
+      <y="7"/>
    </type>
    <type>
       <name="=BookshopBusinessCore/ejbModule<g8.bookshop.business.core{Order.java[Order"/>
       <height="-1"/>
       <width="-1"/>
-      <x="538"/>
-      <y="466"/>
+      <x="621"/>
+      <y="479"/>
    </type>
    <type>
       <name="=BookshopBusinessCore/ejbModule<g8.bookshop.business.core{ShoppingCart.java[ShoppingCart"/>
       <height="-1"/>
       <width="-1"/>
-      <x="534"/>
-      <y="324"/>
+      <x="607"/>
+      <y="293"/>
    </type>
    <type>
       <name="=BookshopBusinessCore/ejbModule<g8.bookshop.business.core{User.java[User"/>
       <height="-1"/>
       <width="-1"/>
-      <x="414"/>
-      <y="21"/>
+      <x="237"/>
+      <y="15"/>
    </type>
    <type>
       <name="=BookshopBusinessCore/ejbModule<g8.bookshop.business.core{UserManager.java[UserManager"/>
       <height="-1"/>
       <width="-1"/>
-      <x="168"/>
-      <y="359"/>
+      <x="73"/>
+      <y="228"/>
    </type>
+   <relationship>
+      <class="edu.buffalo.cse.green.relationship.generalization.GeneralizationPart"/>
+      <sourceType="=BookshopBusinessCore/ejbModule<g8.bookshop.business.core{Customer.java[Customer"/>
+      <targetType="=BookshopBusinessCore/ejbModule<g8.bookshop.business.core{User.java[User"/>
+      <bendpoints>
+         <bendpoint>
+            <x="560"/>
+            <y="130"/>
+         </bendpoint>
+      </bendpoints>
+   </relationship>
+   <relationship>
+      <class="edu.buffalo.cse.green.relationship.generalization.GeneralizationPart"/>
+      <sourceType="=BookshopBusinessCore/ejbModule<g8.bookshop.business.core{Guest.java[Guest"/>
+      <targetType="=BookshopBusinessCore/ejbModule<g8.bookshop.business.core{User.java[User"/>
+      <bendpoints>
+         <bendpoint>
+            <x="551"/>
+            <y="34"/>
+         </bendpoint>
+      </bendpoints>
+   </relationship>
    <relationship>
       <class="edu.buffalo.cse.green.relationship.composition.CompositionPart"/>
       <sourceType="=BookshopBusinessCore/ejbModule<g8.bookshop.business.core{Customer.java[Customer"/>
@@ -50,15 +72,15 @@
       </bendpoints>
    </relationship>
    <relationship>
-      <class="edu.buffalo.cse.green.relationship.generalization.GeneralizationPart"/>
-      <sourceType="=BookshopBusinessCore/ejbModule<g8.bookshop.business.core{Guest.java[Guest"/>
-      <targetType="=BookshopBusinessCore/ejbModule<g8.bookshop.business.core{User.java[User"/>
+      <class="edu.buffalo.cse.green.relationship.dependency.DependencyIPart"/>
+      <sourceType="=BookshopBusinessCore/ejbModule<g8.bookshop.business.core{UserManager.java[UserManager"/>
+      <targetType="=BookshopBusinessCore/ejbModule<g8.bookshop.business.core{Customer.java[Customer"/>
       <bendpoints>
       </bendpoints>
    </relationship>
    <relationship>
-      <class="edu.buffalo.cse.green.relationship.generalization.GeneralizationPart"/>
-      <sourceType="=BookshopBusinessCore/ejbModule<g8.bookshop.business.core{Customer.java[Customer"/>
+      <class="edu.buffalo.cse.green.relationship.dependency.DependencyLPart"/>
+      <sourceType="=BookshopBusinessCore/ejbModule<g8.bookshop.business.core{UserManager.java[UserManager"/>
       <targetType="=BookshopBusinessCore/ejbModule<g8.bookshop.business.core{User.java[User"/>
       <bendpoints>
       </bendpoints>

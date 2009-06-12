@@ -9,7 +9,7 @@ import g8.bookshop.persistence.Book;
  * @author soujak
  *
  */
-public class Order implements OrderLocal {
+public class Order implements OrderLocal, OrderRemote {
 	private Book book;
 	private int quantity;
 	
@@ -37,7 +37,9 @@ public class Order implements OrderLocal {
 		return quantity;
 	}
 	/**
-	 * @param quantity
+	 * @param q
+	 * 			the quantity to set
+	 * 
 	 */
 	public void setQuantity(int q) {
 		this.quantity = q; 
