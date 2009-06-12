@@ -1,6 +1,6 @@
 package g8.bookshop.business.ws;
 
-import g8.bookshop.business.core.Customer;
+import g8.bookshop.business.core.CustomerRemote;
 import g8.bookshop.business.core.GuestRemote;
 import g8.bookshop.business.core.UserManagerLocal;
 import g8.bookshop.business.core.UserRemote;
@@ -54,7 +54,7 @@ public class UserManagerService implements UserManagerServiceRemote {
 		UserRemote user = um.lookup(id);
 		if (user != null)
 			if (user.isCustomer())
-				return um.disconnect((Customer) user);
+				return um.disconnect((CustomerRemote) user);
 			else
 				return false;
 		return false;
