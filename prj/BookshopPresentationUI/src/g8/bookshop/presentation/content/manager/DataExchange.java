@@ -44,11 +44,24 @@ public class DataExchange {
 
 	public void setBooklist(String xml_booklist)
 			throws ParserConfigurationException, SAXException {
-
+		
+		// initialize parameters struct
+		String[] params = new String[2];
+		// fills parameters struct
+		params[0] = "mode:search";
+		if(this.authenticated) params[1] = "search_type:'authenticated'";
+		else  params[1] = "search_type:'simple'";
+		
+		
+		// initialize transformer
 		XsltTransformer trans = new XsltTransformer();
+		
+		// initialize output variable
 		String booklist_html = "";
+		
+		// transform...
 		try {
-			booklist_html = trans.transform(xml_booklist, xslt_location);
+			booklist_html = trans.transform(xml_booklist, xslt_location, params);
 		} catch (TransformerException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
