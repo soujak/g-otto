@@ -18,4 +18,9 @@ public interface UserRemote {
 	 * @return true if it is a customer, false if it is a guest 
 	 */
 	public boolean isCustomer();
+
+	/**
+	 * @param id the id to set
+	 */
+	public void setId(String id);
 }

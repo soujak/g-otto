@@ -13,7 +13,7 @@ public interface UserManagerLocal {
 	 * @param id user id
 	 * @return user to which the specified id is mapped, or null if id does not exists 
 	 */
-	public User lookup(String id);
+	public UserRemote lookup(String id);
 	
 	/**
 	 * Search a user in the bookshop from his id (possibly new) 
@@ -21,7 +21,7 @@ public interface UserManagerLocal {
 	 * @return User to which the specified id is mapped,
 	 * 		if id is not mapped create a new guest with the given id. 
 	 */
-	public User getUser(String id);
+	public UserRemote getUser(String id);
 	
 	/**
 	 * Authenticate a customer in the bookshop, verifying his credentials 
@@ -30,7 +30,7 @@ public interface UserManagerLocal {
 	 * @param p Guest's password
 	 * @return true if the guest is successfully authenticated, false otherwise
 	 */
-	public boolean authenticate(Guest g, String n, String p);
+	public boolean authenticate(GuestRemote g, String n, String p);
 	
 	/**
 	 * Disconnect a given customer from the bookshop

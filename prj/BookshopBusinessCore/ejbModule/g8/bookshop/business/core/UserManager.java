@@ -23,7 +23,7 @@ import org.jboss.ejb3.annotation.Service;
 // TODO setup its HASingletonController service
 public class UserManager implements UserManagerLocal {
 
-	private SortedMap<String, User> userMap;
+	private SortedMap<String, UserRemote> userMap;
 	@Resource
 	private SessionContext sessionContext;
 	@PersistenceContext(unitName = "InformationManager")
@@ -32,7 +32,7 @@ public class UserManager implements UserManagerLocal {
 	public UserManager() {
 		super();
 		userMap = Collections
-				.synchronizedSortedMap(new TreeMap<String, User>());
+				.synchronizedSortedMap(new TreeMap<String, UserRemote>());
 	}
 
 	/**
@@ -43,7 +43,7 @@ public class UserManager implements UserManagerLocal {
 	 * @return user to which the specified id is mapped, or null if id does not
 	 *         exists
 	 */
-	public User lookup(String id) {
+	public UserRemote lookup(String id) {
 		return userMap.get(id);
 	}
 
@@ -55,10 +55,10 @@ public class UserManager implements UserManagerLocal {
 	 * @return User to which the specified id is mapped, if id is not mapped
 	 *         create a new guest with the given id
 	 */
-	public User getUser(String id) {
-		User u = userMap.get(id);
+	public UserRemote getUser(String id) {
+		UserRemote u = userMap.get(id);
 		if (u == null) {
-			u = (User) this.sessionContext
+			u = (GuestRemote) this.sessionContext
 					.lookup("BookshopBusiness/Guest/remote");
 			u.setId(id);
 			userMap.put(id, u);
@@ -77,7 +77,7 @@ public class UserManager implements UserManagerLocal {
 	 *            Guest's password
 	 * @return true if the guest is successfully authenticated, false otherwise
 	 */
-	public boolean authenticate(Guest g, String n, String p) {
+	public boolean authenticate(GuestRemote g, String n, String p) {
 		boolean ret;
 		Credential cred = em.find(Credential.class, n);
 		if (cred != null)
