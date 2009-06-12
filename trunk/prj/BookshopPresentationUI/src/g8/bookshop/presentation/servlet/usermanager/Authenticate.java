@@ -1,14 +1,17 @@
 package g8.bookshop.presentation.servlet.usermanager;
 
+import g8.bookshop.business.ws.UserManagerServiceServiceLocator;
 import g8.bookshop.presentation.content.manager.DataExchange;
 import g8.bookshop.presentation.servlet.Utils;
 
 import java.io.IOException;
+
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import javax.xml.rpc.ServiceException;
 
 /**
  * Servlet implementation class Authenticate
@@ -37,12 +40,25 @@ public class Authenticate extends HttpServlet {
 		String password = request.getParameter("password");
 		String id = session.getId();
 		
-		// TODO: web service call
-		// if(UserManager.Authenticate(sessionID, username, password)) ...
-		dataExchange.setUsername(username);
-		dataExchange.setAuthenticated(true);
-		Utils.forwardToPage("/pages/home.jsp", getServletContext(), 
-				request, response);
+		// invoke UserManager service...
+		boolean isAuthenticated = false;
+		try {
+			isAuthenticated = (new UserManagerServiceServiceLocator())
+				.getUserManagerServicePort().authenticate(id, username, password);
+		} catch (ServiceException e) {
+			e.printStackTrace();
+		}
+		
+		if(isAuthenticated) {
+			dataExchange.setUsername(username);
+			dataExchange.setAuthenticated(true);
+			Utils.forwardToPage("/pages/home.jsp", getServletContext(), 
+					request, response);
+		} else {
+			dataExchange.setUsername(DataExchange.GUESTNAME);
+			dataExchange.setAuthenticated(false);
+			Utils.forwardToPage("/pages/index.jsp", getServletContext(), 
+					request, response);
+		}
 	}
-
 }

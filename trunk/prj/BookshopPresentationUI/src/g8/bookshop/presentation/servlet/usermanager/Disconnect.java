@@ -1,5 +1,6 @@
 package g8.bookshop.presentation.servlet.usermanager;
 
+import g8.bookshop.business.ws.UserManagerServiceServiceLocator;
 import g8.bookshop.presentation.content.manager.DataExchange;
 import g8.bookshop.presentation.servlet.Utils;
 
@@ -9,6 +10,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import javax.xml.rpc.ServiceException;
 
 /**
  * Servlet implementation class Disconnect
@@ -35,14 +37,17 @@ public class Disconnect extends HttpServlet {
 		// retrieves session ID...
 		String id = session.getId();
 
-		// TODO: web service call
-		// UserManager.Disconnect(id)
+		// invoke UserManager web service call
+		try {
+			(new UserManagerServiceServiceLocator())
+				.getUserManagerServicePort().disconnect(id);
+		} catch (ServiceException e) {
+			e.printStackTrace();
+		}
 		
 		dataExchange.setUsername(DataExchange.GUESTNAME);
 		dataExchange.setAuthenticated(false);
 		Utils.forwardToPage("/pages/index.jsp", getServletContext(), 
-				request, response);
-		
+				request, response);	
 	}
-
 }
