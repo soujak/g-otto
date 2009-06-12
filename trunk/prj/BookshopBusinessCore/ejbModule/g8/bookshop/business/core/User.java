@@ -26,7 +26,7 @@ public abstract class User implements UserLocal, UserRemote {
 	/**
 	 * @param id the id to set
 	 */
-	void setId(String id) {
+	public void setId(String id) {
 		this.id = id;
 	}
 
