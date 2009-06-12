@@ -8,5 +8,5 @@ public interface CustomerRemote extends UserRemote {
 	/**
 	 * @return the shoppingCart
 	 */
-	public abstract ShoppingCartRemote getShoppingCart();
+	public abstract ShoppingCart getShoppingCart();
 }

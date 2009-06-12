@@ -1,8 +1,8 @@
 package g8.bookshop.business.ws;
 
-import g8.bookshop.business.core.CustomerRemote;
-import g8.bookshop.business.core.UserRemote;
-import g8.bookshop.business.core.UserManagerLocal;
+import g8.bookshop.business.core.Customer;
+import g8.bookshop.business.core.User;
+import g8.bookshop.business.core.UserManager;
 import g8.bookshop.business.util.Converter;
 
 import javax.ejb.EJB;
@@ -19,7 +19,7 @@ import javax.jws.WebService;
 public class ShoppingCartService implements ShoppingCartServiceRemote {
 	
 	@EJB
-	private UserManagerLocal um;
+	private UserManager um;
 	
 	/**
 	 * Default constructor
@@ -36,10 +36,10 @@ public class ShoppingCartService implements ShoppingCartServiceRemote {
 	@WebMethod
 	public String view(String id) {
 		String ret = null;
-		UserRemote u = um.lookup(id);
+		User u = um.lookup(id);
 		if (u != null)
 			if (u.isCustomer())
-				ret = Converter.toXML(((CustomerRemote) u).getShoppingCart());
+				ret = Converter.toXML(((Customer) u).getShoppingCart());
 		return ret;
 	}
 	
@@ -52,10 +52,10 @@ public class ShoppingCartService implements ShoppingCartServiceRemote {
 	@WebMethod
 	public boolean addOrders(String id, String ords) {
 		boolean ret = false;
-		UserRemote u = um.lookup(id);
+		User u = um.lookup(id);
 		if (u != null)
 			if (u.isCustomer())
-				ret = ((CustomerRemote) u).getShoppingCart().addOrders(Converter.toOrders(ords));
+				ret = ((Customer) u).getShoppingCart().addOrders(Converter.toOrders(ords));
 		return ret;
 	}
 	
@@ -69,10 +69,10 @@ public class ShoppingCartService implements ShoppingCartServiceRemote {
 	public boolean update(String id, String ords) {
 		 // TODO
 		boolean ret = false;
-		UserRemote u = um.lookup(id);
+		User u = um.lookup(id);
 		if (u != null)
 			if (u.isCustomer())
-				ret = ((CustomerRemote) u).getShoppingCart().update(Converter.toOrders(ords));
+				ret = ((Customer) u).getShoppingCart().update(Converter.toOrders(ords));
 		return ret;
 	}
 	
@@ -85,10 +85,10 @@ public class ShoppingCartService implements ShoppingCartServiceRemote {
 	public boolean checkOut(String id) {
 		 // TODO
 		boolean ret = false;
-		UserRemote u = um.lookup(id);
+		User u = um.lookup(id);
 		if (u != null)
 			if (u.isCustomer())
-				ret = ((CustomerRemote) u).getShoppingCart().checkOut();
+				ret = ((Customer) u).getShoppingCart().checkOut();
 		return ret;
 	}
 }
