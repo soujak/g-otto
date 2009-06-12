@@ -1,7 +1,5 @@
 package g8.bookshop.presentation.servlet.catalogue;
 
-import g8.bookshop.business.ws.CatalogueService;
-import g8.bookshop.business.ws.CatalogueServiceService;
 import g8.bookshop.business.ws.CatalogueServiceServiceLocator;
 import g8.bookshop.presentation.content.manager.DataExchange;
 import g8.bookshop.presentation.servlet.Utils;
@@ -15,7 +13,6 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import javax.xml.parsers.ParserConfigurationException;
 import javax.xml.rpc.ServiceException;
-import javax.xml.ws.WebServiceRef;
 
 import org.xml.sax.SAXException;
 
