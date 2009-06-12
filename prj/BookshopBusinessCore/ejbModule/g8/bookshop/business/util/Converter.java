@@ -4,6 +4,7 @@
 package g8.bookshop.business.util;
 
 import g8.bookshop.business.core.Order;
+import g8.bookshop.business.core.ShoppingCartRemote;
 import g8.bookshop.persistence.Book;
 
 import java.io.IOException;
@@ -13,6 +14,12 @@ import java.io.StringWriter;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.annotation.Resource;
+import javax.ejb.Local;
+import javax.ejb.SessionContext;
+import javax.ejb.Stateless;
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
@@ -37,7 +44,12 @@ import org.xml.sax.SAXException;
  */
 
 //FIXME: rivedimi, commentami, formattami ed espandimi.
-public class Converter {
+@Stateless
+public class Converter implements ConverterLocal {
+	@PersistenceContext(unitName = "InformationManager")
+	private EntityManager em;
+	@Resource 
+	private SessionContext sessionContext;
 	
 	/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * 
 	 * * * * * * * * * * * * * * * B O O K * * * * * * * * * * * * * * 
@@ -48,7 +60,7 @@ public class Converter {
 	 * @param obj
 	 * @return
 	 */
-	private static Element bookToXML(Document document, Book book) {
+	private Element bookToXML(Document document, Book book) {
 		Element item = document.createElement("book");
 		item.setAttribute("author", book.getAuthor() );
 		item.setAttribute("title", book.getTitle());
@@ -59,15 +71,10 @@ public class Converter {
 		return item;
 	}
 	
-	/**
-	 * Transform Book list to XML element
-	 * @param books
-	 * @return
-	 * @throws ParserConfigurationException
-	 * @throws TransformerFactoryConfigurationError
-	 * @throws TransformerException
+	/* (non-Javadoc)
+	 * @see g8.bookshop.business.util.ConverterLocal#booksToXML(java.util.List)
 	 */
-	public static String booksToXML(List<Book> books) 
+	public String booksToXML(List<Book> books) 
 	throws ParserConfigurationException, TransformerFactoryConfigurationError, TransformerException {
 		Document document = DocumentBuilderFactory.newInstance().newDocumentBuilder().newDocument();
 		Element root = document.createElement("books");
@@ -89,7 +96,7 @@ public class Converter {
 	 * @param obj
 	 * @return
 	 */
-	private static Element orderToXML(Document document, Order order) {
+	private Element orderToXML(Document document, Order order) {
 		Element item = document.createElement("stock");
 		item.setAttribute("quantity", Integer.toString(order.getQuantity()));
 		item.appendChild(bookToXML(document, order.getBook()));
@@ -97,16 +104,12 @@ public class Converter {
 	}
 	
 	
-	/**
-	 * Transform ShoppingCart object (order list) to XML element
-	 * @param orders
-	 * @return
-	 * @throws ParserConfigurationException
-	 * @throws TransformerFactoryConfigurationError
-	 * @throws TransformerException
+	/* (non-Javadoc)
+	 * @see g8.bookshop.business.util.ConverterLocal#shoppingCartToXML(g8.bookshop.business.core.ShoppingCartRemote)
 	 */
-	public static String shoppingCartToXML(List<Order> orders) 
+	public String shoppingCartToXML(ShoppingCartRemote sc) 
 	throws ParserConfigurationException, TransformerFactoryConfigurationError, TransformerException {
+		List<Order> orders = sc.getOrders();
 		Document document = DocumentBuilderFactory.newInstance().newDocumentBuilder().newDocument();
 		Element root = document.createElement("shoppingcart");
 		for (Order order : orders) {
@@ -124,18 +127,23 @@ public class Converter {
 	 * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 	
 	
-	private static Order xmlNodeToOrder(Node xmlNode)
+	private Order xmlNodeToOrder(Node xmlNode)
 	throws ParserConfigurationException, SAXException, IOException {
 		int quantity = 0;
 		String bookid = null;
 		quantity = Integer.parseInt(xmlNode.getAttributes().getNamedItem("quantity").getNodeValue());
 		bookid = xmlNode.getAttributes().getNamedItem("bookid").getNodeValue();
-		// FIXME
-		// return new Order(<Book>, quantity);
-		return null;
+		Book b = em.find(Book.class, bookid);
+		Order o = (Order)sessionContext.lookup("");
+	    o.setQuantity(quantity);
+	    o.setBook(b);
+	    return o;
 	}
 	
-	public static List<Order> xmlToOrders(String xml) throws ParserConfigurationException, SAXException, IOException {
+	/* (non-Javadoc)
+	 * @see g8.bookshop.business.util.ConverterLocal#xmlToOrders(java.lang.String)
+	 */
+	public List<Order> xmlToOrders(String xml) throws ParserConfigurationException, SAXException, IOException {
 		Document document = xmlDocumentCreator(xml);
 		Element root = document.getDocumentElement();
 		NodeList orders = root.getChildNodes();
@@ -151,7 +159,7 @@ public class Converter {
 	 * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 	
 	
-	private static Document xmlDocumentCreator(String xml)
+	private Document xmlDocumentCreator(String xml)
 	throws ParserConfigurationException, SAXException, IOException {
 		DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
 		DocumentBuilder db = dbf.newDocumentBuilder();
@@ -164,7 +172,7 @@ public class Converter {
 		return doc;
 	}
 	
-	private static String xmlDocumentToString(Document document) 
+	private String xmlDocumentToString(Document document) 
 	throws TransformerFactoryConfigurationError, TransformerException {
 		// transform Document to String
 		Transformer transformer = TransformerFactory.newInstance().newTransformer();

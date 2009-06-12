@@ -34,4 +34,10 @@ public interface ShoppingCartLocal {
 	 * @return true
 	 */
 	public boolean checkOut();
+	
+	/**
+	 * Return the orders
+	 * @return
+	 */
+	public List<Order> getOrders();
 }

@@ -3,6 +3,7 @@
  */
 package g8.bookshop.business.core;
 
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.ListIterator;
@@ -74,5 +75,13 @@ public class ShoppingCart implements ShoppingCartLocal, ShoppingCartRemote {
 		// TODO check: clear could be unimplemented
 		this.orders.clear();
 		return true;
+	}
+	
+	/**
+	 * Return the orders
+	 * @return
+	 */
+	public List<Order> getOrders() {
+		return new ArrayList<Order>(this.orders.values());
 	}
 }

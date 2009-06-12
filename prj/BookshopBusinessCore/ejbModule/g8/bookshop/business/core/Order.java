@@ -3,12 +3,15 @@
  */
 package g8.bookshop.business.core;
 
+import javax.ejb.Stateful;
+
 import g8.bookshop.persistence.Book;
 
 /**
  * @author soujak
  *
  */
+@Stateful
 public class Order implements OrderLocal, OrderRemote {
 	private Book book;
 	private int quantity;
@@ -43,6 +46,15 @@ public class Order implements OrderLocal, OrderRemote {
 	 */
 	public void setQuantity(int q) {
 		this.quantity = q; 
+	}
+
+	/**
+	 * @param b
+	 * 			the book to set
+	 * 
+	 */
+	public void setBook(Book b) {
+		this.book = b;
 	}
 	
 }
