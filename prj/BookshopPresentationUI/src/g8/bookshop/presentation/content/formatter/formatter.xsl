@@ -7,6 +7,7 @@
     <xsl:param name="mode" select="'cart'"/>
     <!-- values for search_type: simple OR authenticated -->
     <xsl:param name="search_type" select="'authenticated'"/>
+    <xsl:param name="form_action" select="'action'"/>
 
     <!-- DON'T EVER SET mode="cart" AND search_type="authenticated"-->
     <!-- Possible combinations:
@@ -35,7 +36,8 @@
                 <xsl:when test="$search_type = 'authenticated'">
                     <xsl:element name="form">
                         <xsl:attribute name="action">
-                            <xsl:text>Update</xsl:text>
+                            <xsl:value-of select="$form_action"/>
+                            <!--                            <xsl:text>Update</xsl:text>-->
                         </xsl:attribute>
                         <xsl:element name="table">
                             <xsl:apply-templates select="book"/>
@@ -123,7 +125,8 @@
             <xsl:attribute name="id">cart</xsl:attribute>
             <xsl:element name="form">
                 <xsl:attribute name="action">
-                    <xsl:text>AddOrders</xsl:text>
+                    <xsl:value-of select="$form_action"/>
+<!--                    <xsl:text>AddOrders</xsl:text>-->
                 </xsl:attribute>
                 <xsl:element name="table">
                     <xsl:apply-templates select="stock"/>
