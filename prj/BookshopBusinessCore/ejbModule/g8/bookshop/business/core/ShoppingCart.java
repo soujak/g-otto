@@ -9,10 +9,13 @@ import java.util.ListIterator;
 import java.util.SortedMap;
 import java.util.TreeMap;
 
+import javax.ejb.Stateful;
+
 /**
  * Implementation class ShoppingCart
  * @author soujak
  */
+@Stateful
 public class ShoppingCart implements ShoppingCartLocal, ShoppingCartRemote {
 
 	private SortedMap<Long,Order> orders;
@@ -43,7 +46,7 @@ public class ShoppingCart implements ShoppingCartLocal, ShoppingCartRemote {
 	 * @param l list to add
 	 */
 	public boolean addOrders(List<Order> l) {
-		boolean ret = false;
+		boolean ret = true;
 		for (ListIterator<Order> i = l.listIterator(); i.hasNext();) {
 			Order o = i.next();
 			// TODO check validity of the short hand version:
