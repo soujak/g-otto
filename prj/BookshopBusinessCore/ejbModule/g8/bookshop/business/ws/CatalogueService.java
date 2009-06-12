@@ -1,6 +1,7 @@
 package g8.bookshop.business.ws;
 
 import g8.bookshop.business.util.Converter;
+import g8.bookshop.business.util.PrepareSQLStatement;
 import g8.bookshop.persistence.Book;
 
 import java.util.List;
@@ -12,6 +13,7 @@ import javax.jws.WebMethod;
 import javax.jws.WebService;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
 
 
 
@@ -53,8 +55,8 @@ public class CatalogueService implements CatalogueServiceRemote {
 	@WebMethod
 	@TransactionAttribute(TransactionAttributeType.REQUIRED)
 	public String FullSearch(String s) {
-		List<Book> res = (List<Book>) em.createNamedQuery("fullSearch")
-			.setParameter("arg",s).getResultList();
+    	Query q = em.createQuery(PrepareSQLStatement.prepareFullSearchSQL(s));
+		List<Book> res = q.getResultList();
 		String ret = "";
 		try {
 			ret = Converter.toXML(res);
