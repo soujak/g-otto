@@ -5,7 +5,7 @@ import java.util.List;
 import javax.ejb.Remote;
 
 /**
- * Local interface ShoppingCart
+ * Remote interface ShoppingCart
  * @author soujak
  */
 @Remote
@@ -30,7 +30,7 @@ public interface ShoppingCartRemote {
 	public boolean update(List<Order> ords);
 	
 	/**
-	 * Check out the shopping cart with the given orders
+	 * Check out the shopping cart and empty it
 	 * @return true
 	 */
 	public boolean checkOut();

@@ -30,7 +30,7 @@ public interface ShoppingCartLocal {
 	public boolean update(List<Order> ords);
 	
 	/**
-	 * Check out the shopping cart with the given orders
+	 * Check out the shopping cart and empty it
 	 * @return true
 	 */
 	public boolean checkOut();
