@@ -9,8 +9,8 @@
 <book xml:lang="it" xmlns="http://docbook.org/ns/docbook" xmlns:xi="http://www.w3.org/2001/XInclude"
     xmlns:xlink="http://www.w3.org/1999/xlink" version="5.0">
     <info>
-        <title>Relazione Progetto Architetture Software</title>
-        <subtitle>Relazione progetto Architetture Software 2008/09</subtitle>
+        <title>Relazione Progetto Architetture Software 2008/09 gruppo G8</title>
+      <!--  <subtitle>Relazione progetto Architetture Software 2008/09</subtitle>-->
         <pubdate>14/4/09</pubdate>
         <releaseinfo> Alpha version </releaseinfo>
         <authorgroup>
@@ -61,12 +61,12 @@
     <!-- Piano di qualita' e test del prodotto: contiene il piano di qualita' del gruppo. Contiene la descrizione ed i risultati dell'attivita' di testing -->
     
     <!-- Manuale d'utente: breve descrizione delle funzionalita' dal punto di vista utente. -->
-    <!--<xi:include href="chap-manualeutente.xml" xpointer="chap-manualeutente"/> -->
+    <xi:include href="chap-manualeutente.xml" xpointer="chap-manualeutente"/>
     
     <!-- Valutazione dello sforzo: contiene sia una valutazione preventiva dello sforzo, ottenuta usando FP, sia una tabella riassuntiva degli sforzi a consuntivo di tutti i membri del gruppo. -->
     
     <!-- Diari -->
-<!--    <xi:include href="chap-diari.xml" xpointer="diari"/>--> <!-- questo da errore-->
+    <xi:include href="chap-diari.xml" xpointer="diari"/>
     
     <xi:include href="glossary.xml"/>
     

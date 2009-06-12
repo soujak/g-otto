@@ -16,27 +16,25 @@
 -->
         <title/>
         <section xml:id="sect-diagrammi-usecases">
-            <title>Diagrammi dei casi d'uso</title>
-            <para/>
-            <para/>
-            <mediaobject>
-                <imageobject role="fo">
-                    <imagedata fileref="ModelloCasiUso/DiagrammaCasiUso.svg" align="center"
-                        scalefit="1" depth="245pt" format="SVG"/>
-                </imageobject>
-                <imageobject role="dblatex">
-                    <imagedata fileref="ModelloCasiUso/DiagrammaCasiUso.pdf" align="center"
-                        scalefit="1" depth="245pt" format="PDF"/>
-                </imageobject>
-                <caption>
-                    <para>Diagramma dei casi d'uso.</para>
-                </caption>
-            </mediaobject>
-            <para/>
-            <para/>
-        </section>
+            <title>Casi d'uso</title>
+<section>
+    <title>Diagrammi dei casi d'uso</title>
+            <figure>
+                <title>Diagramma dei casi d'uso.</title>
+                <mediaobject>
+                    <imageobject role="fo">
+                        <imagedata fileref="DiagrammiModelloCasiUso/DiagrammaCasiUso.svg"
+                            align="center" scalefit="1" depth="245pt" format="SVG"/>
+                    </imageobject>
+                    <imageobject role="dblatex">
+                        <imagedata fileref="DiagrammiModelloCasiUso/DiagrammaCasiUso.pdf"
+                            align="center" scalefit="1" depth="245pt" format="PDF"/>
+                    </imageobject>
+                </mediaobject>
+            </figure>
+</section>
         <section xml:id="sect-tabelle-usecases">
-             <title>Tabelle dei casi d'uso</title>
+            <title>Tabelle dei casi d'uso</title>
             <!-- Bozza tabella use case -->
             <table xml:id="uc01-ricercalibri">
                 <title>UC01 (RicercaLibri)</title>
@@ -808,7 +806,7 @@
         </section>
         <section xml:id="sect-matricemappaturarequisiti">
             <title>Matrice di mappatura dei requisiti</title>
-            <informaltable >
+            <informaltable>
                 <tgroup cols="6" align="center">
                     <thead>
                         <row>
@@ -856,6 +854,7 @@
                     </tbody>
                 </tgroup>
             </informaltable>
+        </section>
         </section>
     </chapter>
 </book>
