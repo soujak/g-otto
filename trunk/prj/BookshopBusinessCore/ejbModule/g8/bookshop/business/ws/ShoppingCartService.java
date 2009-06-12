@@ -1,11 +1,14 @@
 package g8.bookshop.business.ws;
 
 import g8.bookshop.business.core.Customer;
+import g8.bookshop.business.core.CustomerRemote;
 import g8.bookshop.business.core.UserManagerLocal;
 import g8.bookshop.business.core.UserRemote;
-import g8.bookshop.business.util.Converter;
+import g8.bookshop.business.util.ConverterLocal;
 
+import javax.annotation.Resource;
 import javax.ejb.EJB;
+import javax.ejb.SessionContext;
 import javax.ejb.Stateless;
 import javax.jws.WebMethod;
 import javax.jws.WebService;
@@ -20,6 +23,8 @@ public class ShoppingCartService implements ShoppingCartServiceRemote {
 	
 	@EJB
 	private UserManagerLocal um;
+	@Resource 
+	private SessionContext sessionContext;
 	
 	/**
 	 * Default constructor
@@ -35,11 +40,14 @@ public class ShoppingCartService implements ShoppingCartServiceRemote {
 	 */
 	@WebMethod
 	public String view(String id) {
-		String ret = null;
+		String ret = "";
 		UserRemote u = um.lookup(id);
 		if (u != null)
-			if (u.isCustomer())
-				ret = Converter.toXML(((Customer) u).getShoppingCart());
+			if (u.isCustomer()) {
+				try {
+					ret = ((ConverterLocal)sessionContext.lookup("BookshopBusiness/Converter/local")).shoppingCartToXML(((CustomerRemote) u).getShoppingCart());
+				} catch (Exception e) {}
+			}
 		return ret;
 	}
 	
@@ -55,7 +63,9 @@ public class ShoppingCartService implements ShoppingCartServiceRemote {
 		UserRemote u = um.lookup(id);
 		if (u != null)
 			if (u.isCustomer())
-				ret = ((Customer) u).getShoppingCart().addOrders(Converter.toOrders(ords));
+				try {
+					ret = ((Customer) u).getShoppingCart().addOrders(((ConverterLocal)sessionContext.lookup("BookshopBusiness/Converter/local")).xmlToOrders(ords));
+				} catch (Exception e) {}
 		return ret;
 	}
 	
@@ -72,7 +82,9 @@ public class ShoppingCartService implements ShoppingCartServiceRemote {
 		UserRemote u = um.lookup(id);
 		if (u != null)
 			if (u.isCustomer())
-				ret = ((Customer) u).getShoppingCart().update(Converter.toOrders(ords));
+				try {
+					ret = ((Customer) u).getShoppingCart().update(((ConverterLocal)sessionContext.lookup("BookshopBusiness/Converter/local")).xmlToOrders(ords));
+				} catch (Exception e) {}
 		return ret;
 	}
 	

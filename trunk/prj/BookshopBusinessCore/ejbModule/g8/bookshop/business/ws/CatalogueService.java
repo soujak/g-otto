@@ -1,11 +1,13 @@
 package g8.bookshop.business.ws;
 
-import g8.bookshop.business.util.Converter;
+import g8.bookshop.business.util.ConverterLocal;
 import g8.bookshop.business.util.PrepareSQLStatement;
 import g8.bookshop.persistence.Book;
 
 import java.util.List;
 
+import javax.annotation.Resource;
+import javax.ejb.SessionContext;
 import javax.ejb.Stateless;
 import javax.ejb.TransactionAttribute;
 import javax.ejb.TransactionAttributeType;
@@ -26,6 +28,8 @@ public class CatalogueService implements CatalogueServiceRemote {
 	
 	@PersistenceContext(unitName="InformationManager")
 	private EntityManager em;
+	@Resource 
+	private SessionContext sessionContext;
 	
     /**
      * Default constructor 
@@ -70,7 +74,7 @@ public class CatalogueService implements CatalogueServiceRemote {
 		List<Book> res = q.getResultList();
 		String ret = "";
 		try {
-			ret = Converter.toXML(res);
+			ret = ((ConverterLocal)sessionContext.lookup("BookshopBusiness/Converter/local")).booksToXML(res);
 		} catch(Exception e) {}
 		return ret;
 	}
