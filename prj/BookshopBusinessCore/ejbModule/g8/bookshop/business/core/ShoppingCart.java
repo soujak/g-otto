@@ -64,12 +64,12 @@ public class ShoppingCart implements ShoppingCartLocal, ShoppingCartRemote {
 	}
 	
 	/**
-	 * Check out the shopping cart with the given orders
+	 * Check out the shopping cart and empty it
 	 * @return true
 	 */
 	public boolean checkOut() {
-		// TODO
-		// I am dummy! Huh?
+		// TODO check: clear could be unimplemented
+		this.orders.clear();
 		return true;
 	}
 }
