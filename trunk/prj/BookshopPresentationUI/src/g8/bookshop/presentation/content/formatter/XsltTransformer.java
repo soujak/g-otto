@@ -35,15 +35,20 @@ public class XsltTransformer {
 	 * @throws ParserConfigurationException
 	 * @throws SAXException
 	 */
-	public String transform(String xml, String xslt_name)
+	public String transform(String xml, String xslt_name, String[] params)
 			throws TransformerException, IOException, URISyntaxException,
 			ParserConfigurationException, SAXException {
 
 		// create an instance of TransformerFactory
-		TransformerFactory tf = TransformerFactory.newInstance();
-
+		//TransformerFactory tf = TransformerFactory.newInstance();
 		Transformer transformer = StylesheetCache.newTransformer(xslt_name);
-
+		
+		// puts transformation parameter into transformer
+		// splitted[0] : key
+		// splitted[1] : value
+		for(int i = 0; i < params.length; i++) 
+			transformer.setParameter(params[i].split(":")[0], params[i].split(":")[1]);
+		
 		/**
 		 * preparing output writer
 		 */
@@ -56,7 +61,7 @@ public class XsltTransformer {
 		Transformer trans = tfactory.newTransformer();
 		trans.setOutputProperty(OutputKeys.OMIT_XML_DECLARATION, "yes");
 		trans.setOutputProperty(OutputKeys.INDENT, "yes");
-		trans.setOutputProperty(OutputKeys.ENCODING, "utf-8");
+		trans.setOutputProperty(OutputKeys.ENCODING, "UTF-8");
 
 		// trans.setOutputProperty(OutputKeys.DOCTYPE_SYSTEM, "file.dtd");
 
