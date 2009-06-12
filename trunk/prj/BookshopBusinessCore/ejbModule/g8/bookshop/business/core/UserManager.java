@@ -43,7 +43,7 @@ public class UserManager implements UserManagerLocal {
 	 * @return user to which the specified id is mapped, or null if id does not
 	 *         exists
 	 */
-	public UserRemote lookup(String id) {
+	public User lookup(String id) {
 		return userMap.get(id);
 	}
 
@@ -55,7 +55,7 @@ public class UserManager implements UserManagerLocal {
 	 * @return User to which the specified id is mapped, if id is not mapped
 	 *         create a new guest with the given id
 	 */
-	public UserRemote getUser(String id) {
+	public User getUser(String id) {
 		User u = userMap.get(id);
 		if (u == null) {
 			u = (User) this.sessionContext
@@ -77,7 +77,7 @@ public class UserManager implements UserManagerLocal {
 	 *            Guest's password
 	 * @return true if the guest is successfully authenticated, false otherwise
 	 */
-	public boolean authenticate(GuestRemote g, String n, String p) {
+	public boolean authenticate(Guest g, String n, String p) {
 		boolean ret;
 		Credential cred = em.find(Credential.class, n);
 		if (cred != null)
@@ -102,7 +102,7 @@ public class UserManager implements UserManagerLocal {
 	 * @return true if the customer is successfully disconnected, false
 	 *         otherwise
 	 */
-	public boolean disconnect(CustomerRemote c) {
+	public boolean disconnect(Customer c) {
 		return (this.userMap.remove(c.getId()) != null);
 	}
 }

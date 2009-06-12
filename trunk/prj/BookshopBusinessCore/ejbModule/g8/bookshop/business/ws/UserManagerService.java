@@ -1,9 +1,9 @@
 package g8.bookshop.business.ws;
 
-import g8.bookshop.business.core.CustomerRemote;
-import g8.bookshop.business.core.GuestRemote;
-import g8.bookshop.business.core.UserRemote;
-import g8.bookshop.business.core.UserManagerLocal;
+import g8.bookshop.business.core.Customer;
+import g8.bookshop.business.core.Guest;
+import g8.bookshop.business.core.User;
+import g8.bookshop.business.core.UserManager;
 
 import javax.ejb.EJB;
 import javax.ejb.Stateless;
@@ -19,7 +19,7 @@ import javax.jws.WebService;
 public class UserManagerService implements UserManagerServiceRemote {
 	
 	@EJB
-	private UserManagerLocal um;
+	private UserManager um;
 
 	/**
 	 * Constructor 
@@ -37,9 +37,9 @@ public class UserManagerService implements UserManagerServiceRemote {
 	 */
 	@WebMethod
 	public boolean Authenticate(String id, String name, String pwd) {
-		UserRemote user = um.getUser(id);
+		User user = um.getUser(id);
 		if (!user.isCustomer())
-			return um.authenticate((GuestRemote) user, name, pwd);
+			return um.authenticate((Guest) user, name, pwd);
 		else
 			return false;
 	}
@@ -51,10 +51,10 @@ public class UserManagerService implements UserManagerServiceRemote {
 	 */
 	@WebMethod
 	public boolean Disconnect(String id) {
-		UserRemote user = um.lookup(id);
+		User user = um.lookup(id);
 		if (user != null)
 			if (user.isCustomer())
-				return um.disconnect((CustomerRemote) user);
+				return um.disconnect((Customer) user);
 			else
 				return false;
 		return false;
