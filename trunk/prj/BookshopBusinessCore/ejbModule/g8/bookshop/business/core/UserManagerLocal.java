@@ -34,8 +34,8 @@ public interface UserManagerLocal {
 	
 	/**
 	 * Disconnect a given customer from the bookshop
-	 * @param c Customer to disconnect
+	 * @param customerRemote Customer to disconnect
 	 * @return true if the customer is successfully disconnected, false otherwise
 	 */
-	public boolean disconnect(Customer c);
+	public boolean disconnect(CustomerRemote customerRemote);
 }

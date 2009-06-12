@@ -1,5 +1,6 @@
 package g8.bookshop.business.core;
 
+import javax.annotation.PostConstruct;
 import javax.annotation.Resource;
 import javax.ejb.SessionContext;
 import javax.ejb.Stateful;
@@ -11,13 +12,14 @@ import javax.ejb.Stateful;
 @Stateful
 public class Customer extends User implements CustomerLocal, CustomerRemote {
 
-	private ShoppingCart shoppingCart;
-	@Resource private SessionContext sessionContext;
+	private ShoppingCartRemote shoppingCart;
+	@Resource 
+	private SessionContext sessionContext;
 
 	/**
 	 * @see CustomerRemote#getShoppingCart()
 	 */
-	public ShoppingCart getShoppingCart() {
+	public ShoppingCartRemote getShoppingCart() {
 		return shoppingCart;
 	}
 
@@ -26,7 +28,12 @@ public class Customer extends User implements CustomerLocal, CustomerRemote {
 	 */
 	public Customer() {
 		super();
-		this.customer = true;
-		this.shoppingCart =(ShoppingCart) this.sessionContext.lookup("BookshopBusiness/ShoppingCart/remote");
+		customer = true;
+	}
+	
+	@SuppressWarnings("unused")
+	@PostConstruct
+	private void createShoppingCart() {
+		shoppingCart = (ShoppingCartRemote)sessionContext.lookup("BookshopBusiness/ShoppingCart/remote");
 	}
 }

@@ -83,7 +83,7 @@ public class UserManager implements UserManagerLocal {
 		if (cred != null)
 			if (cred.getPassword().equals(p)) {
 				String id = g.getId();
-				Customer cust = (Customer) this.sessionContext.lookup("BookshopBusiness/Customer/remote");
+				CustomerRemote cust = (CustomerRemote) this.sessionContext.lookup("BookshopBusiness/Customer/remote");
 				cust.setId(id);
 				this.userMap.put(id, cust);
 				ret = true;
@@ -102,7 +102,7 @@ public class UserManager implements UserManagerLocal {
 	 * @return true if the customer is successfully disconnected, false
 	 *         otherwise
 	 */
-	public boolean disconnect(Customer c) {
+	public boolean disconnect(CustomerRemote c) {
 		return (this.userMap.remove(c.getId()) != null);
 	}
 }

@@ -8,5 +8,5 @@ public interface CustomerLocal extends UserLocal {
 	/**
 	 * @return the shoppingCart
 	 */
-	public abstract ShoppingCart getShoppingCart();
+	public abstract ShoppingCartRemote getShoppingCart();
 }
