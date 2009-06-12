@@ -4,9 +4,9 @@
     <xsl:output method="xml" indent="yes" encoding="UTF-8"/>
 
     <!-- values for mode: search OR cart -->
-    <xsl:param name="mode" select="'cart'"/>
+    <xsl:param name="mode" select="'search'"/>
     <!-- values for search_type: simple OR authenticated -->
-    <xsl:param name="search_type" select="'authenticated'"/>
+    <xsl:param name="search_type" select="'simple'"/>
     <xsl:param name="form_action" select="'action'"/>
 
     <!-- DON'T EVER SET mode="cart" AND search_type="authenticated"-->
