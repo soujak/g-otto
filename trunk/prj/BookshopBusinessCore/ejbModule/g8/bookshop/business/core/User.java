@@ -10,19 +10,11 @@ import javax.ejb.Stateful;
  * @author soujak
  */
 @Stateful
-public abstract class User implements UserLocal {
+public abstract class User implements UserLocal, UserRemote {
 	private String id;
-	private boolean customer;
+	protected boolean customer;
+	// TODO use me, please
 	private String lastSearchResults;
-	
-	/**
-	 * @param id user id
-	 * @param customer user type
-	 */
-	public User(String id, boolean customer) {
-		this.id = id;
-		this.customer = customer;
-	}
 	
 	/**
 	 * @return user id
@@ -31,6 +23,13 @@ public abstract class User implements UserLocal {
 		return this.id;
 	}
 	
+	/**
+	 * @param id the id to set
+	 */
+	void setId(String id) {
+		this.id = id;
+	}
+
 	/**
 	 * Check the kind of the user
 	 * @return true if it is a customer, false if it is a guest 

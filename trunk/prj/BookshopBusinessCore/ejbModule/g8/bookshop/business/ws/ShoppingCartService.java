@@ -1,7 +1,7 @@
 package g8.bookshop.business.ws;
 
-import g8.bookshop.business.core.CustomerLocal;
-import g8.bookshop.business.core.UserLocal;
+import g8.bookshop.business.core.CustomerRemote;
+import g8.bookshop.business.core.UserRemote;
 import g8.bookshop.business.core.UserManagerLocal;
 import g8.bookshop.business.util.Converter;
 
@@ -36,10 +36,10 @@ public class ShoppingCartService implements ShoppingCartServiceRemote {
 	@WebMethod
 	public String view(String id) {
 		String ret = null;
-		UserLocal u = um.lookup(id);
+		UserRemote u = um.lookup(id);
 		if (u != null)
 			if (u.isCustomer())
-				ret = Converter.toXML(((CustomerLocal) u).getShoppingCart());
+				ret = Converter.toXML(((CustomerRemote) u).getShoppingCart());
 		return ret;
 	}
 	
@@ -52,10 +52,10 @@ public class ShoppingCartService implements ShoppingCartServiceRemote {
 	@WebMethod
 	public boolean addOrders(String id, String ords) {
 		boolean ret = false;
-		UserLocal u = um.lookup(id);
+		UserRemote u = um.lookup(id);
 		if (u != null)
 			if (u.isCustomer())
-				ret = ((CustomerLocal) u).getShoppingCart().addOrders(Converter.toOrders(ords));
+				ret = ((CustomerRemote) u).getShoppingCart().addOrders(Converter.toOrders(ords));
 		return ret;
 	}
 	
@@ -69,10 +69,10 @@ public class ShoppingCartService implements ShoppingCartServiceRemote {
 	public boolean update(String id, String ords) {
 		 // TODO
 		boolean ret = false;
-		UserLocal u = um.lookup(id);
+		UserRemote u = um.lookup(id);
 		if (u != null)
 			if (u.isCustomer())
-				ret = ((CustomerLocal) u).getShoppingCart().update(Converter.toOrders(ords));
+				ret = ((CustomerRemote) u).getShoppingCart().update(Converter.toOrders(ords));
 		return ret;
 	}
 	
@@ -85,10 +85,10 @@ public class ShoppingCartService implements ShoppingCartServiceRemote {
 	public boolean checkOut(String id) {
 		 // TODO
 		boolean ret = false;
-		UserLocal u = um.lookup(id);
+		UserRemote u = um.lookup(id);
 		if (u != null)
 			if (u.isCustomer())
-				ret = ((CustomerLocal) u).getShoppingCart().checkOut();
+				ret = ((CustomerRemote) u).getShoppingCart().checkOut();
 		return ret;
 	}
 }

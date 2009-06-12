@@ -49,10 +49,11 @@ public class CatalogueService implements CatalogueServiceRemote {
      * @param s simple string to search for
 	 * @return corresponding books in XML format
 	 */
-    @WebMethod
+    @SuppressWarnings("unchecked")
+	@WebMethod
 	@TransactionAttribute(TransactionAttributeType.REQUIRED)
 	public String FullSearch(String s) {
-		List<Book> res = em.createNamedQuery("fullSearch")
+		List<Book> res = (List<Book>) em.createNamedQuery("fullSearch")
 			.setParameter("arg",s).getResultList();
 		String ret = "";
 		try {
