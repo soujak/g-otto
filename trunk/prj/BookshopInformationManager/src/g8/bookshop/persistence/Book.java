@@ -1,13 +1,29 @@
 package g8.bookshop.persistence;
 
 import java.io.Serializable;
-import java.lang.String;
-import javax.persistence.*;
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
+import javax.persistence.Table;
 
 /**
  * Entity implementation class Book
  * @author soujak
  */
+
+@NamedQueries({
+    @NamedQuery(
+            name="search",
+            query="SELECT b FROM Book b WHERE " +
+                    "b.Title = :Title " +
+                    "OR b.Author = :Author " +
+                    "OR b.Editor = :Editor " +
+                    "OR b.ISBN = :ISBN " +
+                    "OR b.Year = :Year")
+})
 
 @Entity
 @Table(name = "Book", schema = "Bookshop")

@@ -39,12 +39,23 @@ public class CatalogueService implements CatalogueServiceRemote {
      * @param s book definition in XML format
      * @return corresponding books in XML format
      */
-    @WebMethod
+    @SuppressWarnings("unchecked")
+	@WebMethod
 	public String Search(String s) {
 		// TODO
-//		r = Book.find(s);
-//		return r;
-		return null;
+//    	Book b = Converter.XMLtoBook(s);
+//    	List<Book> res = em.createNamedQuery("search").setParameter("Author", b.getAuthor())
+//    		.setParameter("Editor", b.getEditor())
+//    		.setParameter("ISBN", b.getISBN())
+//    		.setParameter("Title", b.getTitle())
+//    		.setParameter("Year", b.getYear())
+//    		.getResultList();
+//    	String ret = "";
+//		try {
+//			ret = Converter.toXML(res);
+//		} catch(Exception e) {}
+//		return ret;
+    	return null;
 	}
 	/**
      * Full-text search
