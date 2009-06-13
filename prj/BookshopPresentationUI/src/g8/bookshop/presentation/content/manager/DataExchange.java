@@ -32,7 +32,7 @@ public class DataExchange {
 		String[] params = new String[2];
 		// fills parameters struct
 		params[0] = "mode:cart";
-		params[1] = "form_action:'Update'";
+		params[1] = "form_action:Update";
 		
 		
 		// initialize transformer
@@ -88,9 +88,9 @@ public class DataExchange {
 		// fills parameters struct
 		params[0] = "mode:search";
 		if(this.authenticated) {
-			params[1] = "search_type:'authenticated'";
-			params[2] = "form_action:'AddOrders'";
-		} else  params[1] = "search_type:'simple'";
+			params[1] = "search_type:authenticated";
+			params[2] = "form_action:AddOrders";
+		} else  params[1] = "search_type:simple";
 		
 		
 		// initialize transformer

@@ -39,14 +39,14 @@ public class XsltTransformer {
 			throws TransformerException, IOException, URISyntaxException,
 			ParserConfigurationException, SAXException {
 
-		// create an instance of TransformerFactory
-		//TransformerFactory tf = TransformerFactory.newInstance();
+
+		// retrieves xslt transformer... 
 		Transformer transformer = StylesheetCache.newTransformer(xslt_name);
 		
 		// puts transformation parameter into transformer
 		// splitted[0] : key
 		// splitted[1] : value
-		for(int i = 0; i < params.length; i++) 
+		for(int i = 0; i < params.length; i++)
 			transformer.setParameter(params[i].split(":")[0], params[i].split(":")[1]);
 		
 		/**
@@ -57,15 +57,12 @@ public class XsltTransformer {
 
 		DOMSource source = transformToDOMSource(xml);
 
-		TransformerFactory tfactory = TransformerFactory.newInstance();
-		Transformer trans = tfactory.newTransformer();
-		trans.setOutputProperty(OutputKeys.OMIT_XML_DECLARATION, "yes");
-		trans.setOutputProperty(OutputKeys.INDENT, "yes");
-		trans.setOutputProperty(OutputKeys.ENCODING, "UTF-8");
+		transformer.setOutputProperty(OutputKeys.OMIT_XML_DECLARATION, "yes");
+		transformer.setOutputProperty(OutputKeys.INDENT, "yes");
+		transformer.setOutputProperty(OutputKeys.ENCODING, "UTF-8");
+		//transformer.setOutputProperty(OutputKeys.DOCTYPE_SYSTEM, "file.dtd");
 
-		// trans.setOutputProperty(OutputKeys.DOCTYPE_SYSTEM, "file.dtd");
-
-		trans.transform(source, result);
+		transformer.transform(source, result);
 		return sw.toString();
 	}
 
