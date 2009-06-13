@@ -45,9 +45,8 @@ public class Search extends HttpServlet {
 		DataExchange dataExchange = Utils.getDataExchange(session);
 		
 		// invoke catalogue web service
-		;
 		try {
-			(new CatalogueServiceServiceLocator()).getCatalogueServicePort().fullSearch(key);
+			result = (new CatalogueServiceServiceLocator()).getCatalogueServicePort().fullSearch(key);
 		} catch (ServiceException e1) {
 			// TODO Auto-generated catch block
 			e1.printStackTrace();
