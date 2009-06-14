@@ -1,6 +1,6 @@
 <div id="ssearch">
 <form action="Search"
-	method="post">
+	method="get">
 	<input name="key" type="text" size="50" />
 	<br/><br/>
 	<input type="submit" value="Search"/>

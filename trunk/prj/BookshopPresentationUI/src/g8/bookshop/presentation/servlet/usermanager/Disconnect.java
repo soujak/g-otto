@@ -37,17 +37,20 @@ public class Disconnect extends HttpServlet {
 		// retrieves session ID...
 		String id = session.getId();
 
-		// invoke UserManager web service call
+		// invoke UserManager service...
 		try {
+			// ... to stop authenticated session
 			(new UserManagerServiceServiceLocator())
 				.getUserManagerServicePort().disconnect(id);
 		} catch (ServiceException e) {
 			e.printStackTrace();
 		}
 		
+		// fills dataExchange variable
 		dataExchange.setUsername(DataExchange.GUESTNAME);
 		dataExchange.setAuthenticated(false);
-		Utils.forwardToPage("/pages/index.jsp", getServletContext(), 
+		// forward request to search page
+		Utils.forwardToPage("/pages/guest_search.jsp", getServletContext(), 
 				request, response);	
 	}
 }

@@ -1,5 +1,6 @@
 package g8.bookshop.presentation.servlet.shoppingcart;
 
+import g8.bookshop.business.ws.ShoppingCartServiceServiceLocator;
 import g8.bookshop.presentation.content.manager.DataExchange;
 import g8.bookshop.presentation.servlet.Utils;
 
@@ -9,6 +10,10 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import javax.xml.parsers.ParserConfigurationException;
+import javax.xml.rpc.ServiceException;
+
+import org.xml.sax.SAXException;
 
 /**
  * Servlet implementation class View
@@ -31,6 +36,30 @@ public class View extends HttpServlet {
 		HttpSession session = request.getSession();
 		// retrieves DataExchage user instance...
 		DataExchange dataExchange = Utils.getDataExchange(session);
+		
+		String xml_shoppingcart = "<shoppingcart />";
+		
+		// invoke shoppingcart service method...
+		try {
+			// ... to view cart
+			xml_shoppingcart = (new ShoppingCartServiceServiceLocator()).getShoppingCartServicePort().view(session.getId());
+			// fills dataExchange variable
+			dataExchange.setShoppingcart(xml_shoppingcart);
+		} catch (ServiceException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (ParserConfigurationException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (SAXException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		// forward request to cart page
+		session.setAttribute("DataExchange", dataExchange);
+		Utils.forwardToPage("/pages/cart.jsp", getServletContext(),
+				request, response);		
 	}
 
 }
