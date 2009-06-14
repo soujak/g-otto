@@ -26,7 +26,7 @@ public class Update extends HttpServlet {
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// retrieves user session...
 		HttpSession session = request.getSession();
 		// retrieves DataExchage user instance...

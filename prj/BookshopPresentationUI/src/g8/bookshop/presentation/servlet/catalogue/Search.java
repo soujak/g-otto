@@ -29,16 +29,12 @@ public class Search extends HttpServlet {
 		super();
 	}
 
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
-	 *      response)
-	 */
-	protected void doPost(HttpServletRequest request,
-			HttpServletResponse response) throws ServletException, IOException {
+	protected void doGet(HttpServletRequest request,
+		HttpServletResponse response) throws ServletException, IOException {
 		// initialize result variable
-		String result = "<books />";
+		String xml_booklist = "<books />";
 		// retrieve search parameter
-		String key = request.getParameter("key").toString();
+		String key = request.getParameter("key");
 		// retrieves user session...
 		HttpSession session = request.getSession();
 		// retrieves DataExchage user instance...
@@ -46,17 +42,16 @@ public class Search extends HttpServlet {
 		
 		// invoke catalogue web service
 		try {
-			result = (new CatalogueServiceServiceLocator()).getCatalogueServicePort().fullSearch(key);
+			xml_booklist = (new CatalogueServiceServiceLocator()).getCatalogueServicePort().fullSearch(key);
 		} catch (ServiceException e1) {
 			// TODO Auto-generated catch block
 			e1.printStackTrace();
 		}
 		
-		// filling dataExchange instance fields
+		// fills dataExchange instance fields
 		dataExchange.setKey(key);
-		
 		try {
-			dataExchange.setBooklist(result);
+			dataExchange.setBooklist(xml_booklist);
 		} catch (ParserConfigurationException e) {
 			System.err.println("Parser configuration error");
 			e.printStackTrace();
@@ -65,8 +60,9 @@ public class Search extends HttpServlet {
 			e.printStackTrace();
 		}
 	
+		// forward request to search page
 		session.setAttribute("DataExchange", dataExchange);
-		String url = (dataExchange.getAuthenticated()) ? "/pages/home.jsp" : "/pages/index.jsp";
+		String url = (dataExchange.getAuthenticated()) ? "/pages/customer_search.jsp" : "/pages/guest_search.jsp";
 		Utils.forwardToPage(url, getServletContext(),
 				request, response);
 	}

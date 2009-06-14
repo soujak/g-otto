@@ -43,21 +43,23 @@ public class Authenticate extends HttpServlet {
 		// invoke UserManager service...
 		boolean isAuthenticated = false;
 		try {
+			// ... to authenticate session
 			isAuthenticated = (new UserManagerServiceServiceLocator())
 				.getUserManagerServicePort().authenticate(id, username, password);
 		} catch (ServiceException e) {
 			e.printStackTrace();
 		}
 		
+		// fills dataExchange variable and forward request to search page
 		if(isAuthenticated) {
 			dataExchange.setUsername(username);
 			dataExchange.setAuthenticated(true);
-			Utils.forwardToPage("/pages/home.jsp", getServletContext(), 
+			Utils.forwardToPage("/pages/customer_search.jsp", getServletContext(), 
 					request, response);
 		} else {
 			dataExchange.setUsername(DataExchange.GUESTNAME);
 			dataExchange.setAuthenticated(false);
-			Utils.forwardToPage("/pages/index.jsp", getServletContext(), 
+			Utils.forwardToPage("/pages/guest_search.jsp", getServletContext(), 
 					request, response);
 		}
 	}

@@ -29,10 +29,7 @@ public class AddOrders extends HttpServlet {
         super();
     }
     
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// retrieves user session...
 		HttpSession session = request.getSession();
 		// retrieves DataExchage user instance...
@@ -41,16 +38,19 @@ public class AddOrders extends HttpServlet {
 		String id = session.getId();
 		
 		// initialize orders xml string
-		String orders = "<orders />";
+		String xml_orders = "<orders />";
 		
 		// initialize shoppingcart view result
 		String xml_shoppingcart = "<shoppingcart />";
 			
-		// initialize service port...
 		try {
+			// initialize service port...
 			ShoppingCartService service = (new ShoppingCartServiceServiceLocator()).getShoppingCartServicePort();
-			service.addOrders(id, orders);
-			service.view(id);
+			// invoke shopping cart service method to add item to cart
+			service.addOrders(id, xml_orders);
+			// invoke method to get cart content
+			xml_shoppingcart = service.view(id);
+			// fills dataExchange variable
 			dataExchange.setShoppingcart(xml_shoppingcart);
 		} catch (ServiceException e) {
 			// TODO Auto-generated catch block
@@ -63,6 +63,7 @@ public class AddOrders extends HttpServlet {
 			e.printStackTrace();
 		}
 		
+		// forward request to shoppingcart page
 		session.setAttribute("DataExchange", dataExchange);
 		Utils.forwardToPage("/pages/cart.jsp", getServletContext(),
 				request, response);
