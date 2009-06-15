@@ -9,6 +9,7 @@ author CDATA #REQUIRED
 editor CDATA #REQUIRED
 year CDATA #REQUIRED
 isbn CDATA #REQUIRED
+price CDATA #REQUIRED
 id ID #REQUIRED >
 
 <!ELEMENT orders (order*)>
