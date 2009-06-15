@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!ELEMENT books (book*)>
+
+<!ELEMENT book EMPTY>
+
+<!ATTLIST book  
+title CDATA #REQUIRED
+author CDATA #REQUIRED
+editor CDATA #REQUIRED
+year CDATA #REQUIRED
+isbn CDATA #REQUIRED
+id ID #REQUIRED >
+
+<!ELEMENT orders (order*)>
+
+<!ELEMENT order EMPTY>
+
+<!ATTLIST order
+bookid ID #REQUIRED
+quantity CDATA #REQUIRED>
+
+<!ELEMENT shoppingcart (stock*)>
+
+<!ELEMENT stock (book)>
+
+<!ATTLIST stock
+quantity CDATA #REQUIRED >
