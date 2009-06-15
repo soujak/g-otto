@@ -2,10 +2,15 @@
 <project-modules id="moduleCoreId" project-version="1.5.0">
     <wb-module deploy-name="BookshopBusiness">
         <wb-resource deploy-path="/" source-path="/EarContent"/>
-        <dependent-module archiveName="BookshopBusinessInformationManager.jar" deploy-path="/" handle="module:/resource/BookshopBusinessInformationManager/BookshopBusinessInformationManager">
+        <dependent-module archiveName="BookshopInformationManager.jar" deploy-path="/" handle="module:/resource/BookshopInformationManager/BookshopInformationManager">
             <dependency-type>uses</dependency-type>
         </dependent-module>
-        <dependent-module archiveName="mysql-connector-java-5.1.6.jar" deploy-path="/" handle="module:/classpath/lib/EarContent/mysql-connector-java-5.1.6.jar">
+        <dependent-module deploy-path="/" handle="module:/resource/BookshopBusinessCore/BookshopBusinessCore">
+            <dependent-object/>
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module deploy-path="/" handle="module:/resource/BookshopBusinessWS/BookshopBusinessWS">
+            <dependent-object/>
             <dependency-type>uses</dependency-type>
         </dependent-module>
     </wb-module>
