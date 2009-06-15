@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xhtml>
+
+    <!-- RICERCA SEMPLICE -->
+    <div id="results">
+        <form action="ActionName">
+            <table>
+                <tr class="item">
+                    <td class="nomeAttributo">valore attributo</td>
+                    <!-- numero di celle pari al numero degli attributi escluso id -->
+                </tr>
+            </table>
+        </form>
+    </div>
+
+    <!-- RICERCA AUTENTICATA -->
+    <div id="results">
+        <form action="ActionName">
+            <table>
+                <!-- book -->
+                <tr class="item">
+                    <td class="nomeAttributo">valore attributo</td>
+                    <!-- numero di celle pari al numero degli attributi escluso id -->
+                    <td class="checkbox">
+                        <input name="book+ID"  type="checkbox" value="valoreID"/>
+                    </td>
+                </tr>
+                <!-- submitline -->
+                <tr class="submit">
+                    <td class="empty" colspan="5"/>
+                    <td colspan="1">
+                        <input type="submit" value="select"/>
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </div>
+
+    <!-- CARRELLO -->
+
+    <div id="cart">
+        <form action="actionName">
+            <table>
+                <!-- book -->
+                <tr class="item">
+                    <td class="nomeAttributo">valore attributo</td>
+                    <!-- numero di celle pari al numero degli attributi escluso id -->
+                    <td class="quantity">
+                        <input name="book+ID" type="text" size="4" value="valoreQuantita"/>
+                    </td>
+                </tr>
+                <!-- submitline -->
+                <tr class="submit">
+                    <td class="empty" colspan="5"/>
+                    <td colspan="1">
+                        <input type="submit" value="select"/>
+                    </td>
+                </tr>
+                <tr class="checkout">
+                    <td class="empty" colspan="5"/>
+                    <td colspan="1">
+                        <input type="submit" value="checkout"/>
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </div>
+
+</xhtml>
