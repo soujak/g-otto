@@ -127,7 +127,7 @@
 
     <xsl:template match="shoppingcart" mode="cart">
         <xsl:choose>
-            <xsl:when test="not(normalize-space(.))">
+            <xsl:when test="not(*)">
                 <xsl:element name="p">
                     <xsl:attribute name="id">
                         <xsl:text>message</xsl:text>
@@ -187,42 +187,6 @@
     <!-- * * * * * * * * * < / S H O P P I N G C A R T > * * * * * * * * * * * * * * * -->
 
     <!-- * * * * * * * * * < S U B M I T L I N E > * * * * * * * * * * * * * * * * * * -->
-
-    <!--    <xsl:template name="submitline">
-        <xsl:element name="tr">
-            <xsl:attribute name="class">
-                <xsl:text>submit</xsl:text>
-            </xsl:attribute>
-            <xsl:element name="td">
-                <xsl:attribute name="class">
-                    <xsl:text>empty</xsl:text>
-                </xsl:attribute>
-                <xsl:attribute name="colspan">
-                    <xsl:text>5</xsl:text>
-                </xsl:attribute>
-            </xsl:element>
-            <xsl:element name="td">
-                <xsl:attribute name="colspan">
-                    <xsl:text>1</xsl:text>
-                </xsl:attribute>
-                <xsl:element name="input">
-                    <xsl:attribute name="type">
-                        <xsl:text>submit</xsl:text>
-                    </xsl:attribute>
-                    <xsl:attribute name="value">
-                        <xsl:choose>
-                            <xsl:when test="$mode = 'search'">
-                                <xsl:text>select</xsl:text>
-                            </xsl:when>
-                            <xsl:otherwise>
-                                <xsl:text>commit changes</xsl:text>
-                            </xsl:otherwise>
-                        </xsl:choose>
-                    </xsl:attribute>
-                </xsl:element>
-            </xsl:element>
-        </xsl:element>
-    </xsl:template>-->
 
     <!-- Can be called with parameter named "value". Valid names for "value":
 select OR update OR checkout-->
