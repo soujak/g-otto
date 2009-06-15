@@ -37,11 +37,12 @@
                     <xsl:element name="form">
                         <xsl:attribute name="action">
                             <xsl:value-of select="$form_action"/>
-                            <!--                            <xsl:text>Update</xsl:text>-->
                         </xsl:attribute>
                         <xsl:element name="table">
                             <xsl:apply-templates select="book"/>
-                            <xsl:call-template name="submitline"/>
+                            <xsl:call-template name="submitline">
+                                <xsl:with-param name="value" select="'select'"/>
+                            </xsl:call-template>
                         </xsl:element>
                     </xsl:element>
                 </xsl:when>
@@ -106,6 +107,10 @@
                 <xsl:text>checkbox</xsl:text>
             </xsl:attribute>
             <xsl:element name="input">
+                <xsl:attribute name="name">
+                    <xsl:text>book</xsl:text>
+                    <xsl:value-of select="."/>
+                </xsl:attribute>
                 <xsl:attribute name="type">
                     <xsl:text>checkbox</xsl:text>
                 </xsl:attribute>
@@ -121,24 +126,39 @@
     <!-- * * * * * * * * * * < S H O P P I N G C A R T > * * * * * * * * * * * * * * * -->
 
     <xsl:template match="shoppingcart" mode="cart">
-        <xsl:element name="div">
-            <xsl:attribute name="id">cart</xsl:attribute>
-            <xsl:element name="form">
-                <xsl:attribute name="action">
-                    <xsl:value-of select="$form_action"/>
-<!--                    <xsl:text>AddOrders</xsl:text>-->
-                </xsl:attribute>
-                <xsl:element name="table">
-                    <xsl:apply-templates select="stock"/>
-                    <xsl:call-template name="submitline"/>
+        <xsl:choose>
+            <xsl:when test="not(normalize-space(.))">
+                <xsl:element name="p">
+                    <xsl:attribute name="id">
+                        <xsl:text>message</xsl:text>
+                    </xsl:attribute>
+                    <xsl:text>Empty cart</xsl:text>
                 </xsl:element>
-            </xsl:element>
-        </xsl:element>
+            </xsl:when>
+            <xsl:otherwise>
+                <xsl:element name="div">
+                    <xsl:attribute name="id">cart</xsl:attribute>
+                    <xsl:element name="form">
+                        <xsl:attribute name="action">
+                            <xsl:value-of select="$form_action"/>
+                        </xsl:attribute>
+                        <xsl:element name="table">
+                            <xsl:apply-templates select="stock"/>
+                            <xsl:call-template name="submitline">
+                                <xsl:with-param name="value" select="'update'"/>
+                            </xsl:call-template>
+                            <xsl:call-template name="submitline">
+                                <xsl:with-param name="value" select="'checkout'"/>
+                            </xsl:call-template>
+                        </xsl:element>
+                    </xsl:element>
+                </xsl:element>
+            </xsl:otherwise>
+        </xsl:choose>
     </xsl:template>
 
     <xsl:template match="stock">
         <xsl:apply-templates select="book"/>
-        <!--<xsl:apply-templates select="@quantity"/>-->
     </xsl:template>
 
     <xsl:template match="@quantity">
@@ -146,15 +166,16 @@
             <xsl:attribute name="class">
                 <xsl:text>quantity</xsl:text>
             </xsl:attribute>
+            <xsl:attribute name="name">
+                <xsl:text>book</xsl:text>
+                <xsl:value-of select="parent::node()/book/@id"/>
+            </xsl:attribute>
             <xsl:element name="input">
                 <xsl:attribute name="type">
                     <xsl:text>text</xsl:text>
                 </xsl:attribute>
                 <xsl:attribute name="size">
                     <xsl:text>4</xsl:text>
-                </xsl:attribute>
-                <xsl:attribute name="name">
-                    <xsl:value-of select="parent::node()/book/@id"/>
                 </xsl:attribute>
                 <xsl:attribute name="value">
                     <xsl:value-of select="."/>
@@ -167,7 +188,7 @@
 
     <!-- * * * * * * * * * < S U B M I T L I N E > * * * * * * * * * * * * * * * * * * -->
 
-    <xsl:template name="submitline">
+    <!--    <xsl:template name="submitline">
         <xsl:element name="tr">
             <xsl:attribute name="class">
                 <xsl:text>submit</xsl:text>
@@ -201,7 +222,42 @@
                 </xsl:element>
             </xsl:element>
         </xsl:element>
+    </xsl:template>-->
+
+    <!-- Can be called with parameter named "value". Valid names for "value":
+select OR update OR checkout-->
+    <xsl:template name="submitline">
+        <xsl:param name="value" select="'select'"/>
+        <xsl:element name="tr">
+            <xsl:attribute name="class">
+                <xsl:value-of select="$value"/>
+            </xsl:attribute>
+
+            <xsl:element name="td">
+                <xsl:attribute name="class">
+                    <xsl:text>empty</xsl:text>
+                </xsl:attribute>
+                <xsl:attribute name="colspan">
+                    <xsl:text>5</xsl:text>
+                </xsl:attribute>
+            </xsl:element>
+
+            <xsl:element name="td">
+                <xsl:attribute name="colspan">
+                    <xsl:text>1</xsl:text>
+                </xsl:attribute>
+                <xsl:element name="input">
+                    <xsl:attribute name="type">
+                        <xsl:text>submit</xsl:text>
+                    </xsl:attribute>
+                    <xsl:attribute name="value">
+                        <xsl:value-of select="$value"/>
+                    </xsl:attribute>
+                </xsl:element>
+            </xsl:element>
+        </xsl:element>
     </xsl:template>
+
 
     <!-- * * * * * * * * * < / S U B M I T L I N E > * * * * * * * * * * * * * * * * * -->
 
