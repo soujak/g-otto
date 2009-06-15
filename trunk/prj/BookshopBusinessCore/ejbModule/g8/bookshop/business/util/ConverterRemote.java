@@ -7,15 +7,15 @@ import g8.bookshop.persistence.Book;
 import java.io.IOException;
 import java.util.List;
 
-import javax.ejb.Local;
+import javax.ejb.Remote;
 import javax.xml.parsers.ParserConfigurationException;
 import javax.xml.transform.TransformerException;
 import javax.xml.transform.TransformerFactoryConfigurationError;
 
 import org.xml.sax.SAXException;
 
-@Local
-public interface ConverterLocal {
+@Remote
+public interface ConverterRemote {
 
 	/**
 	 * Transform Book list to XML element

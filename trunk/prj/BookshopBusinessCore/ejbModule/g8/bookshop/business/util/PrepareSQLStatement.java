@@ -22,10 +22,10 @@ public class PrepareSQLStatement {
     	}
     	for (int i = 1; i < strings.length; i++) {
 			String temp = strings[i];
-			SQLStatement += " LIKE b.Title = '%" + temp + "%'";
-			SQLStatement += " LIKE b.Author = '%" + temp + "%'";
-			SQLStatement += " LIKE b.Editor = '%" + temp + "%'";
-			SQLStatement += " LIKE b.ISBN = '%" + temp + "%'";
+			SQLStatement += " OR b.Title LIKE '%" + temp + "%'";
+			SQLStatement += " OR b.Author LIKE '%" + temp + "%'";
+			SQLStatement += " OR b.Editor LIKE '%" + temp + "%'";
+			SQLStatement += " OR b.ISBN LIKE '%" + temp + "%'";
 			try {
 				Integer year = Integer.parseInt(temp);
 				SQLStatement += " OR b.Year = " + year;

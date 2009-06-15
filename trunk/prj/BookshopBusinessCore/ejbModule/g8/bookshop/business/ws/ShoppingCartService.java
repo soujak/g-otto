@@ -1,10 +1,11 @@
 package g8.bookshop.business.ws;
 
-import g8.bookshop.business.core.Customer;
 import g8.bookshop.business.core.CustomerRemote;
 import g8.bookshop.business.core.UserManagerLocal;
 import g8.bookshop.business.core.UserRemote;
 import g8.bookshop.business.util.ConverterLocal;
+
+import java.io.IOException;
 
 import javax.annotation.Resource;
 import javax.ejb.EJB;
@@ -12,6 +13,10 @@ import javax.ejb.SessionContext;
 import javax.ejb.Stateless;
 import javax.jws.WebMethod;
 import javax.jws.WebService;
+import javax.xml.parsers.ParserConfigurationException;
+import javax.xml.transform.TransformerException;
+
+import org.xml.sax.SAXException;
 
 
 /**
@@ -46,7 +51,9 @@ public class ShoppingCartService implements ShoppingCartServiceRemote {
 			if (u.isCustomer()) {
 				try {
 					ret = ((ConverterLocal)sessionContext.lookup("BookshopBusiness/Converter/local")).shoppingCartToXML(((CustomerRemote) u).getShoppingCart());
-				} catch (Exception e) {}
+				} catch (IllegalArgumentException e) {} 
+				catch (ParserConfigurationException e) {}
+				catch (TransformerException e) {}
 			}
 		return ret;
 	}
@@ -62,10 +69,17 @@ public class ShoppingCartService implements ShoppingCartServiceRemote {
 		boolean ret = false;
 		UserRemote u = um.lookup(id);
 		if (u != null)
-			if (u.isCustomer())
+			if (u.isCustomer()) {
 				try {
-					ret = ((Customer) u).getShoppingCart().addOrders(((ConverterLocal)sessionContext.lookup("BookshopBusiness/Converter/local")).xmlToOrders(ords));
-				} catch (Exception e) {}
+					ret = ((CustomerRemote) u).getShoppingCart()
+					.addOrders(
+							((ConverterLocal)sessionContext.lookup("BookshopBusiness/Converter/local"))
+							.xmlToOrders(ords));
+				} catch (IllegalArgumentException e) {} 
+				catch (ParserConfigurationException e) {}
+				catch (SAXException e) {}
+				catch (IOException e) {}
+			}
 		return ret;
 	}
 	
@@ -81,10 +95,14 @@ public class ShoppingCartService implements ShoppingCartServiceRemote {
 		boolean ret = false;
 		UserRemote u = um.lookup(id);
 		if (u != null)
-			if (u.isCustomer())
+			if (u.isCustomer()) {
 				try {
-					ret = ((Customer) u).getShoppingCart().update(((ConverterLocal)sessionContext.lookup("BookshopBusiness/Converter/local")).xmlToOrders(ords));
-				} catch (Exception e) {}
+					ret = ((CustomerRemote) u).getShoppingCart().update(((ConverterLocal)sessionContext.lookup("BookshopBusiness/Converter/local")).xmlToOrders(ords));
+				} catch (IllegalArgumentException e) {} 
+				catch (ParserConfigurationException e) {}
+				catch (SAXException e) {}
+				catch (IOException e) {}
+			}
 		return ret;
 	}
 	
@@ -100,7 +118,7 @@ public class ShoppingCartService implements ShoppingCartServiceRemote {
 		UserRemote u = um.lookup(id);
 		if (u != null)
 			if (u.isCustomer())
-				ret = ((Customer) u).getShoppingCart().checkOut();
+				ret = ((CustomerRemote) u).getShoppingCart().checkOut();
 		return ret;
 	}
 }

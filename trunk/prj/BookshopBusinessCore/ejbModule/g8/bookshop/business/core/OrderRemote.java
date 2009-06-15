@@ -20,4 +20,11 @@ public interface OrderRemote {
 	 * @param quantity
 	 */
 	void setQuantity(int q);
+	
+	/**
+	 * @param b
+	 * 			the book to set
+	 * 
+	 */
+	public void setBook(Book b);
 }

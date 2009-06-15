@@ -19,21 +19,21 @@ import javax.ejb.Stateful;
 @Stateful
 public class ShoppingCart implements ShoppingCartLocal, ShoppingCartRemote {
 
-	private SortedMap<Long,Order> orders;
+	private SortedMap<Long,OrderRemote> orders;
 
 	/**
 	 * Constructor
 	 */
 	public ShoppingCart() {
-		this.orders = Collections.synchronizedSortedMap(new TreeMap<Long,Order>());
+		this.orders = Collections.synchronizedSortedMap(new TreeMap<Long,OrderRemote>());
 	}
 	
 	/**
 	 * Add an order in the shopping cart
 	 * @param o order to add
 	 */
-	public boolean addOrder(Order o) {
-		Order oldOrder = orders.get(o.getBook().getId()); 
+	public boolean addOrder(OrderRemote o) {
+		OrderRemote oldOrder = orders.get(o.getBook().getId()); 
 		if (oldOrder != null)
 			oldOrder.setQuantity(o.getQuantity()+oldOrder.getQuantity());
 		else
@@ -46,10 +46,10 @@ public class ShoppingCart implements ShoppingCartLocal, ShoppingCartRemote {
 	 * Add a list of orders in the shopping cart
 	 * @param l list to add
 	 */
-	public boolean addOrders(List<Order> l) {
+	public boolean addOrders(List<OrderRemote> l) {
 		boolean ret = true;
-		for (ListIterator<Order> i = l.listIterator(); i.hasNext();) {
-			Order o = i.next();
+		for (ListIterator<OrderRemote> i = l.listIterator(); i.hasNext();) {
+			OrderRemote o = i.next();
 			// TODO check validity of the short hand version:
 			// ret &= addOrder(o);
 			ret = ret && addOrder(o);
@@ -62,8 +62,8 @@ public class ShoppingCart implements ShoppingCartLocal, ShoppingCartRemote {
 	 * @param ords Orders
 	 * @return true if the shopping cart is successfully updated, false otherwise
 	 */
-	public boolean update(List<Order> ords) {
-		this.orders = Collections.synchronizedSortedMap(new TreeMap<Long,Order>());
+	public boolean update(List<OrderRemote> ords) {
+		this.orders = Collections.synchronizedSortedMap(new TreeMap<Long,OrderRemote>());
 		return this.addOrders(ords);
 	}
 	
@@ -81,7 +81,7 @@ public class ShoppingCart implements ShoppingCartLocal, ShoppingCartRemote {
 	 * Return the orders
 	 * @return
 	 */
-	public List<Order> getOrders() {
-		return new ArrayList<Order>(this.orders.values());
+	public List<OrderRemote> getOrders() {
+		return new ArrayList<OrderRemote>(this.orders.values());
 	}
 }

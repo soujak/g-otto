@@ -28,6 +28,12 @@ public class Order implements OrderLocal, OrderRemote {
 	}
 	
 	/**
+	 * Minimal constructor
+	 */
+	public Order() {
+	}
+
+	/**
 	 * @return the book
 	 */
 	public Book getBook() {
