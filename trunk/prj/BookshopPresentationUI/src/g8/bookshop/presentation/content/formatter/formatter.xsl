@@ -29,6 +29,7 @@
 
     <!-- * * * * * * * * * < B O O K S > * * * * * * * * * * * * * * * * * * * * * * * -->
     <xsl:template match="books" mode="search">
+    <xsl:if test="*">
         <xsl:element name="div">
             <xsl:attribute name="id">result</xsl:attribute>
             <xsl:choose>
@@ -37,6 +38,9 @@
                     <xsl:element name="form">
                         <xsl:attribute name="action">
                             <xsl:value-of select="$form_action"/>
+                        </xsl:attribute>
+                        <xsl:attribute name="method">
+                            <xsl:text>POST</xsl:text>
                         </xsl:attribute>
                         <xsl:element name="table">
                             <xsl:apply-templates select="book"/>
@@ -54,6 +58,7 @@
                 </xsl:otherwise>
             </xsl:choose>
         </xsl:element>
+        </xsl:if>
     </xsl:template>
 
     <!-- * * * * * * * * * < / B O O K S > * * * * * * * * * * * * * * * * * * * * * * -->
@@ -141,6 +146,9 @@
                     <xsl:element name="form">
                         <xsl:attribute name="action">
                             <xsl:value-of select="$form_action"/>
+                        </xsl:attribute>
+                        <xsl:attribute name="method">
+                            <xsl:text>POST</xsl:text>
                         </xsl:attribute>
                         <xsl:element name="table">
                             <xsl:apply-templates select="stock"/>
