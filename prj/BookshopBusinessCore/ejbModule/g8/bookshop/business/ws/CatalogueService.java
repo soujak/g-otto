@@ -16,6 +16,8 @@ import javax.jws.WebService;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
+import javax.xml.parsers.ParserConfigurationException;
+import javax.xml.transform.TransformerException;
 
 
 
@@ -47,7 +49,7 @@ public class CatalogueService implements CatalogueServiceRemote {
 	@WebMethod
 	public String Search(String s) {
 		// TODO
-//    	Book b = Converter.XMLtoBook(s);
+//    	Book b = ((ConverterLocal)sessionContext.lookup("BookshopBusiness/Converter/local")).xmlToBook(s);
 //    	List<Book> res = em.createNamedQuery("search").setParameter("Author", b.getAuthor())
 //    		.setParameter("Editor", b.getEditor())
 //    		.setParameter("ISBN", b.getISBN())
@@ -75,7 +77,9 @@ public class CatalogueService implements CatalogueServiceRemote {
 		String ret = "";
 		try {
 			ret = ((ConverterLocal)sessionContext.lookup("BookshopBusiness/Converter/local")).booksToXML(res);
-		} catch(Exception e) {}
+		} catch (IllegalArgumentException e) {} 
+		catch (ParserConfigurationException e) {}
+		catch (TransformerException e) {}
 		return ret;
 	}
 }

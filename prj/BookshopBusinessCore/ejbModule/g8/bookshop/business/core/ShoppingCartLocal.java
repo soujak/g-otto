@@ -14,20 +14,20 @@ public interface ShoppingCartLocal {
 	 * Add an order in the shopping cart
 	 * @param o order to add
 	 */
-	public boolean addOrder(Order o);
+	public boolean addOrder(OrderRemote o);
 	
 	/**
 	 * Add a list of orders in the shopping cart
 	 * @param l list to add
 	 */
-	public boolean addOrders(List<Order> l);
+	public boolean addOrders(List<OrderRemote> l);
 
 	/**
 	 * Update the shopping cart with the given orders
 	 * @param ords Orders
 	 * @return true if the shopping cart is successfully updated, false otherwise
 	 */
-	public boolean update(List<Order> ords);
+	public boolean update(List<OrderRemote> ords);
 	
 	/**
 	 * Check out the shopping cart and empty it
@@ -39,5 +39,5 @@ public interface ShoppingCartLocal {
 	 * Return the orders
 	 * @return
 	 */
-	public List<Order> getOrders();
+	public List<OrderRemote> getOrders();
 }

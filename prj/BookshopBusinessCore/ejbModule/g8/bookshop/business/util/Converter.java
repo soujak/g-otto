@@ -3,7 +3,7 @@
  */
 package g8.bookshop.business.util;
 
-import g8.bookshop.business.core.Order;
+import g8.bookshop.business.core.OrderRemote;
 import g8.bookshop.business.core.ShoppingCartRemote;
 import g8.bookshop.persistence.Book;
 
@@ -15,7 +15,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.annotation.Resource;
-import javax.ejb.Local;
 import javax.ejb.SessionContext;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
@@ -45,7 +44,7 @@ import org.xml.sax.SAXException;
 
 //FIXME: rivedimi, commentami, formattami ed espandimi.
 @Stateless
-public class Converter implements ConverterLocal {
+public class Converter implements ConverterLocal, ConverterRemote {
 	@PersistenceContext(unitName = "InformationManager")
 	private EntityManager em;
 	@Resource 
@@ -96,7 +95,7 @@ public class Converter implements ConverterLocal {
 	 * @param obj
 	 * @return
 	 */
-	private Element orderToXML(Document document, Order order) {
+	private Element orderToXML(Document document, OrderRemote order) {
 		Element item = document.createElement("stock");
 		item.setAttribute("quantity", Integer.toString(order.getQuantity()));
 		item.appendChild(bookToXML(document, order.getBook()));
@@ -109,10 +108,10 @@ public class Converter implements ConverterLocal {
 	 */
 	public String shoppingCartToXML(ShoppingCartRemote sc) 
 	throws ParserConfigurationException, TransformerFactoryConfigurationError, TransformerException {
-		List<Order> orders = sc.getOrders();
+		List<OrderRemote> orders = sc.getOrders();
 		Document document = DocumentBuilderFactory.newInstance().newDocumentBuilder().newDocument();
 		Element root = document.createElement("shoppingcart");
-		for (Order order : orders) {
+		for (OrderRemote order : orders) {
 			root.appendChild(orderToXML(document, order));			
 		}
 		document.appendChild(root);
@@ -126,30 +125,40 @@ public class Converter implements ConverterLocal {
 	 * * * * * * * * * * * * * * * O R D E R * * * * * * * * * * * *
 	 * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 	
-	
-	private Order xmlNodeToOrder(Node xmlNode)
+	/**
+	 * Convert a XML node in a Order
+	 * @param xmlNode the XML node
+	 * @return the Order if the node is successfully converted, null otherwise 
+	 */
+	private OrderRemote xmlNodeToOrder(Node xmlNode)
 	throws ParserConfigurationException, SAXException, IOException {
 		int quantity = 0;
 		String bookid = null;
 		quantity = Integer.parseInt(xmlNode.getAttributes().getNamedItem("quantity").getNodeValue());
 		bookid = xmlNode.getAttributes().getNamedItem("bookid").getNodeValue();
-		Book b = em.find(Book.class, bookid);
-		Order o = (Order)sessionContext.lookup("");
-	    o.setQuantity(quantity);
-	    o.setBook(b);
-	    return o;
+		Book b = em.find(Book.class, Long.parseLong(bookid));
+		OrderRemote o = null;
+		if(b != null) {
+			o = (OrderRemote)sessionContext.lookup("BookshopBusiness/Order/remote");
+		    o.setQuantity(quantity);
+		    o.setBook(b);
+		}
+		return o;
 	}
 	
 	/* (non-Javadoc)
 	 * @see g8.bookshop.business.util.ConverterLocal#xmlToOrders(java.lang.String)
 	 */
-	public List<Order> xmlToOrders(String xml) throws ParserConfigurationException, SAXException, IOException {
+	public List<OrderRemote> xmlToOrders(String xml) throws ParserConfigurationException, SAXException, IOException {
 		Document document = xmlDocumentCreator(xml);
 		Element root = document.getDocumentElement();
 		NodeList orders = root.getChildNodes();
-		List<Order> result = new ArrayList<Order>();
-		for (int i = 0; i < orders.getLength(); i++)
-			result.add(xmlNodeToOrder(orders.item(i)));
+		List<OrderRemote> result = new ArrayList<OrderRemote>();
+		for (int i = 0; i < orders.getLength(); i++) {
+			OrderRemote o = xmlNodeToOrder(orders.item(i));
+			if(o != null)
+				result.add(o);
+		}
 		return result;
 	}
 	
