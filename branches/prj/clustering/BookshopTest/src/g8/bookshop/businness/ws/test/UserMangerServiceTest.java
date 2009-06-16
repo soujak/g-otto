@@ -35,6 +35,7 @@ public class UserMangerServiceTest {
 		res = ums.Authenticate("session1", "gnappo", "gnappo");
 		res = !ums.Authenticate("session1", "gnappo", "gnappo") && res;
 		res = ums.Disconnect("session1") && res;
+		res = !ums.Disconnect("session1") && res;
 		assertTrue(res);
 	}
 
