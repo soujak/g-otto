@@ -1,4 +1,4 @@
-package g8.bookshop.business.core.singleton;
+package g8.bookshop.business.singleton;
 
 import g8.bookshop.business.core.CustomerRemote;
 import g8.bookshop.business.core.GuestRemote;

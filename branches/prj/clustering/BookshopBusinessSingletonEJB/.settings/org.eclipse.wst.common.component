@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project-modules id="moduleCoreId" project-version="1.5.0">
-    <wb-module deploy-name="BookshopBusinessCoreSingleton">
+    <wb-module deploy-name="BookshopBusinessSingletonEJB">
         <wb-resource deploy-path="/" source-path="/ejbModule"/>
         <property name="java-output-path"/>
         <property name="ClientProject" value="BookshopBusinessCoreSingletonClient"/>
