@@ -11,10 +11,22 @@
         <title>Relazione di progetto</title>
         <!-- Empty PARA for SPACING -->
         
-        <xi:include href="sect-usecases.xml" xpointer="sect-diagrammi-usecases"/>
-        <!-- le parti seguenti sono state incluse in sect-diagrammi-usecases -->
-        <!--<xi:include href="sect-usecases.xml" xpointer="sect-tabelle-usecases"/>
-        <xi:include href="sect-usecases.xml" xpointer="sect-matricemappaturarequisiti"/>-->
+        <section xml:id="sect-diagrammi-usecases">
+            <title>Diagrammi dei casi d'uso</title>
+            <figure>
+                <title>Diagramma dei casi d'uso.</title>
+                <mediaobject>
+                    <imageobject role="fo">
+                        <imagedata fileref="DiagrammiModelloCasiUso/DiagrammaCasiUso.svg"
+                            align="center" scalefit="1" depth="245pt" format="SVG"/>
+                    </imageobject>
+                    <imageobject role="dblatex">
+                        <imagedata fileref="DiagrammiModelloCasiUso/DiagrammaCasiUso.pdf"
+                            align="center" scalefit="1" depth="245pt" format="PDF"/>
+                    </imageobject>
+                </mediaobject>
+            </figure>
+        </section>
         
         <xi:include href="sect-attivita.xml" xpointer="sect-diagrammi-attivita"/>
         <xi:include href="sect-architettura.xml" xpointer="sect-diagrammi-architettura"/>
