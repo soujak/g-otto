@@ -3,7 +3,7 @@
 	<name>BookshopBusinessSingleton</name>
 	<comment></comment>
 	<projects>
-		<project>BookshopBusinessCoreSingleton</project>
+		<project>BookshopBusinessSingletonEJB</project>
 	</projects>
 	<buildSpec>
 		<buildCommand>
