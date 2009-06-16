@@ -2,6 +2,7 @@ package g8.bookshop.businness.ws.test;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.fail;
+
 import g8.bookshop.business.ws.CatalogueServiceRemote;
 
 import java.util.Properties;

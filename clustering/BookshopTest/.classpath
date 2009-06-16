@@ -5,5 +5,7 @@
 	<classpathentry combineaccessrules="false" kind="src" path="/BookshopInformationManager"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/BookshopBusinessCore"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.junit.JUNIT_CONTAINER/4"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/BookshopBusinessWS"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/BookshopBusinessSingletonEJB"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
