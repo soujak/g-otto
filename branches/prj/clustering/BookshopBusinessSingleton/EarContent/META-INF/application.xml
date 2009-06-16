@@ -3,6 +3,6 @@
   <display-name> 
 BookshopBusinessSingleton</display-name>
   <module>
-    <ejb>BookshopBusinessCoreSingleton.jar</ejb>
+    <ejb>BookshopBusinessSingletonEJB.jar</ejb>
   </module>
 </application>
