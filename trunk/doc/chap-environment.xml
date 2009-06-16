@@ -9,17 +9,199 @@
     xmlns:xi="http://www.w3.org/2001/XInclude" xmlns:xlink="http://www.w3.org/1999/xlink"
     version="5.0" xml:id="chap-environment">
     <title>Tools utilizzati</title>
-    <section xml:id="sect-documentazione">
-        <title>Strumenti per la documentazione</title>
-        <variablelist xml:id="docbook">
-            <title>Docbook</title>
+    <para>Questo capitolo elenca gli strumenti utilizzati durante lo sviluppo del progetto, sia per
+        lo sviluppo stesso che per la documentazione. Non sono stati inseriti in questa trattazione
+        gli strumenti imposti, quali JBoss e Apache, n&eacute; gli strumenti lasciati al gusto
+        de singoli, come ad esempio gli editor di testo per la documentazione semplice. Fanno
+        eccezione particolari strumenti non utilizzati da tutti i componenti del gruppo ma tuttavia
+        significativi nello sviluppo, le cui funzionalit&agrave; non sarebbero state fornite
+        allo stesso modo da un qualunque altro strumento simile: ad esempio, particolari editor di
+        immagini o trasformatori XSLT. </para>
+    <section xml:id="sect-managing">
+        <title>Managing</title>
+        <variablelist xml:id="googlegroups">
+            <title>Google Groups</title>
             <varlistentry>
                 <term>Riferimento</term>
                 <listitem>
                     <para>
-                        <!--<link xmlns:ns1="http://www.w3.org/1999/xlink"
-                            ns1:href="http://www.docbook.org/">-->http://www.docbook.org<!--</link>
--->                    </para>
+                        <link xmlns:ns1="http://www.w3.org/1999/xlink"
+                            ns1:href="http://www.groups.google.com/"
+                            >http://www.groups.google.com/</link>
+                    </para>
+                </listitem>
+            </varlistentry>
+            <varlistentry>
+                <term>Licenza</term>
+                <listitem>
+                    <para>L'utilizzo dei servizi forniti da Google Groups &egrave; gratuito. Le
+                        condizioni di utilizzo e la policy sulla privacy sono specifiche di Google e
+                        descritte in documenti visionabili online.</para>
+                </listitem>
+            </varlistentry>
+            <varlistentry>
+                <term>Descrizione</term>
+                <listitem>
+                    <para>Servizio gratuito offerto da Google che permette di creare e gestire
+                        gruppi di discussione.</para>
+                </listitem>
+            </varlistentry>
+            <varlistentry>
+                <term>Motivazioni della scelta</term>
+                <listitem>
+                    <para>Nessuna motivazione in particolare: una mailing list e alcuni servizi
+                        addizionali come la possibilit&agrave; di caricare files in uno spazio
+                        comune e avere a disposizione un archivio delle mail scambiate era
+                        importante per la gestione dello sviluppo del progetto. Abbiamo scelto
+                        Google Groups per la familiarit&agrave; coi servizi di Google in
+                        generale. Non ci risulta che tra gli altri servizi che forniscano
+                        funzionalit&agrave; simile qualcuno si distingua per qualche aspetto
+                        particolarmente interessante per le nostre limitate necessit&agrave;, di
+                        conseguenza nessuna ricerca in questo senso &egrave; stata fatta.</para>
+                </listitem>
+            </varlistentry>
+        </variablelist>
+        <variablelist xml:id="googlecalendar">
+            <title>Google Calendar</title>
+            <varlistentry>
+                <term>Riferimento</term>
+                <listitem>
+                    <para>
+                        <link xmlns:ns1="http://www.w3.org/1999/xlink"
+                            ns1:href="http://www.calendar.google.com/"
+                            >http://www.calendar.google.com/</link>
+                    </para>
+                </listitem>
+            </varlistentry>
+            <varlistentry>
+                <term>Licenza</term>
+                <listitem>
+                    <para>L'utilizzo dell'applicazione &egrave; possibile, e gratuito, per
+                        chiunque possegga un account Google. Le condizioni di utilizzo e la policy
+                        sulla privacy sono specifiche di Google e descritte in documenti visionabili
+                        online.</para>
+                </listitem>
+            </varlistentry>
+            <varlistentry>
+                <term>Descrizione</term>
+                <listitem>
+                    <para>Applicazione Web di tipo calendario di Google.</para>
+                </listitem>
+            </varlistentry>
+            <varlistentry>
+                <term>Motivazioni della scelta</term>
+                <listitem>
+                    <para>Dal momento che tutti i membri del gruppo possedevano gi&agrave; un
+                        account Google, necessario per l'utilizzo del servizio, Google Calendar ci
+                        si &egrave; subito presentata come una semplice soluzione per la
+                        gestione degli incontri del gruppo, delle scadenze e di quant'altro sia
+                        comodo visualizzare su un calendario.</para>
+                </listitem>
+            </varlistentry>
+        </variablelist>
+        <variablelist xml:id="googlecode">
+            <title>Google code</title>
+            <varlistentry>
+                <term>Riferimento</term>
+                <listitem>
+                    <para>
+                        <link xmlns:ns1="http://www.w3.org/1999/xlink"
+                            ns1:href="http://code.google.com/">http://code.google.com/</link>
+                    </para>
+                </listitem>
+            </varlistentry>
+            <varlistentry>
+                <term>Licenza</term>
+                <listitem>
+                    <para>L'utilizzo dell'applicazione &egrave; possibile, e gratuito, per
+                        chiunque possegga un account Google. Le condizioni di utilizzo e la policy
+                        sulla privacy sono specifiche di Google e descritte in documenti visionabili
+                        online.</para>
+                    <para> Per quanto riguarda i progetti caricati il sito permette di impostare una
+                        tra le seguenti nove licenze disponibili: Apache, Artistic, BSD, GPLv2,
+                        GPLv3, LGPL, MIT, MPL e EPL.</para>
+                </listitem>
+            </varlistentry>
+            <varlistentry>
+                <term>Descrizione</term>
+                <listitem>
+                    <para>Sito di Google per sviluppatori che intendano sviluppare progetti da
+                        rilasciare sotto una licenza free software. Fornisce diversi servizi, di
+                        nostro interesse principalmente il servizio gratuito di hosting con
+                        controllo delle revisioni mediante Subversion.</para>
+                </listitem>
+            </varlistentry>
+            <varlistentry>
+                <term>Motivazioni della scelta</term>
+                <listitem>
+                    <para>Google Code ci &egrave; sembrato un servizio di facile utilizzo
+                        preferibile per questo alla richiesta di uno spazio in laboratorio con
+                        conseguente configurazione di un repository SVN. La possibilit&agrave;
+                        di caricare il codice e accedervi mediante Subversion lo rendono molto
+                        comodo per essere utilizzato col plugin <application>Subclipse</application>
+                        di <application>Ecplise</application>. &Egrave; poi possibile
+                        visualizzare il codice anche tramite browser, e questo ci ha permesso di
+                        rendere i documenti della nostra relazione disponibili sul wiki al volo,
+                        senza la necessit&agrave; di convertire in un altro documento da
+                        caricare ogni volta. In ultimo, anche la possibilit&agrave; di
+                        effettuare issue tracking ci ha interessato. </para>
+                </listitem>
+            </varlistentry>
+        </variablelist>
+        <variablelist xml:id="subclipse">
+            <title>Subclipse 1.6</title>
+            <varlistentry>
+                <term>Riferimento</term>
+                <listitem>
+                    <para>
+                        <link xmlns:ns1="http://www.w3.org/1999/xlink"
+                            ns1:href="http://subclipse.tigris.org/"
+                            >http://subclipse.tigris.org/</link>
+                    </para>
+                </listitem>
+            </varlistentry>
+            <varlistentry>
+                <term>Licenza</term>
+                <listitem>
+                    <para>Eclipse Public Licence</para>
+                </listitem>
+            </varlistentry>
+            <varlistentry>
+                <term>Descrizione</term>
+                <listitem>
+                    <para>Plug-in per Eclipse che fornisce supporto per Subversio internamente
+                        all'IDE.</para>
+                </listitem>
+            </varlistentry>
+            <varlistentry>
+                <term>Motivazioni della scelta</term>
+                <listitem>
+                    <para>Subclipse &egrave; la soluzione standard, nonch&eacute; unica, per
+                        gestire un repository Subversion internamente a
+                            <application>Eclipse</application>. Abbiamo tutti concordato che avere
+                        SVN integrato nella nostra IDE di preferenza fosse molot comodo: questa
+                        scelta non &egrave; stata fatta inizialmente ma &egrave; risultata
+                        successivamente come dato di fatto. Subclipse permette di visualizzare i
+                        file modificati rispetto all'ultima sicnronizzazione direttamente durante la
+                        fase di programmazione, e caricare le proprie modifiche &egrave; molto
+                        veloce in quanto &egrave; sufficiente cambiare prospettiva nell'editor.
+                        Anche grazie a questo &egrave; stato fatto un uso massiccio dell'SVN.
+                    </para>
+                </listitem>
+            </varlistentry>
+        </variablelist>
+    </section>
+    <section xml:id="sect-documentazione">
+        <title>Strumenti per la documentazione</title>
+        <variablelist xml:id="docbook">
+            <title>Docbook V5.0</title>
+            <varlistentry>
+                <term>Riferimento</term>
+                <listitem>
+                    <para>
+                        <link xmlns:ns1="http://www.w3.org/1999/xlink"
+                            ns1:href="http://www.docbook.org/">http://www.docbook.org</link>
+                    </para>
                 </listitem>
             </varlistentry>
             <varlistentry>
@@ -31,19 +213,40 @@
             <varlistentry>
                 <term>Descrizione</term>
                 <listitem>
-                    <para>Linguaggio di markup semantico, basato su XML, per la redazione di documentazione tecnica. &Egrave; possibile da sorgenti Docbook generare, tra gli altri, documenti html, xhtml, pdf, tex.</para>
+                    <para>Linguaggio di markup semantico, basato su XML, per la redazione di
+                        documentazione tecnica. &Egrave; possibile da sorgenti Docbook generare,
+                        tra gli altri, documenti html, xhtml, pdf, tex.</para>
                 </listitem>
             </varlistentry>
             <varlistentry>
                 <term>Motivazioni della scelta</term>
                 <listitem>
-                    <para>Docbook &egrave; un linguaggio estremamente flessibile e versatile, ben pi&ugrave; di <application>LaTeX</application>. Il vocabolario che offre &egrave; molto ricco, e grazie al fatto che &egrave; basato su XML la riorganizzazione della struttura complessiva di un documento redatto in DocBook si pu&ograve; effettuare rapidamente con un semplice foglio di stile XSLT. Permette minore precisione nella specifica delle caratteristiche tipografiche del documento finale rispetto a LaTeX, ma abbiamo ritenuto che la qualit&agrave; dei documenti prodotti fosse comunque pi&ugrave; che accettabile.</para>
-                    <para>Docbook ci ha inoltre permesso di mantenere una versione XHTML dei nostri documenti sempre aggiornata sul wiki, generata al volo alla visione delle pagine wiki a partire dai sorgenti Docbook sul SVN. Tramite <application>dblatex</application> &egrave; ad ogni modo possibile trasformare i sorgenti Docbook in LaTeX: modifiche specifiche su aspetti tipografici possono volendo essere effettuate qui.</para>
-                    <para>Nessuno dei membri del gruppo aveva utilizzato precedentemente Docbook, e proprio per questo abbiamo voluto utilizzarlo nello sviluppo di questo progetto, considerando che sarebbe stata una buona occasione per imparare a utilizzarlo.</para>
+                    <para>Docbook &egrave; un linguaggio estremamente flessibile e versatile,
+                        ben pi&ugrave; di <application>LaTeX</application>. Il vocabolario che
+                        offre &egrave; molto ricco, e grazie al fatto che &egrave; basato su
+                        XML la riorganizzazione della struttura complessiva di un documento redatto
+                        in DocBook si pu&ograve; effettuare rapidamente con un semplice foglio
+                        di stile XSLT. Permette minore precisione nella specifica delle
+                        caratteristiche tipografiche del documento finale rispetto a LaTeX, ma
+                        abbiamo ritenuto che la qualit&agrave; dei documenti prodotti fosse
+                        comunque pi&ugrave; che accettabile.</para>
+                    <para>Docbook ci ha inoltre permesso di mantenere una versione XHTML dei nostri
+                        documenti sempre aggiornata sul wiki, generata al volo alla visione delle
+                        pagine wiki a partire dai sorgenti Docbook sul SVN. Tramite
+                            <application>dblatex</application> &egrave; ad ogni modo possibile
+                        trasformare i sorgenti Docbook in LaTeX: modifiche specifiche su aspetti
+                        tipografici possono volendo essere effettuate qui.</para>
+                    <para>Nessuno dei membri del gruppo aveva utilizzato precedentemente Docbook, e
+                        proprio per questo abbiamo voluto utilizzarlo nello sviluppo di questo
+                        progetto, considerando che sarebbe stata una buona occasione per imparare a
+                        utilizzarlo.</para>
                 </listitem>
             </varlistentry>
         </variablelist>
- <!--       <variablelist xml:id="oxygen">
+    </section>
+    <!-- <section xml:id="sect-editor">
+        <title>Strumenti per editing</title>
+               <variablelist xml:id="oxygen">
             <title>Oxygen</title>
             <varlistentry>
                 <term>Riferimento</term>
@@ -72,12 +275,12 @@
                     <para> Motivazioni della scelta</para>
                 </listitem>
             </varlistentry>
-        </variablelist>-->
-    </section>
+            </variablelist>
+    </section>-->
     <section xml:id="sect-ide">
-        <title>IDE di programmazione</title>
+        <title>Strumenti per lo sviluppo: application framework, IDE e editor</title>
         <variablelist xml:id="eclipse">
-            <title>Eclipse Enterprise Edition</title>
+            <title>Eclipse JEE Ganymede</title>
             <varlistentry>
                 <term>Riferimento</term>
                 <listitem>
@@ -96,170 +299,231 @@
             <varlistentry>
                 <term>Descrizione</term>
                 <listitem>
-                    <para>Eclipse &egrave; un ambiente di sviluppo software  che comprende un IDE e un sistema di plugin che permettono di estendere l'IDE stessa. Si tratta di un ambiente multilinguaggio, ma indirizzato in primis agli sviluppatori Java. Nella sua versione EE si rivolge ovviamente allo sviluppo di applicazioni di tipo Enterprise, in particolare J2EE. </para>
+                    <para>Eclipse &egrave; un ambiente di sviluppo software che comprende un IDE
+                        e un sistema di plugin che permettono di estendere l'IDE stessa. Si tratta
+                        di un ambiente multilinguaggio, ma indirizzato in primis agli sviluppatori
+                        Java. Nella sua versione EE si rivolge ovviamente allo sviluppo di
+                        applicazioni di tipo Enterprise, in particolare J2EE. </para>
                 </listitem>
             </varlistentry>
             <varlistentry>
                 <term>Motivazioni della scelta</term>
                 <listitem>
-                    <para>Quando si tratta di sviluppare in codice Java, la scelta dell'IDE da utilizzare &egrave; molto spesso tra Eclipse e <application>NetBeans</application>. Abbiamo scelto il primo in favore del secondo in quanto era uno strumento gi&agrave; stato utilizzato da tutti i membri del gruppo, e una breve ricerca non ci ha indicato caratteristiche di NetBeans che potessero interessarci in modo particolare. Come diretta conseguenza di questa scelta, si sono utilizzati il plugin <application>Subclipse</application> per le interazioni col repository SVN, e il plugin <application>JBossTools</application> per una migliore integrazione dell'IDE con JBoss. Ogni componente del gruppo ha poi personalizzato l'IDE a suo piacimento con altri, o nessuno, dei numerosi plugin disponibili per essa.</para>
+                    <para>Quando si tratta di sviluppare in codice Java, la scelta dell'IDE da
+                        utilizzare &egrave; molto spesso tra Eclipse e
+                            <application>NetBeans</application>. Abbiamo scelto il primo in favore
+                        del secondo in quanto era uno strumento gi&agrave; stato utilizzato da
+                        tutti i membri del gruppo, e una breve ricerca non ci ha indicato
+                        caratteristiche di NetBeans che potessero interessarci in modo particolare.
+                        Come diretta conseguenza di questa scelta, si sono utilizzati il plugin
+                            <application>Subclipse</application> per le interazioni col repository
+                        SVN, e il plugin <application>JBossTools</application> per una migliore
+                        integrazione dell'IDE con JBoss. Ogni componente del gruppo ha poi
+                        personalizzato l'IDE a suo piacimento con altri, o nessuno, dei numerosi
+                        plugin disponibili per essa.</para>
+                </listitem>
+            </varlistentry>
+        </variablelist>
+        <variablelist xml:id="jbosstools">
+            <title>JBoss Tools 3.0</title>
+            <varlistentry>
+                <term>Riferimento</term>
+                <listitem>
+                    <para>
+                        <link xmlns:ns1="http://www.w3.org/1999/xlink"
+                            ns1:href="http://www.jboss.org/tools">http://www.jboss.org/tools</link>
+                    </para>
+                </listitem>
+            </varlistentry>
+            <varlistentry>
+                <term>Licenza</term>
+                <listitem>
+                    <para>GNU General Public Licence</para>
+                </listitem>
+            </varlistentry>
+            <varlistentry>
+                <term>Descrizione</term>
+                <listitem>
+                    <para>JBoss Tools &egrave; un insieme di plugin per Eclipse per lo sviluppo
+                        di applicazioni JBoss e J2EE.</para>
+                </listitem>
+            </varlistentry>
+            <varlistentry>
+                <term>Motivazioni della scelta</term>
+                <listitem>
+                    <para> JBoss Tools &egrave; una scelta ovvia per lo sviluppo con JBoss ed
+                        Eclipse. I plugin che lo costituiscono permettono di avviare, configurare e
+                        fermare in modo semplice e veloce JBoss. Offrono supporto alla modifica di
+                        file HTML e JSP, nonch&egrave; di file di configurazione XML propri di
+                        JBoss o J2EE grazie a un editor visuale. Permettono la generazione
+                        automatica di test e servizi, e includono funzionalit&agrave; per
+                        packaging efficiente e deployment di vari tipi di progetti. </para>
                 </listitem>
             </varlistentry>
         </variablelist>
     </section>
     <section xml:id="sect-uml">
         <title>Strumenti UML</title>
+        <para>Buona parte dei diagrammi UML &egrave; stata disegnata su carta o su lavagna,
+            fotografata e riportata in formato elettronico solo successivamente: questo
+            perch&eacute; per quanto semplici e intuitivi fossero gli strumenti scelti per la
+            progettazione UML, questi non eguagliavano l'immediatezza della bozza a mano libera
+            durante gli incontri di gruppo. I diagrammi cos&igrave; schizzati sono poi stati
+            riportati in relazione alle volte nella forma semplicemente fotografata, altre schizzati
+            con OmniGraffle, altre ancora con GreenUML (queste ultime nei casi nei quali ci
+            interessassero le funzionalit&agrave; di ingegneria diretta e inversa di
+            GreenUML).</para>
         <variablelist xml:id="greenuml">
-            <title>Green UML</title>
+            <title>Green UML 3.1</title>
             <varlistentry>
                 <term>Riferimento</term>
                 <listitem>
                     <para>
                         <link xmlns:ns1="http://www.w3.org/1999/xlink"
-                            ns1:href="http://www.docbook.org/">Sito dedicato</link>
+                            ns1:href="http://green.sourceforge.net/"
+                            >http://green.sourceforge.net/</link>
                     </para>
                 </listitem>
             </varlistentry>
             <varlistentry>
                 <term>Licenza</term>
                 <listitem>
-                    <para> tipo di licenza </para>
+                    <para>Eclipse Public Licence</para>
                 </listitem>
             </varlistentry>
             <varlistentry>
                 <term>Descrizione</term>
                 <listitem>
-                    <para> Descrizione </para>
+                    <para>Green &egrave; un editor UML che supporta sia software engineering che
+                        reverse engineering. Permette di creare diagrammi UML a partire da codice e
+                        di generare codice da una classe UML appena disegnata.</para>
                 </listitem>
             </varlistentry>
             <varlistentry>
                 <term>Motivazioni della scelta</term>
                 <listitem>
-                    <para> Motivazioni della scelta </para>
+                    <para> Abbiamo ritenuto che Green UML fosse il miglior editor UML rilasciato con
+                        una public licence disponibile, e uno dei pochi a permettere ingegneria
+                        inversa. L'interfaccia &egrave; semplice, e le immagini prodotte sono
+                        esportabili in jpg e gif, quindi facilmente inseribili in documentazione e
+                        visualizzabili con qualsiasi visualizzatore di immagine. In ultimo, Green
+                        &egrave; sviluppato come plugin di <application>Eclipse</application>,
+                        caratteristica che abbiamo molto apprezzato in quanto ci ha permesso sia di
+                        non aumentare ulteriormente il numero di diverse applicazioni indipendenti
+                        da utilizzare allo stesso tempo, sia di sfruttare al massimo le sue
+                        funzionalit&agrave; di produzione codice e ingegneria inversa. </para>
                 </listitem>
             </varlistentry>
         </variablelist>
-        <variablelist xml:id="argouml">
-            <title>ArgoUML</title>
+        <variablelist xml:id="omnigraffle">
+            <title>OmniGraffle Professional 5</title>
             <varlistentry>
                 <term>Riferimento</term>
                 <listitem>
                     <para>
                         <link xmlns:ns1="http://www.w3.org/1999/xlink"
-                            ns1:href="http://www.docbook.org/">Sito dedicato</link>
+                            ns1:href="http://www.omnigroup.com/applications/OmniGraffle/"
+                            >http://www.omnigroup.com/applications/OmniGraffle/</link>
                     </para>
                 </listitem>
             </varlistentry>
             <varlistentry>
                 <term>Licenza</term>
                 <listitem>
-                    <para> tipo di licenza </para>
+                    <para>Proprietaria</para>
                 </listitem>
             </varlistentry>
             <varlistentry>
                 <term>Descrizione</term>
                 <listitem>
-                    <para> Descrizione </para>
+                    <para>OmniGraffle &egrave; un'applicazione per disegno e diagrammi
+                        sviluppata per Mac Os X. &Egrave; uno strumento molto intuitivo e molto
+                        veloce per la creazione di diagrammi anche complessi. </para>
                 </listitem>
             </varlistentry>
             <varlistentry>
                 <term>Motivazioni della scelta</term>
                 <listitem>
-                    <para> Motivazioni della scelta </para>
+                    <para> OmniGraffle era stato utilizzato da uno dei componenti del gruppo in
+                        precedenza: nonostante si tratti di software proprietario e utilizzabile
+                        solo sulla piattaforma Mac Os X, &egrave; stato sfruttato molto per
+                        schizzare velocemente in virt&ugrave; della sua immediatezza e
+                        facilit&agrave; d'uso. Permette di esportare in molti formati le
+                        immagini prodotte, tra cui SVG e PDF, ottimali per l'inserimento nella
+                        relazione Docbook. &Egrave; inoltre facilmente estendibile con una serie
+                        di stencil di strutture UML. </para>
                 </listitem>
             </varlistentry>
         </variablelist>
     </section>
-    <section xml:id="sect-managing">
-        <title>Managing</title>
-        <variablelist xml:id="googlecode">
-            <title>Google code</title>
+    <section xml:id="sect-pianoprocesso">
+        <title>Strumenti per stesura del piano di processo</title>
+        <variablelist xml:id="taskjuggler">
+            <title>TaskJuggler 2.4.1</title>
             <varlistentry>
                 <term>Riferimento</term>
                 <listitem>
                     <para>
                         <link xmlns:ns1="http://www.w3.org/1999/xlink"
-                            ns1:href="http://code.google.com/">http://code.google.com/</link>
+                            ns1:href="http://www.taskjuggler.org/"
+                            >http://www.taskjuggler.org/</link>
                     </para>
                 </listitem>
             </varlistentry>
             <varlistentry>
                 <term>Licenza</term>
                 <listitem>
-                    <para>L'utilizzo dell'applicazione &egrave; possibile, e gratuito, per chiunque possegga un account Google. Le condizioni di utilizzo e la policy sulla privacy sono specifiche di Google e descritte in documenti visionabili online.</para><para>
-                        Per quanto riguarda i progetti caricati  il sito permette di impostare una tra le seguenti nove licenze disponibili: Apache, Artistic, BSD, GPLv2, GPLv3, LGPL, MIT, MPL e EPL.</para>
+                    <para>GNU Public Licence version 2</para>
                 </listitem>
             </varlistentry>
             <varlistentry>
                 <term>Descrizione</term>
                 <listitem>
-                    <para>Sito di Google per sviluppatori che intendano sviluppare progetti da rilasciare sotto una licenza free software. Fornisce diversi servizi, di nostro interesse principalmente il servizio gratuito di hosting con controllo delle revisioni mediante Subversion.</para>
+                    <para>TaskJuggler &egrave; un software per il supporto alla gestione di progetto. Fornisce funzionalit&agrave; di pianificazione, tracciamento degli obiettivi, assegnazione delle risorse, analisi dei rischi. 
+                       </para>
                 </listitem>
             </varlistentry>
             <varlistentry>
                 <term>Motivazioni della scelta</term>
                 <listitem>
-                    <para>Google Code ci &egrave; sembrato un servizio di facile utilizzo preferibile per questo alla richiesta di uno spazio in laboratorio con conseguente configurazione di un repository SVN. La possibilit&agrave; di caricare il codice e accedervi mediante Subversion lo rendono molto comodo per essere utilizzato col plugin <application>Subclipse</application> di <application>Ecplise</application>. &Egrave; poi possibile visualizzare il codice anche tramite browser, e questo ci ha permesso di rendere i documenti della nostra relazione disponibili sul wiki al volo, senza la necessit&agrave; di convertire in un altro documento da caricare ogni volta. In ultimo, anche la possibilit&agrave; di effettuare issue tracking ci ha interessato.
-                  </para>
+                    <para>Si tratta di un gestore di progetto molto evoluto, ricco di funzionalit&agrave;, col quale abbiamo ottimamente gestito tutto quanto riguarda il piano di processo e l'analisi di costi e sforzi. &Egrave; stato ritenuto il miglior software open source di questo tipo. Fornisce template gi&agrave; pronti per un inizio veloce, permette di generare e visualizzare diagrammi di Gantt con una comoda interfaccia grafica. Permette di esportare tutti i manufatti prodotti in formati facili allo scambio e alla conversione.
+                    </para>
                 </listitem>
             </varlistentry>
         </variablelist>
-        <variablelist xml:id="googlecalendar">
-            <title>Google Calendar</title>
+    </section>
+    <section xml:id="sect-test">
+        <title>Strumenti per il piano di processo</title>
+        <variablelist xml:id="junit4">
+            <title>JUnit</title>
             <varlistentry>
                 <term>Riferimento</term>
                 <listitem>
                     <para>
                         <link xmlns:ns1="http://www.w3.org/1999/xlink"
-                            ns1:href="http://www.calendar.google.com/">http://www.calendar.google.com/</link>
+                            ns1:href="http://www.junit.org/"
+                            >http://www.junit.org/</link>
                     </para>
                 </listitem>
             </varlistentry>
             <varlistentry>
                 <term>Licenza</term>
                 <listitem>
-                    <para>L'utilizzo dell'applicazione &egrave; possibile, e gratuito, per chiunque possegga un account Google. Le condizioni di utilizzo e la policy sulla privacy sono specifiche di Google e descritte in documenti visionabili online.</para>
+                    <para>Common Public Licence</para>
                 </listitem>
             </varlistentry>
             <varlistentry>
                 <term>Descrizione</term>
                 <listitem>
-                    <para>Applicazione Web di tipo calendario di Google.</para>
+                    <para>JUnit &egrave; un framework di testing per il linguaggio Java. Fornisce un modo semplice per testare in modo esplicito aree specifiche di un programma Java.
+</para>
                 </listitem>
             </varlistentry>
             <varlistentry>
                 <term>Motivazioni della scelta</term>
                 <listitem>
-                    <para>Dal momento che tutti i membri del gruppo possedevano gi&agrave; un account Google, necessario per l'utilizzo del servizio, Google Calendar ci si &egrave; subito presentata come una semplice soluzione per la gestione degli incontri del gruppo, delle scadenze e di quant'altro sia comodo visualizzare su un calendario.</para>
-                </listitem>
-            </varlistentry>
-        </variablelist>
-        <variablelist xml:id="googlegroups">
-            <title>Google Groups</title>
-            <varlistentry>
-                <term>Riferimento</term>
-                <listitem>
-                    <para>
-                        <link xmlns:ns1="http://www.w3.org/1999/xlink"    ns1:href="http://www.groups.google.com/">http://www.groups.google.com/</link>
+                    <para>Abbiamo scelto di utilizzare JUnit in quanto &egrave; comunemente considerata  una delle migliori librerie Java mai sviluppate. L'utilizzo di questo framework forza la definizione di specifici risultati attesi nell'esecuzione di un dato programma, permettendo un controllo preciso della correttezza e dell'attinenza di quanto sviluppato ai requisiti delineati: questo approccio di testing gi&agrave; canonizzato ci &egrave; sembrato una scelta migliore rispetto all'abituale testing generico e non strutturato.
                     </para>
-                </listitem>
-            </varlistentry>
-            <varlistentry>
-                <term>Licenza</term>
-                <listitem>
-                    <para>L'utilizzo dei servizi forniti da Google Groups &egrave; gratuito. Le condizioni di utilizzo e la policy sulla privacy sono specifiche di Google e descritte in documenti visionabili online.</para>
-                </listitem>
-            </varlistentry>
-            <varlistentry>
-                <term>Descrizione</term>
-                <listitem>
-                    <para>Servizio gratuito offerto da Google che permette di creare e gestire gruppi di discussione.</para>
-                </listitem>
-            </varlistentry>
-            <varlistentry>
-                <term>Motivazioni della scelta</term>
-                <listitem>
-                    <para>Nessuna motivazione in particolare: una mailing list e alcuni servizi addizionali come la possibilit&agrave; di caricare files in uno spazio comune e avere a disposizione un archivio delle mail scambiate era importante per la gestione dello sviluppo del progetto. Abbiamo scelto Google Groups per la familiarit&agrave; coi servizi di Google in generale. Non ci risulta che tra gli altri servizi che forniscano funzionalit&agrave; simile qualcuno si distingua per qualche aspetto particolarmente interessante per le nostre limitate necessit&agrave;, di conseguenza nessuna ricerca in questo senso &egrave; stata fatta.</para>
                 </listitem>
             </varlistentry>
         </variablelist>
