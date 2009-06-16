@@ -31,7 +31,7 @@
     <xsl:template match="books" mode="search">
     <xsl:if test="*">
         <xsl:element name="div">
-            <xsl:attribute name="id">result</xsl:attribute>
+            <xsl:attribute name="id">results</xsl:attribute>
             <xsl:choose>
                 <!-- add form if the search is an authenticated one -->
                 <xsl:when test="$search_type = 'authenticated'">
@@ -174,11 +174,11 @@
             <xsl:attribute name="class">
                 <xsl:text>quantity</xsl:text>
             </xsl:attribute>
-            <xsl:attribute name="name">
-                <xsl:text>book</xsl:text>
-                <xsl:value-of select="parent::node()/book/@id"/>
-            </xsl:attribute>
             <xsl:element name="input">
+                <xsl:attribute name="name">
+                    <xsl:text>book</xsl:text>
+                    <xsl:value-of select="parent::node()/book/@id"/>
+            	</xsl:attribute>
                 <xsl:attribute name="type">
                     <xsl:text>text</xsl:text>
                 </xsl:attribute>
@@ -224,6 +224,9 @@ select OR update OR checkout-->
                     </xsl:attribute>
                     <xsl:attribute name="value">
                         <xsl:value-of select="$value"/>
+                    </xsl:attribute>
+                    <xsl:attribute name="name">
+                        <xsl:text>operation</xsl:text>
                     </xsl:attribute>
                 </xsl:element>
             </xsl:element>
