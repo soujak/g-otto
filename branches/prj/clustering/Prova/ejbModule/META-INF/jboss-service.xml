@@ -35,10 +35,14 @@
   			jboss:service=HAPartition,partition=G8Business
 		</depends>
 
-		<depends>g8.test:service=Prova</depends>
+<!--		<depends>g8.test:service=Prova</depends>-->
+		<depends>jboss.j2ee:service=EJB3,name=Prova,type=ManagementInterface,ear=ProvaEAR.ear,jar=Prova.jar</depends>
+		
 <!--		<attribute name="PartitionName">G8Business</attribute>-->
 
-		<attribute name="TargetName">g8.test:service=Prova</attribute>
+<!--		<attribute name="TargetName">g8.test:service=Prova</attribute>-->
+		<attribute name="TargetName">jboss.j2ee:service=EJB3,name=Prova,type=ManagementInterface,ear=ProvaEAR.ear,jar=Prova.jar</attribute>
+		
 		<attribute name="TargetStartMethod">startSingleton</attribute>
 		<attribute name="TargetStopMethod">stopSingleton</attribute>
    </mbean>
