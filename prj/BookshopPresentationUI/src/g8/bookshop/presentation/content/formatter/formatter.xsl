@@ -29,35 +29,37 @@
 
     <!-- * * * * * * * * * < B O O K S > * * * * * * * * * * * * * * * * * * * * * * * -->
     <xsl:template match="books" mode="search">
-    <xsl:if test="*">
-        <xsl:element name="div">
-            <xsl:attribute name="id">results</xsl:attribute>
-            <xsl:choose>
-                <!-- add form if the search is an authenticated one -->
-                <xsl:when test="$search_type = 'authenticated'">
-                    <xsl:element name="form">
-                        <xsl:attribute name="action">
-                            <xsl:value-of select="$form_action"/>
-                        </xsl:attribute>
-                        <xsl:attribute name="method">
-                            <xsl:text>POST</xsl:text>
-                        </xsl:attribute>
-                        <xsl:element name="table">
-                            <xsl:apply-templates select="book"/>
-                            <xsl:call-template name="submitline">
-                                <xsl:with-param name="value" select="'select'"/>
-                            </xsl:call-template>
+        <xsl:if test="*">
+            <xsl:element name="div">
+                <xsl:attribute name="id">results</xsl:attribute>
+                <xsl:choose>
+                    <!-- add form if the search is an authenticated one -->
+                    <xsl:when test="$search_type = 'authenticated'">
+                        <xsl:element name="form">
+                            <xsl:attribute name="action">
+                                <xsl:value-of select="$form_action"/>
+                            </xsl:attribute>
+                            <xsl:attribute name="method">
+                                <xsl:text>POST</xsl:text>
+                            </xsl:attribute>
+                            <xsl:element name="table">
+                                <xsl:call-template name="insertTrTh"/>
+                                <xsl:apply-templates select="book"/>
+                                <xsl:call-template name="submitline">
+                                    <xsl:with-param name="value" select="'select'"/>
+                                </xsl:call-template>
+                            </xsl:element>
                         </xsl:element>
-                    </xsl:element>
-                </xsl:when>
-                <!-- no form needed -->
-                <xsl:otherwise>
-                    <xsl:element name="table">
-                        <xsl:apply-templates select="book"/>
-                    </xsl:element>
-                </xsl:otherwise>
-            </xsl:choose>
-        </xsl:element>
+                    </xsl:when>
+                    <!-- no form needed -->
+                    <xsl:otherwise>
+                        <xsl:element name="table">
+                            <xsl:call-template name="insertTrTh"/>
+                            <xsl:apply-templates select="book"/>
+                        </xsl:element>
+                    </xsl:otherwise>
+                </xsl:choose>
+            </xsl:element>
         </xsl:if>
     </xsl:template>
 
@@ -73,6 +75,7 @@
             <xsl:apply-templates select="@editor" mode="attributes"/>
             <xsl:apply-templates select="@year" mode="attributes"/>
             <xsl:apply-templates select="@isbn" mode="attributes"/>
+            <xsl:apply-templates select="@price" mode="attributes"/>
             <xsl:choose>
                 <xsl:when test="$search_type = 'authenticated'">
                     <xsl:apply-templates select="@id" mode="attribute-id"/>
@@ -126,6 +129,53 @@
         </xsl:element>
     </xsl:template>
 
+    <xsl:template name="insertTrTh">
+        <xsl:element name="tr">
+            <xsl:attribute name="class">
+                <xsl:text>header</xsl:text>
+            </xsl:attribute>
+            <xsl:call-template name="insertTh">
+                <xsl:with-param name="header_text" select="'Title'"/>
+            </xsl:call-template>
+            <xsl:call-template name="insertTh">
+                <xsl:with-param name="header_text" select="'Author'"/>
+            </xsl:call-template>
+            <xsl:call-template name="insertTh">
+                <xsl:with-param name="header_text" select="'Editor'"/>
+            </xsl:call-template>
+            <xsl:call-template name="insertTh">
+                <xsl:with-param name="header_text" select="'Year'"/>
+            </xsl:call-template>
+            <xsl:call-template name="insertTh">
+                <xsl:with-param name="header_text" select="'ISBN'"/>
+            </xsl:call-template>
+            <xsl:call-template name="insertTh">
+                <xsl:with-param name="header_text" select="'Price'"/>
+            </xsl:call-template>
+            <xsl:choose>
+                <xsl:when test="$search_type = 'authenticated'">
+                    <xsl:call-template name="insertTh">
+                        <xsl:with-param name="header_text" select="'Add to cart'"/>
+                    </xsl:call-template>
+                </xsl:when>
+                <xsl:when test="$mode = 'cart'">
+                    <xsl:call-template name="insertTh">
+                        <xsl:with-param name="header_text" select="'Quantity'"/>
+                    </xsl:call-template>
+                </xsl:when>
+            </xsl:choose>
+
+        </xsl:element>
+    </xsl:template>
+
+    <xsl:template name="insertTh">
+        <xsl:param name="header_text" select="''"/>
+        <xsl:element name="th">
+            <xsl:value-of select="$header_text"/>
+        </xsl:element>
+    </xsl:template>
+
+
     <!-- * * * * * * * * * < / B O O K > * * * * * * * * * * * * * * * * * * * * * * * -->
 
     <!-- * * * * * * * * * * < S H O P P I N G C A R T > * * * * * * * * * * * * * * * -->
@@ -134,7 +184,7 @@
         <xsl:choose>
             <xsl:when test="not(*)">
                 <xsl:element name="p">
-                    <xsl:attribute name="id">
+                    <xsl:attribute name="class">
                         <xsl:text>message</xsl:text>
                     </xsl:attribute>
                     <xsl:text>Empty cart</xsl:text>
@@ -151,6 +201,7 @@
                             <xsl:text>POST</xsl:text>
                         </xsl:attribute>
                         <xsl:element name="table">
+                            <xsl:call-template name="insertTrTh"/>
                             <xsl:apply-templates select="stock"/>
                             <xsl:call-template name="submitline">
                                 <xsl:with-param name="value" select="'update'"/>
@@ -175,10 +226,10 @@
                 <xsl:text>quantity</xsl:text>
             </xsl:attribute>
             <xsl:element name="input">
-                <xsl:attribute name="name">
-                    <xsl:text>book</xsl:text>
-                    <xsl:value-of select="parent::node()/book/@id"/>
-            	</xsl:attribute>
+            <xsl:attribute name="name">
+                <xsl:text>book</xsl:text>
+                <xsl:value-of select="parent::node()/book/@id"/>
+            </xsl:attribute>
                 <xsl:attribute name="type">
                     <xsl:text>text</xsl:text>
                 </xsl:attribute>
@@ -210,7 +261,7 @@ select OR update OR checkout-->
                     <xsl:text>empty</xsl:text>
                 </xsl:attribute>
                 <xsl:attribute name="colspan">
-                    <xsl:text>5</xsl:text>
+                    <xsl:text>6</xsl:text>
                 </xsl:attribute>
             </xsl:element>
 
@@ -225,7 +276,7 @@ select OR update OR checkout-->
                     <xsl:attribute name="value">
                         <xsl:value-of select="$value"/>
                     </xsl:attribute>
-                    <xsl:attribute name="name">
+                     <xsl:attribute name="name">
                         <xsl:text>operation</xsl:text>
                     </xsl:attribute>
                 </xsl:element>
