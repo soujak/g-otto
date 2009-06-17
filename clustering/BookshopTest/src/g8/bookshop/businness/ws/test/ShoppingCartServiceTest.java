@@ -40,9 +40,8 @@ public class ShoppingCartServiceTest {
 		Properties env = new Properties();
 		env.setProperty(Context.INITIAL_CONTEXT_FACTORY,
 				"org.jnp.interfaces.NamingContextFactory");
-		env.setProperty(Context.PROVIDER_URL, "jnp://localhost:1099");
-		env.setProperty(Context.URL_PKG_PREFIXES,
-				"org.jboss.naming:org.jnp.interfaces");
+		env.setProperty("jnp.partitionName", "G8Business");
+		env.setProperty(Context.URL_PKG_PREFIXES,"org.jboss.naming:org.jnp.interfaces");
 		ctx = new InitialContext(env);
 		sc = (ShoppingCartServiceRemote) ctx
 				.lookup("BookshopBusinessWS/ShoppingCartService/remote");
