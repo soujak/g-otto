@@ -1,5 +1,6 @@
 <head>
-<link rel="stylesheet" type="text/css" href="layout.css" />
+<link rel="stylesheet" type="text/css" href="/BookshopPresentationUI/pages/layout.css" />
+<link rel="stylesheet" type="text/css" href="/BookshopPresentationUI/pages/layout_xslt.css" />
 <title>G8 bookstore</title>
 </head>
 

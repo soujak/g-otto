@@ -16,6 +16,8 @@
 
 <%@include file="/template/cart_menu.jspf"%>
 
+<p class="message"><jsp:getProperty property="message" name="DataExchange" /></p>
+
 <jsp:getProperty property="shoppingcart" name="DataExchange" />
 
 <%@include file="/template/bottom.jspf"%>

@@ -1,6 +1,7 @@
 package g8.bookshop.presentation.servlet.catalogue;
 
 import g8.bookshop.business.ws.CatalogueServiceServiceLocator;
+import g8.bookshop.presentation.Constants;
 import g8.bookshop.presentation.content.manager.DataExchange;
 import g8.bookshop.presentation.servlet.Utils;
 
@@ -31,38 +32,45 @@ public class Search extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request,
 		HttpServletResponse response) throws ServletException, IOException {
-		// initialize result variable
-		String xml_booklist = "<books />";
-		// retrieve search parameter
-		String key = request.getParameter("key");
+		
 		// retrieves user session...
 		HttpSession session = request.getSession();
 		// retrieves DataExchage user instance...
 		DataExchange dataExchange = Utils.getDataExchange(session);
 		
-		// invoke catalogue web service
-		try {
-			xml_booklist = (new CatalogueServiceServiceLocator()).getCatalogueServicePort().fullSearch(key);
-		} catch (ServiceException e1) {
-			// TODO Auto-generated catch block
-			e1.printStackTrace();
-		}
+		// initialize result variable
+		String xml_booklist = "<books />";
 		
-		// fills dataExchange instance fields
-		dataExchange.setKey(key);
+		// initialize message string
+		dataExchange.setMessage("");
+		
+		// initialize results message string
+		dataExchange.setResultsMessage("");
+		
 		try {
+			
+			// if search key is not null or empty... 
+			// invoke catalogue full-text search service method
+			if ((!(request.getParameter("key") == null)) && (!(request.getParameter("key").equalsIgnoreCase("")))) {
+				xml_booklist = (new CatalogueServiceServiceLocator())
+					.getCatalogueServicePort().fullSearch(request.getParameter("key"));
+				
+				// build results message
+				if(!(xml_booklist.equalsIgnoreCase("<books />"))) dataExchange.setResultsMessage("Results for " + request.getParameter("key"));
+				else dataExchange.setResultsMessage("No results for " + request.getParameter("key"));
+			}
+			
+			// fills dataExchange instance fields
+			dataExchange.setKey(request.getParameter("key"));
 			dataExchange.setBooklist(xml_booklist);
-		} catch (ParserConfigurationException e) {
-			System.err.println("Parser configuration error");
-			e.printStackTrace();
-		} catch (SAXException e) {
-			System.err.println("XML parser error");
+			
+		} catch (Exception e) {
+			dataExchange.setMessage("Search failed: an error occurred.");
 			e.printStackTrace();
 		}
 	
 		// forward request to search page
-		session.setAttribute("DataExchange", dataExchange);
-		String url = (dataExchange.getAuthenticated()) ? "/pages/customer_search.jsp" : "/pages/guest_search.jsp";
+		String url = (dataExchange.getAuthenticated()) ? Constants.JSP_CUSTOMER_SEARCH : Constants.JSP_GUEST_SEARCH;
 		Utils.forwardToPage(url, getServletContext(),
 				request, response);
 	}

@@ -1,59 +1,25 @@
-/* INFORMAZIONI GENERICHE */
-
-form {
-    text-align: center;
+div#cart table, div#results table {
+	width: 60%;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 table {
-    border-collapse:collapse;
+    border-collapse: collapse;
     border-style: none;
-    border-width: 0px;
+    border-width: 0em;
 }
 
 td{
-    padding: 8pt 8pt 2pt 2pt; 
+    padding: 0.2em; 
 }
 
-/* CONTENITORI PRINCIPALI */
-
-/* contenitore per (form e) tabella coi libri cercati */
-div#results {
-
-}
-
-/* contenitore per il carrello */
-div#cart{
-    position: relative;
-    left: 20%;
-    right: 20%;
-    text-align: center;
-   /* color: red;*/
-}
-
-/* INFORMAZIONI SUI LIBRI - RIGHE */
-
-/* riga contenente un libro e i suoi campi (sia nei risultati ricerca che nel carrello) */
 tr.item {
-    border-bottom: thin solid black;
+    border-bottom: 1px dashed #708090;
+    border-top: 1px dashed #708090;
 }
-
-/* celle possibili dentro tr.item */
-
-/* td.attributi */
 
 td.quantity {
-    padding-right: 8pt;
-    padding-left: 8pt;    
-}
-
-/* cella con la checkbox nella ricerca autenticata */
-td.checkbox{
-}
-
-/* righe coi bottoni di submit */
-tr.update, tr.checkout, tr.select {
-}
-
-/* cella vuota per allineamento dentro le righe coi bottoni di sumbit */
-td.empty {
+    padding-right: 0.2em;
+    padding-left: 0.2em;    
 }

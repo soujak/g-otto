@@ -1,4 +1,7 @@
 <div id="top">
 <h1>G8 Bookshop</h1>
-<p>User: <jsp:getProperty property="username" name="DataExchange" /></p>
+<div id="userinfo">
+    <strong>User:</strong>
+    <span id="username"><jsp:getProperty property="username" name="DataExchange" /></span>
+</div>
 </div>

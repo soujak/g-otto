@@ -1,3 +1,5 @@
 <div id="menu">
-<div class="menuonlyitem"><a href="/BookshopPresentationUI/pages/auth.jsp">Authenticate</a></div>
+<div class="menu">
+<a href="/BookshopPresentationUI/Home?auth=true">Authenticate</a>
+</div>
 </div>

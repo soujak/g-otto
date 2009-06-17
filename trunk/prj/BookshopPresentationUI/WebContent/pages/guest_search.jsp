@@ -14,7 +14,13 @@
 
 <%@include file="/template/guest_menu.jspf"%>
 
+<p class="message"><jsp:getProperty property="message" name="DataExchange" /></p>
+
 <%@ include file="/template/simple_search.jspf"%>
+
+<div id="results_message">
+    <p><jsp:getProperty property="resultsMessage" name="DataExchange" /></p>
+</div>
 
 <jsp:getProperty property="booklist" name="DataExchange" />
 

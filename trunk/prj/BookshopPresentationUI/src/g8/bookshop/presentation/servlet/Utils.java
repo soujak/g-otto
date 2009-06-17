@@ -3,6 +3,7 @@ package g8.bookshop.presentation.servlet;
 import g8.bookshop.presentation.content.manager.DataExchange;
 
 import java.io.IOException;
+import java.io.StringWriter;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletContext;
@@ -10,6 +11,15 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import javax.xml.transform.OutputKeys;
+import javax.xml.transform.Transformer;
+import javax.xml.transform.TransformerException;
+import javax.xml.transform.TransformerFactory;
+import javax.xml.transform.TransformerFactoryConfigurationError;
+import javax.xml.transform.dom.DOMSource;
+import javax.xml.transform.stream.StreamResult;
+
+import org.w3c.dom.Document;
 
 /**
  * Servlet Utils class
@@ -42,4 +52,16 @@ public class Utils {
 		return dataExchange;
 	}
 	
+	public static String xmlDocumentToString(Document document) 
+	throws TransformerFactoryConfigurationError, TransformerException {
+		// transform Document to String
+		Transformer transformer = TransformerFactory.newInstance().newTransformer();
+		DOMSource source = new DOMSource(document);
+		StringWriter writer = new StringWriter();
+		StreamResult result = new StreamResult(writer);
+		transformer.setOutputProperty(OutputKeys.ENCODING, "UTF-8");
+		// transformer.setOutputProperty(OutputKeys.INDENT, "yes");
+		transformer.transform(source, result);
+		return writer.toString();
+	}
 }
