@@ -44,7 +44,7 @@ import org.xml.sax.SAXException;
 
 //FIXME: rivedimi, commentami, formattami ed espandimi.
 @Stateless
-public class Converter implements ConverterLocal, ConverterRemote {
+public class Converter implements ConverterRemote {
 	@PersistenceContext(unitName = "InformationManager")
 	private EntityManager em;
 	@Resource 
