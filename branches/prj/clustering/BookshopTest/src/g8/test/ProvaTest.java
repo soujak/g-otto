@@ -2,7 +2,6 @@ package g8.test;
 
 
 import static org.junit.Assert.assertTrue;
-import g8.test.ProvaRemote;
 
 import java.util.Properties;
 
@@ -23,7 +22,8 @@ public class ProvaTest {
 		Properties env = new Properties();
 		env.setProperty(Context.INITIAL_CONTEXT_FACTORY,
 				"org.jnp.interfaces.NamingContextFactory");
-		env.setProperty(Context.PROVIDER_URL, "192.168.1.2:1100, 192.168.1.1:1100");
+//		env.setProperty(Context.PROVIDER_URL, "192.168.1.2:1100");
+//		192.168.1.1:1100
 		env.setProperty(Context.URL_PKG_PREFIXES,"org.jboss.naming:org.jnp.interfaces");
 		env.setProperty("jnp.partitionName","G8Business");
 		ctx = new InitialContext(env);
