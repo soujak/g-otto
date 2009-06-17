@@ -24,7 +24,7 @@ import org.jboss.ejb3.annotation.Service;
 @Service
 // TODO set as a HASingleton
 // TODO setup its HASingletonController service
-public class UserManager implements UserManagerLocal {
+public class UserManager implements UserManagerRemote {
 
 	private SortedMap<String, UserRemote> userMap;
 	@Resource
