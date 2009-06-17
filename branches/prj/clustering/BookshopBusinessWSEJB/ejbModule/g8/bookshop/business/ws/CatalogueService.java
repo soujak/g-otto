@@ -1,6 +1,6 @@
 package g8.bookshop.business.ws;
 
-import g8.bookshop.business.util.ConverterLocal;
+import g8.bookshop.business.util.ConverterRemote;
 import g8.bookshop.persistence.Book;
 
 import java.util.List;
@@ -32,7 +32,7 @@ public class CatalogueService implements CatalogueServiceRemote {
 	@PersistenceContext(unitName="InformationManager")
 	private EntityManager em;
 	@EJB
-	private ConverterLocal c;
+	private ConverterRemote c;
 	
     /**
      * Default constructor 
