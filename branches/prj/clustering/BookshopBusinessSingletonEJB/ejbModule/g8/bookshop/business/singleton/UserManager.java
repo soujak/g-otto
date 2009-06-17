@@ -62,7 +62,7 @@ public class UserManager implements UserManagerLocal {
 		UserRemote u = userMap.get(id);
 		if (u == null) {
 			u = (GuestRemote) this.sessionContext
-					.lookup("BookshopBusiness/Guest/remote");
+					.lookup("BookshopBusinessCore/Guest/remote");
 			u.setId(id);
 			userMap.put(id, u);
 		}
@@ -86,7 +86,7 @@ public class UserManager implements UserManagerLocal {
 		if (cred != null)
 			if (cred.getPassword().equals(p)) {
 				String id = g.getId();
-				CustomerRemote cust = (CustomerRemote) this.sessionContext.lookup("BookshopBusiness/Customer/remote");
+				CustomerRemote cust = (CustomerRemote) this.sessionContext.lookup("BookshopBusinessCore/Customer/remote");
 				cust.setId(id);
 				this.userMap.put(id, cust);
 				ret = true;
