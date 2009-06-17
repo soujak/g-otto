@@ -22,7 +22,6 @@ import org.jboss.ejb3.annotation.Service;
  * @author soujak
  */
 @Service
-// TODO set as a HASingleton
 // TODO setup its HASingletonController service
 public class UserManager implements UserManagerRemote {
 
