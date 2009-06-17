@@ -139,7 +139,7 @@ public class Converter implements ConverterLocal, ConverterRemote {
 		Book b = em.find(Book.class, Long.parseLong(bookid));
 		OrderRemote o = null;
 		if(b != null) {
-			o = (OrderRemote)sessionContext.lookup("BookshopBusiness/Order/remote");
+			o = (OrderRemote)sessionContext.lookup("BookshopBusinessCore/Order/remote");
 		    o.setQuantity(quantity);
 		    o.setBook(b);
 		}

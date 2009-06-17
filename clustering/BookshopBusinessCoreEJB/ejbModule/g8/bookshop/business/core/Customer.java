@@ -34,6 +34,6 @@ public class Customer extends User implements CustomerLocal, CustomerRemote {
 	@SuppressWarnings("unused")
 	@PostConstruct
 	private void createShoppingCart() {
-		shoppingCart = (ShoppingCartRemote)sessionContext.lookup("BookshopBusiness/ShoppingCart/remote");
+		shoppingCart = (ShoppingCartRemote)sessionContext.lookup("BookshopBusinessCore/ShoppingCart/remote");
 	}
 }
