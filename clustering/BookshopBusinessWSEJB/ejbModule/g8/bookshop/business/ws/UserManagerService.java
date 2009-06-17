@@ -4,18 +4,20 @@ import g8.bookshop.business.core.CustomerRemote;
 import g8.bookshop.business.core.GuestRemote;
 import g8.bookshop.business.core.UserRemote;
 import g8.bookshop.business.singleton.UserManagerLocal;
-import g8.bookshop.business.util.ConverterLocal;
 
 import javax.ejb.EJB;
 import javax.ejb.Stateless;
 import javax.jws.WebMethod;
 import javax.jws.WebService;
 
+import org.jboss.ejb3.annotation.Clustered;
+
 /**
  * WebService Session Bean implementation class UserManagerService
  * @author soujak
  */
 @Stateless
+@Clustered
 @WebService
 public class UserManagerService implements UserManagerServiceRemote {
 	
