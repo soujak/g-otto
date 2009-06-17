@@ -14,11 +14,15 @@
 
 <%@include file="/template/customer_menu.jspf"%>
 
+<p class="message"><jsp:getProperty property="message" name="DataExchange" /></p>
+
 <%@ include file="/template/simple_search.jspf"%>
 
-<c:if test="${!empty param.DataExchange}">
-	<jsp:getProperty property="booklist" name="DataExchange" />
-</c:if>
+<div id="results_message">
+    <p><jsp:getProperty property="resultsMessage" name="DataExchange" /></p>
+</div>
+
+<jsp:getProperty property="booklist" name="DataExchange" />
 
 <%@include file="/template/bottom.jspf"%>
 

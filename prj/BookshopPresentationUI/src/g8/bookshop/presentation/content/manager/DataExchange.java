@@ -1,5 +1,6 @@
 package g8.bookshop.presentation.content.manager;
 
+import g8.bookshop.presentation.Constants;
 import g8.bookshop.presentation.content.formatter.XsltTransformer;
 
 import java.io.IOException;
@@ -14,14 +15,31 @@ import org.xml.sax.SAXException;
 
 public class DataExchange {
 	
-	public static final String GUESTNAME = "Guest";
-	private static final String XSLT_LOCATION = "formatter.xsl";
-	
-	private String username = DataExchange.GUESTNAME;
+	// fields...
+	private String username = Constants.GUEST_NAME;
+	private boolean authenticated = false;
 	private String booklist = "";
 	private String key = "";
 	private String shoppingcart = "";
-	
+	private String message = "";
+	private String resultsMessage = "";
+
+	public String getResultsMessage() {
+		return resultsMessage;
+	}
+
+	public void setResultsMessage(String resultsMessage) {
+		this.resultsMessage = resultsMessage;
+	}
+
+	public String getMessage() {
+		return message;
+	}
+
+	public void setMessage(String message) {
+		this.message = message;
+	}
+
 	public String getShoppingcart() {
 		return shoppingcart;
 	}
@@ -43,22 +61,17 @@ public class DataExchange {
 		
 		// transform...
 		try {
-			html_shoppingcart = trans.transform(xml_shoppingcart, XSLT_LOCATION, params);
+			html_shoppingcart = trans.transform(xml_shoppingcart, Constants.XSLT_FORMATTER, params);
 		} catch (TransformerException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} catch (URISyntaxException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		
 		this.shoppingcart = html_shoppingcart;
 	}
-
-	private boolean authenticated = false;
 
 	public boolean getAuthenticated() {
 		return authenticated;
@@ -101,15 +114,12 @@ public class DataExchange {
 		
 		// transform...
 		try {
-			html_booklist = trans.transform(xml_booklist, XSLT_LOCATION, params);
+			html_booklist = trans.transform(xml_booklist, Constants.XSLT_FORMATTER, params);
 		} catch (TransformerException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} catch (URISyntaxException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		this.booklist = html_booklist;

@@ -1,6 +1,7 @@
 package g8.bookshop.presentation.servlet.shoppingcart;
 
 import g8.bookshop.business.ws.ShoppingCartServiceServiceLocator;
+import g8.bookshop.presentation.Constants;
 import g8.bookshop.presentation.content.manager.DataExchange;
 import g8.bookshop.presentation.servlet.Utils;
 
@@ -37,7 +38,11 @@ public class View extends HttpServlet {
 		// retrieves DataExchage user instance...
 		DataExchange dataExchange = Utils.getDataExchange(session);
 		
+		// initialize shoppingcart xml string
 		String xml_shoppingcart = "<shoppingcart />";
+		
+		// initialize message string
+		dataExchange.setMessage("");
 		
 		// invoke shoppingcart service method...
 		try {
@@ -45,20 +50,13 @@ public class View extends HttpServlet {
 			xml_shoppingcart = (new ShoppingCartServiceServiceLocator()).getShoppingCartServicePort().view(session.getId());
 			// fills dataExchange variable
 			dataExchange.setShoppingcart(xml_shoppingcart);
-		} catch (ServiceException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (ParserConfigurationException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (SAXException e) {
-			// TODO Auto-generated catch block
+		} catch (Exception e) {
+			dataExchange.setMessage("View shoppingcart failed: an error occurred.");
 			e.printStackTrace();
 		}
 		
 		// forward request to cart page
-		session.setAttribute("DataExchange", dataExchange);
-		Utils.forwardToPage("/pages/cart.jsp", getServletContext(),
+		Utils.forwardToPage(Constants.JSP_CART, getServletContext(),
 				request, response);		
 	}
 

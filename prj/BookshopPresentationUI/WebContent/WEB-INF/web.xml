@@ -71,22 +71,12 @@
   </servlet-mapping>
   <servlet>
     <description></description>
-    <display-name>Checkout</display-name>
-    <servlet-name>Checkout</servlet-name>
-    <servlet-class>g8.bookshop.presentation.servlet.shoppingcart.Checkout</servlet-class>
+    <display-name>Home</display-name>
+    <servlet-name>Home</servlet-name>
+    <servlet-class>g8.bookshop.presentation.servlet.Home</servlet-class>
   </servlet>
   <servlet-mapping>
-    <servlet-name>Checkout</servlet-name>
-    <url-pattern>/Checkout</url-pattern>
-  </servlet-mapping>
-  <servlet>
-    <description></description>
-    <display-name>Dispatcher</display-name>
-    <servlet-name>Dispatcher</servlet-name>
-    <servlet-class>g8.bookshop.presentation.servlet.Dispatcher</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>Dispatcher</servlet-name>
-    <url-pattern>/</url-pattern>
+    <servlet-name>Home</servlet-name>
+    <url-pattern>/Home</url-pattern>
   </servlet-mapping>
 </web-app>
