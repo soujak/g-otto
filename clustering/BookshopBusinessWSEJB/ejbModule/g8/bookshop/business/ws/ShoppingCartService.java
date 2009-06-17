@@ -2,8 +2,8 @@ package g8.bookshop.business.ws;
 
 import g8.bookshop.business.core.CustomerRemote;
 import g8.bookshop.business.core.UserRemote;
-import g8.bookshop.business.singleton.UserManagerLocal;
-import g8.bookshop.business.util.ConverterLocal;
+import g8.bookshop.business.singleton.UserManagerRemote;
+import g8.bookshop.business.util.ConverterRemote;
 
 import java.io.IOException;
 
@@ -27,9 +27,9 @@ import org.xml.sax.SAXException;
 public class ShoppingCartService implements ShoppingCartServiceRemote {
 	
 	@EJB
-	private UserManagerLocal um;
+	private UserManagerRemote um;
 	@EJB
-	private ConverterLocal c;
+	private ConverterRemote c;
 	
 	/**
 	 * Default constructor

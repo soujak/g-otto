@@ -3,7 +3,7 @@ package g8.bookshop.business.ws;
 import g8.bookshop.business.core.CustomerRemote;
 import g8.bookshop.business.core.GuestRemote;
 import g8.bookshop.business.core.UserRemote;
-import g8.bookshop.business.singleton.UserManagerLocal;
+import g8.bookshop.business.singleton.UserManagerRemote;
 
 import javax.ejb.EJB;
 import javax.ejb.Stateless;
@@ -22,7 +22,7 @@ import org.jboss.ejb3.annotation.Clustered;
 public class UserManagerService implements UserManagerServiceRemote {
 	
 	@EJB
-	private UserManagerLocal um;
+	private UserManagerRemote um;
 	
 	/**
 	 * Constructor 
