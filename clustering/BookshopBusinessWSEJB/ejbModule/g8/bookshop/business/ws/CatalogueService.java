@@ -21,12 +21,14 @@ import javax.xml.parsers.ParserConfigurationException;
 import javax.xml.transform.TransformerException;
 
 import org.jboss.ejb3.annotation.Clustered;
+import org.jboss.ejb3.annotation.Depends;
 
 
 
 /**
  * WebService Session Bean implementation class CatalogueService
  */
+@Depends(value="ear=BookshopBusinessCore.ear,jar=BookshopBusinessCoreEJB.jar,name=Converter,service=EJB3")
 @Stateless
 @Clustered
 @WebService

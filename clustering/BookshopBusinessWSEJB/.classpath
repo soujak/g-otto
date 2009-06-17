@@ -5,7 +5,7 @@
 	<classpathentry kind="con" path="org.eclipse.jst.server.core.container/org.jboss.ide.eclipse.as.core.server.runtime.runtimeTarget/JBoss AS v5.1 (jdk6) [clustering]"/>
 	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.module.container"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/BookshopInformationManager"/>
-	<classpathentry combineaccessrules="false" kind="src" path="/BookshopBusinessSingletonEJB"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/BookshopBusinessCoreEJB"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/BookshopBusinessSingletonEJB"/>
 	<classpathentry kind="output" path="build/classes"/>
 </classpath>
