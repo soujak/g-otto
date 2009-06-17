@@ -1,10 +1,9 @@
 package g8.test;
 
-import org.jboss.ejb3.annotation.Clustered;
 import org.jboss.ejb3.annotation.Service;
 import org.jboss.ejb3.cache.Optimized;
 
-@Clustered
+//@Clustered
 @Service
 public class Prova implements ProvaMBean, ProvaRemote, Optimized {
 
