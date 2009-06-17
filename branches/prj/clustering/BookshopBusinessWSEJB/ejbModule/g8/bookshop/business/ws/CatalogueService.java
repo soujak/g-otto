@@ -17,12 +17,15 @@ import javax.persistence.Query;
 import javax.xml.parsers.ParserConfigurationException;
 import javax.xml.transform.TransformerException;
 
+import org.jboss.ejb3.annotation.Clustered;
+
 
 
 /**
  * WebService Session Bean implementation class CatalogueService
  */
 @Stateless
+@Clustered
 @WebService
 public class CatalogueService implements CatalogueServiceRemote {
 	

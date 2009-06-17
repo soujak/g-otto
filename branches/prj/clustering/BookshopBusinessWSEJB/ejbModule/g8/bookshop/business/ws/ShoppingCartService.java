@@ -14,6 +14,7 @@ import javax.jws.WebService;
 import javax.xml.parsers.ParserConfigurationException;
 import javax.xml.transform.TransformerException;
 
+import org.jboss.ejb3.annotation.Clustered;
 import org.xml.sax.SAXException;
 
 
@@ -21,6 +22,7 @@ import org.xml.sax.SAXException;
  * WebService Session Bean implementation class ShoppingCartService
  */
 @Stateless
+@Clustered
 @WebService
 public class ShoppingCartService implements ShoppingCartServiceRemote {
 	
