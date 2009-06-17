@@ -61,22 +61,27 @@
                 <figure>
                     <title>Diagramma dell'archiettura ? ? </title>
                     <mediaobject>
-                        <imageobject>
+                        <imageobject role="fo">
                             <imagedata
-                                fileref="DiagrammiModelloArchitettura/DiagrammaArchitettura.png"
-                                align="center" scalefit="1" format="PNG"/>
+                                fileref="DiagrammiModelloArchitettura/DiagrammaArchitettura.svg"
+                                align="center" depth="150pt" format="SVG"/>
+                        </imageobject>
+                        <imageobject role="dblatex">
+                            <imagedata
+                                fileref="DiagrammiModelloArchitettura/DiagrammaArchitettura.pdf"
+                                align="center" depth="150pt" format="PDF"/>
                         </imageobject>
                     </mediaobject>
                 </figure>
                 <para/>
                 <para/>
                 <figure>
-                    <title>Diagramma dell'archiettura ? ? </title>
+                    <title>Diagramma dell'architettura ? ? </title>
                     <mediaobject>
                         <imageobject role="fo">
                             <imagedata
-                                fileref="DiagrammiModelloArchitettura/DiagrammaArchitettura2.png"
-                                align="center" scalefit="1" depth="400pt" format="PNG"/>
+                                fileref="DiagrammiModelloArchitettura/DiagrammaArchitettura2.jpg"
+                                align="center" depth="400" scalefit="1" format="JPG"/>
                         </imageobject>
                         <imageobject role="dblatex">
                             <imagedata
