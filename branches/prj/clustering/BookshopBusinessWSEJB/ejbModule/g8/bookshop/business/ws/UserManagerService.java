@@ -15,11 +15,13 @@ import javax.naming.InitialContext;
 import javax.naming.NamingException;
 
 import org.jboss.ejb3.annotation.Clustered;
+import org.jboss.ejb3.annotation.Depends;
 
 /**
  * WebService Session Bean implementation class UserManagerService
  * @author soujak
  */
+@Depends(value="ear=BookshopBusinessSingleton.ear,jar=BookshopBusinessSingletonEJB.jar,name=UserManager,service=EJB3")
 @Stateless
 @Clustered
 @WebService
@@ -55,6 +57,7 @@ public class UserManagerService implements UserManagerServiceRemote {
 	@WebMethod
 	public boolean Authenticate(String id, String name, String pwd) {
 		UserRemote user = um.getUser(id);
+		System.out.println("UserManagerService: auth("+name+", "+pwd);
 		if (!user.isCustomer())
 			return um.authenticate((GuestRemote) user, name, pwd);
 		else

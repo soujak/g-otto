@@ -18,12 +18,14 @@ import javax.xml.parsers.ParserConfigurationException;
 import javax.xml.transform.TransformerException;
 
 import org.jboss.ejb3.annotation.Clustered;
+import org.jboss.ejb3.annotation.Depends;
 import org.xml.sax.SAXException;
 
 
 /**
  * WebService Session Bean implementation class ShoppingCartService
  */
+@Depends(value={"ear=BookshopBusinessCore.ear,jar=BookshopBusinessCoreEJB.jar,name=Converter,service=EJB3","ear=BookshopBusinessSingleton.ear,jar=BookshopBusinessSingletonEJB.jar,name=UserManager,service=EJB3"})
 @Stateless
 @Clustered
 @WebService
@@ -31,8 +33,6 @@ public class ShoppingCartService implements ShoppingCartServiceRemote {
 	
 	private UserManagerRemote um;
 	private ConverterRemote c;
-	
-	
 	
 	/**
 	 * Default constructor
