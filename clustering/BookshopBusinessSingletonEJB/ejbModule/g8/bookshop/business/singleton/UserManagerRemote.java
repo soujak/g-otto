@@ -4,14 +4,14 @@ import g8.bookshop.business.core.CustomerRemote;
 import g8.bookshop.business.core.GuestRemote;
 import g8.bookshop.business.core.UserRemote;
 
-import javax.ejb.Local;
+import javax.ejb.Remote;
 
 /**
- * Local interface UserManager
+ * Remote interface UserManager
  * @author soujak
  */
-@Local
-public interface UserManagerLocal {
+@Remote
+public interface UserManagerRemote {
 	/**
 	 * Lookup for a user in the bookshop from his id
 	 * @param id user id
