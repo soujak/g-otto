@@ -8,9 +8,9 @@ import org.jboss.ejb3.cache.Optimized;
 @Service
 public class Prova implements ProvaMBean, ProvaRemote, Optimized {
 
-	int counter;
-	boolean modified=false;
-	private boolean master = false;
+	public int counter;
+	public boolean modified=false;
+	public boolean master = false;
 	
 	public Prova() {
 		this.counter = 0;
