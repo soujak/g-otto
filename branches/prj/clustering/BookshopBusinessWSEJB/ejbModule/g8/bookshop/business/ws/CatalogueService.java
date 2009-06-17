@@ -4,13 +4,16 @@ import g8.bookshop.business.util.ConverterRemote;
 import g8.bookshop.persistence.Book;
 
 import java.util.List;
+import java.util.Properties;
 
-import javax.ejb.EJB;
 import javax.ejb.Stateless;
 import javax.ejb.TransactionAttribute;
 import javax.ejb.TransactionAttributeType;
 import javax.jws.WebMethod;
 import javax.jws.WebService;
+import javax.naming.Context;
+import javax.naming.InitialContext;
+import javax.naming.NamingException;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
@@ -31,14 +34,24 @@ public class CatalogueService implements CatalogueServiceRemote {
 	
 	@PersistenceContext(unitName="InformationManager")
 	private EntityManager em;
-	@EJB
 	private ConverterRemote c;
 	
     /**
      * Default constructor 
+     * @throws NamingException 
      */
-    public CatalogueService() {
-        // TODO
+    public CatalogueService() throws NamingException {
+    	super();
+    	Properties env = new Properties();
+    	env.setProperty(Context.INITIAL_CONTEXT_FACTORY,
+    		"org.jnp.interfaces.NamingContextFactory");
+    	env.setProperty("jnp.partitionName",
+    		"G8Business");
+    	env.setProperty(Context.URL_PKG_PREFIXES,
+    		"org.jboss.naming:org.jnp.interfaces");
+    	Context ctx = new InitialContext(env);
+    	this.c = (ConverterRemote) ctx
+    		.lookup("BookshopBusinessCore/Converter/remote");
     }
     
 	/**

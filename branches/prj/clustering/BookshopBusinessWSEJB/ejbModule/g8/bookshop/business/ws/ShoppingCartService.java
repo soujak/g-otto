@@ -6,11 +6,14 @@ import g8.bookshop.business.singleton.UserManagerRemote;
 import g8.bookshop.business.util.ConverterRemote;
 
 import java.io.IOException;
+import java.util.Properties;
 
-import javax.ejb.EJB;
 import javax.ejb.Stateless;
 import javax.jws.WebMethod;
 import javax.jws.WebService;
+import javax.naming.Context;
+import javax.naming.InitialContext;
+import javax.naming.NamingException;
 import javax.xml.parsers.ParserConfigurationException;
 import javax.xml.transform.TransformerException;
 
@@ -26,16 +29,29 @@ import org.xml.sax.SAXException;
 @WebService
 public class ShoppingCartService implements ShoppingCartServiceRemote {
 	
-	@EJB
 	private UserManagerRemote um;
-	@EJB
 	private ConverterRemote c;
+	
+	
 	
 	/**
 	 * Default constructor
+	 * @throws NamingException 
 	 */
-	public ShoppingCartService() {
+	public ShoppingCartService() throws NamingException {
 		super();
+		Properties env = new Properties();
+		env.setProperty(Context.INITIAL_CONTEXT_FACTORY,
+		"org.jnp.interfaces.NamingContextFactory");
+		env.setProperty("jnp.partitionName",
+		"G8Business");
+		env.setProperty(Context.URL_PKG_PREFIXES,
+		"org.jboss.naming:org.jnp.interfaces");
+		Context ctx = new InitialContext(env);
+		this.um = (UserManagerRemote) ctx
+			.lookup("BookshopBusinessSingleton/UserManager/remote");
+		this.c = (ConverterRemote) ctx
+		.lookup("BookshopBusinessCore/Converter/remote");
 	}
 
 	/**
