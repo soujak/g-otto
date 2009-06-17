@@ -5,10 +5,14 @@ import g8.bookshop.business.core.GuestRemote;
 import g8.bookshop.business.core.UserRemote;
 import g8.bookshop.business.singleton.UserManagerRemote;
 
-import javax.ejb.EJB;
+import java.util.Properties;
+
 import javax.ejb.Stateless;
 import javax.jws.WebMethod;
 import javax.jws.WebService;
+import javax.naming.Context;
+import javax.naming.InitialContext;
+import javax.naming.NamingException;
 
 import org.jboss.ejb3.annotation.Clustered;
 
@@ -21,14 +25,24 @@ import org.jboss.ejb3.annotation.Clustered;
 @WebService
 public class UserManagerService implements UserManagerServiceRemote {
 	
-	@EJB
 	private UserManagerRemote um;
 	
 	/**
 	 * Constructor 
+	 * @throws NamingException
 	 */
-	public UserManagerService() {
+	public UserManagerService() throws NamingException {
 		super();
+    	Properties env = new Properties();
+    	env.setProperty(Context.INITIAL_CONTEXT_FACTORY,
+    		"org.jnp.interfaces.NamingContextFactory");
+    	env.setProperty("jnp.partitionName",
+    		"G8Business");
+    	env.setProperty(Context.URL_PKG_PREFIXES,
+    		"org.jboss.naming:org.jnp.interfaces");
+    	Context ctx = new InitialContext(env);
+    	this.um = (UserManagerRemote) ctx
+    		.lookup("BookshopBusinessSingleton/UserManager/remote");
 	}
 	
 	/**
