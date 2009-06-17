@@ -5,10 +5,6 @@
         <dependent-module archiveName="BookshopInformationManager.jar" deploy-path="/" handle="module:/resource/BookshopInformationManager/BookshopInformationManager">
             <dependency-type>uses</dependency-type>
         </dependent-module>
-        <dependent-module deploy-path="/" handle="module:/resource/BookshopBusinessWSEJB/BookshopBusinessWSEJB">
-            <dependent-object/>
-            <dependency-type>uses</dependency-type>
-        </dependent-module>
         <dependent-module deploy-path="/" handle="module:/resource/BookshopBusinessCoreEJB/BookshopBusinessCoreEJB">
             <dependent-object/>
             <dependency-type>uses</dependency-type>
