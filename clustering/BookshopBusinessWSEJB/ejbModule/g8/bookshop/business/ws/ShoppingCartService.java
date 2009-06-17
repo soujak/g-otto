@@ -7,9 +7,7 @@ import g8.bookshop.business.util.ConverterLocal;
 
 import java.io.IOException;
 
-import javax.annotation.Resource;
 import javax.ejb.EJB;
-import javax.ejb.SessionContext;
 import javax.ejb.Stateless;
 import javax.jws.WebMethod;
 import javax.jws.WebService;
@@ -28,8 +26,8 @@ public class ShoppingCartService implements ShoppingCartServiceRemote {
 	
 	@EJB
 	private UserManagerLocal um;
-	@Resource 
-	private SessionContext sessionContext;
+	@EJB
+	private ConverterLocal c;
 	
 	/**
 	 * Default constructor
@@ -50,7 +48,8 @@ public class ShoppingCartService implements ShoppingCartServiceRemote {
 		if (u != null)
 			if (u.isCustomer()) {
 				try {
-					ret = ((ConverterLocal)sessionContext.lookup("BookshopBusiness/Converter/local")).shoppingCartToXML(((CustomerRemote) u).getShoppingCart());
+					ret = c.shoppingCartToXML(
+							((CustomerRemote) u).getShoppingCart());
 				} catch (IllegalArgumentException e) {} 
 				catch (ParserConfigurationException e) {}
 				catch (TransformerException e) {}
@@ -72,9 +71,7 @@ public class ShoppingCartService implements ShoppingCartServiceRemote {
 			if (u.isCustomer()) {
 				try {
 					ret = ((CustomerRemote) u).getShoppingCart()
-					.addOrders(
-							((ConverterLocal)sessionContext.lookup("BookshopBusiness/Converter/local"))
-							.xmlToOrders(ords));
+					.addOrders(c.xmlToOrders(ords));
 				} catch (IllegalArgumentException e) {} 
 				catch (ParserConfigurationException e) {}
 				catch (SAXException e) {}
@@ -97,7 +94,7 @@ public class ShoppingCartService implements ShoppingCartServiceRemote {
 		if (u != null)
 			if (u.isCustomer()) {
 				try {
-					ret = ((CustomerRemote) u).getShoppingCart().update(((ConverterLocal)sessionContext.lookup("BookshopBusiness/Converter/local")).xmlToOrders(ords));
+					ret = ((CustomerRemote) u).getShoppingCart().update(c.xmlToOrders(ords));
 				} catch (IllegalArgumentException e) {} 
 				catch (ParserConfigurationException e) {}
 				catch (SAXException e) {}

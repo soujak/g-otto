@@ -5,8 +5,7 @@ import g8.bookshop.persistence.Book;
 
 import java.util.List;
 
-import javax.annotation.Resource;
-import javax.ejb.SessionContext;
+import javax.ejb.EJB;
 import javax.ejb.Stateless;
 import javax.ejb.TransactionAttribute;
 import javax.ejb.TransactionAttributeType;
@@ -29,8 +28,8 @@ public class CatalogueService implements CatalogueServiceRemote {
 	
 	@PersistenceContext(unitName="InformationManager")
 	private EntityManager em;
-	@Resource 
-	private SessionContext sessionContext;
+	@EJB
+	private ConverterLocal c;
 	
     /**
      * Default constructor 
@@ -75,7 +74,7 @@ public class CatalogueService implements CatalogueServiceRemote {
 		List<Book> res = q.getResultList();
 		String ret = "";
 		try {
-			ret = ((ConverterLocal)sessionContext.lookup("BookshopBusiness/Converter/local")).booksToXML(res);
+			ret = c.booksToXML(res);
 		} catch (IllegalArgumentException e) {} 
 		catch (ParserConfigurationException e) {}
 		catch (TransformerException e) {}

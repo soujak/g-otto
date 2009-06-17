@@ -4,6 +4,7 @@ import g8.bookshop.business.core.CustomerRemote;
 import g8.bookshop.business.core.GuestRemote;
 import g8.bookshop.business.core.UserRemote;
 import g8.bookshop.business.singleton.UserManagerLocal;
+import g8.bookshop.business.util.ConverterLocal;
 
 import javax.ejb.EJB;
 import javax.ejb.Stateless;
@@ -20,7 +21,7 @@ public class UserManagerService implements UserManagerServiceRemote {
 	
 	@EJB
 	private UserManagerLocal um;
-
+	
 	/**
 	 * Constructor 
 	 */
