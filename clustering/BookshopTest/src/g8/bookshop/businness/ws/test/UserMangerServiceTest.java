@@ -26,7 +26,7 @@ public class UserMangerServiceTest {
 				"org.jboss.naming:org.jnp.interfaces");
 		ctx = new InitialContext(env);
 		ums = (UserManagerServiceRemote) ctx
-				.lookup("BookshopBusiness/UserManagerService/remote");
+				.lookup("BookshopBusinessWS/UserManagerService/remote");
 	}
 
 	@Test

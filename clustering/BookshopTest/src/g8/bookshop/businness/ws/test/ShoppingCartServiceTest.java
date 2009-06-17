@@ -45,9 +45,9 @@ public class ShoppingCartServiceTest {
 				"org.jboss.naming:org.jnp.interfaces");
 		ctx = new InitialContext(env);
 		sc = (ShoppingCartServiceRemote) ctx
-				.lookup("BookshopBusiness/ShoppingCartService/remote");
+				.lookup("BookshopBusinessWS/ShoppingCartService/remote");
 		ums = (UserManagerServiceRemote) ctx
-		.lookup("BookshopBusiness/UserManagerService/remote");
+		.lookup("BookshopBusinessWS/UserManagerService/remote");
 	}
 	
 	@Before

@@ -29,7 +29,7 @@ public class CatalogueServiceTest {
 				"org.jboss.naming:org.jnp.interfaces");
 		ctx = new InitialContext(env);
 		cs = (CatalogueServiceRemote) ctx
-				.lookup("BookshopBusiness/CatalogueService/remote");
+				.lookup("BookshopBusinessWS/CatalogueService/remote");
 	}
 	
 	@Ignore
