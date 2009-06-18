@@ -56,12 +56,15 @@ public class UserManagerService implements UserManagerServiceRemote {
 	 */
 	@WebMethod
 	public boolean Authenticate(String id, String name, String pwd) {
-		UserRemote user = um.getUser(id);
-		System.out.println("UserManagerService: auth("+name+", "+pwd);
-		if (!user.isCustomer())
-			return um.authenticate((GuestRemote) user, name, pwd);
-		else
-			return false;
+		UserRemote user;
+		boolean ret = false;
+		try {
+			user = um.getUser(id);
+			System.out.println("UserManagerService: auth("+name+", "+pwd);
+			if (!user.isCustomer())
+				ret = um.authenticate((GuestRemote) user, name, pwd);
+		} catch (NamingException e) {}
+		return ret;
 	}
 	
 	/**
