@@ -38,4 +38,27 @@ public class UserMangerServiceTest {
 		assertTrue(res);
 	}
 
+	@Test
+	public void testHAAuthenticateDisconnect() {
+		boolean res = true;
+		int rounds=10;
+		System.out.print("|");
+		for (int i=0; i<rounds; i++) {
+			System.out.print(" ");
+		}
+		System.out.println("|");
+		System.out.print("|");
+		for (int i=0; i<rounds; i++) {
+			res = ums.Authenticate("session"+i, "gnappo", "gnappo") && res;
+			System.out.print("=");
+		}
+		System.out.println("|");
+		System.out.print("|");
+		for (int i=0; i<rounds; i++) {
+			res = ums.Disconnect("session"+i) && res;
+			System.out.print("=");
+		}
+		System.out.println("|");
+		assertTrue(res);
+	}
 }
