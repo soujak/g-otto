@@ -1,5 +1,7 @@
 package g8.bookshop.presentation.content.formatter;
 
+import g8.bookshop.presentation.servlet.Utils;
+
 import java.io.IOException;
 import java.io.Reader;
 import java.io.StringReader;
@@ -67,30 +69,6 @@ public class XsltTransformer {
 	}
 
 	/**
-	 * Loads an xml in string in a DOM document
-	 * 
-	 * @param xml
-	 * @return
-	 * @throws ParserConfigurationException
-	 * @throws SAXException
-	 * @throws IOException
-	 */
-	private Document transformToDocument(String xml_body)
-			throws ParserConfigurationException, SAXException, IOException {
-		DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
-		/* watch out: validation set to true */
-		// dbf.setValidating(true);
-		DocumentBuilder db = dbf.newDocumentBuilder();
-
-		Reader reader = new StringReader(xml_body);
-		InputSource inSource = new InputSource(reader);
-
-		Document doc = db.parse(inSource);
-		doc.getDocumentElement().normalize();
-		return doc;
-	}
-
-	/**
 	 * 
 	 * @param xml
 	 * @return
@@ -100,7 +78,7 @@ public class XsltTransformer {
 	 */
 	private DOMSource transformToDOMSource(String xml)
 			throws ParserConfigurationException, SAXException, IOException {
-		Document doc = transformToDocument(xml);
+		Document doc = Utils.xmlStringToDocument(xml);
 		DOMSource source = new DOMSource(doc);
 		return source;
 	}

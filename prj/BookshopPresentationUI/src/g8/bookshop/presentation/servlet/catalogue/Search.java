@@ -15,6 +15,7 @@ import javax.servlet.http.HttpSession;
 import javax.xml.parsers.ParserConfigurationException;
 import javax.xml.rpc.ServiceException;
 
+import org.w3c.dom.Document;
 import org.xml.sax.SAXException;
 
 /**
@@ -56,7 +57,8 @@ public class Search extends HttpServlet {
 					.getCatalogueServicePort().fullSearch(request.getParameter("key"));
 				
 				// build results message
-				if(!(xml_booklist.equalsIgnoreCase("<books />"))) dataExchange.setResultsMessage("Results for " + request.getParameter("key"));
+				Document books = Utils.xmlStringToDocument(xml_booklist);
+				if(!(books.getDocumentElement().getChildNodes().getLength() == 0)) dataExchange.setResultsMessage("Results for '" + request.getParameter("key") + "'");
 				else dataExchange.setResultsMessage("No results for " + request.getParameter("key"));
 			}
 			

@@ -11,7 +11,7 @@
 	scope="session" />
 
 <div id="top">
-<h1>G8 Authentication</h1>
+<h1 id="logo">G<span>8</span>Auth</h1>
 </div>
 
 <%@ include file="/template/authentication.jspf" %>
