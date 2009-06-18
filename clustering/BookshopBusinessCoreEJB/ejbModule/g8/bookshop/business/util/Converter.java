@@ -13,10 +13,14 @@ import java.io.StringReader;
 import java.io.StringWriter;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Properties;
 
 import javax.annotation.Resource;
 import javax.ejb.SessionContext;
 import javax.ejb.Stateless;
+import javax.naming.Context;
+import javax.naming.InitialContext;
+import javax.naming.NamingException;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.xml.parsers.DocumentBuilder;
@@ -47,8 +51,6 @@ import org.xml.sax.SAXException;
 public class Converter implements ConverterRemote {
 	@PersistenceContext(unitName = "InformationManager")
 	private EntityManager em;
-	@Resource 
-	private SessionContext sessionContext;
 	
 	/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * 
 	 * * * * * * * * * * * * * * * B O O K * * * * * * * * * * * * * * 
@@ -129,9 +131,10 @@ public class Converter implements ConverterRemote {
 	 * Convert a XML node in a Order
 	 * @param xmlNode the XML node
 	 * @return the Order if the node is successfully converted, null otherwise 
+	 * @throws NamingException 
 	 */
 	private OrderRemote xmlNodeToOrder(Node xmlNode)
-	throws ParserConfigurationException, SAXException, IOException {
+	throws ParserConfigurationException, SAXException, IOException, NamingException {
 		int quantity = 0;
 		String bookid = null;
 		quantity = Integer.parseInt(xmlNode.getAttributes().getNamedItem("quantity").getNodeValue());
@@ -139,7 +142,15 @@ public class Converter implements ConverterRemote {
 		Book b = em.find(Book.class, Long.parseLong(bookid));
 		OrderRemote o = null;
 		if(b != null) {
-			o = (OrderRemote)sessionContext.lookup("BookshopBusinessCore/Order/remote");
+			
+			Properties env = new Properties();
+			InitialContext ctx;
+			env.setProperty(Context.INITIAL_CONTEXT_FACTORY,
+					"org.jnp.interfaces.NamingContextFactory");
+			env.setProperty("jnp.partitionName", "G8Business");
+			env.setProperty(Context.URL_PKG_PREFIXES,"org.jboss.naming:org.jnp.interfaces");
+			ctx = new InitialContext(env);
+			o = (OrderRemote)ctx.lookup("BookshopBusinessCore/Order/remote");
 		    o.setQuantity(quantity);
 		    o.setBook(b);
 		}
@@ -149,7 +160,7 @@ public class Converter implements ConverterRemote {
 	/* (non-Javadoc)
 	 * @see g8.bookshop.business.util.ConverterLocal#xmlToOrders(java.lang.String)
 	 */
-	public List<OrderRemote> xmlToOrders(String xml) throws ParserConfigurationException, SAXException, IOException {
+	public List<OrderRemote> xmlToOrders(String xml) throws ParserConfigurationException, SAXException, IOException, NamingException {
 		Document document = xmlDocumentCreator(xml);
 		Element root = document.getDocumentElement();
 		NodeList orders = root.getChildNodes();

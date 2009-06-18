@@ -75,7 +75,6 @@ public class ShoppingCart implements ShoppingCartLocal, ShoppingCartRemote {
 	 * @return true
 	 */
 	public boolean checkOut() {
-		// TODO check: clear could be unimplemented
 		this.orders.clear();
 		return true;
 	}
