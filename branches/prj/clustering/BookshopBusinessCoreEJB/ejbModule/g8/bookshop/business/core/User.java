@@ -13,7 +13,7 @@ import org.jboss.ejb3.annotation.Clustered;
  */
 @Clustered
 @Stateful
-public abstract class User implements UserLocal, UserRemote {
+public abstract class User implements UserRemote {
 	private String id;
 	protected boolean customer;
 	// TODO use me, please

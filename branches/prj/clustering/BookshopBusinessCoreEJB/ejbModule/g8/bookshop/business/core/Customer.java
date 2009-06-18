@@ -16,7 +16,7 @@ import org.jboss.ejb3.annotation.Clustered;
  */
 @Clustered
 @Stateful
-public class Customer extends User implements CustomerLocal, CustomerRemote {
+public class Customer extends User implements CustomerRemote {
 
 	private ShoppingCartRemote shoppingCart;
 

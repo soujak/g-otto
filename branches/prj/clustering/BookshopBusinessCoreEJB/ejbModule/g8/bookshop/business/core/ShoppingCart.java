@@ -20,7 +20,7 @@ import org.jboss.ejb3.annotation.Clustered;
  */
 @Clustered
 @Stateful
-public class ShoppingCart implements ShoppingCartLocal, ShoppingCartRemote {
+public class ShoppingCart implements ShoppingCartRemote {
 
 	private SortedMap<Long,OrderRemote> orders;
 
