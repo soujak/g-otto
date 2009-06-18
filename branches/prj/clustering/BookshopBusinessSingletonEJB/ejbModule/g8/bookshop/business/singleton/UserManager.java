@@ -6,11 +6,15 @@ import g8.bookshop.business.core.UserRemote;
 import g8.bookshop.persistence.Credential;
 
 import java.util.Collections;
+import java.util.Properties;
 import java.util.SortedMap;
 import java.util.TreeMap;
 
 import javax.annotation.Resource;
 import javax.ejb.SessionContext;
+import javax.naming.Context;
+import javax.naming.InitialContext;
+import javax.naming.NamingException;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
@@ -26,8 +30,6 @@ import org.jboss.ejb3.annotation.Service;
 public class UserManager implements UserManagerRemote {
 
 	private SortedMap<String, UserRemote> userMap;
-	@Resource
-	private SessionContext sessionContext;
 	@PersistenceContext(unitName = "InformationManager")
 	private EntityManager em;
 
@@ -56,12 +58,20 @@ public class UserManager implements UserManagerRemote {
 	 *            user id
 	 * @return User to which the specified id is mapped, if id is not mapped
 	 *         create a new guest with the given id
+	 * @throws NamingException 
 	 */
-	public UserRemote getUser(String id) {
+	public UserRemote getUser(String id) throws NamingException {
 		UserRemote u = userMap.get(id);
 		if (u == null) {
-			u = (GuestRemote) this.sessionContext
-					.lookup("BookshopBusinessCore/Guest/remote");
+			
+			Properties env = new Properties();
+			InitialContext ctx;
+			env.setProperty(Context.INITIAL_CONTEXT_FACTORY,
+					"org.jnp.interfaces.NamingContextFactory");
+			env.setProperty("jnp.partitionName", "G8Business");
+			env.setProperty(Context.URL_PKG_PREFIXES,"org.jboss.naming:org.jnp.interfaces");
+			ctx = new InitialContext(env);
+			u = (GuestRemote) ctx.lookup("BookshopBusinessCore/Guest/remote");
 			u.setId(id);
 			userMap.put(id, u);
 		}
@@ -78,14 +88,22 @@ public class UserManager implements UserManagerRemote {
 	 * @param p
 	 *            Guest's password
 	 * @return true if the guest is successfully authenticated, false otherwise
+	 * @throws NamingException 
 	 */
-	public boolean authenticate(GuestRemote g, String n, String p) {
+	public boolean authenticate(GuestRemote g, String n, String p) throws NamingException {
 		boolean ret;
 		Credential cred = em.find(Credential.class, n);
 		if (cred != null)
 			if (cred.getPassword().equals(p)) {
 				String id = g.getId();
-				CustomerRemote cust = (CustomerRemote) this.sessionContext.lookup("BookshopBusinessCore/Customer/remote");
+				Properties env = new Properties();
+				InitialContext ctx;
+				env.setProperty(Context.INITIAL_CONTEXT_FACTORY,
+						"org.jnp.interfaces.NamingContextFactory");
+				env.setProperty("jnp.partitionName", "G8Business");
+				env.setProperty(Context.URL_PKG_PREFIXES,"org.jboss.naming:org.jnp.interfaces");
+				ctx = new InitialContext(env);
+				CustomerRemote cust = (CustomerRemote) ctx.lookup("BookshopBusinessCore/Customer/remote");
 				cust.setId(id);
 				this.userMap.put(id, cust);
 				ret = true;
