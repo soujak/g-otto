@@ -5,12 +5,15 @@ package g8.bookshop.business.core;
 
 import javax.ejb.Stateful;
 
+import org.jboss.ejb3.annotation.Clustered;
+
 import g8.bookshop.persistence.Book;
 
 /**
  * @author soujak
  *
  */
+@Clustered
 @Stateful
 public class Order implements OrderLocal, OrderRemote {
 	private Book book;

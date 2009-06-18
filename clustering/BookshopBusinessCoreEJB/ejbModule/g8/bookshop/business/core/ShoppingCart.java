@@ -12,10 +12,13 @@ import java.util.TreeMap;
 
 import javax.ejb.Stateful;
 
+import org.jboss.ejb3.annotation.Clustered;
+
 /**
  * Implementation class ShoppingCart
  * @author soujak
  */
+@Clustered
 @Stateful
 public class ShoppingCart implements ShoppingCartLocal, ShoppingCartRemote {
 
