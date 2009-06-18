@@ -17,7 +17,6 @@ import javax.naming.NamingException;
 import javax.xml.parsers.ParserConfigurationException;
 import javax.xml.transform.TransformerException;
 
-import org.jboss.ejb3.annotation.Clustered;
 import org.jboss.ejb3.annotation.Depends;
 import org.xml.sax.SAXException;
 
@@ -27,7 +26,6 @@ import org.xml.sax.SAXException;
  */
 @Depends(value={"ear=BookshopBusinessCore.ear,jar=BookshopBusinessCoreEJB.jar,name=Converter,service=EJB3","ear=BookshopBusinessSingleton.ear,jar=BookshopBusinessSingletonEJB.jar,name=UserManager,service=EJB3"})
 @Stateless
-@Clustered
 @WebService
 public class ShoppingCartService implements ShoppingCartServiceRemote {
 	

@@ -23,7 +23,6 @@ import org.jboss.ejb3.annotation.Depends;
  */
 @Depends(value="ear=BookshopBusinessSingleton.ear,jar=BookshopBusinessSingletonEJB.jar,name=UserManager,service=EJB3")
 @Stateless
-@Clustered
 @WebService
 public class UserManagerService implements UserManagerServiceRemote {
 	
@@ -60,7 +59,7 @@ public class UserManagerService implements UserManagerServiceRemote {
 		boolean ret = false;
 		try {
 			user = um.getUser(id);
-			System.out.println("UserManagerService: auth("+name+", "+pwd);
+			System.out.println("UserManagerService: auth("+ id +", "+name+", "+pwd + ")");
 			if (!user.isCustomer())
 				ret = um.authenticate((GuestRemote) user, name, pwd);
 		} catch (NamingException e) {}
