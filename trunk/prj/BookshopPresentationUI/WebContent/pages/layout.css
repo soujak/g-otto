@@ -3,6 +3,14 @@ body {
     text-align: center;
 }
 
+h1#logo {
+	font-size: 4em;	
+}
+
+h1#logo span {
+	color: #708090;
+}
+
 
 a {	
 	text-decoration: none;
@@ -11,11 +19,11 @@ a {
 }
 
 
-div#bottom {
+#bottom {
     font-style: italic;
+    font-size: 0.6em;
     text-align: center;
     text-transform:capitalize;
-    font-size: smaller;
 }
 
 #userinfo {
@@ -36,4 +44,36 @@ div#bottom {
 
 #menu a {
 	margin-left: 0.2em;
+}
+
+#message, #results_message {
+	font-weight: bold;
+	background-color: #EEEEEE;
+}
+
+
+div#cart table, div#results table {
+	width: 60%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+table {
+    border-collapse: collapse;
+    border-style: none;
+    border-width: 0em;
+}
+
+td{
+    padding: 0.2em; 
+}
+
+tr.item {
+    border-bottom: 1px dashed #708090;
+    border-top: 1px dashed #708090;
+}
+
+td.quantity {
+    padding-right: 0.2em;
+    padding-left: 0.2em;    
 }

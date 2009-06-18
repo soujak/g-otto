@@ -2,8 +2,6 @@
 <form action="Search"
 	method="get">
 	<input name="key" type="text" size="50" />
-	<br/><br/>
 	<input type="submit" value="Search"/>
-	<input type="reset" value="Clear" />
 </form>
 </div>

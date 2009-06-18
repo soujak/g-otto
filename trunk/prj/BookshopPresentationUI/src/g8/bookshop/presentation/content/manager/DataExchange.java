@@ -18,9 +18,9 @@ public class DataExchange {
 	// fields...
 	private String username = Constants.GUEST_NAME;
 	private boolean authenticated = false;
-	private String booklist = "";
+	private String booklist = "<books />";
+	private String shoppingcart = "<shoppingcart />";
 	private String key = "";
-	private String shoppingcart = "";
 	private String message = "";
 	private String resultsMessage = "";
 

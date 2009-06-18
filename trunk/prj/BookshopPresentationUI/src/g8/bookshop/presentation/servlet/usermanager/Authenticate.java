@@ -59,33 +59,36 @@ public class Authenticate extends HttpServlet {
 		boolean authenticated = false;
 				
 		try {
-			// invoke UserManager service to authenticates user session
-			authenticated = (new UserManagerServiceServiceLocator())
+			if(!(dataExchange.getAuthenticated())) {
+				// invoke UserManager service to authenticates user session
+				authenticated = (new UserManagerServiceServiceLocator())
 				.getUserManagerServicePort().authenticate(id, username, password);
 
-			// fills dataExchange variable and forward request to search page
-			if(authenticated) {
-				dataExchange.setUsername(username);
-				dataExchange.setMessage("Authentication succeeded.");
-				// if search isn't null or empty, invoke catalogue full-text search service method
-				if ((!(dataExchange.getKey() == null)) && (!(dataExchange.getKey().equalsIgnoreCase(""))))
-					xml_booklist = (new CatalogueServiceServiceLocator())
+				// fills dataExchange variable and forward request to search page
+				if(authenticated) {
+					dataExchange.setUsername(username);
+					dataExchange.setMessage("Authentication succeeded.");
+					// if search isn't null or empty, invoke catalogue full-text search service method
+					if ((!(dataExchange.getKey() == null)) && (!(dataExchange.getKey().equalsIgnoreCase(""))))
+						xml_booklist = (new CatalogueServiceServiceLocator())
 						.getCatalogueServicePort().fullSearch(dataExchange.getKey());						
-			} else {
-				dataExchange.setUsername(Constants.GUEST_NAME);
-				dataExchange.setMessage("Authentication failed: invalid password or username.");
+				} else {
+					dataExchange.setUsername(Constants.GUEST_NAME);
+					dataExchange.setMessage("Authentication failed: invalid password or username.");
+				}
+
+				dataExchange.setAuthenticated(authenticated);
+				dataExchange.setBooklist(xml_booklist);
 			}
 
-			dataExchange.setAuthenticated(authenticated);
-			dataExchange.setBooklist(xml_booklist);
-			
 		} catch (Exception e) {
 			dataExchange.setMessage("Authentication failed: an error occurred.");
 			e.printStackTrace();
 		}
+
 		
 		// forwards request to search page
-		String url = (authenticated) ? Constants.JSP_CUSTOMER_SEARCH : Constants.JSP_GUEST_SEARCH; 
+		String url = (dataExchange.getAuthenticated()) ? Constants.JSP_CUSTOMER_SEARCH : Constants.JSP_GUEST_SEARCH; 
 		Utils.forwardToPage(url, getServletContext(), 
 				request, response);
 	}

@@ -44,6 +44,9 @@ public class Disconnect extends HttpServlet {
 		// initialize message string
 		dataExchange.setMessage("");
 		
+		// initialize results message string
+		dataExchange.setResultsMessage("");
+		
 		// initialize disconnection result variable
 		boolean disconnected = false;
 
