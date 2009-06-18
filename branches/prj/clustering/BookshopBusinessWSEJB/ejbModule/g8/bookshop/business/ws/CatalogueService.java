@@ -30,7 +30,6 @@ import org.jboss.ejb3.annotation.Depends;
  */
 @Depends(value="ear=BookshopBusinessCore.ear,jar=BookshopBusinessCoreEJB.jar,name=Converter,service=EJB3")
 @Stateless
-@Clustered
 @WebService
 public class CatalogueService implements CatalogueServiceRemote {
 	
