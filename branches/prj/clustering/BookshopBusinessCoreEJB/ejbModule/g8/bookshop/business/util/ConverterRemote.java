@@ -8,6 +8,7 @@ import java.io.IOException;
 import java.util.List;
 
 import javax.ejb.Remote;
+import javax.naming.NamingException;
 import javax.xml.parsers.ParserConfigurationException;
 import javax.xml.transform.TransformerException;
 import javax.xml.transform.TransformerFactoryConfigurationError;
@@ -42,6 +43,6 @@ public interface ConverterRemote {
 			TransformerFactoryConfigurationError, TransformerException;
 
 	public abstract List<OrderRemote> xmlToOrders(String xml)
-			throws ParserConfigurationException, SAXException, IOException;
+			throws ParserConfigurationException, SAXException, IOException, NamingException;
 
 }
