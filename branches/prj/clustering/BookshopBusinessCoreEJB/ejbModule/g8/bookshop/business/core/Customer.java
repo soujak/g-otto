@@ -5,10 +5,13 @@ import javax.annotation.Resource;
 import javax.ejb.SessionContext;
 import javax.ejb.Stateful;
 
+import org.jboss.ejb3.annotation.Clustered;
+
 /**
  * Stateful Session Bean implementation class Customer
  * @author soujak
  */
+@Clustered
 @Stateful
 public class Customer extends User implements CustomerLocal, CustomerRemote {
 

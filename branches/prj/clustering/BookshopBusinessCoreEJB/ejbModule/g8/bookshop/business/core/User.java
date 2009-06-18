@@ -5,10 +5,13 @@ package g8.bookshop.business.core;
 
 import javax.ejb.Stateful;
 
+import org.jboss.ejb3.annotation.Clustered;
+
 /**
  * Stateful Session Bean implementation class User
  * @author soujak
  */
+@Clustered
 @Stateful
 public abstract class User implements UserLocal, UserRemote {
 	private String id;
