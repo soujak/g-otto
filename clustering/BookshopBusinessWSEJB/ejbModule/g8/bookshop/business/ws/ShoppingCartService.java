@@ -93,7 +93,10 @@ public class ShoppingCartService implements ShoppingCartServiceRemote {
 				} catch (IllegalArgumentException e) {} 
 				catch (ParserConfigurationException e) {}
 				catch (SAXException e) {}
-				catch (IOException e) {}
+				catch (IOException e) {} catch (NamingException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
 			}
 		return ret;
 	}
@@ -116,7 +119,10 @@ public class ShoppingCartService implements ShoppingCartServiceRemote {
 				} catch (IllegalArgumentException e) {} 
 				catch (ParserConfigurationException e) {}
 				catch (SAXException e) {}
-				catch (IOException e) {}
+				catch (IOException e) {} catch (NamingException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
 			}
 		return ret;
 	}
