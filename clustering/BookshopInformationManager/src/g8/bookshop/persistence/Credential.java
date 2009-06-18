@@ -1,14 +1,19 @@
 package g8.bookshop.persistence;
 
 import java.io.Serializable;
-import java.lang.String;
-import javax.persistence.*;
+
+import javax.persistence.Entity;
+import javax.persistence.Id;
+
+import org.hibernate.annotations.Cache;
+import org.hibernate.annotations.CacheConcurrencyStrategy;
 
 /**
  * Entity implementation class Credential
  * @author soujak
  */
 @Entity
+@Cache (usage=CacheConcurrencyStrategy.READ_ONLY)
 public class Credential implements Serializable {
 
 	   
