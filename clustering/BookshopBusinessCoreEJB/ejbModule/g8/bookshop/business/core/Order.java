@@ -15,7 +15,7 @@ import g8.bookshop.persistence.Book;
  */
 @Clustered
 @Stateful
-public class Order implements OrderLocal, OrderRemote {
+public class Order implements OrderRemote {
 	private Book book;
 	private int quantity;
 	

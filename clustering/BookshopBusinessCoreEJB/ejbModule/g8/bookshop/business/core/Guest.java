@@ -13,7 +13,7 @@ import org.jboss.ejb3.annotation.Clustered;
  */
 @Clustered
 @Stateful
-public class Guest extends User implements GuestLocal, GuestRemote {
+public class Guest extends User implements GuestRemote {
 
 	/**
 	 * Minimal constructor
