@@ -9,11 +9,17 @@ import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 
+import org.hibernate.annotations.Cache;
+import org.hibernate.annotations.CacheConcurrencyStrategy;
+
 /**
  * Entity implementation class Book
  * @author soujak
  */
 
+@Entity
+@Cache (usage=CacheConcurrencyStrategy.READ_ONLY)
+@Table(name = "Book", schema = "Bookshop")
 @NamedQueries({
     @NamedQuery(
             name="search",
@@ -24,9 +30,6 @@ import javax.persistence.Table;
                     "OR b.ISBN = :ISBN " +
                     "OR b.Year = :Year")
 })
-
-@Entity
-@Table(name = "Book", schema = "Bookshop")
 public class Book implements Serializable {
 
 	private String Title;
