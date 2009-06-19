@@ -20,4 +20,11 @@ insert into Book set Id=015, Author='Cormac Mccarthy', Editor='Center Point Pub'
 insert into Book set Id=016, Author='Isabel Allende', Editor='Harpercollins', ISBN='9780060778972', Title='Zorro: A Novel', Year=2005 Price=10;
 insert into Book set Id=017, Author='Isabel Allende', Editor='Dell Publishing', ISBN='9780553383805', Title='The House of the Spirits', Year=2005 Price=10;
 insert into Book set Id=018, Author='Isabel Allende', Editor='Dial Press', ISBN='9780553383836', Title='Of love and shadows', Year=2008 Price=10;
+insert into Book set Id=019, Author='Gabriel Garc&#205;a M&#225;rquez', Editor='Alfred A. Knopf', ISBN='9780679444657', Title='One hundred years of solitude', Year=1995 Price=10;
+insert into Book set Id=020, Author='Gabriel Garc&#205;a M&#225;rquez', Editor='Random House USA Inc', ISBN='9781400034680', Title='Love in the Time of Cholera', Year=2003 Price=10;
+insert into Book set Id=019, Author='Gabriel Garc&#205;a M&#225;rquez', Editor='Alfred A. Knopf', ISBN='9780679444657', Title='One hundred years of solitude', Year=1995 Price=10;
+insert into Book set Id=020, Author='Gabriel Garc&#205;a M&#225;rquez', Editor='Random House USA Inc', ISBN='9781400034680', Title='Love in the Time of Cholera', Year=2003 Price=10;
+insert into Book set Id=021, Author='William Shakespeare', Editor='Classic Books Company', ISBN='9780742652828', Title='Romeo and Juliet', Year=2001 Price=8;
+insert into Book set Id=022, Author='William Shakespeare', Editor='Courier Dover Publications', ISBN='9780486406589', Title='The tempest', Year=1999 Price=8;
+insert into Book set Id=023, Author='William Shakespeare', Editor='Classic Books Company', ISBN='9780742652842', Title='Hamlet', Year=2001 Price=8;
 insert into Credential set Name='gnappo', Password='gnappo';
