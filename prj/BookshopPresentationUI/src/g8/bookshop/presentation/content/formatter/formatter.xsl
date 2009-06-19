@@ -103,6 +103,15 @@
         </xsl:element>
     </xsl:template>
 
+    <xsl:template match="@price" mode="attributes">
+        <xsl:element name="td">
+            <xsl:attribute name="class">
+                <xsl:value-of select="name(.)"/>
+            </xsl:attribute>
+            <xsl:value-of select="."/><xsl:text> &#8364;</xsl:text>
+        </xsl:element>
+    </xsl:template>
+
     <!-- GETTING ID ATTRIBUTE
     if the transformation is due for an authenticated search, this template is 
     called: it produces a cell in the form
