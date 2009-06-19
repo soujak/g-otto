@@ -22,7 +22,7 @@ public class UserManagerServiceServiceLocator extends org.apache.axis.client.Ser
     }
 
     // Use to get a proxy class for UserManagerServicePort
-    private java.lang.String UserManagerServicePort_address = "http://127.0.0.1:8080/BookshopBusiness-BookshopBusinessCore/UserManagerService";
+    private java.lang.String UserManagerServicePort_address = "http://192.168.1.3/services/UserManagerService";
 
     public java.lang.String getUserManagerServicePortAddress() {
         return UserManagerServicePort_address;

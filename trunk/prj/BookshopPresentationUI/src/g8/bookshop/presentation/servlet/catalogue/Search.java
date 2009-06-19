@@ -55,13 +55,12 @@ public class Search extends HttpServlet {
 			if ((!(request.getParameter("key") == null)) && (!(request.getParameter("key").equalsIgnoreCase("")))) {
 				xml_booklist = (new CatalogueServiceServiceLocator())
 					.getCatalogueServicePort().fullSearch(request.getParameter("key"));
-				
+	
 				// build results message
 				Document books = Utils.xmlStringToDocument(xml_booklist);
 				if(!(books.getDocumentElement().getChildNodes().getLength() == 0)) dataExchange.setResultsMessage("Results for '" + request.getParameter("key") + "'");
-				else dataExchange.setResultsMessage("No results for " + request.getParameter("key"));
+				else dataExchange.setResultsMessage("No results for '" + request.getParameter("key") + "'");
 			}
-			
 			// fills dataExchange instance fields
 			dataExchange.setKey(request.getParameter("key"));
 			dataExchange.setBooklist(xml_booklist);

@@ -22,7 +22,7 @@ public class CatalogueServiceServiceLocator extends org.apache.axis.client.Servi
     }
 
     // Use to get a proxy class for CatalogueServicePort
-    private java.lang.String CatalogueServicePort_address = "http://127.0.0.1:8080/BookshopBusiness-BookshopBusinessCore/CatalogueService";
+    private java.lang.String CatalogueServicePort_address = "http://192.168.1.3/services/CatalogueService";
 
     public java.lang.String getCatalogueServicePortAddress() {
         return CatalogueServicePort_address;
