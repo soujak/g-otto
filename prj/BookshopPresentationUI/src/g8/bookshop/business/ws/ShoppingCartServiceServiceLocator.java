@@ -22,7 +22,7 @@ public class ShoppingCartServiceServiceLocator extends org.apache.axis.client.Se
     }
 
     // Use to get a proxy class for ShoppingCartServicePort
-    private java.lang.String ShoppingCartServicePort_address = "http://127.0.0.1:8080/BookshopBusiness-BookshopBusinessCore/ShoppingCartService";
+    private java.lang.String ShoppingCartServicePort_address = "http://192.168.1.3/services/ShoppingCartService";
 
     public java.lang.String getShoppingCartServicePortAddress() {
         return ShoppingCartServicePort_address;
