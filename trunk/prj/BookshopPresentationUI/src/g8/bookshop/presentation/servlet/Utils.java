@@ -54,7 +54,7 @@ public class Utils {
 	
 	public static DataExchange getDataExchange(HttpSession session) {
 		DataExchange dataExchange;
-		if (session.isNew()) dataExchange = new DataExchange();
+		if (session.getAttribute("DataExchange") == null) dataExchange = new DataExchange();
 		else dataExchange = (DataExchange)session.getAttribute("DataExchange");
 		return dataExchange;
 	}

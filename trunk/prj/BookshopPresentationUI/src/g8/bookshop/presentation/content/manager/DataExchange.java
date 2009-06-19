@@ -4,6 +4,7 @@ import g8.bookshop.presentation.Constants;
 import g8.bookshop.presentation.content.formatter.XsltTransformer;
 
 import java.io.IOException;
+import java.io.Serializable;
 import java.net.URISyntaxException;
 
 import javax.xml.parsers.ParserConfigurationException;
@@ -12,14 +13,13 @@ import javax.xml.transform.TransformerException;
 import org.xml.sax.SAXException;
 
 
-
-public class DataExchange {
+public class DataExchange implements Serializable {
 	
 	// fields...
 	private String username = Constants.GUEST_NAME;
 	private boolean authenticated = false;
-	private String booklist = "<books />";
-	private String shoppingcart = "<shoppingcart />";
+	private String booklist = "";
+	private String shoppingcart = "";
 	private String key = "";
 	private String message = "";
 	private String resultsMessage = "";
