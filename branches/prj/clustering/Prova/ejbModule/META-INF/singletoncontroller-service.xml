@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--<deployment xmlns="urn:jboss:bean-deployer:2.0">-->
+<server>
+  <!-- ==================================================================== -->
+  <!--    Singleton clustering service                                      -->
+  <!-- ==================================================================== -->
+
+<!--   <mbean code="org.jboss.ha.singleton.examples.HASingletonMBeanExample" -->
+<!--          name="jboss.examples:service=HASingletonMBeanExample">-->
+<!--   </mbean>-->
+<!--   <mbean code="org.jboss.ha.singleton.HASingletonController" -->
+<!--          name="jboss.examples:service=HASingletonMBeanExample-HASingletonController">-->
+<!--      <depends>jboss:service=${jboss.partition.name:DefaultPartition}</depends>   -->
+<!--      <depends>jboss.examples:service=HASingletonMBeanExample</depends>-->
+<!--      <attribute name="PartitionName">${jboss.partition.name:DefaultPartition}</attribute>-->
+<!--      <attribute name="TargetName">jboss.examples:service=HASingletonMBeanExample</attribute>-->
+<!--      <attribute name="TargetStartMethod">startSingleton</attribute>-->
+<!--      <attribute name="TargetStopMethod">stopSingleton</attribute>-->
+<!--      <attribute name="TargetStopMethodArgument">true</attribute>-->
+<!--   </mbean>-->
+
+<!--	<bean-->
+<!--		name="Prova" class="g8.test.Prova">-->
+<!--      	<annotation>@org.jboss.aop.microcontainer.aspects.jmx.JMX(name="g8.test:service=Prova", exposedInterface=g8.test.ProvaMBean.class, registerDirectly=true)</annotation>-->
+<!--	</bean>-->
+<!--	<bean-->
+<!--		name="g8.test:service=ProvaController" class="org.jboss.ha.singleton.HASingletonController">-->
+<!--		-->
+<!--		<annotation>@org.jboss.aop.microcontainer.aspects.jmx.JMX(name="g8.test:service=ProvaController", exposedInterface=org.jboss.ha.singleton.HASingletonControllerMBean.class, registerDirectly=true)</annotation>-->
+<!--		-->
+<!--		<property name="HAPartition"><inject bean="HAPartition"/></property>-->
+<!--		<property name="target"><inject bean="Prova" /></property>-->
+<!--		<property name="targetStartMethod">startSingleton</property>-->
+<!--		<property name="targetStopMethod">stopSingleton</property>  -->
+<!--   </bean>-->
+   
+   <mbean
+		name="g8.test:service=Prova"
+		code="g8.test.Prova">
+	</mbean>
+	<mbean
+		name="g8.test:service=ProvaController"
+		code="org.jboss.ha.singleton.HASingletonController">
+		<depends
+			optional-attribute-name = "ClusterPartition"
+			proxy-type = "attribute">
+			jboss:service=HAPartition,partition=G8Business
+		</depends>
+		<depends>g8.test:service=Prova</depends>
+		<depends>HAPartition</depends>
+		<attribute name="TargetName">g8.test:service=Prova</attribute>
+		<attribute name="TargetStartMethod">startSingleton</attribute>
+		<attribute name="TargetStopMethod">stopSingleton</attribute>  
+   </mbean>
+</server>

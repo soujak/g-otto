@@ -3,22 +3,32 @@ package g8.test;
 
 import static org.junit.Assert.assertTrue;
 
+import java.io.IOException;
 import java.util.Properties;
+import java.util.Vector;
 
+import javax.management.InstanceNotFoundException;
+import javax.management.MBeanException;
+import javax.management.MBeanServerConnection;
+import javax.management.MalformedObjectNameException;
+import javax.management.ObjectName;
+import javax.management.ReflectionException;
 import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.naming.NamingException;
 
+import org.jboss.jmx.adaptor.rmi.RMIAdaptor;
+import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
 public class ProvaTest {
 
-	static private Context ctx;
+	private MBeanServerConnection adaptor;
 	
 	
-	@BeforeClass
-	public static void setUpBeforeClass() throws Exception {
+	@Before
+	public void setUpBeforeClass() throws Exception {
 		Properties env = new Properties();
 		env.setProperty(Context.INITIAL_CONTEXT_FACTORY,
 				"org.jnp.interfaces.NamingContextFactory");
@@ -26,17 +36,35 @@ public class ProvaTest {
 //		192.168.1.1:1100
 		env.setProperty(Context.URL_PKG_PREFIXES,"org.jboss.naming:org.jnp.interfaces");
 		env.setProperty("jnp.partitionName","G8Business");
-		ctx = new InitialContext(env);
+		Context ctx = new InitialContext(env);
+		this.adaptor = (RMIAdaptor) ctx.lookup("jmx/rmi/RMIAdaptor");
 	}
 
+	public boolean testInc()
+	throws NamingException, MalformedObjectNameException, InstanceNotFoundException, MBeanException, ReflectionException, IOException
+	{
+		boolean res = false;
+		int first, second = 0;
+		ObjectName name = new ObjectName("g8.test:service=Prova");
+		if (adaptor.isRegistered(name)) {
+			first = ((Integer) this.adaptor.invoke(name, "inc", null, null)).intValue();
+			System.out.println("First increment: value = "+first);
+			second = ((Integer) this.adaptor.invoke(name, "inc", null, null)).intValue();
+			System.out.println("second increment: value = "+second);
+			res = (second - first == 1);
+		}
+		return res;
+	}
 	@Test
-	public void testSingleton() throws NamingException {
-		ProvaRemote p = (ProvaRemote) ctx.lookup("ProvaEAR/Prova/remote");
-		int first = p.inc();
-		System.out.println("First increment: value = "+first);
-		int second = p.inc();
-		System.out.println("second increment: value = "+second);
-		boolean res = (second - first == 1);
+	public void intensiveTestInc()
+	throws NamingException, MalformedObjectNameException, InstanceNotFoundException, MBeanException, ReflectionException, IOException
+	{
+		int rounds = 100;
+		boolean res = true;
+		while (rounds > 1) {
+			res = res && testInc();
+			rounds--;
+		}
 		assertTrue(res);
 	}
 }
