@@ -193,7 +193,7 @@
         <xsl:choose>
             <xsl:when test="not(*)">
                 <xsl:element name="p">
-                    <xsl:attribute name="class">
+                    <xsl:attribute name="id">
                         <xsl:text>message</xsl:text>
                     </xsl:attribute>
                     <xsl:text>Empty cart</xsl:text>

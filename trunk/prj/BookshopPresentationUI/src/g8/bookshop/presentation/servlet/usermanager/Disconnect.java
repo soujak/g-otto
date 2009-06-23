@@ -11,10 +11,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import javax.xml.parsers.ParserConfigurationException;
-import javax.xml.rpc.ServiceException;
-
-import org.xml.sax.SAXException;
 
 /**
  * Servlet implementation class Disconnect
@@ -65,11 +61,7 @@ public class Disconnect extends HttpServlet {
 				dataExchange.setShoppingcart("<shoppingcart />");
 			}
 			
-		} catch (ServiceException e) {
-			e.printStackTrace();
-		} catch (ParserConfigurationException e) {
-			e.printStackTrace();
-		} catch (SAXException e) {
+		} catch (Exception e) {
 			e.printStackTrace();
 		}
 		

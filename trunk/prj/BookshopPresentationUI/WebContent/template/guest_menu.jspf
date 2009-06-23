@@ -1,5 +1,5 @@
 <div id="menu">
 <div class="menu">
-<a href="/BookshopPresentationUI/Home?auth=true">Authenticate</a>
+<a href="/BookshopPresentationUI/Home?auth">Authenticate</a>
 </div>
 </div>

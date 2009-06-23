@@ -11,10 +11,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import javax.xml.parsers.ParserConfigurationException;
-import javax.xml.rpc.ServiceException;
-
-import org.xml.sax.SAXException;
 
 /**
  * Servlet implementation class View
@@ -44,9 +40,8 @@ public class View extends HttpServlet {
 		// initialize message string
 		dataExchange.setMessage("");
 		
-		// invoke shoppingcart service method...
 		try {
-			// ... to view cart
+			// invoke shoppingcart service method to view cart 
 			xml_shoppingcart = (new ShoppingCartServiceServiceLocator()).getShoppingCartServicePort().view(session.getId());
 			// fills dataExchange variable
 			dataExchange.setShoppingcart(xml_shoppingcart);
