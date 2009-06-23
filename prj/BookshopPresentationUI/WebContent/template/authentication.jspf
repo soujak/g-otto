@@ -1,9 +1,8 @@
 <div id="authentication">
 <form action="/BookshopPresentationUI/Authenticate"
 	method="post">
-	<input name="username" type="text" size="10" />
-	<input name="password" type="password" size="10" />
-	<br/>
-	<input type="submit" value="Authenticate"/>
+	<p>Username: <input name="username" type="text" size="10" /></p>
+	<p>Password: <input name="password" type="password" size="10" /></p>
+	<p><input type="submit" value="Authenticate"/></p>
 </form>
 </div>

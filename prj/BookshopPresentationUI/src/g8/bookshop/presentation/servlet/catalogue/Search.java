@@ -12,11 +12,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import javax.xml.parsers.ParserConfigurationException;
-import javax.xml.rpc.ServiceException;
 
 import org.w3c.dom.Document;
-import org.xml.sax.SAXException;
 
 /**
  * Servlet implementation class Search

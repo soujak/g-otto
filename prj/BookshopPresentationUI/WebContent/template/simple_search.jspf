@@ -1,7 +1,7 @@
 <div id="ssearch">
 <form action="Search"
 	method="get">
-	<input name="key" type="text" size="50" />
+	<input name="key" type="text" size="50" value="${param.key}" />
 	<input type="submit" value="Search"/>
 </form>
 </div>

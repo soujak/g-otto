@@ -15,14 +15,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import javax.xml.parsers.DocumentBuilderFactory;
-import javax.xml.parsers.ParserConfigurationException;
-import javax.xml.rpc.ServiceException;
-import javax.xml.transform.TransformerException;
-import javax.xml.transform.TransformerFactoryConfigurationError;
 
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
-import org.xml.sax.SAXException;
 
 /**
  * Servlet implementation class Update
@@ -89,12 +84,15 @@ public class Update extends HttpServlet {
 			xml_shoppingcart = service.view(session.getId());			
 			dataExchange.setShoppingcart(xml_shoppingcart);
 
-			if(request.getParameter("operation").equals("checkout"))
+			if(request.getParameter("operation").equalsIgnoreCase("checkout"))
 				payed = service.checkOut(session.getId());
 			
 		} catch (Exception e) {
 			dataExchange.setMessage("Shoppingcart update failed: an error occurred.");
 		}
+		
+		if(updated) dataExchange.setMessage("Shopping cart updated.");
+		if(payed) dataExchange.setMessage("Shopping cart checked out.");
 		
 		Utils.forwardToPage(Constants.JSP_CART, getServletContext(),
 				request, response);
