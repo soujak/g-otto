@@ -28,7 +28,7 @@ public class CatalogueServiceTest {
 		env.setProperty(Context.URL_PKG_PREFIXES,"org.jboss.naming:org.jnp.interfaces");
 		ctx = new InitialContext(env);
 		cs = (CatalogueServiceRemote) ctx
-				.lookup("BookshopBusinessWS/CatalogueService/remote");
+				.lookup("BookshopBusinessCore/CatalogueService/remote");
 	}
 	
 	@Ignore
