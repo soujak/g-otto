@@ -1,14 +1,13 @@
 package g8.bookshop.business.core;
 
-import java.util.Properties;
+import g8.bookshop.business.util.BeanLocator;
 
 import javax.annotation.PostConstruct;
 import javax.ejb.Stateful;
-import javax.naming.Context;
-import javax.naming.InitialContext;
 import javax.naming.NamingException;
 
 import org.jboss.ejb3.annotation.Clustered;
+import org.jboss.logging.Logger;
 
 /**
  * Stateful Session Bean implementation class Customer
@@ -38,14 +37,13 @@ public class Customer extends User implements CustomerRemote {
 	
 	@SuppressWarnings("unused")
 	@PostConstruct
-	private void createShoppingCart() throws NamingException {
-		Properties env = new Properties();
-		InitialContext ctx;
-		env.setProperty(Context.INITIAL_CONTEXT_FACTORY,
-				"org.jnp.interfaces.NamingContextFactory");
-		env.setProperty("jnp.partitionName", "G8Business");
-		env.setProperty(Context.URL_PKG_PREFIXES,"org.jboss.naming:org.jnp.interfaces");
-		ctx = new InitialContext(env);
-		this.shoppingCart = (ShoppingCartRemote) ctx.lookup("BookshopBusinessCore/ShoppingCart/remote");
+	private void createShoppingCart() {
+		this.shoppingCart = null;
+		try {
+			this.shoppingCart = (ShoppingCartRemote) BeanLocator.getBean("BookshopBusinessCore/Customer/remote");
+		} catch (NamingException e) {
+			Logger logger = Logger.getLogger(Customer.class);
+			logger.error(e.getStackTrace().toString());
+		}
 	}
 }

@@ -12,7 +12,6 @@
 			proxy-type = "attribute">
 			jboss:service=HAPartition,partition=G8Business
 		</depends>
-		<depends>g8.test:service=Prova</depends>
 		<depends>g8.bookshop.business.um:service=UserManager</depends>
 		<attribute name="TargetName">g8.bookshop.business.um:service=UserManager</attribute>
 		<attribute name="TargetStartMethod">startSingleton</attribute>
