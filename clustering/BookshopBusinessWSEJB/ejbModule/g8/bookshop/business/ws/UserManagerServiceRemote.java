@@ -18,7 +18,7 @@ public interface UserManagerServiceRemote {
 	boolean Authenticate(String id, String name, String pwd);
 	
 	/**
-	 * Disconnect a given user
+	 * Disconnect a given user.
 	 * @param id user id
 	 * @return
 	 */
