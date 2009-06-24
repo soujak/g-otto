@@ -9,5 +9,13 @@
             <dependent-object/>
             <dependency-type>uses</dependency-type>
         </dependent-module>
+        <dependent-module deploy-path="/" handle="module:/resource/BookshopBusinessSingletonEJB/BookshopBusinessSingletonEJB">
+            <dependent-object/>
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module deploy-path="/" handle="module:/resource/BookshopBusinessWSEJB/BookshopBusinessWSEJB">
+            <dependent-object/>
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
     </wb-module>
 </project-modules>
