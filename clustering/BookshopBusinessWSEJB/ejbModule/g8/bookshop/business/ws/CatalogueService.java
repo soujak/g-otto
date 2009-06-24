@@ -28,7 +28,6 @@ import org.jboss.ejb3.annotation.Depends;
 /**
  * WebService Session Bean implementation class CatalogueService
  */
-@Depends(value="ear=BookshopBusinessCore.ear,jar=BookshopBusinessCoreEJB.jar,name=Converter,service=EJB3")
 @Stateless
 @WebService
 public class CatalogueService implements CatalogueServiceRemote {

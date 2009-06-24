@@ -24,7 +24,6 @@ import org.xml.sax.SAXException;
 /**
  * WebService Session Bean implementation class ShoppingCartService
  */
-@Depends(value={"ear=BookshopBusinessCore.ear,jar=BookshopBusinessCoreEJB.jar,name=Converter,service=EJB3","ear=BookshopBusinessSingleton.ear,jar=BookshopBusinessSingletonEJB.jar,name=UserManagerAdaptor,service=EJB3"})
 @Stateless
 @WebService
 public class ShoppingCartService implements ShoppingCartServiceRemote {
