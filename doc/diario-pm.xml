@@ -1,27 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--  Diario del Project Manager -->
 <!DOCTYPE article [
-<!ENTITY % myent SYSTEM "entities.ent">
-%myent;
+	<!ENTITY % myent SYSTEM "entities.ent"> %myent;
 ]>
-<article xml:lang="it" xmlns="http://docbook.org/ns/docbook"
-	xmlns:xi="http://www.w3.org/2001/XInclude" xmlns:xlink="http://www.w3.org/1999/xlink"
+<article
+	xml:lang="it"
+	xmlns="http://docbook.org/ns/docbook"
+	xmlns:xi="http://www.w3.org/2001/XInclude"
+	xmlns:xlink="http://www.w3.org/1999/xlink"
 	version="5.0">
 	<title/>
 	<section xml:id="diario-pm">
 		<title>Diario di &ppm;</title>
-		<!-- Piccola modifica per dblatex: da table a informaltable, di conseguenza nessun <title> -->
-		<informaltable>
-			<!--<title>Diario del &rpm;</title>-->
+		<table>
+			<title>Diario del &rpm;</title>
 			<tgroup cols="3">
-				<!-- colwidth ottimali: settare 50pt se avete nelle celle itemizedlist, 60pt altrimenti -->
-				<colspec colname="0" align="center" colwidth="60pt"/>
-				<!-- colwidth ottimali: settare 40pt se avete nelle celle itemizedlist, 60pt altrimenti -->
-				<colspec colname="1" align="center" colwidth="60pt"/>
-				<!-- colwidth ottimali: non settare -->
-				<!-- attenzione, modifiche errate ai colwidth creano problemi a dblatex -->
+				<colspec colname="0" align="center" colwidth="60"/>
+				<colspec colname="1" align="center" colwidth="60"/>
 				<colspec colname="2" align="justify"/>
-				<!-- non modificare questo header -->
 				<thead>
 					<row>
 						<entry>Data</entry>
@@ -33,18 +29,11 @@
 				<tfoot>
 					<row>
 						<entry>Totale</entry>
-						<entry>47</entry>
-						<entry>Aggiornato al 14/05/2009</entry>
+						<entry>159.75</entry>
+						<entry>Aggiornato al 24/06/2009</entry>
 					</row>
 				</tfoot>
 				<tbody>
-					<!--
-	  <row>
-	    <entry>/04/2009</entry>
-	    <entry>durata</entry>
-	    <entry>descrizione</entry>
-	  </row>
-	  -->
 					<row>
 						<entry>07/04/2009</entry>
 						<entry>1.5</entry>
@@ -156,7 +145,8 @@
 					<row>
 						<entry>06/05/2009</entry>
 						<entry>0.5</entry>
-						<entry>Revisione modellazione dell'architettura. </entry>
+						<entry>Revisione modellazione dell'architettura.
+						</entry>
 					</row>
 					<row>
 						<entry>07/05/2009</entry>
@@ -167,20 +157,20 @@
 					<row>
 						<entry>07/05/2009</entry>
 						<entry>1</entry>
-						<entry>Revisione modelli: revisione del prototipo di interfaccia utente (con
-							QE). </entry>
+						<entry>Revisione modelli: revisione del prototipo di interfaccia utente (con QE).
+						</entry>
 					</row>
 					<row>
 						<entry>07/05/2009</entry>
 						<entry>0.5</entry>
-						<entry>Gestione progetto: aggiornamento dello stato di avanzamento e dello
-							sforzo consuntivo. </entry>
+						<entry>Gestione progetto: aggiornamento dello stato di avanzamento e dello sforzo consuntivo.
+						</entry>
 					</row>
 					<row>
 						<entry>08/05/2009</entry>
 						<entry>2</entry>
-						<entry>Formazione architetturale e implementativa: studio tecnologia J2EE e
-							prove con JBoss AS. </entry>
+						<entry>Formazione architetturale e implementativa: studio tecnologia J2EE e prove con JBoss AS.
+						</entry>
 					</row>
 					<row>
 						<entry>11/05/2009</entry>
@@ -191,14 +181,14 @@
 					<row>
 						<entry>11/05/2009</entry>
 						<entry>4</entry>
-						<entry>Prototipazione architetturale: prime bozze implementative e prove di
-							schieramento su CS. </entry>
+						<entry>Prototipazione architetturale: prime bozze implementative e prove di schieramento su CS.
+						</entry>
 					</row>
 					<row>
 						<entry>11/05/2009</entry>
 						<entry>0.5</entry>
-						<entry>Configurazione ambiente: aggiornamento di JBOSS AS e installazione
-							plugin JBOSS Tools. </entry>
+						<entry>Configurazione ambiente: aggiornamento di JBOSS AS e installazione plugin JBOSS Tools.
+						</entry>
 					</row>
 					<row>
 						<entry>12/05/2009</entry>
@@ -221,17 +211,207 @@
 					<row>
 						<entry>14/05/2009</entry>
 						<entry>1.5</entry>
-						<entry>Prototipazione architetturale: collegamento di una servlet ad un
-							end-point di un WS. </entry>
+						<entry>Prototipazione architetturale: collegamento di una servlet ad un end-point di un WS.
+						</entry>
 					</row>
 					<row>
 						<entry>14/05/2009</entry>
 						<entry>0.5</entry>
-						<entry>Condivisione artefatti: aggiornamento diario personale. </entry>
+						<entry>Condivisione artefatti: aggiornamento diario personale.
+						</entry>
 					</row>
+					<row>
+						<entry>21/05/2009</entry>
+						<entry>1.5</entry>
+						<entry>Prototipazione architetturale. Formazione uso entity bean e basi di dati.</entry>
+					</row>
+					<row>
+						<entry>24/05/2009</entry>
+						<entry>2</entry>
+						<entry>Modellazione architetturale definitiva. Modellazione schieramento.</entry>
+					</row>
+					<row>
+						<entry>28/05/2009</entry>
+						<entry>3</entry>
+						<entry>Modellazione livello business: interfaccia ws e microarchitettura del livello (con QE).</entry>
+					</row>
+					<row>
+						<entry>29/05/2009</entry>
+						<entry>1</entry>
+						<entry>Modellazione livello business: microarchitettura del livello (con QE).</entry>
+					</row>
+					<row>
+						<entry>01/06/2009</entry>
+						<entry>2</entry>
+						<entry>Implementazione livello business: ws tramite stateless ejb.</entry>
+					</row>
+					<row>
+						<entry>03/06/2009</entry>
+						<entry>3</entry>
+						<entry>Modellazione livello business: microarchitettura (con QE).</entry>
+					</row>
+					<row>
+						<entry>03/06/2009</entry>
+						<entry>3</entry>
+						<entry>Modellazione business: linguaggio XML per i ws (con TS).</entry>
+					</row>
+					<row>
+						<entry>03/06/2009</entry>
+						<entry>1.5</entry>
+						<entry>Configurazione ambiente: risoluzione problemi legati a Subversion nella la macchina di sviluppo.</entry>
+					</row>
+					<row>
+						<entry>03/06/2009</entry>
+						<entry>1</entry>
+						<entry>Formazione: approfondimenti sull'uso delle Entity.</entry>
+					</row>
+					<row>
+						<entry>03/06/2009</entry>
+						<entry>2.5</entry>
+						<entry>Modellazione ed implementazione business.</entry>
+					</row>
+
+					<row>
+						<entry>04/06/2009</entry>
+						<entry>1</entry>
+						<entry>Configurazione per schieramento: impostazione DBMS MySQL e integrazione con Eclipse (con QE).</entry>
+					</row>
+					<row>
+						<entry>04/06/2009</entry>
+						<entry>2</entry>
+						<entry>Formazione: approfondimenti sull'uso DBMS MySQL (con QE).</entry>
+					</row>
+					<row>
+						<entry>04/06/2009</entry>
+						<entry>2</entry>
+						<entry>Modellazione ed implementazione business: attività nel lato informativo.</entry>
+					</row>
+					<row>
+						<entry>04/06/2009</entry>
+						<entry>1</entry>
+						<entry>Configurazione schieramento: impostazione data source di JBoss.</entry>
+					</row>
+					<row>
+						<entry>04/06/2009</entry>
+						<entry>0.5</entry>
+						<entry>Condivisione artefatti: condivisione progetti e impostazioni AS</entry>
+					</row>
+					<row>
+						<entry>05/06/2009</entry>
+						<entry>0.5</entry>
+						<entry>Aggiornamento diario personale</entry>
+					</row>
+					<row>
+						<entry>05/06/2009</entry>
+						<entry>3</entry>
+						<entry>Implementazione e formazione: business core - problemi con UserManager</entry>
+					</row>
+					<row>
+						<entry>08/06/2009</entry>
+						<entry>3</entry>
+						<entry>Modellazione business (col QE)</entry>
+					</row>
+					<row>
+						<entry>09/06/2009</entry>
+						<entry>1</entry>
+						<entry>Implementazione ws business: bozze di uso del modulo core</entry>
+					</row>
+					<row>
+						<entry>09/06/2009</entry>
+						<entry>4</entry>
+						<entry>Formazione: apprendimento estensione EJB3 di JBoss (col QE)</entry>
+					</row>
+					<row>
+						<entry>09/06/2009</entry>
+						<entry>3</entry>
+						<entry>Implementazione business: costruzione user manager (quasi completa)</entry>
+					</row>
+					<row>
+						<entry>10/06/2009</entry>
+						<entry>5</entry>
+						<entry>Implementazione business: costruzione shopping cart (inizio) (col QE))</entry>
+					</row>
+					<row>
+						<entry>10/06/2009</entry>
+						<entry>1.5</entry>
+						<entry>Implementazione business: costruzione shopping cart (conclusione) (col QE)).</entry>
+					</row>
+					<row>
+						<entry>11/06/2009</entry>
+						<entry>0.25</entry>
+						<entry>Aggiornamento del diario personale.</entry>
+					</row>
+					<row>
+						<entry>11/06/2009</entry>
+						<entry>5.5</entry>
+						<entry>Correzioni e collaudi al business core (con QE).</entry>
+					</row>
+					<row>
+						<entry>12/06/2009</entry>
+						<entry>3</entry>
+						<entry>Correzioni e collaudi al business core (con QE e L).</entry>
+					</row>
+					<row>
+						<entry>13/06/2009</entry>
+						<entry>3</entry>
+						<entry>Formazione sul clustering di JBossAS.</entry>
+					</row>
+					<row>
+						<entry>15/06/2009</entry>
+						<entry>9</entry>
+						<entry>Clusterizzazione del business: collaudi (con QE).</entry>
+					</row>
+					<row>
+						<entry>16/06/2009</entry>
+						<entry>9.5</entry>
+						<entry>Clusterizzazione del business: collaudi (con QE).</entry>
+					</row>
+					<row>
+						<entry>17/06/2009</entry>
+						<entry>10.5</entry>
+						<entry>Clusterizzazione del business: collaudi (con QE).</entry>
+					</row>
+					<row>
+						<entry>18/06/2009</entry>
+						<entry>9</entry>
+						<entry>Clusterizzazione del business: collaudi (con QE).</entry>
+					</row>
+					<row>
+						<entry>19/06/2009</entry>
+						<entry>1</entry>
+						<entry>Incontro con lo stakeholder Prof.ssa Giorgia Lodi.</entry>
+					</row>
+					<row>
+						<entry>19/06/2009</entry>
+						<entry>4</entry>
+						<entry>Clusterizzazione del business: collaudi (con QE).</entry>
+					</row>
+					<row>
+						<entry>22/06/2009</entry>
+						<entry>2</entry>
+						<entry>Clusterizzazione del business: collaudi (con QE).</entry>
+					</row>
+					<row>
+						<entry>23/06/2009</entry>
+						<entry>7.5</entry>
+						<entry>Clusterizzazione del business: collaudi (con QE).</entry>
+					</row>
+					<row>
+						<entry>24/06/2009</entry>
+						<entry>0.5</entry>
+						<entry>Aggiornamento diario personale.</entry>
+					</row>
+					<!-- +0 -->
+					<!--
+					<row>
+						<entry>/06/2009</entry>
+						<entry></entry>
+						<entry></entry>
+					</row>
+					-->
 				</tbody>
 			</tgroup>
-		</informaltable>
+		</table>
 		<?very-hard-pagebreak?>
 	</section>
 </article>
