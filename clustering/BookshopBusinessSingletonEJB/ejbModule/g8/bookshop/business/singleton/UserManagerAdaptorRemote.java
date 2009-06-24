@@ -12,7 +12,7 @@ import javax.naming.NamingException;
  * @author soujak
  */
 @Remote
-public interface UserManagerRemote {
+public interface UserManagerAdaptorRemote {
 	/**
 	 * Lookup for a user in the bookshop from his id
 	 * @param id user id
