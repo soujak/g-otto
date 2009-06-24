@@ -3,7 +3,7 @@ package g8.bookshop.business.ws;
 import g8.bookshop.business.core.CustomerRemote;
 import g8.bookshop.business.core.GuestRemote;
 import g8.bookshop.business.core.UserRemote;
-import g8.bookshop.business.singleton.UserManagerRemote;
+import g8.bookshop.business.singleton.UserManagerAdaptorRemote;
 
 import java.util.Properties;
 
@@ -14,19 +14,18 @@ import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.naming.NamingException;
 
-import org.jboss.ejb3.annotation.Clustered;
 import org.jboss.ejb3.annotation.Depends;
 
 /**
  * WebService Session Bean implementation class UserManagerService
  * @author soujak
  */
-@Depends(value="ear=BookshopBusinessSingleton.ear,jar=BookshopBusinessSingletonEJB.jar,name=UserManager,service=EJB3")
+@Depends(value="ear=BookshopBusinessSingleton.ear,jar=BookshopBusinessSingletonEJB.jar,name=UserManagerAdaptor,service=EJB3")
 @Stateless
 @WebService
 public class UserManagerService implements UserManagerServiceRemote {
 	
-	private UserManagerRemote um;
+	private UserManagerAdaptorRemote um;
 	
 	/**
 	 * Constructor 
@@ -42,8 +41,8 @@ public class UserManagerService implements UserManagerServiceRemote {
     	env.setProperty(Context.URL_PKG_PREFIXES,
     		"org.jboss.naming:org.jnp.interfaces");
     	Context ctx = new InitialContext(env);
-    	this.um = (UserManagerRemote) ctx
-    		.lookup("BookshopBusinessSingleton/UserManager/remote");
+    	this.um = (UserManagerAdaptorRemote) ctx
+    		.lookup("BookshopBusinessSingleton/UserManagerAdaptor/remote");
 	}
 	
 	/**
@@ -59,7 +58,7 @@ public class UserManagerService implements UserManagerServiceRemote {
 		boolean ret = false;
 		try {
 			user = um.getUser(id);
-			System.out.println("UserManagerService: auth("+ id +", "+name+", "+pwd + ")");
+			System.out.println("UserManagerService: auth("+id+", "+name+", "+pwd+")");
 			if (!user.isCustomer())
 				ret = um.authenticate((GuestRemote) user, name, pwd);
 		} catch (NamingException e) {}

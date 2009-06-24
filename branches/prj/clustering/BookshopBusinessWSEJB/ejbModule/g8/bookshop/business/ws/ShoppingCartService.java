@@ -2,7 +2,7 @@ package g8.bookshop.business.ws;
 
 import g8.bookshop.business.core.CustomerRemote;
 import g8.bookshop.business.core.UserRemote;
-import g8.bookshop.business.singleton.UserManagerRemote;
+import g8.bookshop.business.singleton.UserManagerAdaptorRemote;
 import g8.bookshop.business.util.ConverterRemote;
 
 import java.io.IOException;
@@ -24,12 +24,12 @@ import org.xml.sax.SAXException;
 /**
  * WebService Session Bean implementation class ShoppingCartService
  */
-@Depends(value={"ear=BookshopBusinessCore.ear,jar=BookshopBusinessCoreEJB.jar,name=Converter,service=EJB3","ear=BookshopBusinessSingleton.ear,jar=BookshopBusinessSingletonEJB.jar,name=UserManager,service=EJB3"})
+@Depends(value={"ear=BookshopBusinessCore.ear,jar=BookshopBusinessCoreEJB.jar,name=Converter,service=EJB3","ear=BookshopBusinessSingleton.ear,jar=BookshopBusinessSingletonEJB.jar,name=UserManagerAdaptor,service=EJB3"})
 @Stateless
 @WebService
 public class ShoppingCartService implements ShoppingCartServiceRemote {
 	
-	private UserManagerRemote um;
+	private UserManagerAdaptorRemote um;
 	private ConverterRemote c;
 	
 	/**
@@ -46,8 +46,8 @@ public class ShoppingCartService implements ShoppingCartServiceRemote {
 		env.setProperty(Context.URL_PKG_PREFIXES,
 		"org.jboss.naming:org.jnp.interfaces");
 		Context ctx = new InitialContext(env);
-		this.um = (UserManagerRemote) ctx
-			.lookup("BookshopBusinessSingleton/UserManager/remote");
+		this.um = (UserManagerAdaptorRemote) ctx
+			.lookup("BookshopBusinessSingleton/UserManagerAdaptor/remote");
 		this.c = (ConverterRemote) ctx
 		.lookup("BookshopBusinessCore/Converter/remote");
 	}
