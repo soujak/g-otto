@@ -6,6 +6,8 @@
 		<project>BookshopBusiness</project>
 		<project>BookshopInformationManager</project>
 		<project>BookshopBusinessCoreEJB</project>
+		<project>BookshopBusinessSingletonEJB</project>
+		<project>BookshopBusinessWSEJB</project>
 	</projects>
 	<buildSpec>
 		<buildCommand>
