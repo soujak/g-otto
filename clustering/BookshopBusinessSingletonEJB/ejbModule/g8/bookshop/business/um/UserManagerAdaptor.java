@@ -35,13 +35,12 @@ public class UserManagerAdaptor implements UserManagerAdaptorRemote {
 	 * @param id
 	 *            user id
 	 * @return user to which the specified id is mapped, or null if id does not
-	 *         exists
 	 */
 	public UserRemote lookup(String id) {
 		return (UserRemote) this.invokeUserManager(
 				"lookup",
 				new Object[]{id},
-				new String[]{"String"});
+				new String[]{"java.lang.String"});
 	}
 
 	/**
@@ -49,14 +48,15 @@ public class UserManagerAdaptor implements UserManagerAdaptorRemote {
 	 * 
 	 * @param id
 	 *            user id
-	 * @return User to which the specified id is mapped, if id is not mapped
-	 *         create a new guest with the given id
+	 * @return user to which the specified id is mapped (possibly new)
+	 * 			or null if some error occurred
 	 */
 	public UserRemote getUser(String id) {
+		Logger logger = Logger.getLogger(UserManagerAdaptor.class);
+		logger.info("getUser: id "+id);
+		// FIXME
 		return (UserRemote) this.invokeUserManager(
-				"getUser",
-				new Object[]{id},
-				new String[]{"String"});
+				"getUser", new Object[]{id}, new String[]{"java.lang.String"});
 	}
 
 	/**
@@ -71,10 +71,12 @@ public class UserManagerAdaptor implements UserManagerAdaptorRemote {
 	 * @return true if the guest is successfully authenticated, false otherwise
 	 */
 	public boolean authenticate(GuestRemote g, String n, String p) {
+		Logger logger = Logger.getLogger(UserManagerAdaptor.class);
+		logger.info("authenticate: name "+n+", password "+p);
 		return (Boolean) this.invokeUserManager(
 				"authenticate",
 				new Object[]{g,n,p},
-				new String[]{"GuestRemote","String","String"});
+				new String[]{"g8.bookshop.business.core.GuestRemote","java.lang.String","java.lang.String"});
 	}
 
 	/**
@@ -85,11 +87,11 @@ public class UserManagerAdaptor implements UserManagerAdaptorRemote {
 	 * @return true if the customer is successfully disconnected, false
 	 *         otherwise
 	 */
-	public boolean disconnect(CustomerRemote c) {
+	public boolean disconnect(CustomerRemote c)  {
 		return (Boolean) this.invokeUserManager(
 				"disconnect",
 				new Object[]{c},
-				new String[]{"CustomerRemote"});
+				new String[]{"g8.bookshop.business.core.CustomerRemote"});
 	}
 	
 	/**
@@ -102,30 +104,38 @@ public class UserManagerAdaptor implements UserManagerAdaptorRemote {
 	 * 			types of arguments
 	 * @return
 	 * 			the return value of the invocation
+	 * @throws ReflectionException 
 	 */
 	private Object invokeUserManager(String m, Object[] a, String[] t) {
-		Object ret = null;
 		Logger logger = Logger.getLogger(UserManagerAdaptor.class);
+		logger.info("invoke "+m+" on user manager");
+		Object ret = null;
 		try {
 			RMIAdaptor adaptor = (RMIAdaptor) BeanLocator.getBean(
-			"jmx/rmi/RMIAdaptor");
+			"jmx/invoker/RMIAdaptor");
 			ObjectName name = new ObjectName(
 			"g8.bookshop.business.um:service=UserManager");
 			if (adaptor.isRegistered(name)) {
 				ret = adaptor.invoke(name, m, a, t);
 			}
 		} catch (MalformedObjectNameException e) {
-			logger.error(e.getStackTrace());
+			logger.fatal(e);
+			e.printStackTrace();
 		} catch (InstanceNotFoundException e) {
-			logger.error(e.getStackTrace());
+			logger.fatal(e);
+			e.printStackTrace();
 		} catch (MBeanException e) {
-			logger.error(e.getStackTrace());
+			logger.fatal(e);
+			e.printStackTrace();
 		} catch (ReflectionException e) {
-			logger.error(e.getStackTrace());
+			logger.fatal(e);
+			e.printStackTrace();
 		} catch (IOException e) {
-			logger.error(e.getStackTrace());
+			logger.fatal(e);
+			e.printStackTrace();
 		} catch (NamingException e) {
-			logger.error(e.getStackTrace());
+			logger.fatal(e);
+			e.printStackTrace();
 		}
 		return ret;
 	}

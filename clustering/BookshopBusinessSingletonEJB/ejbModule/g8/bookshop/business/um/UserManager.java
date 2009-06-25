@@ -43,8 +43,6 @@ public class UserManager implements UserManagerMBean {
 	
 	public UserManager() {
 		super();
-		this.userMap = Collections
-			.synchronizedSortedMap(new TreeMap<String, UserRemote>());
 		this.isMasterNode = false;
 	}
 	/**
@@ -59,15 +57,20 @@ public class UserManager implements UserManagerMBean {
 	 * @return true if the guest is successfully authenticated, false otherwise
 	 */
 	public boolean authenticate(GuestRemote g, String n, String p) {
+		logger.info("authenticate: id "+g.getId()+", user "+n);
 		boolean ret = false;
-		if (!isMasterNode()) {
+		logger.info("authenticate: id "+g.getId()+", user "+n);
+		if (!this.isMasterNode()) {
+			this.logger.debug("i am not the master node");
 			ret = ((Boolean) this.reinvokeOnMasterNode(
 					"authenticate",
 					new Object[]{g,n,p},
-					new String[]{"GuestRemote","String","String"})
+					new String[]{"g8.bookshop.business.GuestRemote","java.lang.String","java.lang.String"})
 			).booleanValue();
 		} else {
-			Credential cred = entityManager.find(Credential.class, n);
+			// FIXME
+			Credential cred = this.entityManager.find(Credential.class, n);
+			this.logger.debug("found user "+cred.getName());
 			if (cred != null) {
 				if (cred.getPassword().equals(p)) {
 					String id = g.getId();
@@ -79,7 +82,8 @@ public class UserManager implements UserManagerMBean {
 						this.userMap.put(id, customer);
 						ret = true;
 					} catch (NamingException e) {
-						this.logger.error(e.getStackTrace());
+						this.logger.fatal(e);
+						e.printStackTrace();
 					}
 				}
 			}
@@ -96,12 +100,13 @@ public class UserManager implements UserManagerMBean {
 	 *         otherwise
 	 */
 	public boolean disconnect(CustomerRemote c) {
+		logger.info("disconnect: id "+c.getId());
 		boolean ret = false;
 		if (!isMasterNode()) {
 			ret = ((Boolean) this.reinvokeOnMasterNode(
 					"disconnect",
 					new Object[]{c},
-					new String[]{"CustomerRemote"})
+					new String[]{"g8.bookshop.business.CustomerRemote"})
 			).booleanValue();
 		} else {
 			ret = this.userMap.remove(c.getId()) != null;
@@ -119,22 +124,27 @@ public class UserManager implements UserManagerMBean {
 	 * 			or null if some error occurred
 	 */
 	public UserRemote getUser(String id) {
+		this.logger.info("get user "+ id);
 		UserRemote user = null;
 		if (!isMasterNode()) {
 			user = ((UserRemote) this.reinvokeOnMasterNode(
 					"getUser",
 					new Object[]{id},
-					new String[]{"String"}));
+					new String[]{"java.lang.String"}));
 		} else {
 			user = this.userMap.get(id);
 			if (user == null) {
 				try {
-					user = (UserRemote) BeanLocator.getBean("BookshopBusinessCore/Guest/remote");
+					user = (GuestRemote) BeanLocator.getBean("BookshopBusinessCore/Guest/remote");
 					user.setId(id);
 					this.userMap.put(id, user);
+					this.logger.info("get user: created new guest");
 				} catch (NamingException e) {
-					this.logger.error(e.getStackTrace());
+					this.logger.fatal(e);
+					e.printStackTrace();
 				}
+			} else {
+				this.logger.info("get user: existing user");
 			}
 		}
 		return user;
@@ -148,12 +158,13 @@ public class UserManager implements UserManagerMBean {
 	 * 		null if id does not exists
 	 */
 	public UserRemote lookup(String id) {
+		this.logger.info("lookup "+ id);
 		UserRemote user = null;
 		if (!isMasterNode()) {
 			user = ((UserRemote) this.reinvokeOnMasterNode(
 					"lookup",
 					new Object[]{id},
-					new String[]{"String"}));
+					new String[]{"java.lang.String"}));
 		} else {
 			user = this.userMap.get(id);
 		}
@@ -161,28 +172,30 @@ public class UserManager implements UserManagerMBean {
 	}
 	
 	public void create() throws Exception {
-		this.logger.info("UserManager: create");
+		this.logger.info("mbean created");
 	}
 	public void start() throws Exception {
-		this.logger.info("UserManager: start");
+		this.logger.info("mbean started");
 	}
 	public void stop(){
-		this.logger.info("UserManager: stop");
+		this.logger.info("mbean stopped");
 	}
 	public void destroy(){
-		this.logger.info("UserManager: destroy");
+		this.logger.info("mbean destroyed");
 	}
 
 	public boolean isMasterNode() {
 		return this.isMasterNode;
 	}
 	public void startSingleton() {
+		this.logger.info("singleton started");
 		this.isMasterNode=true;
-		this.logger.info("UserManager: start singleton on node");
+		this.userMap = Collections
+			.synchronizedSortedMap(new TreeMap<String, UserRemote>());
 	}
 	public void stopSingleton() {
+		this.logger.info("singleton stopped");
 		this.isMasterNode=false;
-		this.logger.info("UserManager: stop singleton on node");
 	}
 	
 	/**
@@ -202,19 +215,26 @@ public class UserManager implements UserManagerMBean {
 				masterNode = ((Vector) adaptor.getAttribute(name, "CurrentView")).get(0).toString();
 			}
 		} catch (MalformedObjectNameException e) {
-			this.logger.error(e.getStackTrace().toString());
+			this.logger.fatal(e);
+			e.printStackTrace();
 		} catch (AttributeNotFoundException e) {
-			this.logger.error(e.getStackTrace().toString());
+			this.logger.fatal(e);
+			e.printStackTrace();
 		} catch (InstanceNotFoundException e) {
-			this.logger.error(e.getStackTrace().toString());
+			this.logger.fatal(e);
+			e.printStackTrace();
 		} catch (MBeanException e) {
-			this.logger.error(e.getStackTrace().toString());
+			this.logger.fatal(e);
+			e.printStackTrace();
 		} catch (ReflectionException e) {
-			this.logger.error(e.getStackTrace().toString());
+			this.logger.fatal(e);
+			e.printStackTrace();
 		} catch (IOException e) {
-			this.logger.error(e.getStackTrace().toString());
+			this.logger.fatal(e);
+			e.printStackTrace();
 		} catch (NamingException e) {
-			this.logger.error(e.getStackTrace());
+			this.logger.fatal(e);
+			e.printStackTrace();
 		}
 		return masterNode;
 	}
@@ -232,6 +252,7 @@ public class UserManager implements UserManagerMBean {
 	private Object reinvokeOnMasterNode(String m, Object[] a, String[] t) {
 		Object ret = null;
 		String masterNode = this.getMasterNode();
+		this.logger.info("reinvoke "+m+" on master node "+masterNode);
 		if (masterNode != null) {
 			try {
 				RMIAdaptor adaptor = (RMIAdaptor) BeanLocator.getBean(
@@ -246,17 +267,23 @@ public class UserManager implements UserManagerMBean {
 					ret = adaptor.invoke(name, m, a, t);
 				}
 			} catch (MalformedObjectNameException e) {
-				this.logger.error(e.getStackTrace());
+				this.logger.fatal(e);
+				e.printStackTrace();
 			} catch (InstanceNotFoundException e) {
-				this.logger.error(e.getStackTrace());
+				this.logger.fatal(e);
+				e.printStackTrace();
 			} catch (MBeanException e) {
-				this.logger.error(e.getStackTrace());
+				this.logger.fatal(e);
+				e.printStackTrace();
 			} catch (ReflectionException e) {
-				this.logger.error(e.getStackTrace());
+				this.logger.fatal(e);
+				e.printStackTrace();
 			} catch (IOException e) {
-				this.logger.error(e.getStackTrace());
+				this.logger.fatal(e);
+				e.printStackTrace();
 			} catch (NamingException e) {
-				this.logger.error(e.getStackTrace());
+				this.logger.fatal(e);
+				e.printStackTrace();
 			}
 		}
 		return ret;
