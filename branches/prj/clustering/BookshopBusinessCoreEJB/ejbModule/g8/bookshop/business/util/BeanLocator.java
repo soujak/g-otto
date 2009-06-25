@@ -3,13 +3,13 @@
  */
 package g8.bookshop.business.util;
 
-import g8.bookshop.business.core.GuestRemote;
-
 import java.util.Properties;
 
 import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.naming.NamingException;
+
+import org.jboss.logging.Logger;
 
 /**
  * @author soujak
@@ -26,6 +26,8 @@ public class BeanLocator {
 	 * @throws NamingException 
 	 */
 	public static Object getBean (String a) throws NamingException {
+		Logger logger = Logger.getLogger(BeanLocator.class);
+		logger.info("getBean: address "+a);
 		return BeanLocator.getBean("jnp.partitionName", "G8Business", a);
 	}
 
@@ -42,6 +44,8 @@ public class BeanLocator {
 	 * @throws NamingException
 	 */
 	public static Object getBean (String p, String v, String a) throws NamingException {
+		Logger logger = Logger.getLogger(BeanLocator.class);
+		logger.info("getBean: provider "+v+", address "+a);
 		Object bean = null;
 		Properties env = new Properties();
 		InitialContext ctx;
@@ -50,8 +54,7 @@ public class BeanLocator {
 		env.setProperty(p, v);
 		env.setProperty(Context.URL_PKG_PREFIXES,"org.jboss.naming:org.jnp.interfaces");
 		ctx = new InitialContext(env);
-		bean = (GuestRemote) ctx.lookup(a);
+		bean = ctx.lookup(a);
 		return bean;
 	}
-
 }
