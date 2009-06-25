@@ -20,11 +20,6 @@ import javax.persistence.Query;
 import javax.xml.parsers.ParserConfigurationException;
 import javax.xml.transform.TransformerException;
 
-import org.jboss.ejb3.annotation.Clustered;
-import org.jboss.ejb3.annotation.Depends;
-
-
-
 /**
  * WebService Session Bean implementation class CatalogueService
  */
@@ -59,7 +54,7 @@ public class CatalogueService implements CatalogueServiceRemote {
      * @param s book definition in XML format
      * @return corresponding books in XML format
      */
-    @SuppressWarnings("unchecked")
+    // @SuppressWarnings("unchecked")
 	@WebMethod
 	public String Search(String s) {
 		// TODO
