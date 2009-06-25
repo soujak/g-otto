@@ -7,12 +7,9 @@ import g8.bookshop.business.core.GuestRemote;
 
 import java.util.Properties;
 
-import javax.ejb.Stateless;
 import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.naming.NamingException;
-
-import org.jboss.ejb3.annotation.Clustered;
 
 /**
  * @author soujak
