@@ -19,7 +19,6 @@ public interface UserManagerMBean {
 	 * @param id user id.
 	 * @return User to which the specified id is mapped,
 	 * 		if id is not mapped create a new guest with the given id. 
-	 * @throws NamingException 
 	 */
 	public UserRemote getUser(String id);
 	/**
@@ -28,7 +27,6 @@ public interface UserManagerMBean {
 	 * @param n Guest's name
 	 * @param p Guest's password
 	 * @return true if the guest is successfully authenticated, false otherwise
-	 * @throws NamingException 
 	 */
 	public boolean authenticate(GuestRemote g, String n, String p);
 	/**
