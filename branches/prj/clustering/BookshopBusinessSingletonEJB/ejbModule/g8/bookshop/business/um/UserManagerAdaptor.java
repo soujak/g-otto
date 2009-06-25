@@ -1,12 +1,11 @@
-package g8.bookshop.business.singleton;
-
-import java.io.IOException;
+package g8.bookshop.business.um;
 
 import g8.bookshop.business.core.CustomerRemote;
 import g8.bookshop.business.core.GuestRemote;
 import g8.bookshop.business.core.UserRemote;
-import g8.bookshop.business.um.UserManager;
 import g8.bookshop.business.util.BeanLocator;
+
+import java.io.IOException;
 
 import javax.ejb.Stateless;
 import javax.management.InstanceNotFoundException;
@@ -14,7 +13,6 @@ import javax.management.MBeanException;
 import javax.management.MalformedObjectNameException;
 import javax.management.ObjectName;
 import javax.management.ReflectionException;
-import javax.naming.Context;
 import javax.naming.NamingException;
 
 import org.jboss.ejb3.annotation.Clustered;
