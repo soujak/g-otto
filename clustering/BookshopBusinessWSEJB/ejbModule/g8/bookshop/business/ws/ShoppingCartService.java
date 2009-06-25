@@ -2,7 +2,7 @@ package g8.bookshop.business.ws;
 
 import g8.bookshop.business.core.CustomerRemote;
 import g8.bookshop.business.core.UserRemote;
-import g8.bookshop.business.singleton.UserManagerAdaptorRemote;
+import g8.bookshop.business.um.UserManagerAdaptorRemote;
 import g8.bookshop.business.util.ConverterRemote;
 
 import java.io.IOException;
@@ -17,7 +17,6 @@ import javax.naming.NamingException;
 import javax.xml.parsers.ParserConfigurationException;
 import javax.xml.transform.TransformerException;
 
-import org.jboss.ejb3.annotation.Depends;
 import org.xml.sax.SAXException;
 
 

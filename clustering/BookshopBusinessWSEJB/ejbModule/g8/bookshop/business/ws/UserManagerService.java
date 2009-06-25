@@ -3,7 +3,7 @@ package g8.bookshop.business.ws;
 import g8.bookshop.business.core.CustomerRemote;
 import g8.bookshop.business.core.GuestRemote;
 import g8.bookshop.business.core.UserRemote;
-import g8.bookshop.business.singleton.UserManagerAdaptorRemote;
+import g8.bookshop.business.um.UserManagerAdaptorRemote;
 
 import java.util.Properties;
 
@@ -13,8 +13,6 @@ import javax.jws.WebService;
 import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.naming.NamingException;
-
-import org.jboss.ejb3.annotation.Depends;
 
 /**
  * WebService Session Bean implementation class UserManagerService
