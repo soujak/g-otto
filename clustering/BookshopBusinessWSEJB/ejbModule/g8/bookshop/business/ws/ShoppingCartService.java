@@ -2,7 +2,9 @@ package g8.bookshop.business.ws;
 
 import g8.bookshop.business.core.CustomerRemote;
 import g8.bookshop.business.core.UserRemote;
+import g8.bookshop.business.um.UserManager;
 import g8.bookshop.business.um.UserManagerAdaptorRemote;
+import g8.bookshop.business.util.BeanLocator;
 import g8.bookshop.business.util.ConverterRemote;
 
 import java.io.IOException;
@@ -17,6 +19,7 @@ import javax.naming.NamingException;
 import javax.xml.parsers.ParserConfigurationException;
 import javax.xml.transform.TransformerException;
 
+import org.jboss.logging.Logger;
 import org.xml.sax.SAXException;
 
 
@@ -27,27 +30,12 @@ import org.xml.sax.SAXException;
 @WebService
 public class ShoppingCartService implements ShoppingCartServiceRemote {
 	
-	private UserManagerAdaptorRemote um;
-	private ConverterRemote c;
-	
 	/**
 	 * Default constructor
 	 * @throws NamingException 
 	 */
 	public ShoppingCartService() throws NamingException {
 		super();
-		Properties env = new Properties();
-		env.setProperty(Context.INITIAL_CONTEXT_FACTORY,
-		"org.jnp.interfaces.NamingContextFactory");
-		env.setProperty("jnp.partitionName",
-		"G8Business");
-		env.setProperty(Context.URL_PKG_PREFIXES,
-		"org.jboss.naming:org.jnp.interfaces");
-		Context ctx = new InitialContext(env);
-		this.um = (UserManagerAdaptorRemote) ctx
-			.lookup("BookshopBusinessSingleton/UserManagerAdaptor/remote");
-		this.c = (ConverterRemote) ctx
-		.lookup("BookshopBusinessCore/Converter/remote");
 	}
 
 	/**
@@ -57,17 +45,42 @@ public class ShoppingCartService implements ShoppingCartServiceRemote {
 	 */
 	@WebMethod
 	public String view(String id) {
+		Logger logger = Logger.getLogger(UserManagerService.class);
+		logger.info("view: id "+id);
+		UserManagerAdaptorRemote userManagerAdaptor;
+		ConverterRemote converter;
 		String ret = "";
-		UserRemote u = um.lookup(id);
-		if (u != null)
-			if (u.isCustomer()) {
-				try {
-					ret = c.shoppingCartToXML(
+
+		try {
+			userManagerAdaptor =
+				(UserManagerAdaptorRemote) BeanLocator.getBean(
+				"BookshopBusinessCore/UserManagerAdaptor/remote");
+			converter =
+				(ConverterRemote) BeanLocator.getBean(
+				"BookshopBusinessCore/Converter/remote");
+			UserRemote u = userManagerAdaptor.lookup(id);
+			if (u != null)
+				if (u.isCustomer()) {
+					ret = converter.shoppingCartToXML(
 							((CustomerRemote) u).getShoppingCart());
-				} catch (IllegalArgumentException e) {} 
-				catch (ParserConfigurationException e) {}
-				catch (TransformerException e) {}
+				}
 			}
+		catch (IllegalArgumentException e) {
+			Logger.getLogger(UserManager.class).fatal(e);
+			e.printStackTrace();
+		} 
+		catch (ParserConfigurationException e) {
+			Logger.getLogger(UserManager.class).fatal(e);
+			e.printStackTrace();					
+		}
+		catch (TransformerException e) {
+			Logger.getLogger(UserManager.class).fatal(e);
+			e.printStackTrace();	
+		}
+		catch (NamingException e) {
+			Logger.getLogger(UserManager.class).fatal(e);
+			e.printStackTrace();
+		}
 		return ret;
 	}
 	
@@ -79,21 +92,43 @@ public class ShoppingCartService implements ShoppingCartServiceRemote {
 	 */
 	@WebMethod
 	public boolean addOrders(String id, String ords) {
+		Logger.getLogger(UserManagerService.class).info("addOrders "+id+" "+ords);
+		UserManagerAdaptorRemote userManagerAdaptor;
+		ConverterRemote converter;
 		boolean ret = false;
-		UserRemote u = um.lookup(id);
-		if (u != null)
-			if (u.isCustomer()) {
-				try {
+		try {
+			userManagerAdaptor =
+				(UserManagerAdaptorRemote) BeanLocator.getBean(
+				"BookshopBusinessCore/UserManagerAdaptor/remote");
+			converter =
+				(ConverterRemote) BeanLocator.getBean(
+				"BookshopBusinessCore/Converter/remote");
+			UserRemote u = userManagerAdaptor.lookup(id);
+			if (u != null)
+				if (u.isCustomer()) {
 					ret = ((CustomerRemote) u).getShoppingCart()
-					.addOrders(c.xmlToOrders(ords));
-				} catch (IllegalArgumentException e) {} 
-				catch (ParserConfigurationException e) {}
-				catch (SAXException e) {}
-				catch (IOException e) {} catch (NamingException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
+					.addOrders(converter.xmlToOrders(ords));
 				}
-			}
+		}
+		catch (IllegalArgumentException e) {
+			Logger.getLogger(UserManager.class).fatal(e);
+			e.printStackTrace();
+		} 
+		catch (ParserConfigurationException e) {
+			Logger.getLogger(UserManager.class).fatal(e);
+			e.printStackTrace();
+		}
+		catch (SAXException e) {
+			Logger.getLogger(UserManager.class).fatal(e);
+			e.printStackTrace();
+		}
+		catch (IOException e) {
+			Logger.getLogger(UserManager.class).fatal(e);
+			e.printStackTrace();
+		} catch (NamingException e) {
+			Logger.getLogger(UserManager.class).fatal(e);
+			e.printStackTrace();
+		}
 		return ret;
 	}
 	
@@ -105,21 +140,38 @@ public class ShoppingCartService implements ShoppingCartServiceRemote {
 	 */
 	@WebMethod
 	public boolean update(String id, String ords) {
-		 // TODO
+		Logger.getLogger(UserManagerService.class).info("update "+id+" "+ords);
+		UserManagerAdaptorRemote userManagerAdaptor;
+		ConverterRemote converter;
 		boolean ret = false;
-		UserRemote u = um.lookup(id);
-		if (u != null)
-			if (u.isCustomer()) {
-				try {
-					ret = ((CustomerRemote) u).getShoppingCart().update(c.xmlToOrders(ords));
-				} catch (IllegalArgumentException e) {} 
-				catch (ParserConfigurationException e) {}
-				catch (SAXException e) {}
-				catch (IOException e) {} catch (NamingException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
-			}
+		try {
+			userManagerAdaptor =
+				(UserManagerAdaptorRemote) BeanLocator.getBean(
+				"BookshopBusinessCore/UserManagerAdaptor/remote");
+			converter =
+				(ConverterRemote) BeanLocator.getBean(
+				"BookshopBusinessCore/Converter/remote");
+			UserRemote u = userManagerAdaptor.lookup(id);
+			if (u != null)
+				if (u.isCustomer())
+					ret = ((CustomerRemote) u).getShoppingCart().update(
+							converter.xmlToOrders(ords));
+		} catch (IllegalArgumentException e) {
+			Logger.getLogger(UserManager.class).fatal(e);
+			e.printStackTrace();
+		} catch (ParserConfigurationException e) {
+			Logger.getLogger(UserManager.class).fatal(e);
+			e.printStackTrace();
+		} catch (SAXException e) {
+			Logger.getLogger(UserManager.class).fatal(e);
+			e.printStackTrace();
+		} catch (IOException e) {
+			Logger.getLogger(UserManager.class).fatal(e);
+			e.printStackTrace();
+		} catch (NamingException e) {
+			Logger.getLogger(UserManager.class).fatal(e);
+			e.printStackTrace();
+		}
 		return ret;
 	}
 	
@@ -130,12 +182,21 @@ public class ShoppingCartService implements ShoppingCartServiceRemote {
 	 */
 	@WebMethod
 	public boolean checkOut(String id) {
-		 // TODO
+		Logger.getLogger(UserManagerService.class).info("update "+id);
+		UserManagerAdaptorRemote userManagerAdaptor;
 		boolean ret = false;
-		UserRemote u = um.lookup(id);
-		if (u != null)
-			if (u.isCustomer())
-				ret = ((CustomerRemote) u).getShoppingCart().checkOut();
+		try {
+			userManagerAdaptor =
+				(UserManagerAdaptorRemote) BeanLocator.getBean(
+				"BookshopBusinessCore/UserManagerAdaptor/remote");
+			UserRemote u = userManagerAdaptor.lookup(id);
+			if (u != null)
+				if (u.isCustomer())
+					ret = ((CustomerRemote) u).getShoppingCart().checkOut();
+		} catch (NamingException e) {
+			Logger.getLogger(UserManager.class).fatal(e);
+			e.printStackTrace();
+		}
 		return ret;
 	}
 }

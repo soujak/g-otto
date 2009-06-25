@@ -4,15 +4,14 @@ import g8.bookshop.business.core.CustomerRemote;
 import g8.bookshop.business.core.GuestRemote;
 import g8.bookshop.business.core.UserRemote;
 import g8.bookshop.business.um.UserManagerAdaptorRemote;
-
-import java.util.Properties;
+import g8.bookshop.business.util.BeanLocator;
 
 import javax.ejb.Stateless;
 import javax.jws.WebMethod;
 import javax.jws.WebService;
-import javax.naming.Context;
-import javax.naming.InitialContext;
 import javax.naming.NamingException;
+
+import org.jboss.logging.Logger;
 
 /**
  * WebService Session Bean implementation class UserManagerService
@@ -22,24 +21,11 @@ import javax.naming.NamingException;
 @WebService
 public class UserManagerService implements UserManagerServiceRemote {
 	
-	private UserManagerAdaptorRemote um;
-	
 	/**
 	 * Constructor 
-	 * @throws NamingException
 	 */
-	public UserManagerService() throws NamingException {
+	public UserManagerService() {
 		super();
-    	Properties env = new Properties();
-    	env.setProperty(Context.INITIAL_CONTEXT_FACTORY,
-    		"org.jnp.interfaces.NamingContextFactory");
-    	env.setProperty("jnp.partitionName",
-    		"G8Business");
-    	env.setProperty(Context.URL_PKG_PREFIXES,
-    		"org.jboss.naming:org.jnp.interfaces");
-    	Context ctx = new InitialContext(env);
-    	this.um = (UserManagerAdaptorRemote) ctx
-    		.lookup("BookshopBusinessSingleton/UserManagerAdaptor/remote");
 	}
 	
 	/**
@@ -50,31 +36,53 @@ public class UserManagerService implements UserManagerServiceRemote {
 	 * @return true if the guest is successfully authenticated, false otherwise.
 	 */
 	@WebMethod
-	public boolean Authenticate(String id, String name, String pwd) {
+	public boolean Authenticate(String id, String name, String pwd) {;
+		Logger logger = Logger.getLogger(UserManagerService.class);
+		logger.info("authenticate: id "+id+", user "+name);
+		UserManagerAdaptorRemote userManagerAdaptor;
 		UserRemote user;
 		boolean ret = false;
-		try {
-			user = um.getUser(id);
-			System.out.println("UserManagerService: auth("+id+", "+name+", "+pwd+")");
-			if (!user.isCustomer())
-				ret = um.authenticate((GuestRemote) user, name, pwd);
-		} catch (NamingException e) {}
+			try {
+				logger.info("authenticate:    getting the corresponding user");
+				userManagerAdaptor =
+					(UserManagerAdaptorRemote) BeanLocator.getBean(
+					"BookshopBusinessCore/UserManagerAdaptor/remote");
+				user = userManagerAdaptor.getUser(id);
+				logger.info("authenticate:    got a "+(user.isCustomer()?"customer":"guest"));
+				if (!user.isCustomer()) {
+					logger.info("authenticate:    authenticating the guest");
+					ret = userManagerAdaptor.authenticate((GuestRemote) user, name, pwd);
+				}
+			} catch (NamingException e) {
+			logger.fatal(e);
+			e.printStackTrace();
+		}
 		return ret;
 	}
 	
 	/**
 	 * Disconnect a given user
 	 * @param id user id
-	 * @return
+	 * @return true if the guest is successfully disconnected, false otherwise.
 	 */
 	@WebMethod
 	public boolean Disconnect(String id) {
-		UserRemote user = um.lookup(id);
-		if (user != null)
-			if (user.isCustomer())
-				return um.disconnect((CustomerRemote) user);
-			else
-				return false;
-		return false;
+		Logger logger = Logger.getLogger(UserManagerService.class);
+		logger.info("disconnect: id "+id);
+		UserManagerAdaptorRemote userManagerAdaptor;
+		boolean ret = false;
+		try {
+			userManagerAdaptor =
+				(UserManagerAdaptorRemote) BeanLocator.getBean(
+				"BookshopBusinessCore/UserManagerAdaptor/remote");
+			UserRemote user = userManagerAdaptor.lookup(id);
+			if (user != null)
+				if (user.isCustomer())
+					ret = userManagerAdaptor.disconnect((CustomerRemote) user);
+		} catch (NamingException e) {
+			logger.fatal(e);
+			e.printStackTrace();
+		}
+		return ret;
 	}
 }
