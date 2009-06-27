@@ -40,7 +40,7 @@ public class Customer extends User implements CustomerRemote {
 	private void createShoppingCart() {
 		this.shoppingCart = null;
 		try {
-			this.shoppingCart = (ShoppingCartRemote) BeanLocator.getBean("BookshopBusinessCore/Customer/remote");
+			this.shoppingCart = (ShoppingCartRemote) BeanLocator.getBean("BookshopBusinessCore/ShoppingCart/remote");
 		} catch (NamingException e) {
 			Logger logger = Logger.getLogger(Customer.class);
 			logger.error(e.getStackTrace().toString());
