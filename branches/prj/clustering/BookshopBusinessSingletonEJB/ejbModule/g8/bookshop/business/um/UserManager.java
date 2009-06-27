@@ -59,18 +59,26 @@ public class UserManager implements UserManagerMBean {
 	public boolean authenticate(GuestRemote g, String n, String p) {
 		logger.info("authenticate: id "+g.getId()+", user "+n);
 		boolean ret = false;
-		logger.info("authenticate: id "+g.getId()+", user "+n);
 		if (!this.isMasterNode()) {
-			this.logger.debug("i am not the master node");
+			this.logger.info("authenticate: not master node, reinvoking");
 			ret = ((Boolean) this.reinvokeOnMasterNode(
 					"authenticate",
 					new Object[]{g,n,p},
-					new String[]{"g8.bookshop.business.GuestRemote","java.lang.String","java.lang.String"})
+					new String[]{"g8.bookshop.business.GuestRemote",
+							"java.lang.String","java.lang.String"})
 			).booleanValue();
 		} else {
-			// FIXME
-			Credential cred = this.entityManager.find(Credential.class, n);
-			this.logger.debug("found user "+cred.getName());
+			this.logger.info("authenticate: master node, executing");
+			Credential cred;
+			try {
+				// FIXME this.entityManager is null
+				cred = this.entityManager.find(Credential.class, n);
+			} catch(Exception e) {
+				this.logger.fatal("authenticate: entity access failed because of "+e);
+				e.printStackTrace();
+				return false;
+			}
+			this.logger.info("found user "+cred.getName());
 			if (cred != null) {
 				if (cred.getPassword().equals(p)) {
 					String id = g.getId();
@@ -210,7 +218,8 @@ public class UserManager implements UserManagerMBean {
 			adaptor = (RMIAdaptor) BeanLocator.getBean(
 			"jmx/rmi/RMIAdaptor");
 			//
-			ObjectName name = new ObjectName("jboss:service=HAPartition,partition=G8Business");
+			ObjectName name = new ObjectName(
+					"jboss:service=HAPartition,partition=G8Business");
 			if (adaptor.isRegistered(name)) {
 				masterNode = ((Vector) adaptor.getAttribute(name, "CurrentView")).get(0).toString();
 			}
