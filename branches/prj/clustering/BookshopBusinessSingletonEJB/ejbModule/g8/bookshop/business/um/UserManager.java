@@ -24,6 +24,8 @@ import javax.management.ReflectionException;
 import javax.naming.Context;
 import javax.naming.NamingException;
 import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.Persistence;
 import javax.persistence.PersistenceContext;
 
 import org.jboss.jmx.adaptor.rmi.RMIAdaptor;
@@ -36,14 +38,18 @@ import org.jboss.logging.Logger;
 public class UserManager implements UserManagerMBean {
 
 	private SortedMap<String, UserRemote> userMap;
-	@PersistenceContext(unitName = "InformationManager")
+//	@PersistenceContext(unitName = "InformationManager")
+	EntityManagerFactory entityManagerFact;
 	private EntityManager entityManager;
-	private final Logger logger = Logger.getLogger(UserManager.class);
+	private final Logger logger;
 	private boolean isMasterNode;
 	
 	public UserManager() {
 		super();
 		this.isMasterNode = false;
+		this.entityManagerFact = Persistence.createEntityManagerFactory("InformationManager");
+		this.entityManager = entityManagerFact.createEntityManager();
+		logger = Logger.getLogger(UserManager.class);
 	}
 	/**
 	 * Authenticate a customer in the bookshop, verifying his credentials
@@ -71,7 +77,6 @@ public class UserManager implements UserManagerMBean {
 			this.logger.info("authenticate: master node, executing");
 			Credential cred;
 			try {
-				// FIXME this.entityManager is null
 				cred = this.entityManager.find(Credential.class, n);
 			} catch(Exception e) {
 				this.logger.fatal("authenticate: entity access failed because of "+e);
@@ -85,6 +90,7 @@ public class UserManager implements UserManagerMBean {
 					CustomerRemote customer;
 					try {
 						customer = (CustomerRemote)
+						// FIXME la seguente chiamata diverge in uno stack overflow
 						BeanLocator.getBean("BookshopBusinessCore/Customer/remote");
 						customer.setId(id);
 						this.userMap.put(id, customer);
@@ -180,16 +186,18 @@ public class UserManager implements UserManagerMBean {
 	}
 	
 	public void create() throws Exception {
-		this.logger.info("mbean created");
+		this.logger.info("create");
 	}
 	public void start() throws Exception {
-		this.logger.info("mbean started");
+		this.logger.info("start");
+		
 	}
 	public void stop(){
-		this.logger.info("mbean stopped");
+		this.logger.info("stop");
 	}
 	public void destroy(){
-		this.logger.info("mbean destroyed");
+		this.logger.info("destroy");
+		this.entityManagerFact.close();
 	}
 
 	public boolean isMasterNode() {
