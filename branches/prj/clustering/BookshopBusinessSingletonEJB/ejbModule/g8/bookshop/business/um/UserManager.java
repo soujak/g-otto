@@ -26,7 +26,6 @@ import javax.naming.NamingException;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
-import javax.persistence.PersistenceContext;
 
 import org.jboss.jmx.adaptor.rmi.RMIAdaptor;
 import org.jboss.logging.Logger;
@@ -77,23 +76,24 @@ public class UserManager implements UserManagerMBean {
 			this.logger.info("authenticate: master node, executing");
 			Credential cred;
 			try {
+				this.logger.info("authenticate: searching the password for " + n);
 				cred = this.entityManager.find(Credential.class, n);
 			} catch(Exception e) {
 				this.logger.fatal("authenticate: entity access failed because of "+e);
 				e.printStackTrace();
 				return false;
 			}
-			this.logger.info("found user "+cred.getName());
 			if (cred != null) {
+				this.logger.info("found user "+cred.getName());
 				if (cred.getPassword().equals(p)) {
 					String id = g.getId();
 					CustomerRemote customer;
 					try {
-						customer = (CustomerRemote)
-						// FIXME la seguente chiamata diverge in uno stack overflow
-						BeanLocator.getBean("BookshopBusinessCore/Customer/remote");
+						Logger logger = Logger.getLogger(BeanLocator.class);
+						customer = (CustomerRemote)BeanLocator.getBean("BookshopBusinessCore/Customer/remote");
 						customer.setId(id);
 						this.userMap.put(id, customer);
+						logger.info("authenticate: access granted for user "+n);
 						ret = true;
 					} catch (NamingException e) {
 						this.logger.fatal(e);
