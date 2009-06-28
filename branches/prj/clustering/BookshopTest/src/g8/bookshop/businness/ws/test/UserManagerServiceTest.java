@@ -1,5 +1,6 @@
 package g8.bookshop.businness.ws.test;
 
+import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 import g8.bookshop.business.ws.UserManagerServiceRemote;
 
@@ -11,7 +12,7 @@ import javax.naming.InitialContext;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
-public class UserMangerServiceTest {
+public class UserManagerServiceTest {
 
 	static private Context ctx = null;
 	static private UserManagerServiceRemote ums = null;
@@ -36,6 +37,13 @@ public class UserMangerServiceTest {
 		res = ums.Disconnect("session1") && res;
 		res = !ums.Disconnect("session1") && res;
 		assertTrue(res);
+	}
+	
+	@Test
+	public void testAuthenticateNonExistentUser() {
+		boolean res = false;
+		res = ums.Authenticate("session1", "1234567890", "1234567890");
+		assertFalse(res);
 	}
 
 	@Test
