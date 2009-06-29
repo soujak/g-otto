@@ -69,7 +69,7 @@ public class UserManager implements UserManagerMBean {
 			ret = ((Boolean) this.reinvokeOnMasterNode(
 					"authenticate",
 					new Object[]{g,n,p},
-					new String[]{"g8.bookshop.business.GuestRemote",
+					new String[]{"g8.bookshop.business.core.GuestRemote",
 							"java.lang.String","java.lang.String"})
 			).booleanValue();
 		} else {
