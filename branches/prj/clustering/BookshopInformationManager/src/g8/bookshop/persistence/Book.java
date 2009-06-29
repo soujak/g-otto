@@ -7,7 +7,6 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
-import javax.persistence.Table;
 
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
@@ -19,7 +18,7 @@ import org.hibernate.annotations.CacheConcurrencyStrategy;
 
 @Entity
 @Cache (usage=CacheConcurrencyStrategy.READ_ONLY)
-@Table(name = "Book", schema = "Bookshop")
+//@Table(name = "Book", schema = "my09_10")
 @NamedQueries({
     @NamedQuery(
             name="search",
