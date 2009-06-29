@@ -120,7 +120,7 @@ public class UserManager implements UserManagerMBean {
 			ret = ((Boolean) this.reinvokeOnMasterNode(
 					"disconnect",
 					new Object[]{c},
-					new String[]{"g8.bookshop.business.CustomerRemote"})
+					new String[]{"g8.bookshop.business.core.CustomerRemote"})
 			).booleanValue();
 		} else {
 			ret = this.userMap.remove(c.getId()) != null;
