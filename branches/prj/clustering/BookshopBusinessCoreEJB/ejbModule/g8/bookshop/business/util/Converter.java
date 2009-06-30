@@ -67,6 +67,7 @@ public class Converter implements ConverterRemote {
 		item.setAttribute("isbn", book.getISBN());
 		item.setAttribute("editor",book.getEditor());
 		item.setAttribute("id", Long.toString(book.getId()));
+		item.setAttribute("price", Float.toString(book.getPrice()));
 		return item;
 	}
 	
