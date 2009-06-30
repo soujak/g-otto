@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
 
+<!-- Search for "deleteprice" to find out which parts need to be commented out 
+    if you dont want price to be displayed -->
+
     <xsl:output method="xml" indent="yes" encoding="UTF-8"/>
 
     <!-- values for mode: search OR cart -->
@@ -75,6 +78,7 @@
             <xsl:apply-templates select="@editor" mode="attributes"/>
             <xsl:apply-templates select="@year" mode="attributes"/>
             <xsl:apply-templates select="@isbn" mode="attributes"/>
+            <!-- deleteprice -->
             <xsl:apply-templates select="@price" mode="attributes"/>
             <xsl:choose>
                 <xsl:when test="$search_type = 'authenticated'">
@@ -103,6 +107,7 @@
         </xsl:element>
     </xsl:template>
 
+    <!-- deleteprice -->
     <xsl:template match="@price" mode="attributes">
         <xsl:element name="td">
             <xsl:attribute name="class">
@@ -158,6 +163,7 @@
             <xsl:call-template name="insertTh">
                 <xsl:with-param name="header_text" select="'ISBN'"/>
             </xsl:call-template>
+            <!-- deleteprice -->
             <xsl:call-template name="insertTh">
                 <xsl:with-param name="header_text" select="'Price'"/>
             </xsl:call-template>
