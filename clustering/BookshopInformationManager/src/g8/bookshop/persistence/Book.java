@@ -18,7 +18,6 @@ import org.hibernate.annotations.CacheConcurrencyStrategy;
 
 @Entity
 @Cache (usage=CacheConcurrencyStrategy.READ_ONLY)
-//@Table(name = "Book", schema = "my09_10")
 @NamedQueries({
     @NamedQuery(
             name="search",
@@ -36,6 +35,7 @@ public class Book implements Serializable {
 	private int Year;
 	private String Editor;
 	private String ISBN;
+	private float Price;
 	@Id @GeneratedValue
 	private long id;
 	private static final long serialVersionUID = 1L;
@@ -80,6 +80,14 @@ public class Book implements Serializable {
 		this.ISBN = ISBN;
 	}
 	
+	public float getPrice() {
+		return this.Price;
+	}
+
+	public void setPrice(float price) {
+		this.Price = price;
+	}
+
 	public long getId() {
 		return id;
 	}
