@@ -43,10 +43,11 @@ public class Home extends HttpServlet {
         		dataExchange.setBooklist(xml_booklist);
         	}
         	
+        	// initialize message string
+        	dataExchange.setMessage("");
+        	
     		// re-initialize books xml string
     		dataExchange.setBooklist(xml_booklist);
-    		// initialize message string
-    		dataExchange.setMessage("");
     		
     	} catch (Exception e) {
     		dataExchange.setMessage("An error occurred, please try refresh page.");

@@ -70,6 +70,7 @@ public class Authenticate extends HttpServlet {
 						.getCatalogueServicePort().fullSearch(dataExchange.getKey());						
 				} else {
 					dataExchange.setUsername(Constants.GUEST_NAME);
+					dataExchange.setResultsMessage("");
 					dataExchange.setMessage("Authentication failed: invalid password or username.");
 				}
 
@@ -78,6 +79,8 @@ public class Authenticate extends HttpServlet {
 			}
 
 		} catch (Exception e) {
+			dataExchange.setUsername(Constants.GUEST_NAME);
+			dataExchange.setResultsMessage("");
 			dataExchange.setMessage("Authentication failed: an error occurred.");
 			e.printStackTrace();
 		}

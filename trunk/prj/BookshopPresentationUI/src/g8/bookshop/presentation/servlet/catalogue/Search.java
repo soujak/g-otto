@@ -53,6 +53,8 @@ public class Search extends HttpServlet {
 				xml_booklist = (new CatalogueServiceServiceLocator())
 					.getCatalogueServicePort().fullSearch(request.getParameter("key"));
 	
+				System.out.println(xml_booklist);
+				
 				// build results message
 				Document books = Utils.xmlStringToDocument(xml_booklist);
 				if(!(books.getDocumentElement().getChildNodes().getLength() == 0)) dataExchange.setResultsMessage("Results for '" + request.getParameter("key") + "'");
@@ -69,6 +71,7 @@ public class Search extends HttpServlet {
 	
 		// forward request to search page
 		String url = (dataExchange.getAuthenticated()) ? Constants.JSP_CUSTOMER_SEARCH : Constants.JSP_GUEST_SEARCH;
+		System.out.println("forwanding to page");
 		Utils.forwardToPage(url, getServletContext(),
 				request, response);
 	}
