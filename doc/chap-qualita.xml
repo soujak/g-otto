@@ -14,10 +14,10 @@
     </para>
     
     <para>
-    La guida di riferimento (http://www.ambysoft.com/unifiedprocess/agileUP.html) del modello di processo scelto suggerisce già delle attività necessarie per assicurare la qualità. Quest'ultime sono state opportunamente riviste per poterle calare agilmente nel contesto del presente progetto. Il piano di qualità infatti è stato stilato tenendo bene in mente quelli che sono i costi della qualità ed il loro rapporto rispetto ai benefici. Considerate, quindi, le ridotte dimensioni e l'abbordabile complessità del progetto si è deciso di optare per attività di garanzia della qualità il più possibile snelle, in linea con il modello di processo scelto, cercando di non gravare eccessivamente sui costi.
+    La guida di riferimento (http://www.ambysoft.com/unifiedprocess/agileUP.html) del modello di processo scelto suggerisce già delle attività necessarie per assicurare la qualità. Quest'ultime sono state opportunamente declinate nel contesto del presente progetto. Il piano di qualità infatti è stato stilato tenendo bene in mente quelli che sono i suoi costi ed il loro rapporto rispetto ai benefici. Considerate, quindi, le ridotte dimensioni e l'abbordabile complessità del progetto si è deciso di optare per attività di garanzia della qualità il più possibile snelle, in linea con il modello di processo scelto, cercando di non gravare eccessivamente sui costi.
     </para>
     <para>
-    Nelle prossime sezioni si definiscono i manufatti soggetti al controllo di qualità, le pratiche e gli strumenti a supporto e le metriche utilizzate. Infine l'ultima sezione contiene il piano delle attività da svolgere per ogni fase e i risultati più significativi dei collaudi.
+    Nelle prossime sezioni si definiscono i manufatti soggetti al controllo di qualità, le pratiche e gli strumenti a supporto, le responsabilità e le metriche utilizzate. Infine l'ultima sezione contiene il piano delle attività da svolgere per ogni fase e i risultati più significativi dei collaudi.
     </para>
     <section>
         <title>Manufatti soggetti a controllo di qualità</title>
@@ -38,10 +38,38 @@
         <para/>
     </section>
     <section>
+        <title>Responsabili delle attività di garanzia della qualità</title>
+        Considerata l'esiguità del numero di persone in seno al progetto e considerata la molteplicità di ruoli che le stesse devono ricoprire, la responsabilità delle attività per la garanzia della qualità (e.g. collaudi o revisioni) è spalmata in maniera più o meno uniforme tra i membri della squadra; tuttavia rimane inteso che il responsabile finale della qualità dei prodotti è il QE.
+    </section>
+    <section>
         <title>Pratiche e strumenti a supporto della qualità</title>
-        TODO: revisioni informali e formali, frequenti riunioni veloci e informali, Extreme Programming, TDD per quanto possibile, test di regressione con Junit
-        <para>
         
+        <para>
+        Le revisioni costituiscono lo strumento principale mediante il quale è possibile assicurare qualità. Esse costituiscono una sorta di filtro durante il processo di sviluppo e servono a scoprire errori e difetti di un qualsiasi artefatto. In letteratura si trovano due tipi di revisioni: quelle informali, condotte anche davanti ad una macchinetta del caffè tra i diretti interessati, e quelli formali, per le quali invece sono previste delle vere e proprie riunioni oltre che un dettagliato protocollo a cui attenersi.
+        
+        Per il presente progetto sono quindi pianificate due diversi tipi di revisioni: quelle informali, i cui esiti non saranno documentati, e una sorta di revisioni "formali".
+        In particolare per le revisioni formali si stabilisce che:
+        <itemizedlist>
+        <listitem>l'artefatto da revisionare sia revisionato da uno o più membri della squadra che non hanno partecipato alla sua realizzazione oppure dall'intera squadra;</listitem>
+        <listitem>l'esito della revisione sia documentato in poche righe e sia notificato ai produttori dell'artefatto.</listitem>
+        </itemizedlist>
+        Le revisioni "formali" saranno comunque in numero ridotto e principalmente saranno fatte per abbattere i rischi più elevati derivanti dalla fase di progettazione.
+        </para>
+        <para>
+        Considerata la natura del modello di processo scelto si è deciso di adottare alcune pratiche proprie dell'Extreme Programming per ottenere i massimi benefici dal processo agile messo a punto. In particolare si stabilisce che i membri della squadra dovranno partecipare a brevissime riunioni mattutine, anche in piedi, utili per fare il punto della situazione, aggiornarsi sullo stato dei lavori e, perché no, rafforzare lo spirito di squadra. Un'altra pratica che dovrà essere adottata è quella della programmazione a coppie (c.d. pair programming): ciò dovrebbe consentire di ridurre al minimo il numero di bachi nel codice accorciando sensibilmente i tempi per il collaudo.
+        In generale si consiglia un approccio Test Driven per la produzione di software: si dovranno sviluppare quanto prima test di regressione mediante l'utilizzo di JUnit.
+        </para>
+        <para>
+        Lo standard ISO 9126 identifica in sei attributi la qualità nel capo del software:
+        <itemizedlist>
+        <listitem>funzionalità;</listitem>
+        <listitem>affidabilità;</listitem>
+        <listitem>facilità d'uso;</listitem>
+        <listitem>efficienza;</listitem>
+        <listitem>facilità di manutenzione;</listitem>
+        <listitem>portabilità.</listitem>
+        </itemizedlist>
+        La qualità del software prodotto dovrà essere di volta in volta misurata rispetto a questi attributi.
         </para>
     </section>
     <section>
@@ -138,7 +166,7 @@
             </section>
             <section>
                 <title>Collaudo del prototipo architetturale</title>
-                <para>Revisori: </para>
+                <para>Revisori: squadra.</para>
                 <para> Verifiche: coerenza del prototipo rispetto al modello architetturale, collaudo delle interazioni tra i tre principali livelli architetturali: scrivere e visualizzare tramite browser dei dati memorizzati sul sistema informativo. Verifica della compatibilità del prototipo rispetto ai requisiti R1N, R2N, R3N.2, R4N.3 e R4N.1</para>
                 <para> Esito: il prototipo ha superato con successo le verifiche previste.</para>
             </section>
