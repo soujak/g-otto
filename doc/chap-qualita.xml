@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?oxygen RNGSchema="http://www.oasis-open.org/docbook/xml/5.0/rng/docbookxi.rng" type="xml"?>
+<!-- Questo file contiene la tabella dei requisiti -->
 <!DOCTYPE chapter [
 <!ENTITY % myent SYSTEM "entities.ent">
 %myent;
@@ -8,17 +9,52 @@
     xmlns:xi="http://www.w3.org/2001/XInclude" xmlns:xlink="http://www.w3.org/1999/xlink"
     version="5.0" xml:id="chap-qualita">
     <title>Piano di qualità</title>
-    <!-- Empty PARA for SPACING -->
+    <para>
+    Il presente piano intende stabilire l'insieme delle attività per la garanzia della qualità dell'intero progetto software. Il piano s'intende compreso e condiviso unanimemente da tutti i membri della squadra.
+    </para>
+    
+    <para>
+    La guida di riferimento (http://www.ambysoft.com/unifiedprocess/agileUP.html) del modello di processo scelto suggerisce già delle attività necessarie per assicurare la qualità. Quest'ultime sono state opportunamente riviste per poterle calare agilmente nel contesto del presente progetto. Il piano di qualità infatti è stato stilato tenendo bene in mente quelli che sono i costi della qualità ed il loro rapporto rispetto ai benefici. Considerate, quindi, le ridotte dimensioni e l'abbordabile complessità del progetto si è deciso di optare per attività di garanzia della qualità il più possibile snelle, in linea con il modello di processo scelto, cercando di non gravare eccessivamente sui costi.
+    </para>
+    <para>
+    Nelle prossime sezioni si definiscono i manufatti soggetti al controllo di qualità, le pratiche e gli strumenti a supporto e le metriche utilizzate. Infine l'ultima sezione contiene il piano delle attività da svolgere per ogni fase e i risultati più significativi dei collaudi.
+    </para>
     <section>
         <title>Manufatti soggetti a controllo di qualità</title>
+        
+        <para>
+        "Il controllo della qualità è la serie di esami, revisioni e collaudi applicati lungo tutto il ciclo di sviluppo per garantire che ogni lavorato soddisfi i requisiti imposti". Pressman
+        </para>
+        
+        Com'è facile intuire gli artefatti creati lungo tutto il processo software sono molteplici;
+        il sottostante elenco definisce la portata, in questi termini, del piano di qualità:
+        <itemizedlist>
+        <listitem>piano di processo: considerata l'inesperienza dei membri della squadra il piano di processo deve essere continuamente monitorato ed eventualmente corretto. Le revisioni al piano di processo s'intendono informali ed effettuate periodicamente da PM e QE. Ad ogni variazione significativa non prevista è opportuno che vengano chiarite insieme alla squadra le cause al fine di acquisire esperienza e ridurre i margini di rischio nel futuro.</listitem>
+        <listitem>Specifiche dei requisiti: è importante che tra i membri della squadra vi sia una totale accordanza nella comprensione dei requisiti per assicurarsi di sviluppare il prodotto giusto.</listitem>
+        <listitem>Diagrammi UML: i diagrammi UML sono un fondamentale strumento per la documentazione, la comunicazione all'interno della squadra e la progettazione; è bene quindi che ogni diagramma sia opportunamente rivisto.</listitem>
+        <listitem>software;</listitem>
+        <listitem>documentazione.</listitem>
+        </itemizedlist>
         <para/>
     </section>
     <section>
         <title>Pratiche e strumenti a supporto della qualità</title>
-        <para/>
+        TODO: revisioni informali e formali, frequenti riunioni veloci e informali, Extreme Programming, TDD per quanto possibile, test di regressione con Junit
+        <para>
+        
+        </para>
     </section>
     <section>
+        <title>Metriche utilizzate</title>
+        TODO
+        <para/>
+    </section>
+    
+    <section>
         <title>Attività per la garanzia della qualità</title>
+        
+        TODO: esplicitare quali sono le attività fatte durante tutte le fasi, integrare eventuali report di junit e metrics.
+        
         <section>
             <title>Fase di avvio</title>
             <section>
@@ -64,9 +100,8 @@
                     </para>
             </section>
             <section>
-                <title>Revisione del piano di schieramento</title>
-                <para> La revisione del piano di schieramento sarà informale e non necessiterà di
-                    essere documentata.</para>
+                <title>Revisione del piano preliminare di schieramento</title>
+                <para> La revisione del piano preliminare di schieramento sarà informale e non necessiterà di essere documentata.</para>
             </section>
             <section>
                 <title>Revisione del prototipo dell'interfaccia</title>
@@ -78,17 +113,39 @@
             <title>Fase di elaborazione</title>
             <section>
                 <title>Revisione del modello architetturale</title>
-                <para> Revisori: QE.</para>
+                <para> Revisori: QE</para>
                 <para> Verifiche: complessità, coesione, completezza rispetto al problema,
-                    compatibilità con le specifiche dei requisiti, dimensioni, chiarezza, calcolo
-                    dell'indice di qualità strutturale DSQI. </para>
-                <para> Esito: </para>
+                    compatibilità con le specifiche dei requisiti, dimensioni, chiarezza, compatibilità rispetto al piano di schieramento, calcolo dell'indice di qualità strutturale DSQI. </para>
+                <para> Esito: il modello architetturale raffina coerentemente il modello elaborato e rivisto in fase di avvio. E' pienamente compatibile con le specifiche dei requisiti e mantiene dimensioni più che accettabili. La strutturazione a tre livelli tipica delle applicazioni enterprise conferisce al progetto un adeguato accoppiamento tra i moduli così come una buona coesione. Si rileva la compatibilità del modello rispetto al piano di schieramento.
+                Di seguito si propone il calcolo dell'indice di qualità strutturale DSQI:
+                
+                s1 Numero totale di moduli.
+                s2 Numero di moduli che producono output, o il cui funzionamento dipende dalla fonte
+                   dei dati in ingresso
+                s3 Numero di moduli il cui funzionamento dipende da elaborazioni precedenti.
+                s4 Numero totale di elementi (intesi come attributi) nella basi di dati.
+                s5 Numero di elementi distinti nella basi di dati.
+                s6 Numero di segmenti della basi di dati.
+                s7 Numero di moduli con un solo punti di ingresso ed un solo punto di uscita.
+                
+                D1 = 1
+                D2 = 1 − (s2/s1)
+                D3 = 1 − (s3/s1)
+                D4 = 1 − (s5/s4)
+                D5 = 1 − (s6/s4)
+                D6 = 1 − (s7/s1)
+                </para>
             </section>
             <section>
                 <title>Collaudo del prototipo architetturale</title>
-                <para>Collaudatori: </para>
-                <para> Verifiche: collaudare le collaborazioni tra i componenti architetturali. </para>
-                <para> Esito: </para>
+                <para>Revisori: </para>
+                <para> Verifiche: coerenza del prototipo rispetto al modello architetturale, collaudo delle interazioni tra i tre principali livelli architetturali: scrivere e visualizzare tramite browser dei dati memorizzati sul sistema informativo. Verifica della compatibilità del prototipo rispetto ai requisiti R1N, R2N, R3N.2, R4N.3 e R4N.1</para>
+                <para> Esito: il prototipo ha superato con successo le verifiche previste.</para>
+            </section>
+            <section>
+                <title>Revisione del piano di schieramento</title>
+                <para> La revisione del piano di schieramento sarà informale e non necessiterà di
+                    essere documentata. </para>
             </section>
         </section>
         <section>
