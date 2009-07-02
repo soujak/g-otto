@@ -5,6 +5,7 @@ import g8.bookshop.business.core.GuestRemote;
 import g8.bookshop.business.core.UserRemote;
 import g8.bookshop.business.um.UserManagerAdaptorRemote;
 import g8.bookshop.business.util.BeanLocator;
+import g8.bookshop.business.util.Name;
 
 import javax.ejb.Stateless;
 import javax.jws.WebMethod;
@@ -46,7 +47,7 @@ public class UserManagerService implements UserManagerServiceRemote {
 				logger.info("authenticate:    getting the corresponding user");
 				userManagerAdaptor =
 					(UserManagerAdaptorRemote) BeanLocator.getBean(
-					"BookshopBusinessCore/UserManagerAdaptor/remote");
+							Name.EJB.USERMANAGER_ADAPTOR_REMOTE);
 				user = userManagerAdaptor.getUser(id);
 				logger.info("authenticate:    got a "+(user.isCustomer()?"customer":"guest"));
 				if (!user.isCustomer()) {
@@ -74,7 +75,7 @@ public class UserManagerService implements UserManagerServiceRemote {
 		try {
 			userManagerAdaptor =
 				(UserManagerAdaptorRemote) BeanLocator.getBean(
-				"BookshopBusinessCore/UserManagerAdaptor/remote");
+						Name.EJB.USERMANAGER_ADAPTOR_REMOTE);
 			UserRemote user = userManagerAdaptor.lookup(id);
 			if (user != null)
 				if (user.isCustomer())
