@@ -42,12 +42,12 @@ public class Update extends HttpServlet {
 		DataExchange dataExchange = Utils.getDataExchange(session);
 		
 		// initialize orders xml string
-		String xml_orders = "<orders />";
+		String xml_orders = Constants.EMPTY_ORDERS;
 		// initialize update result variable
 		boolean updated = false;
 		
 		// initialize shopping cart xml string
-		String xml_shoppingcart = "<shoppingcart />";
+		String xml_shoppingcart = Constants.EMPTY_CART;
 		// initialize checkout result variable
 		boolean payed = false;
 		
@@ -68,8 +68,8 @@ public class Update extends HttpServlet {
 					param = (String)params.nextElement();
 					if(param.startsWith("book")) {
 						item = document.createElement("order");
-						// extracting bookid from param
-						// request param, infact, is composed by "book" + bookID
+						// extracting bookid from request parameter
+						// infact, the request paramer is composed by string "book" + bookID
 						item.setAttribute("bookid", param.substring(4));
 						item.setAttribute("quantity", request.getParameter(param));
 						root.appendChild(item);
@@ -77,22 +77,26 @@ public class Update extends HttpServlet {
 				}
 				xml_orders = Utils.xmlDocumentToString(document);
 			}
-			ShoppingCartService service = (new ShoppingCartServiceServiceLocator()).getShoppingCartServicePort();
-			
-			// update process...
-			updated = service.update(session.getId(), xml_orders);			
+			// initialize shoppingcart service client...
+			ShoppingCartService service = (new ShoppingCartServiceServiceLocator()).getShoppingCartServicePort();			
+			// updates cart
+			updated = service.update(session.getId(), xml_orders);
+			// retrieves updated order list
 			xml_shoppingcart = service.view(session.getId());			
 			dataExchange.setShoppingcart(xml_shoppingcart);
+			// caching cart updated order list
+			dataExchange.setXmlCartCache(xml_shoppingcart);
 
 			if(request.getParameter("operation").equalsIgnoreCase("checkout"))
 				payed = service.checkOut(session.getId());
 			
 		} catch (Exception e) {
 			dataExchange.setMessage("Shoppingcart update failed: an error occurred.");
+			e.printStackTrace();
 		}
 		
 		if(updated) dataExchange.setMessage("Shopping cart updated.");
-		if(payed) dataExchange.setMessage("Shopping cart checked out.");
+		else if(payed) dataExchange.setMessage("Shopping cart checked out.");
 		
 		Utils.forwardToPage(Constants.JSP_CART, getServletContext(),
 				request, response);

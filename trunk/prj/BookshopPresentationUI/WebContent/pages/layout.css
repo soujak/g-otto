@@ -4,18 +4,18 @@ body {
 }
 
 h1#logo {
-	font-size: 4em;	
+    font-size: 4em;   
 }
 
 h1#logo span {
-	color: #708090;
+    color: #708090;
 }
 
 
-a {	
-	text-decoration: none;
-	font-weight: bold;
-	color: #708090;
+a {   
+    text-decoration: none;
+    font-weight: bold;
+    color: #708090;
 }
 
 
@@ -33,7 +33,7 @@ a {
 }
 
 #userinfo #username {
-	color: #708090;
+    color: #708090;
 }
 
 #menu {
@@ -43,17 +43,17 @@ a {
 }
 
 #menu a {
-	margin-left: 0.2em;
+    margin-left: 0.2em;
 }
 
 #message, #results_message {
-	font-weight: bold;
-	background-color: #EEEEEE;
+    font-weight: bold;
+    background-color: #EEEEEE;
 }
 
 
 div#cart table, div#results table {
-	width: 60%;
+    width: 60%;
     margin-left: auto;
     margin-right: auto;
 }
@@ -65,15 +65,27 @@ table {
 }
 
 td{
-    padding: 0.2em; 
+    padding: 0.2em;
+    text-align: left;
 }
 
 tr.item {
     border-bottom: 1px dashed #708090;
     border-top: 1px dashed #708090;
+    font-size: 0.7em
 }
 
 td.quantity {
     padding-right: 0.2em;
-    padding-left: 0.2em;    
+    padding-left: 0.2em;   
 }
+
+td.price, td.title { color: #708090; font-weight: bold; }
+
+td.price { text-align: right; }
+
+th { color: #708090; text-align:left; }
+
+th + th + th + th + th { text-align: center; }
+
+th + th + th + th + th + th { text-align: right; }

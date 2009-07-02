@@ -34,17 +34,12 @@ public class View extends HttpServlet {
 		// retrieves DataExchage user instance...
 		DataExchange dataExchange = Utils.getDataExchange(session);
 		
-		// initialize shoppingcart xml string
-		String xml_shoppingcart = "<shoppingcart />";
-		
 		// initialize message string
 		dataExchange.setMessage("");
 		
 		try {
-			// invoke shoppingcart service method to view cart 
-			xml_shoppingcart = (new ShoppingCartServiceServiceLocator()).getShoppingCartServicePort().view(session.getId());
-			// fills dataExchange variable
-			dataExchange.setShoppingcart(xml_shoppingcart);
+			// retrieves and formats shopping cart cache
+			dataExchange.setShoppingcart(dataExchange.getXmlCartCache());
 		} catch (Exception e) {
 			dataExchange.setMessage("View shoppingcart failed: an error occurred.");
 			e.printStackTrace();

@@ -34,21 +34,14 @@ public class Home extends HttpServlet {
     	String auth = (request.getParameter("auth") == null) ? null : "";
     	String last = (request.getParameter("last") == null) ? null : "";
 
-    	try {    		
-        	// re-run search to get last search results
-        	String xml_booklist = "<books />";
-        	if((last != null) && (!(dataExchange.getKey().equalsIgnoreCase("")))) {
-        		xml_booklist = (new CatalogueServiceServiceLocator())
-        			.getCatalogueServicePort().fullSearch(dataExchange.getKey());
-        		dataExchange.setBooklist(xml_booklist);
-        	}
-        	
+    	try {
         	// initialize message string
         	dataExchange.setMessage("");
         	
-    		// re-initialize books xml string
-    		dataExchange.setBooklist(xml_booklist);
-    		
+        	// retrieves last search results
+        	if (last != null)
+        		dataExchange.setBooklist(dataExchange.getXmlBooklistCache());
+        	
     	} catch (Exception e) {
     		dataExchange.setMessage("An error occurred, please try refresh page.");
     		e.printStackTrace();

@@ -37,7 +37,7 @@ public class Search extends HttpServlet {
 		DataExchange dataExchange = Utils.getDataExchange(session);
 		
 		// initialize result variable
-		String xml_booklist = "<books />";
+		String xml_booklist = Constants.EMPTY_BOOKLIST;
 		
 		// initialize message string
 		dataExchange.setMessage("");
@@ -52,17 +52,18 @@ public class Search extends HttpServlet {
 			if ((!(request.getParameter("key") == null)) && (!(request.getParameter("key").equalsIgnoreCase("")))) {
 				xml_booklist = (new CatalogueServiceServiceLocator())
 					.getCatalogueServicePort().fullSearch(request.getParameter("key"));
-	
-				System.out.println(xml_booklist);
-				
+								
 				// build results message
 				Document books = Utils.xmlStringToDocument(xml_booklist);
 				if(!(books.getDocumentElement().getChildNodes().getLength() == 0)) dataExchange.setResultsMessage("Results for '" + request.getParameter("key") + "'");
 				else dataExchange.setResultsMessage("No results for '" + request.getParameter("key") + "'");
 			}
+						
 			// fills dataExchange instance fields
 			dataExchange.setKey(request.getParameter("key"));
 			dataExchange.setBooklist(xml_booklist);
+			// caching search results
+			dataExchange.setXmlBooklistCache(xml_booklist);
 			
 		} catch (Exception e) {
 			dataExchange.setMessage("Search failed: an error occurred.");
@@ -71,7 +72,6 @@ public class Search extends HttpServlet {
 	
 		// forward request to search page
 		String url = (dataExchange.getAuthenticated()) ? Constants.JSP_CUSTOMER_SEARCH : Constants.JSP_GUEST_SEARCH;
-		System.out.println("forwanding to page");
 		Utils.forwardToPage(url, getServletContext(),
 				request, response);
 	}

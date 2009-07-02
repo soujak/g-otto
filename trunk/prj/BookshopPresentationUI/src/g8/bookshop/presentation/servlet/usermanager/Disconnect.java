@@ -30,36 +30,28 @@ public class Disconnect extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// retrieves user session...
+		// retrieves user session
 		HttpSession session = request.getSession();
-		// retrieves DataExchage user instance...
-		DataExchange dataExchange = Utils.getDataExchange(session);
-		// retrieves session ID...
+		// gets session ID
 		String id = session.getId();
-		
-		// initialize message string
-		dataExchange.setMessage("");
-		
-		// initialize results message string
-		dataExchange.setResultsMessage("");
 		
 		// initialize disconnection result variable
 		boolean disconnected = false;
 
 		try {
+			// destroy user session
+			session.invalidate();
+			// creates new user session
+			session = request.getSession();
+			// create and put new dataExchange instance into user session data
+			DataExchange dataExchange = Utils.getDataExchange(session);
+			
 			// invoke UserManager service to stop authenticated session
 			disconnected = (new UserManagerServiceServiceLocator())
 				.getUserManagerServicePort().disconnect(id);
-
-			// if disconnected re-initialize dataExchange variable
-			if(disconnected) {
-				dataExchange.setMessage("Disconnection succeeded: every session data has been deleted.");
-				dataExchange.setAuthenticated(false);
-				dataExchange.setUsername(Constants.GUEST_NAME);
-				dataExchange.setKey(null);
-				dataExchange.setBooklist("<books />");
-				dataExchange.setShoppingcart("<shoppingcart />");
-			}
+			
+			if(disconnected)dataExchange.setMessage("Disconnection succeeded: all session data has been removed correctly.");
+			else dataExchange.setMessage("Disconnection forced: an error occurred but all session data has been removed correctly.");
 			
 		} catch (Exception e) {
 			e.printStackTrace();
