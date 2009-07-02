@@ -18,11 +18,29 @@ public class DataExchange implements Serializable {
 	// fields...
 	private String username = Constants.GUEST_NAME;
 	private boolean authenticated = false;
+	private String xmlBooklistCache = Constants.EMPTY_BOOKLIST;
+	private String xmlCartCache = Constants.EMPTY_CART;
 	private String booklist = "";
 	private String shoppingcart = "";
 	private String key = "";
 	private String message = "";
 	private String resultsMessage = "";
+	
+	public String getXmlCartCache() {
+		return xmlCartCache;
+	}
+	
+	public void setXmlCartCache(String xmlCartCache) {
+		this.xmlCartCache = xmlCartCache;
+	}
+	
+	public String getXmlBooklistCache() {
+		return xmlBooklistCache;
+	}
+
+	public void setXmlBooklistCache(String xmlBooklistCache) {
+		this.xmlBooklistCache = xmlBooklistCache;
+	}
 
 	public String getResultsMessage() {
 		return resultsMessage;

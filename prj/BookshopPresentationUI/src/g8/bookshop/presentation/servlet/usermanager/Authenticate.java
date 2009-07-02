@@ -44,10 +44,7 @@ public class Authenticate extends HttpServlet {
 		
 		// retrieves session ID
 		String id = session.getId();
-		
-		// initialize books xml string
-		String xml_booklist ="<books />";
-		
+				
 		// initialize message string
 		dataExchange.setMessage("");
 		
@@ -64,10 +61,7 @@ public class Authenticate extends HttpServlet {
 				if(authenticated) {
 					dataExchange.setUsername(username);
 					dataExchange.setMessage("Authentication succeeded.");
-					// if search isn't null or empty, invoke catalogue full-text search service method
-					if ((!(dataExchange.getKey() == null)) && (!(dataExchange.getKey().equalsIgnoreCase(""))))
-						xml_booklist = (new CatalogueServiceServiceLocator())
-						.getCatalogueServicePort().fullSearch(dataExchange.getKey());						
+					
 				} else {
 					dataExchange.setUsername(Constants.GUEST_NAME);
 					dataExchange.setResultsMessage("");
@@ -75,7 +69,7 @@ public class Authenticate extends HttpServlet {
 				}
 
 				dataExchange.setAuthenticated(authenticated);
-				dataExchange.setBooklist(xml_booklist);
+				dataExchange.setBooklist(dataExchange.getXmlBooklistCache());
 			}
 
 		} catch (Exception e) {

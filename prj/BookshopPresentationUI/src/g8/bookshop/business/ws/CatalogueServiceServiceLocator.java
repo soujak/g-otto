@@ -22,7 +22,7 @@ public class CatalogueServiceServiceLocator extends org.apache.axis.client.Servi
     }
 
     // Use to get a proxy class for CatalogueServicePort
-    private java.lang.String CatalogueServicePort_address = "http://zaccaria.cs.unibo.it:8080/services/CatalogueService";
+    private java.lang.String CatalogueServicePort_address = "http://eufemia.cs.unibo.it:8080/services/CatalogueService";
 
     public java.lang.String getCatalogueServicePortAddress() {
         return CatalogueServicePort_address;

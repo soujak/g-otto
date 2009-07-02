@@ -41,10 +41,10 @@ public class AddOrders extends HttpServlet {
 		String id = session.getId();
 		
 		// initialize orders xml string
-		String xml_orders = "<orders />";
+		String xml_orders = Constants.EMPTY_ORDERS;
 		
 		// initialize shoppingcart view result
-		String xml_shoppingcart = "<shoppingcart />";
+		String xml_shoppingcart = Constants.EMPTY_CART;
 		
 		// initialize message string
 		dataExchange.setMessage("");
@@ -80,6 +80,8 @@ public class AddOrders extends HttpServlet {
 			xml_shoppingcart = service.view(id);
 			// fills dataExchange variable
 			dataExchange.setShoppingcart(xml_shoppingcart);
+			// caching shopping cart
+			dataExchange.setXmlCartCache(xml_shoppingcart);
 		} catch (Exception e) {
 			dataExchange.setMessage("Book selection failed: an error occurred.");
 			e.printStackTrace();
@@ -89,5 +91,4 @@ public class AddOrders extends HttpServlet {
 		Utils.forwardToPage(Constants.JSP_CART, getServletContext(),
 				request, response);
 	}
-
 }
