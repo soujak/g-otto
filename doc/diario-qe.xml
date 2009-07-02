@@ -11,16 +11,11 @@
 <title/>
     <section xml:id="diario-qe">
         <title>Diario di &pqe;</title>
-        <!-- Piccola modifica per dblatex: da table a informaltable, di conseguenza nessun <title> -->
-        <informaltable>
-            <!--<title>Diario del &rqe;</title>-->
+        <table>
+            <title>Diario del &rqe;</title>
             <tgroup cols="3">
-                <!-- colwidth ottimali: settare 50pt se avete nelle celle itemizedlist, 60pt altrimenti -->
-                <colspec colname="0" align="center" colwidth="60pt"/>
-                <!-- colwidth ottimali: settare 40pt se avete nelle celle itemizedlist, 60pt altrimenti -->
-                <colspec colname="1" align="center" colwidth="60pt"/>
-                <!-- colwidth ottimali: non settare -->
-                <!-- attenzione, modifiche errate ai colwidth creano problemi a dblatex -->
+                <colspec colname="0" align="center" colwidth="60"/>
+                <colspec colname="1" align="center" colwidth="60"/>
                 <colspec colname="2" align="justify"/>
                 <!-- non modificare questo header -->
                 <thead>
@@ -35,8 +30,8 @@
                 <tfoot>
                     <row>
                         <entry>Totale </entry>
-                        <entry>53.75 </entry>
-                        <entry>Aggiornato al 15/5/2009</entry>
+                        <entry>142.83 </entry>
+                        <entry>Aggiornato al </entry>
                     </row>
                 </tfoot>
                 <tbody>
@@ -200,10 +195,114 @@
                         <entry>0.5</entry>
                         <entry>Aggiornamento del diario personale.</entry>
                     </row>
+                    
+                    
+                    <row>
+                        <entry>24/5/09</entry>
+                        <entry>1.5</entry>
+                        <entry>Configurazione strumenti di sviluppo.</entry>
+                    </row>
+                    <row>
+                        <entry>28/5/09</entry>
+                        <entry>3</entry>
+                        <entry>Progettazione del livello business (con PM).</entry>
+                    </row>
+                    <row>
+                        <entry>29/5/09</entry>
+                        <entry>1</entry>
+                        <entry>Progettazione del livello business (con PM).</entry>
+                    </row>
+                    <row>
+                        <entry>30/5/09</entry>
+                        <entry>1</entry>
+                        <entry>Progettazione del livello business.</entry>
+                    </row>
+                    <row>
+                        <entry>3/6/09</entry>
+                        <entry>7.33</entry>
+                        <entry>Progettazione e prima implementazione del livello business.</entry>
+                    </row>
+                    <row>
+                        <entry>5/6/09</entry>
+                        <entry>3</entry>
+                        <entry>Realizzazione prototipi per il livello informativo (con PM).</entry>
+                    </row>
+                    <row>
+                        <entry>5/6/09</entry>
+                        <entry>3</entry>
+                        <entry>Progettazione del livello business e analisi delle specifiche J2EE.</entry>
+                    </row>
+                    
+                    <row>
+                        <entry>8/6/09</entry>
+                        <entry>6.5</entry>
+                        <entry>Progettazione del livello business: servizi singleton.</entry>
+                    </row>
+                    <row>
+                        <entry>9/6/09</entry>
+                        <entry>6</entry>
+                        <entry>Progettazione del livello business.</entry>
+                    </row>
+                    <row>
+                        <entry>10/6/09</entry>
+                        <entry>10.50</entry>
+                        <entry>Implementazione del livello business e informativo.</entry>
+                    </row>
+                    <row>
+                        <entry>11/6/09</entry>
+                        <entry>9</entry>
+                        <entry>Implementazione e primi collaudi di integrazione.</entry>
+                    </row>
+                    <row>
+                        <entry>12/6/09</entry>
+                        <entry>9</entry>
+                        <entry>Implementazione e collaudi di integrazione.</entry>
+                    </row>
+                    <row>
+                        <entry>13/6/09</entry>
+                        <entry>3</entry>
+                        <entry>Implementazione e sviluppo di casi collaudo.</entry>
+                    </row>
+                    <row>
+                        <entry>14/6/09</entry>
+                        <entry>4</entry>
+                        <entry>Collaudi e aggiornamento del piano di qualità.</entry>
+                    </row>
+                    
+                    <!-- mancano le due settimane, vedi soujak -->
+                    
+                    <row>
+                        <entry>20/6/09</entry>
+                        <entry>3</entry>
+                        <entry>Implementazione: prove di schieramento e debug.</entry>
+                    </row>
+                    
+                    <row>
+                        <entry>27/6/09</entry>
+                        <entry>4</entry>
+                        <entry>Implementazione: prove di schieramento e debug.</entry>
+                    </row>
+                    
+                    <row>
+                        <entry>29/6/09</entry>
+                        <entry>4</entry>
+                        <entry>Implementazione: prove di schieramento e debug.</entry>
+                    </row>
+                    <row>
+                        <entry>30/6/09</entry>
+                        <entry>4</entry>
+                        <entry>Implementazione: modifiche al business e prove di chieramento.</entry>
+                    </row>
+                    <row>
+                        <entry>1/7/09</entry>
+                        <entry>4</entry>
+                        <entry>Documentazione: esteso il piano della qualità.</entry>
+                    </row>
+                    
                     <!-- Aggiungere nuove righe qui copiando la <row> precedente -->
                 </tbody>
             </tgroup>
-        </informaltable>
+        </table>
         <?very-hard-pagebreak?>
     </section>
 </article>
