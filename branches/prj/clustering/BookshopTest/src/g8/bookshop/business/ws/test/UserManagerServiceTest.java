@@ -1,7 +1,8 @@
-package g8.bookshop.businness.ws.test;
+package g8.bookshop.business.ws.test;
 
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
+import g8.bookshop.business.util.Name;
 import g8.bookshop.business.ws.UserManagerServiceRemote;
 
 import java.util.Properties;
@@ -25,8 +26,8 @@ public class UserManagerServiceTest {
 		env.setProperty("jnp.partitionName", "G8Business");
 		env.setProperty(Context.URL_PKG_PREFIXES,"org.jboss.naming:org.jnp.interfaces");
 		ctx = new InitialContext(env);
-		ums = (UserManagerServiceRemote) ctx
-				.lookup("BookshopBusinessCore/UserManagerService/remote");
+		ums = (UserManagerServiceRemote) ctx.lookup(
+				Name.EJB.USERMANAGERSERVICE_REMOTE);
 	}
 
 	@Test
