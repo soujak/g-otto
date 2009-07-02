@@ -1,0 +1,231 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?oxygen RNGSchema="http://www.oasis-open.org/docbook/xml/5.0/rng/docbookxi.rng" type="xml"?>
+<!DOCTYPE book [
+<!ENTITY % myent SYSTEM "entities.ent">
+%myent;
+]>
+<book xml:lang="it" xmlns="http://docbook.org/ns/docbook" xmlns:xi="http://www.w3.org/2001/XInclude"
+    xmlns:xlink="http://www.w3.org/1999/xlink" version="5.0">
+    <chapter>
+        <title/>
+        <section xml:id="sect-implementazione">
+            <title>Implementazione</title>
+            <section>
+                <title>Business</title>
+                <para/>
+            </section>
+            <section>
+                <title>Information manager</title>
+                <para/>
+            </section>
+            <section>
+                <title>Presentation</title>
+                <para>La parte relativa alla presentazione &egrave; stata sviluppata in modo
+                    indipendente dal lato business, per poter essere schierata su di un cluster
+                    separato. Il digramma in <xref linkend="presentation_packages_overview"/> illustra la
+                    divisione in package del progetto g8Presentation. In <xref
+                        linkend="presentation_connections"/> sono rappresentate le connessioni fondamentali
+                    tra le classi e i pacchetti del progetto.</para>
+                <figure xml:id="presentation_packages_overview">
+                    <title>Panoramica su package e cartelle</title>
+                    <mediaobject>
+                        <imageobject role="fo">
+                            <imagedata
+                                fileref="DiagrammiPresentation/presentation_packages_overview.svg"
+                                align="center" depth="245pt" format="SVG"/>
+                        </imageobject>
+                        <imageobject role="dblatex">
+                            <imagedata
+                                fileref="DiagrammiPresentation/presentation_packages_overview.pdf"
+                                align="center" depth="245pt" format="PDF"/>
+                        </imageobject>
+                    </mediaobject>
+                    <caption>
+                        <para>La parte di presentazione &egrave; raccolta in un progetto dal
+                            nome <filename>g8.bookshop.presentation</filename>. Esso contiene due
+                            macro package: <filename>business</filename> e
+                                <filename>presentation</filename>. Il primo, business, contiene le
+                            classi che permettono alle servlet di connettersi ai web service. Il
+                            secondo, pi&ugrave; complesso, contiene la parte di presentazione
+                            vera e propria, divisa nelle due parti <filename>servlet</filename> e
+                                <filename>content</filename>. Il package servlet naturalmente
+                            raggruppa le classi che implementano l'interfaccia
+                                <filename>javax.servlet.http.HttpServlet</filename>, mentre il
+                            package content raccoglie classi e altri file relativi alla gestione del
+                            contenuto. Spiegazioni pi&ugrave; accurate sul ruolo dei package
+                            descritti e sulle loro classi verranno fatti in seguito.</para>
+                        <para>
+                            Essenziale nella presentazione &egrave; anche la cartella <filename>WebContent</filename>, la quale contiente le pagine JSP del progetto, i frammenti JSPF usati per modularizzare le pagine stesse, e i fogli di stile CSS.
+                        </para>
+                    </caption>
+                </figure>
+<para>I diversi package appena citati verranno esposti pi&ugrave; in dettaglio nelle quattro sezioni che seguono.</para>
+                <section>
+                    <title>Servlet</title>
+                    <figure xml:id="presentation_servlet">
+                        <title><filename>g8.bookshop.presentation.servlet</filename></title>
+                        <mediaobject>
+                            <imageobject role="fo">
+                                <imagedata fileref="DiagrammiPresentation/presentation_servlet.svg"
+                                    align="center" depth="450pt" format="SVG"/>
+                            </imageobject>
+                            <imageobject role="dblatex">
+                                <imagedata fileref="DiagrammiPresentation/presentation_servlet.pdf"
+                                    align="center" depth="450pt" format="PDF"/>
+                            </imageobject>
+                        </mediaobject>
+                        <caption>
+                            <para>Il pacchetto <filename>g8.bookshop.presentation.servlet</filename>
+                                raggruppa le classi che implementano l'interfaccia HttpServlet.
+                                Contiene tre pacchetti, <filename>usermanager</filename>,
+                                    <filename>catalogue</filename> e
+                                    <filename>shoppingcart</filename> i quali contengono le servlet
+                                che si occupano, nell'ordine, di autenticazione e disconnessione,
+                                della gestione del catalogo (la ricerca), e della gestione del
+                                carrello (visualizzazione e modifica). La servlet Home si trova nel
+                                package principale, insieme al file Utils.java che fornisce metodi
+                                ausiliari per la manipolazione di stringhe XML, per il passaggio di
+                                controllo da una servlet a una JSP e per la gestione dell'oggetto
+                                condiviso tra servlet e JSP che permette il passaggio di dati tra le
+                                due. </para>
+                            <para>Il trasferimento del controllo tra servlet e JSP &egrave;
+                                mediato dalla classe
+                                    <filename>g8.bookshop.presentation.Constants</filename>, la
+                                quale contiene, oltre a diverse costanti del progetto, ogni riferimento ai file JSP. Questo collegamento
+                                &egrave; illustrato nel diagramma in <xref
+                                    linkend="presentation_servlet_to_jsp"/>
+                            </para>
+                            <para>A titolo di esempio, in questo diagramma sono state rappresentate
+                                anche le librerie utilizzate dal package.</para>
+                        </caption>
+                    </figure>
+                    <figure xml:id="presentation_servlet_to_jsp">
+                        <title><filename>g8.bookshop.presentation.Constants</filename></title>
+                        <mediaobject>
+                            <imageobject role="fo">
+                                <imagedata
+                                    fileref="DiagrammiPresentation/presentation_servlet_to_jsp.svg"
+                                    align="center" depth="360pt" format="SVG"/>
+                            </imageobject>
+                            <imageobject role="dblatex">
+                                <imagedata
+                                    fileref="DiagrammiPresentation/presentation_servlet_to_jsp.pdf"
+                                    align="center" depth="345pt" format="PDF"/>
+                            </imageobject>
+                        </mediaobject>
+                    </figure>
+                </section>
+                <section>
+                    <title>WebContent: pagine JSP</title>
+                    <para>La cartella WebContent contiene le JSP e i frammenti JSPF. In <xref linkend="presentation_webcontent"/> sono rappresentati i file contenuti. In <xref linkend="presentation_webcontent_relationships"/> si sintetizza come i frammenti JSPF sono richiamati nelle diverse pagine JSP.
+                    </para>
+                    <figure xml:id="presentation_webcontent">
+                        <title><filename>WebContent</filename>: contenitore per pagine JSP e JSPF</title>
+                        <mediaobject>
+                            <imageobject role="fo">
+                                <imagedata
+                                    fileref="DiagrammiPresentation/presentation_webcontent.svg"
+                                    align="center" depth="240pt" format="SVG"/>
+                            </imageobject>
+                            <imageobject role="dblatex">
+                                <imagedata
+                                    fileref="DiagrammiPresentation/presentation_webcontent.pdf"
+                                    align="center" depth="345pt" format="PDF"/>
+                            </imageobject>
+                        </mediaobject>
+                    </figure>
+                    <figure xml:id="presentation_webcontent_relationships">
+                        <title><filename>Web Content</filename>: relazioni tra pagine JSP e frammenti JSPF</title>
+                        <mediaobject>
+                            <imageobject role="fo">
+                                <imagedata
+                                    fileref="DiagrammiPresentation/presentation_webcontent_relationships.svg"
+                                    align="center" depth="340pt" format="SVG"/>
+                            </imageobject>
+                            <imageobject role="dblatex">
+                                <imagedata
+                                    fileref="DiagrammiPresentation/presentation_webcontent_relationships.pdf"
+                                    align="center" depth="345pt" format="PDF"/>
+                            </imageobject>
+                        </mediaobject>
+                    </figure>
+                </section>
+                <section>
+                    <title>Content: gestione, manipolazione e formattazione dei contenuti</title>
+                    <para>Il diagramma in <xref linkend="presentation_content"/> rappresenta il package delegato alla gestione dei contenuti, col le classi per la trasformazione xslt del'xml proveniente dal lato business, e la classe dedicata alla condivisione dei contenuti tra JSP e Servlet. Vengono poi illustrate in <xref linkend="presentation_connections"/> le relazioni tra i diversi package che compongono l'intero lato presenation.</para>
+                    <figure xml:id="presentation_content">
+                        <title><filename>g8.bookshop.presentation.content</filename>: gestione dei
+                            contenuti.</title>
+                        <mediaobject>
+                            <imageobject role="fo">
+                                <imagedata fileref="DiagrammiPresentation/presentation_content.svg"
+                                    align="center" depth="340pt" format="SVG"/>
+                            </imageobject>
+                            <imageobject role="dblatex">
+                                <imagedata fileref="DiagrammiPresentation/presentation_content.pdf"
+                                    align="center" depth="345pt" format="PDF"/>
+                            </imageobject>
+                        </mediaobject>
+                        <caption><para>
+                            Il package <filename>manager</filename> contiene una sola classe, <filename>DataExchange</filename>, che viene utilizzata come oggetto condiviso tra servlet e JSP per il passaggio di informazioni e contenuti tra le due; essa contiene esclusivamente metodi getter e setter (tralasciati per semplicit&agrave; nel diagramma).</para>
+                            <para>Il package <filename>formatter</filename> si occupa invece dell'interpretazione dei dati che le servlet ricevono dal lato business: le liste di libri risultanti da una ricerca, o il contenuto di un carrello.   
+                                La classe <filename>XsltFormatter</filename> &egrave; la classe centrale del package. Essa utilizza un foglio di stile xslt per la trasformazione dell'xml ricevuto in xhtml pronto per la visualizzazione. Per farlo, carica il foglio di stile attraverso la classe <filename>StylesheetCache</filename> che a sua volta si avvale dei metodi forniti dalla classe <filename>FileLoader</filename>. <filename>StylesheetCache</filename> &egrave; una classe singleton che implementa una cache per i fogli di stile in modo da evitare di ricaricare pi&ugrave; volte lo stesso foglio di stile ad ogni invocazione del transformatore.</para> 
+                        </caption>
+                    </figure>
+                    <para>Il diagramma in <xref linkend="presentation_connections"/> rappresenta ile relazioni</para>
+                    <figure xml:id="presentation_connections">
+                        <title><filename>g8.bookshop.presentation</filename>: relazioni tra classi e package del progetto g8Presentation</title>
+                        <mediaobject>
+                            <imageobject role="fo">
+                                <imagedata
+                                    fileref="DiagrammiPresentation/presentation_connections.svg"
+                                    align="center" depth="300pt" format="SVG"/>
+                            </imageobject>
+                            <imageobject role="dblatex">
+                                <imagedata
+                                    fileref="DiagrammiPresentation/presentation_connections.pdf"
+                                    align="center" depth="345pt" format="PDF"/>
+                            </imageobject>
+                        </mediaobject>
+                        <caption><para>In questo diagramma &egrave; rappresentato l'intero lato business con le relazioni tra le sue classi e i suoi package. Praticamente l'intero lato presentation dipende dalle classi di ausilio <filename>Utils</filename> e <filename>Constants</filename>. Le diverse servlet sono indipententi tra loro, mentre utilizzano le classi del package <filename>business.ws</filename> per la connessione ai web service, le informazioni nella classe <filename>Constants</filename> per richiamare le JSP, e la classe <filename>DataExchange</filename> per los scambio di informazioni con le JSP.</para>
+                        <para>Quest'ultima classe, <filename>DataExchange</filename> &egrave; la sola ad utilizzare i metodi della classe <filename>XsltTransformer</filename>, la quale a sua volta &egrave; la sola ad utilizzare i metodi delle altre classi del suo package.</para></caption>
+                    </figure>
+              </section>
+                <section>
+                    <title>Web service</title>
+                    <para>In questa sezione due diagrammi descrivono i web service utilizzati nel progetto. Alcune di queste classi sono state generate automaticamente a partire dalle altre. Non tutte vengono utilizzate.</para>
+                    <para>Nel diagramma in <xref linkend="presentation_ws_catalogueservice"/> &egrave; rappresentato uno dei tre sottoinsiemi di queste classi, ovvero tutte le classi relative al CatalogueService. Tutte le classi del package sono poi riassunte nel digramma in <xref linkend="presentation_ws"/>.</para>
+                    <figure xml:id="presentation_ws_catalogueservice">
+                        <title><filename>g8.bookshop.business.ws.catalogueservice</filename>: un
+                            esempio di web service</title>
+                        <mediaobject>
+                            <imageobject role="fo">
+                                <imagedata
+                                    fileref="DiagrammiPresentation/presentation_ws_catalogueservice.svg"
+                                    align="center" depth="240pt" format="SVG"/>
+                            </imageobject>
+                            <imageobject role="dblatex">
+                                <imagedata
+                                    fileref="DiagrammiPresentation/presentation_ws_catalogueservice.pdf"
+                                    align="center" depth="345pt" format="PDF"/>
+                            </imageobject>
+                        </mediaobject>
+                    </figure>
+                    <figure xml:id="presentation_ws">
+                        <title><filename>g8.bookshop.business.ws</filename>: diagramma completo dei web service</title>
+                        <mediaobject>
+                            <imageobject role="fo">
+                                <imagedata fileref="DiagrammiPresentation/presentation_ws.svg"
+                                    align="center" depth="300pt" format="SVG"/>
+                            </imageobject>
+                            <imageobject role="dblatex">
+                                <imagedata fileref="DiagrammiPresentation/presentation_ws.pdf"
+                                    align="center" depth="345pt" format="PDF"/>
+                            </imageobject>
+                        </mediaobject>
+                    </figure>
+                </section>
+            </section>
+        </section>
+    </chapter>
+</book>

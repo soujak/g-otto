@@ -15,8 +15,8 @@
             4. Autenticazione dell'utente
         -->
         <title/>
-        <section xml:id="sect-diagrammi-architettura">
-            <title>Diagrammi preliminari dell'architettura</title>
+        <section xml:id="sect-architettura">
+            <title>Descrizione dell'architettura</title>
             <section>
                 <title>Diagrammi preliminari dell'architettura</title>
                 <para/>
@@ -58,8 +58,8 @@
                 <title>Diagrammi dell'architettura ? ? </title>
                 <para/>
                 <para/>
-                <figure>
-                    <title>Diagramma dell'archiettura ? ? </title>
+<!--                <figure>
+                    <title>Diagramma dell'architettura ? ? </title>
                     <mediaobject>
                         <imageobject role="fo">
                             <imagedata
@@ -72,10 +72,10 @@
                                 align="center" depth="150pt" format="PDF"/>
                         </imageobject>
                     </mediaobject>
-                </figure>
+                </figure>-->
                 <para/>
                 <para/>
-                <figure>
+<!--                <figure>
                     <title>Diagramma dell'architettura ? ? </title>
                     <mediaobject>
                         <imageobject role="fo">
@@ -89,7 +89,7 @@
                                 align="center" scalefit="1" depth="400pt" format="PDF"/>
                         </imageobject>
                     </mediaobject>
-                </figure>
+                </figure>-->
 
             </section>
         </section>
