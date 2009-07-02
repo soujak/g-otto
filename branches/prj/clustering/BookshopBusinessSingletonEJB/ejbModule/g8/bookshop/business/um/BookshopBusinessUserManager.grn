@@ -1,0 +1,46 @@
+<uml>
+   <greenVersion="30100"/>
+   <type>
+      <name="=BookshopBusinessUserManager/ejbModule<g8.bookshop.business.um{UserManager.java[UserManager"/>
+      <height="-1"/>
+      <width="-1"/>
+      <x="60"/>
+      <y="266"/>
+   </type>
+   <type>
+      <name="=BookshopBusinessUserManager/ejbModule<g8.bookshop.business.um{UserManagerAdaptor.java[UserManagerAdaptor"/>
+      <height="-1"/>
+      <width="-1"/>
+      <x="60"/>
+      <y="54"/>
+   </type>
+   <type>
+      <name="=BookshopBusinessUserManager/ejbModule<g8.bookshop.business.um{UserManagerAdaptorRemote.java[UserManagerAdaptorRemote"/>
+      <height="-1"/>
+      <width="-1"/>
+      <x="600"/>
+      <y="68"/>
+   </type>
+   <relationship>
+      <class="edu.buffalo.cse.green.relationship.realization.RealizationPart"/>
+      <sourceType="=BookshopBusinessUserManager/ejbModule<g8.bookshop.business.um{UserManagerAdaptor.java[UserManagerAdaptor"/>
+      <targetType="=BookshopBusinessUserManager/ejbModule<g8.bookshop.business.um{UserManagerAdaptorRemote.java[UserManagerAdaptorRemote"/>
+      <bendpoints>
+      </bendpoints>
+   </relationship>
+   <type>
+      <name="=BookshopBusinessUserManager/ejbModule<g8.bookshop.business.um{UserManagerMBean.java[UserManagerMBean"/>
+      <height="-1"/>
+      <width="-1"/>
+      <x="602"/>
+      <y="338"/>
+   </type>
+   <relationship>
+      <class="edu.buffalo.cse.green.relationship.realization.RealizationPart"/>
+      <sourceType="=BookshopBusinessUserManager/ejbModule<g8.bookshop.business.um{UserManager.java[UserManager"/>
+      <targetType="=BookshopBusinessUserManager/ejbModule<g8.bookshop.business.um{UserManagerMBean.java[UserManagerMBean"/>
+      <bendpoints>
+      </bendpoints>
+   </relationship>
+</uml>
+
