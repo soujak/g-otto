@@ -6,6 +6,7 @@ import g8.bookshop.business.um.UserManager;
 import g8.bookshop.business.um.UserManagerAdaptorRemote;
 import g8.bookshop.business.util.BeanLocator;
 import g8.bookshop.business.util.ConverterRemote;
+import g8.bookshop.business.util.Name;
 
 import java.io.IOException;
 import java.util.Properties;
@@ -54,10 +55,10 @@ public class ShoppingCartService implements ShoppingCartServiceRemote {
 		try {
 			userManagerAdaptor =
 				(UserManagerAdaptorRemote) BeanLocator.getBean(
-				"BookshopBusinessCore/UserManagerAdaptor/remote");
+						Name.EJB.USERMANAGER_ADAPTOR_REMOTE);
 			converter =
 				(ConverterRemote) BeanLocator.getBean(
-				"BookshopBusinessCore/Converter/remote");
+						Name.EJB.CONVERTER_REMOTE);
 			UserRemote u = userManagerAdaptor.lookup(id);
 			if (u != null)
 				if (u.isCustomer()) {
@@ -99,10 +100,10 @@ public class ShoppingCartService implements ShoppingCartServiceRemote {
 		try {
 			userManagerAdaptor =
 				(UserManagerAdaptorRemote) BeanLocator.getBean(
-				"BookshopBusinessCore/UserManagerAdaptor/remote");
+						Name.EJB.USERMANAGER_ADAPTOR_REMOTE);
 			converter =
 				(ConverterRemote) BeanLocator.getBean(
-				"BookshopBusinessCore/Converter/remote");
+						Name.EJB.CONVERTER_REMOTE);
 			UserRemote u = userManagerAdaptor.lookup(id);
 			if (u != null)
 				if (u.isCustomer()) {
@@ -147,10 +148,10 @@ public class ShoppingCartService implements ShoppingCartServiceRemote {
 		try {
 			userManagerAdaptor =
 				(UserManagerAdaptorRemote) BeanLocator.getBean(
-				"BookshopBusinessCore/UserManagerAdaptor/remote");
+						Name.EJB.USERMANAGER_ADAPTOR_REMOTE);
 			converter =
 				(ConverterRemote) BeanLocator.getBean(
-				"BookshopBusinessCore/Converter/remote");
+						Name.EJB.CONVERTER_REMOTE);
 			UserRemote u = userManagerAdaptor.lookup(id);
 			if (u != null)
 				if (u.isCustomer())
@@ -188,7 +189,7 @@ public class ShoppingCartService implements ShoppingCartServiceRemote {
 		try {
 			userManagerAdaptor =
 				(UserManagerAdaptorRemote) BeanLocator.getBean(
-				"BookshopBusinessCore/UserManagerAdaptor/remote");
+						Name.EJB.USERMANAGER_ADAPTOR_REMOTE);
 			UserRemote u = userManagerAdaptor.lookup(id);
 			if (u != null)
 				if (u.isCustomer())

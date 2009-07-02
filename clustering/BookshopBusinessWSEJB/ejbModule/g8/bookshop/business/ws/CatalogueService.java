@@ -1,6 +1,7 @@
 package g8.bookshop.business.ws;
 
 import g8.bookshop.business.util.ConverterRemote;
+import g8.bookshop.business.util.Name;
 import g8.bookshop.persistence.Book;
 
 import java.util.List;
@@ -45,8 +46,7 @@ public class CatalogueService implements CatalogueServiceRemote {
     	env.setProperty(Context.URL_PKG_PREFIXES,
     		"org.jboss.naming:org.jnp.interfaces");
     	Context ctx = new InitialContext(env);
-    	this.c = (ConverterRemote) ctx
-    		.lookup("BookshopBusinessCore/Converter/remote");
+    	this.c = (ConverterRemote) ctx.lookup(Name.EJB.CONVERTER_REMOTE);
     }
     
 	/**
