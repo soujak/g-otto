@@ -7,6 +7,7 @@ import g8.bookshop.business.core.CustomerRemote;
 import g8.bookshop.business.core.GuestRemote;
 import g8.bookshop.business.core.UserRemote;
 import g8.bookshop.business.util.BeanLocator;
+import g8.bookshop.business.util.Name;
 import g8.bookshop.persistence.Credential;
 
 import java.io.IOException;
@@ -90,7 +91,7 @@ public class UserManager implements UserManagerMBean {
 					CustomerRemote customer;
 					try {
 						Logger logger = Logger.getLogger(BeanLocator.class);
-						customer = (CustomerRemote)BeanLocator.getBean("BookshopBusinessCore/Customer/remote");
+						customer = (CustomerRemote)BeanLocator.getBean(Name.EJB.CUSTOMER_REMOTE);
 						customer.setId(id);
 						this.userMap.put(id, customer);
 						logger.info("authenticate: access granted for user "+n);
@@ -149,7 +150,7 @@ public class UserManager implements UserManagerMBean {
 			user = this.userMap.get(id);
 			if (user == null) {
 				try {
-					user = (GuestRemote) BeanLocator.getBean("BookshopBusinessCore/Guest/remote");
+					user = (GuestRemote) BeanLocator.getBean(Name.EJB.GUEST_REMOTE);
 					user.setId(id);
 					this.userMap.put(id, user);
 					this.logger.info("get user: created new guest");
@@ -224,10 +225,9 @@ public class UserManager implements UserManagerMBean {
 		RMIAdaptor adaptor;
 		try {
 			adaptor = (RMIAdaptor) BeanLocator.getBean(
-			"jmx/rmi/RMIAdaptor");
-			//
+					Name.EJB.JMX_RMIADAPTOR);
 			ObjectName name = new ObjectName(
-					"jboss:service=HAPartition,partition=G8Business");
+					Name.JMX.USERMANAGER_MBEAN);
 			if (adaptor.isRegistered(name)) {
 				masterNode = ((Vector) adaptor.getAttribute(name, "CurrentView")).get(0).toString();
 			}
@@ -275,9 +275,9 @@ public class UserManager implements UserManagerMBean {
 				RMIAdaptor adaptor = (RMIAdaptor) BeanLocator.getBean(
 					Context.PROVIDER_URL,
 					masterNode,
-					"jmx/rmi/RMIAdaptor");
+					Name.EJB.JMX_RMIADAPTOR);
 				ObjectName name = new ObjectName(
-				"g8.bookshop.business.um:service=UserManager");
+						Name.JMX.USERMANAGER_MBEAN);
 				if (adaptor.isRegistered(name)) {
 					this.logger.info(
 						"UserManager: reinvoking on master node" + masterNode);
