@@ -9,10 +9,10 @@
 <book xml:lang="it" xmlns="http://docbook.org/ns/docbook" xmlns:xi="http://www.w3.org/2001/XInclude"
     xmlns:xlink="http://www.w3.org/1999/xlink" version="5.0">
     <info>
-        <title>Relazione Progetto Architetture Software 2008/09 gruppo G8</title>
+        <title>Relazione Progetto Architetture Software Gruppo G8</title>
       <!--  <subtitle>Relazione progetto Architetture Software 2008/09</subtitle>-->
         <pubdate>14/4/09</pubdate>
-        <releaseinfo> Alpha version </releaseinfo>
+        <releaseinfo>Alpha version </releaseinfo>
         <authorgroup>
             <author>
                 <personname>

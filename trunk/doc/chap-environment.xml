@@ -10,13 +10,21 @@
     version="5.0" xml:id="chap-environment">
     <title>Tools utilizzati</title>
     <para>Questo capitolo elenca gli strumenti utilizzati durante lo sviluppo del progetto, sia per
-        lo sviluppo stesso che per la documentazione. Non sono stati inseriti in questa trattazione
+        lo sviluppo stesso che per la documentazione. 
+        Non sono stati inseriti in questa trattazione gli strumenti lasciati al gusto
+        de singoli, come ad esempio gli editor di testo per la documentazione semplice. Fanno
+        eccezione particolari strumenti non utilizzati da tutti i componenti del gruppo ma tuttavia
+        significativi nello sviluppo, le cui funzionalit&agrave; non sarebbero state fornite
+        allo stesso modo da un qualunque altro strumento simile: ad esempio, particolari editor di
+        immagini o trasformatori XSLT.
+<!--        Non sono stati inseriti in questa trattazione
         gli strumenti imposti, quali JBoss e Apache, n&eacute; gli strumenti lasciati al gusto
         de singoli, come ad esempio gli editor di testo per la documentazione semplice. Fanno
         eccezione particolari strumenti non utilizzati da tutti i componenti del gruppo ma tuttavia
         significativi nello sviluppo, le cui funzionalit&agrave; non sarebbero state fornite
         allo stesso modo da un qualunque altro strumento simile: ad esempio, particolari editor di
-        immagini o trasformatori XSLT. </para>
+        immagini o trasformatori XSLT. -->
+    </para>
     <section xml:id="sect-managing">
         <title>Managing</title>
         <variablelist xml:id="googlegroups">
@@ -240,6 +248,37 @@
                         proprio per questo abbiamo voluto utilizzarlo nello sviluppo di questo
                         progetto, considerando che sarebbe stata una buona occasione per imparare a
                         utilizzarlo.</para>
+                </listitem>
+            </varlistentry>
+        </variablelist>
+        <variablelist xml:id="dblatex">
+            <title>dblatex</title>
+            <varlistentry>
+                <term>Riferimento</term>
+                <listitem>
+                    <para>
+                        <link xmlns:ns1="http://www.w3.org/1999/xlink"
+                            ns1:href="http://dblatex.sourceforge.net/">http://dblatex.sourceforge.net/</link>
+                    </para>
+                </listitem>
+            </varlistentry>
+            <varlistentry>
+                <term>Licenza</term>
+                <listitem>
+                    <para>Oasis Open Standard</para>
+                </listitem>
+            </varlistentry>
+            <varlistentry>
+                <term>Descrizione</term>
+                <listitem>
+                    <para>Si tratta di una collezione di fogli di stile che permettono di convertire sorgenti Docbook in diversi formati passando attraverso una prima conversione in TeX.</para>
+                </listitem>
+            </varlistentry>
+            <varlistentry>
+                <term>Motivazioni della scelta</term>
+                <listitem>
+                    <para>Con dblatex abbiamo potuto trasformare la nostra documentazione scritta in <application>Docbook</application> in LaTeX. Mentre Docbook ci ha permesso grande maneggevolezza del contenuto, la conversione in LaTeX ci ha permesso controllo sulla versione finale per la stampa. Grazie a dblatex abbiamo potuto produrre file TeX, da modificare e compilare successivamente, o direttamente file PDF o PS.
+                    </para>
                 </listitem>
             </varlistentry>
         </variablelist>

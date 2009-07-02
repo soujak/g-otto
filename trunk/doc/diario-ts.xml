@@ -366,8 +366,47 @@
                                 <listitem>
                                     <para>Modifica immagini per inserimento nella relazione, composizione relazione.</para>
                                 </listitem>
+                            </itemizedlist>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry>13/06/2009</entry>
+                        <entry>2</entry>
+                        <entry>
+                            <itemizedlist>
                                 <listitem>
-                                    <para>?</para>
+                                    <para>Aggiornamento glossario ed environment.</para>
+                                </listitem>
+                            </itemizedlist>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry>15/06/2009</entry>
+                        <entry>4</entry>
+                        <entry>
+                            <itemizedlist>
+                                <listitem>
+                                    <para>Bugfix ed elaborazione: XSLT, JSP, CSS</para>
+                                </listitem>
+                                <listitem>
+                                    <para>Relazione: bugfix per uso con dblatex e per stampa ottimale con entrambi i trasformatori.</para>
+                                </listitem>
+                            </itemizedlist>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry>16/06/2009</entry>
+                        <entry>4</entry>
+                        <entry>
+                            <itemizedlist>
+                                <listitem>
+                                    <para>Conversione immagini per inserimento in relazione.</para>
+                                </listitem>
+                                <listitem>
+                                    <para>Modifica di configurazioni JBoss e MySql.</para>
+                                </listitem>
+                                <listitem>
+                                    <para>Refactoring relazione.</para>
                                 </listitem>
                             </itemizedlist>
                         </entry>

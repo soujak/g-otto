@@ -10,9 +10,9 @@
     <chapter xml:id="chap-requisiti">
         <title>Specifica dei requisiti</title>
         <!-- Empty PARA for SPACING -->
-        <section>
+        <section xml:id="sect-tabella-requisiti">
             <title>Tabella riassuntiva dei requisiti</title>
-            <informaltable xml:id="requisiti-table">
+            <informaltable>
                 <!--<title>Tabella dei requisiti</title>-->
                 <tgroup cols="4">
                     <colspec colname="0" align="center" colwidth="60pt"/>
@@ -97,6 +97,18 @@
                             <entry>4</entry>
                             <entry>Non funzionale</entry>
                             <entry>Realizzazione interfaccia utente con pagine web</entry>
+                        </row>
+                        <row>
+                            <entry>R5N.1</entry>
+                            <entry>5</entry>
+                            <entry>Non funzionale</entry>
+                            <entry>Bilanciamento di carico mediante un bilanciatore esterno realizzato con Apache HTTP Server 2.x</entry>
+                        </row>
+                        <row>
+                            <entry>R5N.2</entry>
+                            <entry>5</entry>
+                            <entry>Non funzionale</entry>
+                            <entry>Realizzazione della persistenza mediante un database MySql</entry>
                         </row>
                     </tbody>
                 </tgroup>

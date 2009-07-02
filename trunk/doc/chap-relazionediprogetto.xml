@@ -11,8 +11,8 @@
         <title>Relazione di progetto</title>
         <!-- Empty PARA for SPACING -->
         
-        <section xml:id="sect-diagrammi-usecases">
-            <title>Diagrammi dei casi d'uso</title>
+        <section xml:id="sect-introduzione">
+            <title>Introduzione</title>
             <figure>
                 <title>Diagramma dei casi d'uso.</title>
                 <mediaobject>
@@ -26,10 +26,12 @@
                     </imageobject>
                 </mediaobject>
             </figure>
+            <xi:include href="sect-attivita.xml" xpointer="sect-diagrammi-attivita"/>
         </section>
         
-        <xi:include href="sect-attivita.xml" xpointer="sect-diagrammi-attivita"/>
-        <xi:include href="sect-architettura.xml" xpointer="sect-diagrammi-architettura"/>
+        <xi:include href="sect-architettura.xml" xpointer="sect-architettura"/>
+        <xi:include href="sect-implementazione.xml" xpointer="sect-implementazione"/>
+        <xi:include href="sect-clusterizzazione.xml" xpointer="sect-clusterizzazione"/>
 
     </chapter>
 </book>
