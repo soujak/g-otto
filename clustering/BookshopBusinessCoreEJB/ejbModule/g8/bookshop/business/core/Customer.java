@@ -1,6 +1,7 @@
 package g8.bookshop.business.core;
 
 import g8.bookshop.business.util.BeanLocator;
+import g8.bookshop.business.util.Name;
 
 import javax.annotation.PostConstruct;
 import javax.ejb.Stateful;
@@ -40,7 +41,7 @@ public class Customer extends User implements CustomerRemote {
 	private void createShoppingCart() {
 		this.shoppingCart = null;
 		try {
-			this.shoppingCart = (ShoppingCartRemote) BeanLocator.getBean("BookshopBusinessCore/ShoppingCart/remote");
+			this.shoppingCart = (ShoppingCartRemote) BeanLocator.getBean(Name.EJB.SHOPPINGCART_REMOTE);
 		} catch (NamingException e) {
 			Logger logger = Logger.getLogger(Customer.class);
 			logger.error(e.getStackTrace().toString());
