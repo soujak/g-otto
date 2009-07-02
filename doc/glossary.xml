@@ -8,7 +8,22 @@
     xmlns:xi="http://www.w3.org/2001/XInclude" xmlns:xlink="http://www.w3.org/1999/xlink"
     version="5.0" xml:id="glossary">
     
+  <glossdiv><title>A</title>
+    <glossentry>
+      <glossterm>Acquisto</glossterm>
+      <glossdef><para>Insieme di libri selezionati per l'acquisto.</para></glossdef>
+    </glossentry>
+<!--    <glossentry>
+      <glossterm>Acquista Carrello</glossterm>
+      <glossdef><para>Sottoattivit&agrave; dell'attivit&agrave; Cassa. Quest'attivit&agrave; rappresenta la conferma definitiva della volont&agrave; del cliente di acquistare il contenuto del suo carrello.</para></glossdef>
+    </glossentry>-->
+  </glossdiv>
+  
   <glossdiv><title>C</title>
+   <!-- <glossentry>
+      <glossterm>Cassa (attivit&agrave;)</glossterm>
+      <glossdef><para>Attivit&agrave; che raggruppa le operazioni di visualizzazione del contenuto del carrello (attivit&agrave; visualizza), di modifica del contenuto (attivit&agrave; ModificaCarrello), e di saldo finale, detto anche acquisto definitivo od operazione di acquista carrello (attivit&agrave; AcquistaCarrello).</para></glossdef>
+    </glossentry>-->
     <glossentry>
         <glossterm>Carrello</glossterm>
         <glossdef><para>Insieme di libri selezionati per l'acquisto.</para></glossdef>
@@ -24,6 +39,7 @@
       <glossdef><para>Utente riconosciuto dal sistema.</para></glossdef>
     </glossentry>
   </glossdiv>
+  
   <glossdiv><title>U</title>
     <glossentry>
         <glossterm>Utente</glossterm>
@@ -31,6 +47,7 @@
     </glossentry>
   </glossdiv>
   <glossdiv>
+    
     <title>V</title>
     <glossentry>
         <glossterm>Visitatore</glossterm>
