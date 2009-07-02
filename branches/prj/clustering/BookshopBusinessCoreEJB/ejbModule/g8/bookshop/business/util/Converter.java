@@ -149,7 +149,7 @@ public class Converter implements ConverterRemote {
 			env.setProperty("jnp.partitionName", "G8Business");
 			env.setProperty(Context.URL_PKG_PREFIXES,"org.jboss.naming:org.jnp.interfaces");
 			ctx = new InitialContext(env);
-			o = (OrderRemote)ctx.lookup("BookshopBusinessCore/Order/remote");
+			o = (OrderRemote)ctx.lookup(Name.EJB.ORDER_REMOTE);
 		    o.setQuantity(quantity);
 		    o.setBook(b);
 		}
