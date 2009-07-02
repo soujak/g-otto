@@ -1,8 +1,9 @@
-package g8.bookshop.businness.ws.test;
+package g8.bookshop.business.ws.test;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.fail;
 
+import g8.bookshop.business.util.Name;
 import g8.bookshop.business.ws.CatalogueServiceRemote;
 
 import java.util.Properties;
@@ -27,8 +28,8 @@ public class CatalogueServiceTest {
 		env.setProperty("jnp.partitionName", "G8Business");
 		env.setProperty(Context.URL_PKG_PREFIXES,"org.jboss.naming:org.jnp.interfaces");
 		ctx = new InitialContext(env);
-		cs = (CatalogueServiceRemote) ctx
-				.lookup("BookshopBusinessCore/CatalogueService/remote");
+		cs = (CatalogueServiceRemote) ctx.lookup(
+				Name.EJB.CATALOGUESERVICE_REMOTE);
 	}
 	
 	@Ignore

@@ -1,7 +1,8 @@
-package g8.bookshop.businness.ws.test;
+package g8.bookshop.business.ws.test;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
+import g8.bookshop.business.util.Name;
 import g8.bookshop.business.ws.ShoppingCartServiceRemote;
 import g8.bookshop.business.ws.UserManagerServiceRemote;
 
@@ -46,10 +47,10 @@ public class ShoppingCartServiceTest {
 		env.setProperty("jnp.partitionName", "G8Business");
 		env.setProperty(Context.URL_PKG_PREFIXES,"org.jboss.naming:org.jnp.interfaces");
 		ctx = new InitialContext(env);
-		sc = (ShoppingCartServiceRemote) ctx
-				.lookup("BookshopBusinessCore/ShoppingCartService/remote");
-		ums = (UserManagerServiceRemote) ctx
-		.lookup("BookshopBusinessCore/UserManagerService/remote");
+		sc = (ShoppingCartServiceRemote) ctx.lookup(
+				Name.EJB.SHOPPINGCARTSERVICE_REMOTE);
+		ums = (UserManagerServiceRemote) ctx.lookup(
+				Name.EJB.USERMANAGERSERVICE_REMOTE);
 	}
 	
 	@Before
