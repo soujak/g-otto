@@ -25,21 +25,22 @@
         <para>
         "Il controllo della qualità è la serie di esami, revisioni e collaudi applicati lungo tutto il ciclo di sviluppo per garantire che ogni lavorato soddisfi i requisiti imposti". Pressman
         </para>
-        
+        <para>
         Com'è facile intuire gli artefatti creati lungo tutto il processo software sono molteplici;
         il sottostante elenco definisce la portata, in questi termini, del piano di qualità:
         <itemizedlist>
-        <listitem>piano di processo: considerata l'inesperienza dei membri della squadra il piano di processo deve essere continuamente monitorato ed eventualmente corretto. Le revisioni al piano di processo s'intendono informali ed effettuate periodicamente da PM e QE. Ad ogni variazione significativa non prevista è opportuno che vengano chiarite insieme alla squadra le cause al fine di acquisire esperienza e ridurre i margini di rischio nel futuro.</listitem>
-        <listitem>Specifiche dei requisiti: è importante che tra i membri della squadra vi sia una totale accordanza nella comprensione dei requisiti per assicurarsi di sviluppare il prodotto giusto.</listitem>
-        <listitem>Diagrammi UML: i diagrammi UML sono un fondamentale strumento per la documentazione, la comunicazione all'interno della squadra e la progettazione; è bene quindi che ogni diagramma sia opportunamente rivisto.</listitem>
-        <listitem>software;</listitem>
-        <listitem>documentazione.</listitem>
+        <listitem><para>piano di processo: considerata l'inesperienza dei membri della squadra il piano di processo deve essere continuamente monitorato ed eventualmente corretto. Le revisioni al piano di processo s'intendono informali ed effettuate periodicamente da PM e QE. Ad ogni variazione significativa non prevista è opportuno che vengano chiarite insieme alla squadra le cause al fine di acquisire esperienza e ridurre i margini di rischio nel futuro.</para></listitem>
+        <listitem><para>Specifiche dei requisiti: è importante che tra i membri della squadra vi sia una totale accordanza nella comprensione dei requisiti per assicurarsi di sviluppare il prodotto giusto.</para></listitem>
+        <listitem><para>Diagrammi UML: i diagrammi UML sono un fondamentale strumento per la documentazione, la comunicazione all'interno della squadra e la progettazione; è bene quindi che ogni diagramma sia opportunamente rivisto.</para></listitem>
+        <listitem><para>software.</para></listitem>
+        <listitem><para>documentazione.</para></listitem>
         </itemizedlist>
+            </para>
         <para/>
     </section>
     <section>
         <title>Responsabili delle attività di garanzia della qualità</title>
-        Considerata l'esiguità del numero di persone in seno al progetto e considerata la molteplicità di ruoli che le stesse devono ricoprire, la responsabilità delle attività per la garanzia della qualità (e.g. collaudi o revisioni) è spalmata in maniera più o meno uniforme tra i membri della squadra; tuttavia rimane inteso che il responsabile finale della qualità dei prodotti è il QE.
+<para>        Considerata l'esiguità del numero di persone in seno al progetto e considerata la molteplicità di ruoli che le stesse devono ricoprire, la responsabilità delle attività per la garanzia della qualità (e.g. collaudi o revisioni) è spalmata in maniera più o meno uniforme tra i membri della squadra; tuttavia rimane inteso che il responsabile finale della qualità dei prodotti è il QE.</para>
     </section>
     <section>
         <title>Pratiche e strumenti a supporto della qualità</title>
@@ -50,8 +51,8 @@
         Per il presente progetto sono quindi pianificate due diversi tipi di revisioni: quelle informali, i cui esiti non saranno documentati, e una sorta di revisioni "formali".
         In particolare per le revisioni formali si stabilisce che:
         <itemizedlist>
-        <listitem>l'artefatto da revisionare sia revisionato da uno o più membri della squadra che non hanno partecipato alla sua realizzazione oppure dall'intera squadra;</listitem>
-        <listitem>l'esito della revisione sia documentato in poche righe e sia notificato ai produttori dell'artefatto.</listitem>
+        <listitem><para>l'artefatto da revisionare sia revisionato da uno o più membri della squadra che non hanno partecipato alla sua realizzazione oppure dall'intera squadra;</para></listitem>
+        <listitem><para>l'esito della revisione sia documentato in poche righe e sia notificato ai produttori dell'artefatto.</para></listitem>
         </itemizedlist>
         Le revisioni "formali" saranno comunque in numero ridotto e principalmente saranno fatte per abbattere i rischi più elevati derivanti dalla fase di progettazione.
         </para>
@@ -62,27 +63,27 @@
         <para>
         Lo standard ISO 9126 identifica in sei attributi la qualità nel capo del software:
         <itemizedlist>
-        <listitem>funzionalità;</listitem>
-        <listitem>affidabilità;</listitem>
-        <listitem>facilità d'uso;</listitem>
-        <listitem>efficienza;</listitem>
-        <listitem>facilità di manutenzione;</listitem>
-        <listitem>portabilità.</listitem>
+        <listitem><para>funzionalità;</para></listitem>
+        <listitem><para>affidabilità;</para></listitem>
+        <listitem><para>facilità d'uso;</para></listitem>
+        <listitem><para>efficienza;</para></listitem>
+        <listitem><para>facilità di manutenzione;</para></listitem>
+        <listitem><para>portabilità.</para></listitem>
         </itemizedlist>
         La qualità del software prodotto dovrà essere di volta in volta misurata rispetto a questi attributi.
         </para>
     </section>
     <section>
         <title>Metriche utilizzate</title>
-        TODO
+        <para>TODO</para>
         <para/>
     </section>
     
     <section>
         <title>Attività per la garanzia della qualità</title>
-        
+        <para>
         TODO: esplicitare quali sono le attività fatte durante tutte le fasi, integrare eventuali report di junit e metrics.
-        
+        </para>
         <section>
             <title>Fase di avvio</title>
             <section>
