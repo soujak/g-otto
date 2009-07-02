@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <projectDescription>
-	<name>BookshopBusinessCore</name>
+	<name>BookshopBusiness</name>
 	<comment></comment>
 	<projects>
 		<project>BookshopBusiness</project>
-		<project>BookshopInformationManager</project>
-		<project>BookshopBusinessCoreEJB</project>
-		<project>BookshopBusinessSingletonEJB</project>
-		<project>BookshopBusinessWSEJB</project>
+		<project>BookshopBusinessCore</project>
+		<project>BookshopBusinessUserManager</project>
+		<project>BookshopBusinessWS</project>
+		<project>BookshopBusinessPersistence</project>
 	</projects>
 	<buildSpec>
 		<buildCommand>
