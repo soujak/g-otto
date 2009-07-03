@@ -11,9 +11,21 @@
         <title/>
         <section xml:id="sect-clusterizzazione">
             <title>Clusterizzazione</title>
-            <para></para>
+        <figure xml:id="deployment_clusters">
+            <title><filename>WebContent</filename>: contenitore per pagine JSP e JSPF</title>
+            <mediaobject>
+                <imageobject role="fo">
+                    <imagedata
+                        fileref="DiagrammiModelloArchitetturaEClustering/deployment_clusters.svg"
+                        align="center" depth="550pt" format="SVG"/>
+                </imageobject>
+                <imageobject role="dblatex">
+                    <imagedata
+                        fileref="DiagrammiPresentation/deployment_clusters.pdf"
+                        align="center" depth="550pt" format="PDF"/>
+                </imageobject>
+            </mediaobject>
+        </figure>
         </section>
-        
-        
     </chapter>
 </book>
