@@ -274,6 +274,7 @@
                                     <title>Sequenza degli eventi</title>
                                     <para>
                                         <orderedlist>
+                                            <listitem><para>include(RicercaLibri)</para></listitem>
                                             <listitem>
                                                 <para>il cliente indica uno o pi&ugrave; libri
                                                   (eventualmente specificandone la
@@ -516,9 +517,6 @@
                                     <title>Sequenza degli eventi</title>
                                     <para>
                                         <orderedlist>
-                                            <listitem>
-                                                <para>include(RicercaLibri)</para>
-                                            </listitem>
                                             <listitem>
                                                 <para>include(SelezionaLibri)</para>
                                             </listitem>
