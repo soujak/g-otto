@@ -11,8 +11,11 @@
         <section xml:id="sect-implementazione">
             <title>Implementazione</title>
             <xi:include href="sect-business.xml" xpointer="sect-business"/>
+            <?very-hard-pagebreak?>
             <xi:include href="sect-informationmanager.xml" xpointer="sect-informationmanager"/>
+            <?very-hard-pagebreak?>
             <xi:include href="sect-presentation.xml" xpointer="sect-presentation"/>
+            <?very-hard-pagebreak?>
         </section>
     </chapter>
 </book>

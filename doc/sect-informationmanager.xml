@@ -9,11 +9,23 @@
     <chapter>
         <title/>
         <section xml:id="sect-informationmanager">
-            <title>Business</title>
-            <para/>
-            
-            
-            
+            <title>Information Manager</title>
+            <figure xml:id="persistence">
+                <title>
+                    <filename>g8.bookshop.persistence</filename>
+                </title>
+                <mediaobject>
+                    <imageobject role="fo">
+                        <imagedata fileref="DiagrammiBusiness/persistence.png" align="center"
+           format="PNG"/>
+                    </imageobject>
+                    <imageobject role="dblatex">
+                        <imagedata fileref="DiagrammiBusiness/persistence.pdf" align="center"
+                            depth="300pt" format="PDF"/>
+                    </imageobject>
+                </mediaobject>
+            </figure>
+
         </section>
     </chapter>
 </book>

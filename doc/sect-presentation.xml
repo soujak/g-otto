@@ -217,15 +217,15 @@
                 </section>
             <section>
                 <title>Flusso</title>
-                <figure xml:id="sequence-authentication">
+                <figure xml:id="sequence_presentation_auth">
                     <title>Diagramma di sequenza per il caso d'uso Autenticazione</title>
                     <mediaobject>
                         <imageobject role="fo">
-                            <imagedata fileref="DiagrammiPresentation/sequence-authentication.svg"
+                            <imagedata fileref="DiagrammiPresentation/sequence_presentation_auth.svg"
                                 align="center" depth="400pt" format="SVG"/>
                         </imageobject>
                         <imageobject role="dblatex">
-                            <imagedata fileref="DiagrammiPresentation/sequence-authentication.pdf"
+                            <imagedata fileref="DiagrammiPresentation/sequence_presentation_auth.pdf"
                                 align="center" depth="345pt" format="PDF"/>
                         </imageobject>
                     </mediaobject>
