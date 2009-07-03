@@ -338,7 +338,9 @@
                         <entry>
                             <itemizedlist>
                                 <listitem>
-                                    <para>costruzione delle pagine JSP mediante moduli JSPF</para>
+                                    <para>restiling delle pagine JSP mediante modifica dei moduli JSPF</para>
+                                </listitem>
+                                <listitem>
                                     <para>impostazione delle rimanenti servlet: Authenticate, Disconnect, View, Update, CheckOut</para>
                                 </listitem>
                             </itemizedlist>
@@ -352,7 +354,9 @@
                             <itemizedlist>
                                 <listitem>
                                     <para>completamento definizione dell'architettura della logica di presentazione</para>
-                                    <para>introduzione del POJO DataExchange utilizzato come tramite tra servlet e JSP</para>
+                                </listitem>
+                                <listitem>
+                                    <para>definizione POJO DataExchange utilizzato come tramite tra servlet e JSP</para>
                                 </listitem>
                             </itemizedlist>
                         </entry>
@@ -377,6 +381,8 @@
                             <itemizedlist>
                                 <listitem>
                                     <para>refactoring WSDL dei webservice e conseguente rigenerazione dei client lato Presentation</para>
+                                </listitem>
+                                <listitem>
                                     <para>utilizzo delle librerie Axis client</para>
                                 </listitem>
                             </itemizedlist>
@@ -402,7 +408,9 @@
                             <itemizedlist>
                                 <listitem>
                                     <para>bug fixing presentazione sui file formatter.xsl, DataExchange, XsltTranformer</para>
-                                    <para>introduzione Dispatcher delle richieste</para>
+                                </listitem>
+                                <listitem>
+                                    <para>realizzazione Dispatcher delle richieste</para>
                                 </listitem>
                             </itemizedlist>
                         </entry>
@@ -414,7 +422,7 @@
                         <entry>
                             <itemizedlist>
                                 <listitem>
-                                    <para>introduzione foglio di stile css, correzione formatter.xsl</para>
+                                    <para>modifica foglio di stile css, correzione formatter.xsl</para>
                                 </listitem>
                                 <listitem>
                                     <para>refactoring definitivo nomi e funzionalità dei componenti lato presentation</para>
