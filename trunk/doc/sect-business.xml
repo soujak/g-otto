@@ -10,25 +10,101 @@
         <title/>
         <section xml:id="sect-business">
             <title>Business</title>
-      
-            <figure xml:id="business_core">
-                <title><filename>g8.bookshop.business.core</filename></title>
+            <figure xml:id="business_package">
+                <title>
+                    <filename>g8.bookshop.business</filename>
+                </title>
                 <mediaobject>
                     <imageobject role="fo">
-                        <imagedata
-                            fileref="DiagrammiBusiness/business_core.svg"
-                            align="center" depth="500pt" format="SVG"/>
+                        <imagedata fileref="DiagrammiBusiness/business_package.svg" align="center"
+                            depth="250pt" format="SVG"/>
                     </imageobject>
                     <imageobject role="dblatex">
-                        <imagedata
-                            fileref="DiagrammiBusiness/business_core.pdf"
-                            align="center" depth="550pt" format="PDF"/>
+                        <imagedata fileref="DiagrammiBusiness/business_package.pdf" align="center"
+                            depth="250pt" format="PDF"/>
                     </imageobject>
                 </mediaobject>
             </figure>
-            
-            
-            
+            <figure xml:id="business_core">
+                <title>
+                    <filename>g8.bookshop.business.core</filename>
+                </title>
+                <mediaobject>
+                    <imageobject role="fo">
+                        <imagedata fileref="DiagrammiBusiness/business_core.svg" align="center"
+                            depth="500pt" format="SVG"/>
+                    </imageobject>
+                    <imageobject role="dblatex">
+                        <imagedata fileref="DiagrammiBusiness/business_core.pdf" align="center"
+                            depth="500pt" format="PDF"/>
+                    </imageobject>
+                </mediaobject>
+            </figure>
+            <figure xml:id="business_ws">
+                <title>
+                    <filename>g8.bookshop.business.ws</filename>
+                </title>
+                <mediaobject>
+                    <imageobject role="fo">
+                        <imagedata fileref="DiagrammiBusiness/business_ws.png" align="center"
+                            format="PNG"/>
+                    </imageobject>
+                    <imageobject role="dblatex">
+                        <imagedata fileref="DiagrammiBusiness/business_ws.pdf" align="center"
+                            depth="500pt" format="PDF"/>
+                    </imageobject>
+                </mediaobject>
+            </figure>     
+            <figure xml:id="business_util">
+                <title>
+                    <filename>g8.bookshop.business.util</filename>
+                </title>
+                <mediaobject>
+                    <imageobject role="fo">
+                        <imagedata fileref="DiagrammiBusiness/business_util.svg" align="center"
+                            depth="350pt" format="SVG"/>
+                    </imageobject>
+                    <imageobject role="dblatex">
+                        <imagedata fileref="DiagrammiBusiness/business_util.pdf" align="center"
+                            depth="350pt" format="PDF"/>
+                    </imageobject>
+                </mediaobject>
+            </figure>
+            <figure xml:id="business_um">
+                <title>
+                    <filename>g8.bookshop.business.um</filename>
+                </title>
+                <mediaobject>
+                    <imageobject role="fo">
+                        <imagedata fileref="DiagrammiBusiness/business_um.svg" align="center"
+                            depth="350pt" format="SVG"/>
+                    </imageobject>
+                    <imageobject role="dblatex">
+                        <imagedata fileref="DiagrammiBusiness/business_um.pdf" align="center"
+                            depth="350pt" format="PDF"/>
+                    </imageobject>
+                </mediaobject>
+            </figure>
+            <para/>
+            <para/>
+            <figure xml:id="sequence_business_auth">
+                <title>
+                    Diagramma di sequenza
+                </title>
+                <mediaobject>
+                    <imageobject role="fo">
+                        <imagedata fileref="DiagrammiBusiness/sequence_business_auth.svg" align="center"
+                        depth="450pt" format="SVG"/>
+<!--                        <imagedata fileref="DiagrammiBusiness/sequence_business_auth.png" align="center"
+                        format="PNG"/>-->
+                        </imageobject>
+                    <imageobject role="dblatex">
+                        <imagedata fileref="DiagrammiBusiness/sequence_business_auth.pdf" align="center"
+                            depth="350pt" format="PDF"/>
+                    </imageobject>
+                </mediaobject>
+            </figure>
+
         </section>
     </chapter>
 </book>
