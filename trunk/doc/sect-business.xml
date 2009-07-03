@@ -8,11 +8,12 @@
     xmlns:xlink="http://www.w3.org/1999/xlink" version="5.0">
     <chapter>
         <title/>
-        <section xml:id="sect-implementazione">
-            <title>Implementazione</title>
-            <xi:include href="sect-business.xml" xpointer="sect-business"/>
-            <xi:include href="sect-informationmanager.xml" xpointer="sect-informationmanager"/>
-            <xi:include href="sect-presentation.xml" xpointer="sect-presentation"/>
+        <section xml:id="sect-business">
+            <title>Business</title>
+            <para/>
+            
+            
+            
         </section>
     </chapter>
 </book>
