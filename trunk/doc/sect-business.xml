@@ -10,7 +10,22 @@
         <title/>
         <section xml:id="sect-business">
             <title>Business</title>
-            <para/>
+      
+            <figure xml:id="business_core">
+                <title><filename>g8.bookshop.business.core</filename></title>
+                <mediaobject>
+                    <imageobject role="fo">
+                        <imagedata
+                            fileref="DiagrammiBusiness/business_core.svg"
+                            align="center" depth="500pt" format="SVG"/>
+                    </imageobject>
+                    <imageobject role="dblatex">
+                        <imagedata
+                            fileref="DiagrammiBusiness/business_core.pdf"
+                            align="center" depth="550pt" format="PDF"/>
+                    </imageobject>
+                </mediaobject>
+            </figure>
             
             
             
