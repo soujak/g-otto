@@ -35,8 +35,8 @@
                 <tfoot>
                     <row>
                         <entry>Totale</entry>
-                        <entry>58 ore</entry>
-                        <entry>Fino al 8/6/2009</entry>
+                        <entry>119 ore</entry>
+                        <entry>Fino al 2/7/2009</entry>
                     </row>
                 </tfoot>
                 <tbody>
@@ -382,7 +382,7 @@
                     </row>
                     <row>
                         <entry>15/06/2009</entry>
-                        <entry>4</entry>
+                        <entry>8</entry>
                         <entry>
                             <itemizedlist>
                                 <listitem>
@@ -411,6 +411,91 @@
                             </itemizedlist>
                         </entry>
                     </row>
+                    <row>
+                        <entry>18/06/2009</entry>
+                        <entry>3</entry>
+                        <entry>
+                            <itemizedlist>
+                                <listitem>
+                                    <para>Refactoring relazione</para>
+                                </listitem>
+                                <listitem>
+                                    <para>Modifiche al foglio di stile.</para>
+                                </listitem>
+                            </itemizedlist>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry>24/06/2009</entry>
+                        <entry>5</entry>
+                        <entry>
+                            <itemizedlist>
+                                <listitem>
+                                    <para>Prove clusterizzazione e schieramento.</para>
+                                </listitem>
+                            </itemizedlist>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry>26/06/2009</entry>
+                        <entry>5</entry>
+                        <entry>
+                            <itemizedlist>
+                                <listitem>
+                                    <para>Prove clusterizzazione e schieramento.</para>
+                                </listitem>
+                                <listitem>
+                                    <para>Bugifx relazione.</para>
+                                </listitem>
+                            </itemizedlist>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry>29/06/2009</entry>
+                        <entry>6</entry>
+                        <entry>
+                            <itemizedlist>
+                                <listitem>
+                                    <para>Diagrammi UML: classi, package.</para>
+                                </listitem>
+                                <listitem>
+                                    <para>Prove sullo schieramento.</para>
+                                </listitem>
+                            </itemizedlist>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry>1/07/2009</entry>
+                        <entry>5</entry>
+                        <entry>
+                            <itemizedlist>
+                                <listitem>
+                                    <para>Diagrammi UML: classi, package.</para>
+                                </listitem>
+                                <listitem>
+                                    <para>Stesura parte presentation relazione.</para>
+                                </listitem>
+                            </itemizedlist>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry>2/07/2009</entry>
+                        <entry>4</entry>
+                        <entry>
+                            <itemizedlist>
+                                <listitem>
+                                    <para>Diagrammi UML: sequence parte presentation, deployment</para>
+                                </listitem>
+                                <listitem>
+                                    <para>Stesura parte presentation relazione.</para>
+                                </listitem>
+                                <listitem>
+                                    <para>Modifiche alla formattazione della relazione finale.</para>
+                                </listitem>
+                            </itemizedlist>
+                        </entry>
+                    </row>
+                    <!-- qui! -->
                 </tbody>
             </tgroup>
         </informaltable>
