@@ -12,10 +12,7 @@
                 <title>Presentation</title>
                 <para>La parte relativa alla presentazione &egrave; stata sviluppata in modo
                     indipendente dal lato business, per poter essere schierata su di un cluster
-                    separato. Il digramma in <xref linkend="presentation_packages_overview"/> illustra la
-                    divisione in package del progetto g8Presentation. In <xref
-                        linkend="presentation_connections"/> sono rappresentate le connessioni fondamentali
-                    tra le classi e i pacchetti del progetto.</para>
+                    separato. I diagrammi seguenti illustrano la struttura del progetto presentation, la divisione in package e classi, e le relazioni tra essi.</para>
                 <figure xml:id="presentation_packages_overview">
                     <title>Panoramica su package e cartelle</title>
                     <mediaobject>
@@ -107,7 +104,7 @@
                 </section>
                 <section>
                     <title>WebContent: pagine JSP</title>
-                    <para>La cartella WebContent contiene le JSP e i frammenti JSPF. In <xref linkend="presentation_webcontent"/> sono rappresentati i file contenuti. In <xref linkend="presentation_webcontent_relationships"/> si sintetizza come i frammenti JSPF sono richiamati nelle diverse pagine JSP.
+                    <para>La cartella WebContent contiene le JSP e i frammenti JSPF. In <xref linkend="presentation_webcontent"/> sono rappresentati i file contenuti. In <xref linkend="presentation_webcontent_relationships"/> si sintetizza come i frammenti JSPF sono inclusi nelle diverse pagine JSP.
                     </para>
                     <figure xml:id="presentation_webcontent">
                         <title><filename>WebContent</filename>: contenitore per pagine JSP e JSPF</title>
@@ -142,7 +139,7 @@
                 </section>
                 <section>
                     <title>Content: gestione, manipolazione e formattazione dei contenuti</title>
-                    <para>Il diagramma in <xref linkend="presentation_content"/> rappresenta il package delegato alla gestione dei contenuti, col le classi per la trasformazione xslt del'xml proveniente dal lato business, e la classe dedicata alla condivisione dei contenuti tra JSP e Servlet. Vengono poi illustrate in <xref linkend="presentation_connections"/> le relazioni tra i diversi package che compongono l'intero lato presenation.</para>
+                    <para>Il diagramma in <xref linkend="presentation_content"/> rappresenta il package delegato alla gestione dei contenuti, con le classi per la trasformazione xslt del xml proveniente dal lato business, e la classe dedicata alla condivisione dei contenuti tra JSP e Servlet. Vengono poi illustrate in <xref linkend="presentation_connections"/> le relazioni tra i diversi package che compongono l'intero lato presentation.</para>
                     <figure xml:id="presentation_content">
                         <title><filename>g8.bookshop.presentation.content</filename>: gestione dei
                             contenuti.</title>
@@ -162,7 +159,7 @@
                                 La classe <filename>XsltFormatter</filename> &egrave; la classe centrale del package. Essa utilizza un foglio di stile xslt per la trasformazione dell'xml ricevuto in xhtml pronto per la visualizzazione. Per farlo, carica il foglio di stile attraverso la classe <filename>StylesheetCache</filename> che a sua volta si avvale dei metodi forniti dalla classe <filename>FileLoader</filename>. <filename>StylesheetCache</filename> &egrave; una classe singleton che implementa una cache per i fogli di stile in modo da evitare di ricaricare pi&ugrave; volte lo stesso foglio di stile ad ogni invocazione del transformatore.</para> 
                         </caption>
                     </figure>
-                    <para>Il diagramma in <xref linkend="presentation_connections"/> rappresenta ile relazioni</para>
+                    <para>Il diagramma in <xref linkend="presentation_connections"/> rappresenta le relazioni</para>
                     <figure xml:id="presentation_connections">
                         <title><filename>g8.bookshop.presentation</filename>: relazioni tra classi e package del progetto g8Presentation</title>
                         <mediaobject>
@@ -177,7 +174,7 @@
                                     align="center" depth="345pt" format="PDF"/>
                             </imageobject>
                         </mediaobject>
-                        <caption><para>In questo diagramma &egrave; rappresentato l'intero lato business con le relazioni tra le sue classi e i suoi package. Praticamente l'intero lato presentation dipende dalle classi di ausilio <filename>Utils</filename> e <filename>Constants</filename>. Le diverse servlet sono indipententi tra loro, mentre utilizzano le classi del package <filename>business.ws</filename> per la connessione ai web service, le informazioni nella classe <filename>Constants</filename> per richiamare le JSP, e la classe <filename>DataExchange</filename> per los scambio di informazioni con le JSP.</para>
+                        <caption><para>In questo diagramma &egrave; rappresentato l'intero lato presentation con le relazioni tra le sue classi e i suoi package. Praticamente l'intero lato presentation dipende dalle classi di ausilio <filename>Utils</filename> e <filename>Constants</filename>. Le diverse servlet sono indipententi tra loro, mentre utilizzano le classi del package <filename>business.ws</filename> per la connessione ai web service, le informazioni nella classe <filename>Constants</filename> per richiamare le JSP, e la classe <filename>DataExchange</filename> per los scambio di informazioni con le JSP.</para>
                             <para>Quest'ultima classe, <filename>DataExchange</filename> &egrave; la sola ad utilizzare i metodi della classe <filename>XsltTransformer</filename>, la quale a sua volta &egrave; la sola ad utilizzare i metodi delle altre classi del suo package.</para></caption>
                     </figure>
                 </section>
