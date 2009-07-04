@@ -17,10 +17,10 @@
     La guida di riferimento (http://www.ambysoft.com/unifiedprocess/agileUP.html) del modello di processo scelto suggerisce già delle attività necessarie per assicurare la qualità. Quest'ultime sono state opportunamente declinate nel contesto del presente progetto. Il piano di qualità infatti è stato stilato tenendo bene in mente quelli che sono i suoi costi ed il loro rapporto rispetto ai benefici. Considerate, quindi, le ridotte dimensioni e l'abbordabile complessità del progetto si è deciso di optare per attività di garanzia della qualità il più possibile snelle, in linea con il modello di processo scelto, cercando di non gravare eccessivamente sui costi.
     </para>
     <para>
-    Nelle prossime sezioni si definiscono i manufatti soggetti al controllo di qualità, le pratiche e gli strumenti a supporto, le responsabilità e le metriche utilizzate. Infine l'ultima sezione contiene il piano delle attività da svolgere per ogni fase e i risultati più significativi dei collaudi.
+    Nelle prossime sezioni si definisce la portata del piano di qualità, le pratiche e gli strumenti a supporto, le responsabilità e le metriche utilizzate. Infine l'ultima sezione contiene il piano delle attività da svolgere per ogni fase e i risultati più significativi dei collaudi.
     </para>
     <section>
-        <title>Manufatti soggetti a controllo di qualità</title>
+        <title>Portata del piano di qualità</title>
         
         <para>
         "Il controllo della qualità è la serie di esami, revisioni e collaudi applicati lungo tutto il ciclo di sviluppo per garantire che ogni lavorato soddisfi i requisiti imposti". Pressman
@@ -29,10 +29,10 @@
         Com'è facile intuire gli artefatti creati lungo tutto il processo software sono molteplici;
         il sottostante elenco definisce la portata, in questi termini, del piano di qualità:
         <itemizedlist>
-        <listitem><para>piano di processo: considerata l'inesperienza dei membri della squadra il piano di processo deve essere continuamente monitorato ed eventualmente corretto. Le revisioni al piano di processo s'intendono informali ed effettuate periodicamente da PM e QE. Ad ogni variazione significativa non prevista è opportuno che vengano chiarite insieme alla squadra le cause al fine di acquisire esperienza e ridurre i margini di rischio nel futuro.</para></listitem>
-        <listitem><para>Specifiche dei requisiti: è importante che tra i membri della squadra vi sia una totale accordanza nella comprensione dei requisiti per assicurarsi di sviluppare il prodotto giusto.</para></listitem>
-        <listitem><para>Diagrammi UML: i diagrammi UML sono un fondamentale strumento per la documentazione, la comunicazione all'interno della squadra e la progettazione; è bene quindi che ogni diagramma sia opportunamente rivisto.</para></listitem>
-        <listitem><para>software.</para></listitem>
+        <listitem><para>piano di processo;</para></listitem>
+        <listitem><para>specifiche dei requisiti;</para></listitem>
+        <listitem><para>manufatti della progettazione;</para></listitem>
+        <listitem><para>software;</para></listitem>
         <listitem><para>documentazione.</para></listitem>
         </itemizedlist>
             </para>
@@ -43,7 +43,7 @@
 <para>        Considerata l'esiguità del numero di persone in seno al progetto e considerata la molteplicità di ruoli che le stesse devono ricoprire, la responsabilità delle attività per la garanzia della qualità (e.g. collaudi o revisioni) è spalmata in maniera più o meno uniforme tra i membri della squadra; tuttavia rimane inteso che il responsabile finale della qualità dei prodotti è il QE.</para>
     </section>
     <section>
-        <title>Pratiche e strumenti a supporto della qualità</title>
+        <title>Pratiche, standard e strumenti a supporto della qualità</title>
         
         <para>
         Le revisioni costituiscono lo strumento principale mediante il quale è possibile assicurare qualità. Esse costituiscono una sorta di filtro durante il processo di sviluppo e servono a scoprire errori e difetti di un qualsiasi artefatto. In letteratura si trovano due tipi di revisioni: quelle informali, condotte anche davanti ad una macchinetta del caffè tra i diretti interessati, e quelli formali, per le quali invece sono previste delle vere e proprie riunioni oltre che un dettagliato protocollo a cui attenersi.
@@ -82,13 +82,41 @@
     <section>
         <title>Attività per la garanzia della qualità</title>
         <para>
-        TODO: esplicitare quali sono le attività fatte durante tutte le fasi, integrare eventuali report di junit e metrics.
+        La garanzia di qualità si compone di diverse attività che attraversano tutto il processo software.
+        La presente sezione contiene, per ogni fase, il piano dettagliato delle attività previste.
         </para>
+        <section>
+          <title>Durante tutte le fasi</title>
+          <para>
+          Uno dei rischi maggiori connessi allo sviluppo del progetto è l'inesperienza dei membri
+          della squadra; pertanto si stabilisce che il piano di processo debba essere continuamente
+          monitorato, in maniera informale, durante tutte le fasi dello sviluppo. Eventuali divergenze significative
+          dovranno essere prese in considerazione e discusse all'interno della squadra al fine di
+          comprenderne le cause. Solo attraverso la comprensione di quest'ultime si
+          sarà in grado di mantenere un adeguato controllo sul processo.
+          </para>
+          <para>
+          La qualità della presente relazione dovrà anch'essa essere monitorata durante tutto il ciclo 
+          di sviluppo. La responsabilità dei controlli è affidata a tutti i membri della squadra.
+          La qualità della documentazione dovrà essere valutata in termini di completezza, chiarezza e 
+          correttezza. Si dovrà prestare attenzione anche alla qualità della formattazione dei
+          contenuti nonché dell'impaginazione.
+          I controlli, che manterranno un carattere informale, dovranno essere effettuati tramite opportune revisioni incrociate.
+          
+           
+          </para>
+      	</section>	
+        
         <section>
             <title>Fase di avvio</title>
             <section>
                 <title>Revisione delle specifiche dei requisiti</title>
                 <para> Revisori: squadra.</para>
+                
+                
+<!--                : è importante che tra i membri della squadra vi sia una totale accordanza nella comprensione dei requisiti per assicurarsi di sviluppare il prodotto giusto.-->
+                
+                
                 <para> Verifiche: completezza delle specifiche dei requisiti rispetto al documento
                     dei requisiti, chiarezza, coerenza, tracciabilità, precisione, assenza di
                     ambiguità nella comprensione tra i membri della squadra, convergenza
@@ -146,23 +174,23 @@
                 <para> Verifiche: complessità, coesione, completezza rispetto al problema,
                     compatibilità con le specifiche dei requisiti, dimensioni, chiarezza, compatibilità rispetto al piano di schieramento, calcolo dell'indice di qualità strutturale DSQI. </para>
                 <para> Esito: il modello architetturale raffina coerentemente il modello elaborato e rivisto in fase di avvio. E' pienamente compatibile con le specifiche dei requisiti e mantiene dimensioni più che accettabili. La strutturazione a tre livelli tipica delle applicazioni enterprise conferisce al progetto un adeguato accoppiamento tra i moduli così come una buona coesione. Si rileva la compatibilità del modello rispetto al piano di schieramento.
-                Di seguito si propone il calcolo dell'indice di qualità strutturale DSQI:
-                
-                s1 Numero totale di moduli.
-                s2 Numero di moduli che producono output, o il cui funzionamento dipende dalla fonte
-                   dei dati in ingresso
-                s3 Numero di moduli il cui funzionamento dipende da elaborazioni precedenti.
-                s4 Numero totale di elementi (intesi come attributi) nella basi di dati.
-                s5 Numero di elementi distinti nella basi di dati.
-                s6 Numero di segmenti della basi di dati.
-                s7 Numero di moduli con un solo punti di ingresso ed un solo punto di uscita.
-                
-                D1 = 1
-                D2 = 1 − (s2/s1)
-                D3 = 1 − (s3/s1)
-                D4 = 1 − (s5/s4)
-                D5 = 1 − (s6/s4)
-                D6 = 1 − (s7/s1)
+<!--                Di seguito si propone il calcolo dell'indice di qualità strutturale DSQI:-->
+<!--                -->
+<!--                s1 Numero totale di moduli.-->
+<!--                s2 Numero di moduli che producono output, o il cui funzionamento dipende dalla fonte-->
+<!--                   dei dati in ingresso-->
+<!--                s3 Numero di moduli il cui funzionamento dipende da elaborazioni precedenti.-->
+<!--                s4 Numero totale di elementi (intesi come attributi) nella basi di dati.-->
+<!--                s5 Numero di elementi distinti nella basi di dati.-->
+<!--                s6 Numero di segmenti della basi di dati.-->
+<!--                s7 Numero di moduli con un solo punti di ingresso ed un solo punto di uscita.-->
+<!--                -->
+<!--                D1 = 1-->
+<!--                D2 = 1 − (s2/s1)-->
+<!--                D3 = 1 − (s3/s1)-->
+<!--                D4 = 1 − (s5/s4)-->
+<!--                D5 = 1 − (s6/s4)-->
+<!--                D6 = 1 − (s7/s1)-->
                 </para>
             </section>
             <section>
