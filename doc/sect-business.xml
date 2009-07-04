@@ -62,7 +62,7 @@
         				Questo fatto ha comportato alcune complicazioni alla progettazione del livello business dal momento che è richiesto 
         				il mantenimento di alcune informazioni di stato, come ad esempio il carrello. Nella fattispecie si è resa necessaria
         				la realizzazione di un servizio singleton, il cui stato fosse sia condiviso tra i diversi client, sia preservato
-        				tra le diverse richieste. Nel prosieguo il lettore troverà spiegazioni più dettagliate per ciascun pacchetto.
+        				tra le diverse richieste. Nel prosieguo il lettore troverà spiegazioni più dettagliate.
         				
         			</para>
         			<figure xml:id="business_package">
