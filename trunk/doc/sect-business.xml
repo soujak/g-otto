@@ -1,200 +1,225 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?oxygen RNGSchema="http://www.oasis-open.org/docbook/xml/5.0/rng/docbookxi.rng" type="xml"?>
-<!DOCTYPE book [
+<!DOCTYPE book PUBLIC "-//OASIS//DTD DocBook V5.0/EN"
+				"http://www.docbook.org/xml/5.0/dtd/docbook.dtd" [
 <!ENTITY % myent SYSTEM "entities.ent">
 %myent;
 ]>
-<book xml:lang="it" xmlns="http://docbook.org/ns/docbook" xmlns:xi="http://www.w3.org/2001/XInclude"
-    xmlns:xlink="http://www.w3.org/1999/xlink" version="5.0">
+<book
+	xml:lang="it"
+	xmlns="http://docbook.org/ns/docbook"
+	xmlns:xi="http://www.w3.org/2001/XInclude"
+    xmlns:xlink="http://www.w3.org/1999/xlink"
+    version="5.0">
     <chapter>
         <title/>
         <section xml:id="sect-business">
             <title>Business</title>
             <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
-            <para>Paragrafo introduttivo</para>
         	<section>
-        		<title>Panoramica delle scelte progettuali</title>
+        		<title>Introduzione alle scelte progettuali</title>
         		<para>
-        			<!-- TODO  -->
-        			coesione
-						 attenzione a cosa deve stare nel business e cosa no, il carrello e` business
+        			coesione: attenzione a cosa deve stare nel business e cosa no, il carrello e` business
         		</para>
         		<para>
-					<!-- TODO  -->
-					disaccoppiamento
-							  il business e` fortemente indipendente dalla presentazione (XML), oltre che dal livello informativo
+					disaccoppiamento: il business e` fortemente indipendente dalla presentazione (XML), oltre che dal livello informativo
         		</para>
         		<para>
-        			<!-- TODO -->
-        			alta disponibilita` 
-					  	  i componenti dell'applicazione sono quanto piu` replicati fra i nodi del cluster
-					  	  (clustered 'n cached)
-					  	  => prestazioni
-					  	  => tolleranza ai guasti
+        			alta disponibilita`: i componenti dell'applicazione sono quanto piu` replicati fra i nodi del cluster (clustered 'n cached)
+        			=> prestazioni e tolleranza ai guasti
         		</para>
         	</section>
+   	        <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
         	<section>
-        		<title>Scelte implementative</title>
+       			<title>Scelte architetturali</title>       			
+        			<para>
+        				panoramica generale sui package
+        			</para>
+        			<figure xml:id="business_package">
+		                <title>
+		                    <filename>g8.bookshop.business</filename>
+		                </title>
+		                <mediaobject>
+		                    <imageobject role="fo">
+		                        <imagedata fileref="DiagrammiBusiness/business_package.svg" align="center"
+		                            depth="250pt" format="SVG"/>
+		                    </imageobject>
+		                    <imageobject role="dblatex">
+		                        <imagedata fileref="DiagrammiBusiness/business_package.pdf" align="center"
+		                            depth="250pt" format="PDF"/>
+		                    </imageobject>
+		                </mediaobject>
+		            </figure>
+        			<para>
+        				panoramica dettagliata sul package ws: responsabilita`
+        			</para>
+					<figure xml:id="business_ws">
+		                <title>
+		                    <filename>g8.bookshop.business.ws</filename>
+		                </title>
+		                <mediaobject>
+		                    <imageobject role="fo">
+		                        <imagedata fileref="DiagrammiBusiness/business_ws.svg" align="center"
+		                            format="SVG"/>
+		<!--                        <imagedata fileref="DiagrammiBusiness/business_ws.png" align="center"
+		                            format="PNG"/>-->
+		                    </imageobject>
+		                    <imageobject role="dblatex">
+		                        <imagedata fileref="DiagrammiBusiness/business_ws.pdf" align="center"
+		                            depth="500pt" format="PDF"/>
+		                    </imageobject>
+		                </mediaobject>
+		            </figure>
+        			<para>
+						panoramica dettagliata sul package um: responsabilita`
+					</para>
+					<figure xml:id="business_um">
+		                <title>
+		                    <filename>g8.bookshop.business.um</filename>
+		                </title>
+		                <mediaobject>
+		                    <imageobject role="fo">
+		                        <imagedata fileref="DiagrammiBusiness/business_um.svg" align="center"
+		                            depth="350pt" format="SVG"/>
+		                    </imageobject>
+		                    <imageobject role="dblatex">
+		                        <imagedata fileref="DiagrammiBusiness/business_um.pdf" align="center"
+		                            depth="350pt" format="PDF"/>
+		                    </imageobject>
+		                </mediaobject>
+		            </figure>
+					<para>
+						panoramica dettagliata sul package core: responsabilita`
+					</para>
+					<figure xml:id="business_core">
+		                <title>
+		                    <filename>g8.bookshop.business.core</filename>
+		                </title>
+		                <mediaobject>
+		                    <imageobject role="fo">
+		                        <imagedata fileref="DiagrammiBusiness/business_core.svg" align="center"
+		                            depth="500pt" format="SVG"/>
+		                    </imageobject>
+		                    <imageobject role="dblatex">
+		                        <imagedata fileref="DiagrammiBusiness/business_core.pdf" align="center"
+		                            depth="500pt" format="PDF"/>
+		                    </imageobject>
+		                </mediaobject>
+		            </figure>
+					<para>
+						panoramica dettagliata sul package persistence: responsabilita`
+					</para>
+					<figure xml:id="business_persistence">
+		                <title>
+		                    <filename>g8.bookshop.business.persistence</filename>
+		                </title>
+		                <mediaobject>
+		                    <imageobject role="fo">
+		                        <!--                        <imagedata fileref="DiagrammiBusiness/persistence.png" align="center"
+		                            format="PNG"/>-->
+		                        <imagedata fileref="DiagrammiBusiness/business_persistence.svg" align="center"
+		                            depth="300pt" format="SVG"/>
+		                    </imageobject>
+		                    <imageobject role="dblatex">
+		                        <imagedata fileref="DiagrammiBusiness/business_persistence.pdf" align="center"
+		                            depth="300pt" format="PDF"/>
+		                    </imageobject>
+		                </mediaobject>
+		            </figure>
+		            <para>
+		            	panoramica dettagliata sul package util: responsabilita`
+        			</para>
+					<figure xml:id="business_util">
+		                <title>
+		                    <filename>g8.bookshop.business.util</filename>
+		                </title>
+		                <mediaobject>
+		                    <imageobject role="fo">
+		                        <imagedata fileref="DiagrammiBusiness/business_util.svg" align="center"
+		                            depth="350pt" format="SVG"/>
+		                    </imageobject>
+		                    <imageobject role="dblatex">
+		                        <imagedata fileref="DiagrammiBusiness/business_util.pdf" align="center"
+		                            depth="350pt" format="PDF"/>
+		                    </imageobject>
+		                </mediaobject>
+		            </figure>
+		            
+        			<para>
+        				dipendenze fra package
+        				diagramma "package con relazioni dettagliate"
+       				</para>
+					<figure xml:id="business_package_relations">
+		                <title>
+		                    <filename>g8.bookshop.business</filename>
+		                </title>
+		                <mediaobject>
+		                    <imageobject role="fo">
+		                        <imagedata fileref="DiagrammiBusiness/business_package_relations.svg" align="center"
+		                            depth="300pt" format="SVG"/>
+		                    </imageobject>
+		                    <imageobject role="dblatex">
+		                        <imagedata fileref="DiagrammiBusiness/business_package_relations.pdf" align="center"
+		                            depth="300pt" format="PDF"/>
+		                    </imageobject>
+		                </mediaobject>
+		            </figure>
+       			</section>
+        	<section>
+        		<title>Scelte di schieramento</title>
         		<section>
         			<title>Servizio singleton ad alta disponibilita`</title>
         			<para>
-	        			<!-- TODO -->
   						il business necessita di informazioni che siano application-wide e non session-wide
+					</para>
+   					<para>
   						servizio ha-singleton realizzato grazie a Jboss e HASingletonController (gestione failover rapido)
+ 					</para>
+   					<para>
   						logica nel diagramma sequenza authenticate
+	<!--        		xml:id="sequence_business_auth"-->
         			</para>
+  		            <figure xml:id="sequence_business_auth">
+		                <title> Diagramma di sequenza </title>
+		                <mediaobject>
+		                    <imageobject role="fo">
+		                        <imagedata fileref="DiagrammiBusiness/sequence_business_auth.svg"
+		                            align="center" depth="450pt" format="SVG"/>
+		                    </imageobject>
+		                    <imageobject role="dblatex">
+		                        <imagedata fileref="DiagrammiBusiness/sequence_business_auth.pdf"
+		                            align="center" depth="350pt" format="PDF"/>
+		                    </imageobject>
+		                </mediaobject>
+		            </figure>
         		</section>
-        		<!-- new by SoujaK -->
         		<section>
-        			<title>Alta replicazione</title>
-        			<para>
-	        			<!-- TODO -->
-						entity bean: replicate grazie alla cache di secondo livello offerta da hibernate
-						stateful session bean: replicate grazie alla funzionalita` clustered di JBossCache
-											   bilanciamento di carico offerto da 
-        			</para>
+       				<title>Alta replicazione</title>
+       				<para>
+						entity bean: replicate grazie alla cache di secondo livello offerta da hibernate con politica ad alte prestazioni (sola lettura)
+					</para>
+  					<para>
+						session bean: bilanciamento di carico in fase di risoluzione nomi HAJNDI
+					</para>
+   					<para>
+						stateful session bean: distribuite grazie alla funzionalita` clustered di JBossCache
+       				</para>
         		</section>
-        		<section>
-        			<title>Design patterns</title>
-        			<para>
-	        			<!-- TODO -->
-	        			adapter allo user manager affiche` sia utilizzabile tramite un'interfaccia conveniente
-	        			locator incapsula la ricerca delle bean per fattorizzare la funzionalita`, in modo da centralizzare le ricerche delle EJB
-        			</para>
-        		
-        			<para>
-        				<!-- TODO 
-						  	-->
-        			</para>
-        		</section>
-        	</section>
+       		</section>
+       		<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+   			<section>
+    			<title>Scelte progettuali minori</title>
+    			<para>
+    				design pattern utilizzati
+    			</para>
+   				<para>
+    				adapter allo user manager affiche` sia utilizzabile tramite un'interfaccia conveniente
+   				</para>
+   				<para>
+    				locator incapsula la ricerca delle bean per fattorizzare la funzionalita`, in modo da centralizzare le ricerche delle EJB
+   				</para>
+   			</section>
         	<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
-            <figure xml:id="business_package">
-                <title>
-                    <filename>g8.bookshop.business</filename>
-                </title>
-                <mediaobject>
-                    <imageobject role="fo">
-                        <imagedata fileref="DiagrammiBusiness/business_package.svg" align="center"
-                            depth="250pt" format="SVG"/>
-                    </imageobject>
-                    <imageobject role="dblatex">
-                        <imagedata fileref="DiagrammiBusiness/business_package.pdf" align="center"
-                            depth="250pt" format="PDF"/>
-                    </imageobject>
-                </mediaobject>
-            </figure>
-            <figure xml:id="business_package_relations">
-                <title>
-                    <filename>g8.bookshop.business</filename>
-                </title>
-                <mediaobject>
-                    <imageobject role="fo">
-                        <imagedata fileref="DiagrammiBusiness/business_package_relations.svg" align="center"
-                            depth="300pt" format="SVG"/>
-                    </imageobject>
-                    <imageobject role="dblatex">
-                        <imagedata fileref="DiagrammiBusiness/business_package_relations.pdf" align="center"
-                            depth="300pt" format="PDF"/>
-                    </imageobject>
-                </mediaobject>
-            </figure>
-            <figure xml:id="business_core">
-                <title>
-                    <filename>g8.bookshop.business.core</filename>
-                </title>
-                <mediaobject>
-                    <imageobject role="fo">
-                        <imagedata fileref="DiagrammiBusiness/business_core.svg" align="center"
-                            depth="500pt" format="SVG"/>
-                    </imageobject>
-                    <imageobject role="dblatex">
-                        <imagedata fileref="DiagrammiBusiness/business_core.pdf" align="center"
-                            depth="500pt" format="PDF"/>
-                    </imageobject>
-                </mediaobject>
-            </figure>
-            <figure xml:id="business_ws">
-                <title>
-                    <filename>g8.bookshop.business.ws</filename>
-                </title>
-                <mediaobject>
-                    <imageobject role="fo">
-                        <imagedata fileref="DiagrammiBusiness/business_ws.svg" align="center"
-                            format="SVG"/>
-<!--                        <imagedata fileref="DiagrammiBusiness/business_ws.png" align="center"
-                            format="PNG"/>-->
-                    </imageobject>
-                    <imageobject role="dblatex">
-                        <imagedata fileref="DiagrammiBusiness/business_ws.pdf" align="center"
-                            depth="500pt" format="PDF"/>
-                    </imageobject>
-                </mediaobject>
-            </figure>
-            <figure xml:id="business_util">
-                <title>
-                    <filename>g8.bookshop.business.util</filename>
-                </title>
-                <mediaobject>
-                    <imageobject role="fo">
-                        <imagedata fileref="DiagrammiBusiness/business_util.svg" align="center"
-                            depth="350pt" format="SVG"/>
-                    </imageobject>
-                    <imageobject role="dblatex">
-                        <imagedata fileref="DiagrammiBusiness/business_util.pdf" align="center"
-                            depth="350pt" format="PDF"/>
-                    </imageobject>
-                </mediaobject>
-            </figure>
-            <figure xml:id="business_um">
-                <title>
-                    <filename>g8.bookshop.business.um</filename>
-                </title>
-                <mediaobject>
-                    <imageobject role="fo">
-                        <imagedata fileref="DiagrammiBusiness/business_um.svg" align="center"
-                            depth="350pt" format="SVG"/>
-                    </imageobject>
-                    <imageobject role="dblatex">
-                        <imagedata fileref="DiagrammiBusiness/business_um.pdf" align="center"
-                            depth="350pt" format="PDF"/>
-                    </imageobject>
-                </mediaobject>
-            </figure>
-            <para/>
-            <para/>
-            <figure xml:id="sequence_business_auth">
-                <title> Diagramma di sequenza </title>
-                <mediaobject>
-                    <imageobject role="fo">
-                        <imagedata fileref="DiagrammiBusiness/sequence_business_auth.svg"
-                            align="center" depth="450pt" format="SVG"/>
-                    </imageobject>
-                    <imageobject role="dblatex">
-                        <imagedata fileref="DiagrammiBusiness/sequence_business_auth.pdf"
-                            align="center" depth="350pt" format="PDF"/>
-                    </imageobject>
-                </mediaobject>
-            </figure>
-
-            <figure xml:id="persistence">
-                <title>
-                    <filename>g8.bookshop.persistence</filename>
-                </title>
-                <mediaobject>
-                    <imageobject role="fo">
-                        <!--                        <imagedata fileref="DiagrammiBusiness/persistence.png" align="center"
-                            format="PNG"/>-->
-                        <imagedata fileref="DiagrammiBusiness/persistence.svg" align="center"
-                            depth="300pt" format="SVG"/>
-                    </imageobject>
-                    <imageobject role="dblatex">
-                        <imagedata fileref="DiagrammiBusiness/persistence.pdf" align="center"
-                            depth="300pt" format="PDF"/>
-                    </imageobject>
-                </mediaobject>
-            </figure>
-
         </section>
     </chapter>
 </book>
