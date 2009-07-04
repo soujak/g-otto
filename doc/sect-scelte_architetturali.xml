@@ -9,10 +9,10 @@
     xmlns:xlink="http://www.w3.org/1999/xlink" version="5.0">
     <chapter>
         <title/>
-        <section xml:id="sect-clusterizzazione">
-            <title>Clusterizzazione</title>
+        <section xml:id="sect-scelte_architetturali">
+            <title>Scelte architetturali</title>
         <figure xml:id="deployment_clusters">
-            <title><filename>WebContent</filename>: contenitore per pagine JSP e JSPF</title>
+            <title>Deployment diagram</title>
             <mediaobject>
                 <imageobject role="fo">
                     <imagedata

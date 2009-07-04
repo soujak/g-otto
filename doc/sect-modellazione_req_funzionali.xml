@@ -4,21 +4,26 @@
 <!DOCTYPE book [
 <!ENTITY % myent SYSTEM "entities.ent">
 %myent;
-<!ENTITY uc "Caso d'uso: ">
 ]>
 <book xml:lang="it" xmlns="http://docbook.org/ns/docbook" xmlns:xi="http://www.w3.org/2001/XInclude"
     xmlns:xlink="http://www.w3.org/1999/xlink" version="5.0">
     <chapter>
-        <!-- 1. Ricerca nel catalogo
-2. Acquisto di uno a piu' libri
-3. Selezione di uno o piu' libri 
-4. Autenticazione dell'utente
--->
         <title/>
-        <section xml:id="sect-diagrammi-attivita">
-            <title>Diagrammi delle attivit&agrave;</title>
-            <para/>
-            <para/>
+        <section xml:id="sect-modellazione_req_funzionali">
+            <title>Modellazione requisiti funzionali</title>
+            <figure>
+                <title>Diagramma dei casi d'uso.</title>
+                <mediaobject>
+                    <imageobject role="fo">
+                        <imagedata fileref="DiagrammiModelloCasiUso/DiagrammaCasiUso.svg"
+                            align="center" scalefit="1" depth="245pt" format="SVG"/>
+                    </imageobject>
+                    <imageobject role="dblatex">
+                        <imagedata fileref="DiagrammiModelloCasiUso/DiagrammaCasiUso.pdf"
+                            align="center" scalefit="1" depth="245pt" format="PDF"/>
+                    </imageobject>
+                </mediaobject>
+            </figure>
             <figure>
                 <title>Diagramma dell'attivit&agrave; complessiva.</title>
                 <mediaobject>
@@ -28,7 +33,8 @@
                             align="center" scalefit="1" depth="160pt" format="SVG"/>
                     </imageobject>
                     <imageobject role="dblatex">
-                        <imagedata fileref="DiagrammiModellazioneBusiness/DiagrammaAttivitaGenerale.pdf"
+                        <imagedata
+                            fileref="DiagrammiModellazioneBusiness/DiagrammaAttivitaGenerale.pdf"
                             align="center" scalefit="1" depth="245pt" format="PDF"/>
                     </imageobject>
                 </mediaobject>
@@ -44,7 +50,8 @@
                             align="center" scalefit="1" depth="160pt" format="SVG"/>
                     </imageobject>
                     <imageobject role="dblatex">
-                        <imagedata fileref="DiagrammiModellazioneBusiness/DiagrammaAttivitaAcquisto.pdf"
+                        <imagedata
+                            fileref="DiagrammiModellazioneBusiness/DiagrammaAttivitaAcquisto.pdf"
                             align="center" scalefit="1" depth="245pt" format="PDF"/>
                     </imageobject>
                 </mediaobject>
@@ -60,13 +67,12 @@
                             align="center" scalefit="1" depth="160pt" format="SVG"/>
                     </imageobject>
                     <imageobject role="dblatex">
-                        <imagedata fileref="DiagrammiModellazioneBusiness/DiagrammaAttivitaCassa.pdf"
+                        <imagedata
+                            fileref="DiagrammiModellazioneBusiness/DiagrammaAttivitaCassa.pdf"
                             align="center" scalefit="1" depth="245pt" format="PDF"/>
                     </imageobject>
                 </mediaobject>
             </figure>
         </section>
-
-
     </chapter>
 </book>
