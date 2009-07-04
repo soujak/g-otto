@@ -19,21 +19,51 @@
         	<section>
         		<title>Introduzione alle scelte progettuali</title>
         		<para>
-        			coesione: attenzione a cosa deve stare nel business e cosa no, il carrello e` business
+        			Come già chiarito nelle precedenti sezioni, la progettazione dell'intera applicazione è stata fortemente 
+        			guidata dalla strutturazione a 4 livelli che le stesse specifiche <productname> Java EE </productname> suggeriscono.
+        			E' stato quindi naturale identificare l'area di ingerenza del livello business nel dominio di lavoro dell'applicazione di
+        			negozio virtuale di libri, delegando così ad altri livelli il compito di presentare i contenuti. Tuttavia
+        			quella che sembrebbe una decisione scontata non è in realtà così diffusa: per ragioni d'opportunità
+        			si assiste, nella pratica comune, ad un accoppiamento eccessivo tra i due livelli. Infatti, in applicazioni simili, la
+        			gestione del carrello degli acquisti è spesso ad appannaggio esclusivo del livello web quando invece sarebbe
+        			chiara competenza del livello business. 
+        			Questa accurata distinzione delle responsabilità ha permesso di ottenere due risultati progettuali molto significativi:
+        			<orderedlist>
+        			<listitem> alta coesione all'interno degli stessi livelli; </listitem>
+        			<listitem> basso accoppiamento tra i livelli. </listitem>
+        			</orderedlist>
+        			La scelta di definire un formato XML per i messaggi di scambio tra la presentazione e il business li ha resi ancor 
+        			più indipendenti.
         		</para>
         		<para>
-					disaccoppiamento: il business e` fortemente indipendente dalla presentazione (XML), oltre che dal livello informativo
-        		</para>
-        		<para>
-        			alta disponibilita`: i componenti dell'applicazione sono quanto piu` replicati fra i nodi del cluster (clustered 'n cached)
-        			=> prestazioni e tolleranza ai guasti
+        			Un'attenzione particolare durante la progettazione è stata posta anche per quanto riguarda gli aspetti connessi
+        			alle prestazioni e alle tolleranze ai guasti. <productname> JBOSS AS 5.1.GA </productname> offre in questo senso importantissimi 
+        			ausili tecnologici che hanno permesso di ottenere componenti ad altà disponibilità, quanto più replicati fra i nodi del cluster.
         		</para>
         	</section>
    	        <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
         	<section>
        			<title>Scelte architetturali</title>       			
         			<para>
-        				panoramica generale sui package
+        				Il livello business è stato progettato secondo i criteri di modularità che fino ad ora hanno contraddistinto
+        				l'applicazione. In <xref linkend="business_package" /> è possibile osservare il diagramma complessivo dei pacchetti
+        				costituenti questo livello. L'elenco sottostante chiarisce le responsabilità per ciascun pacchetto:
+        				<itemizedlist>
+        				<listitem><para><filename>g8.bookshop.business.ws</filename>: espone tramite web service stateless i servizi
+        				offerti dal livello business;</para></listitem>
+        				<listitem><para><filename>g8.bookshop.business.um</filename>: gestisce gli utenti e ne mantiene lo stato nel negozio virtuale;</para></listitem>
+        				<listitem><para><filename>g8.bookshop.business.core</filename>: definisce le entità, in senso lato, del business congiuntamente alle operazioni che le coinvolgono;</para></listitem>
+        				<listitem><para><filename>g8.bookshop.business.persistence</filename>: costituisce il punto di accesso verso il livello informativo (contiene tutte le entity bean);</para></listitem>
+        				<listitem><para><filename>g8.bookshop.business.util</filename>: offre alcune funzioni di utilità per tutto il livello business.</para></listitem>
+        				</itemizedlist>
+        				Prima di addentrarsi completamente nei dettagli implementativi è opportuno chiarire alcuni aspetti chiave al fine
+        				di apprezzare al meglio la soluzione proposta.
+        				Allo stato attuale dell'arte, le uniche session bean esponibili tramite web service sono le bean stateless.
+        				Questo fatto ha comportato alcune complicazioni alla progettazione del livello business dal momento che è richiesto 
+        				il mantenimento di alcune informazioni di stato, come ad esempio il carrello. Nella fattispecie si è resa necessaria
+        				la realizzazione di un servizio singleton, il cui stato fosse sia condiviso tra i diversi client, sia preservato
+        				tra le diverse richieste. Nel prosieguo il lettore troverà spiegazioni più dettagliate per ciascun pacchetto.
+        				
         			</para>
         			<figure xml:id="business_package">
 		                <title>
@@ -51,7 +81,13 @@
 		                </mediaobject>
 		            </figure>
         			<para>
-        				panoramica dettagliata sul package ws: responsabilita`
+        				Il pacchetto <filename>g8.bookshop.business.ws</filename> è composto
+        				da tre bean stateless, tutte esposte come web service:
+        				<itemizedlist>
+        				<listitem><para><filename>CatalogueService.java</filename>: espone i metodi per l'accesso al catalogo dei libri;</para></listitem>
+        				<listitem><para><filename>ShoppingCartService.java</filename>: espone i metodi per la gestione del carrello del cliente;</para></listitem>
+        				<listitem><para><filename>UserManagerService.java</filename>: espone i metodi per la autenticazione e la disconnessione dell'utente.</para></listitem>
+        				</itemizedlist>  
         			</para>
 					<figure xml:id="business_ws">
 		                <title>
@@ -71,7 +107,19 @@
 		                </mediaobject>
 		            </figure>
         			<para>
-						panoramica dettagliata sul package um: responsabilita`
+        				Il pacchetto <filename>g8.bookshop.business.um</filename> contiene la classe 
+        				<filename>UserManager.java</filename> che 
+        				implementa il servizio singleton per la gestione degli utenti e del loro stato.
+        				In particolare tramite una <filename>HashMap</filename> mantiene gli utenti che sono al momento
+        				presenti nel negozio virtuale. L'<filename>HashMap</filename>
+        				in questione associa a ciascun identificativo di sessione un utente. Come si vedrà
+        				nel seguito, il carrello è mantenuto all'interno della bean che rappresenta il cliente.
+        				Infine il gestore degli utenti è anche il responsabile dell'autenticazione e della disconnessione
+        				dei clienti.
+       				</para>
+       				<para>
+        				La bean <filename>UserManagerAdaptor.java</filename>, invece, fornisce metodi convenienti
+        				per accedere ai servizi offerti dal gestore degli utenti.
 					</para>
 					<figure xml:id="business_um">
 		                <title>
@@ -89,7 +137,15 @@
 		                </mediaobject>
 		            </figure>
 					<para>
-						panoramica dettagliata sul package core: responsabilita`
+						Il pacchetto <filename>g8.bookshop.business.core</filename> contiene tutte le bean che rappresentano
+						le entità del business che non hanno necessità di essere persistenti ma che comunque devono
+						mantenere uno stato.
+						In particolare si è codificato tramite le bean <filename>Guest</filename> e <filename>Customer</filename>
+						le due diverse tipologie di clienti che possono accedere al negozio virtuale di libri, cioè il visitatore occasionale
+						e il cliente (per il quale è prevista l'autenticazione). Chiaramente solo il cliente possiede il carrello (<filename>ShoppingCart</filename>)
+						che è costituito da un insieme di ordini (<filename>Order</filename>), cioè una coppia libro, quantità.
+					</para>
+					<para>
 					</para>
 					<figure xml:id="business_core">
 		                <title>
@@ -107,7 +163,7 @@
 		                </mediaobject>
 		            </figure>
 					<para>
-						panoramica dettagliata sul package persistence: responsabilita`
+					 Il package <filename>g8.bookshop.business.persistence</filename> contiene le entità EJB 3.0 
 					</para>
 					<figure xml:id="business_persistence">
 		                <title>
@@ -127,7 +183,7 @@
 		                </mediaobject>
 		            </figure>
 		            <para>
-		            	panoramica dettagliata sul package util: responsabilita`
+		            	<filename>g8.bookshop.business.util</filename>
         			</para>
 					<figure xml:id="business_util">
 		                <title>
