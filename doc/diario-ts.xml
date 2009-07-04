@@ -512,6 +512,23 @@
                             </itemizedlist>
                         </entry>
                     </row>
+                    <row>
+                        <entry>4/07/2009</entry>
+                        <entry>3</entry>
+                        <entry>
+                            <itemizedlist>
+                                <listitem>
+                                    <para>Diagrammi UML: correzioni e disegno.</para>
+                                </listitem>
+                                <listitem>
+                                    <para>Correzioni/modifiche/stesura relazione</para>
+                                </listitem>
+                                <listitem>
+                                    <para>Testing</para>
+                                </listitem>
+                            </itemizedlist>
+                        </entry>
+                    </row>
                     <!-- qui! -->
                 </tbody>
             </tgroup>

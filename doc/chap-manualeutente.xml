@@ -10,7 +10,70 @@
     <title>Manuale utente</title>
     <!-- Empty PARA for SPACING -->
     <section>
-        <title>Titolo</title>
-        <para/>
+        <title>Panoramica</title>
+        <para> G8Bookshop &egrave; un negozio di libri online di semplice utilizzo. Le
+            funzionalit&agrave; di base che offre sono: <itemizedlist>
+                <listitem>
+                    <para>ricerca di libri</para>
+                </listitem>
+                <listitem>
+                    <para>selezione di libri e inserimento in un carrello personale</para>
+                </listitem>
+                <listitem>
+                    <para>modifica del contenuto del carrello</para>
+                </listitem>
+            </itemizedlist> In altre parole G8Bookshop permette di: <itemizedlist>
+                <listitem>
+                    <para>cercare libri</para>
+                </listitem>
+                <listitem>
+                    <para>selezionare libri che desiderate acquistare e ricordarli mentre effettuate
+                        altre ricerche</para>
+                </listitem>
+                <listitem>
+                    <para>modificare i libri selezionati per l'acquisto rimuovendoli o modificando
+                        il numero di copie desiderato</para>
+                </listitem>
+                <listitem>
+                    <para>effettuare diverse ricerche e selezionare libri in momenti diversi</para>
+                </listitem>
+                <listitem>
+                    <para>acquistare i vostri libri!</para>
+                </listitem>
+            </itemizedlist>
+        </para>
+    </section>
+<section>
+    <title>Visitatori e clienti</title>
+    <para>
+        L'acquisto di libri &egrave; possibile solo ad utenti in possesso di uno username e una password che abbiano effettuato la procedura detta "autenticazione", ovvero che abbiano inserito il loro username e password nei campi appositi e siano stati riconosciuti dal sistema: questi utenti vengono detti <emphasis>clienti</emphasis>. Se non possedete una coppia username e password, o non l'avete fornita al sistema, siete invece utenti <emphasis>visitatori</emphasis>. 
+        Non &egrave; possibile allo stato attuale effettuare registrazioni presso G8Bookshop, data la natura sperimentale del sistema. 
+        Arrivando sulla pagina principale di G8Bookshop avrete di fronte due scelte possibili: 
+        <itemizedlist>
+            <listitem><para>effettuare ricerche mediante il form di ricerca centrale</para></listitem>
+            <listitem><para>autenticarvi selezionando "Authenticate"</para></listitem>
+        </itemizedlist>
+        Come visitatori, potete ricercare liberamente libri all'interno del nostro catalogo, tuttavia non vi sar&agrave; possibile selezionarli tantomeno acquistarli. Se possedere i requisiti richiesti (una valida coppia username/password) potete effettuare la procedura di autenticazione: il sistema vi riconoscer&agrave; come clienti e potrete effettuare selezioni e acquisti.
+        Potete effettuare tutte le ricerche che desiderate e autenticarvi in un secondo momento: la vostra ultima ricerca vi attender&agrave; dopo l'autenticazione. Tuttavia, fino a che non vi sarete autenticati non vi sar&agrave; possibile selezionare libri. Se possedete uno username e una password proseguite la lettura alla sezione successiva per scoprire come acquistare libri.
+    </para>
+    <para>
+        Dopo aver effettuato la procedura di autenticazione, potrete effettuare in ogni momento la procedura opposta, la disconnessione, semplicemente selezionando "Disconnect". Ritornerete ad essere un semplice visitatore, e potrete effettuare ricerche senza selezionare libri, o autenticarvi con una diversa coppia username/password. Potete disconnettervi in qualunque momento: durante una ricerca, una modifica di carrello o una selezione. Non dimenticate di disconnettervi al termine della vostra navigazione su G8Bookshop!
+    </para>
+      </section>
+    <section>
+        <title>Il carrello</title>
+<para>Avete effettuato la procedura di autenticazione? Da questo momento in poi vi &egrave; possibile selezionare libri che desiderate acquistare. Il sistema vi fornisce, appena autenticati, un <emphasis>carrello</emphasis> virtuale nel quale metter&agrave; i libri da voi selezionati. Potete visionarne in ogni momento il contenuto selezionando "View Cart". Appena autenticati il carrello vi apparit&agrave; vuoto: sarete voi a riempirlo selezionando libri.</para>
+<para>    
+    Ora che siete dei <emphasis>clienti</emphasis> potete notare che i risultati della vostra ricerca vi appaiono in modo diverso: vi &egrave; per ognuno di essi un riquadro: se siete interessati a libri che risultano dalla vostra ricerca selezionate il riquadro associato e poi selezionate "Select", che troverete in fondo alla lista dei risultati. I libri scelti si troveranno nel vostro carrello: potete vederli selezionando "View Cart". Una volta visualizzato il contenuto del vostro carrello potete modificarlo: cancellate libri che non desiderare impostando la loro quantit&agrave; a zero, e modificate la quantit&agrave; dei libri che volete in pi&ugrave; copie; al termine delle modifiche sul vostro carrello non dimenticate di selezionare "Update", o le modifiche non verranno effettuate. Dopo l'aggiornamento vi verr&agrave; mostrato il vostro nuovo carrello con le modifiche richieste.
+    Potete procedere all'acquisto selezionando "Checkout", o selezionare "Continue to Search" se desiderate cercare altri libri: in questo caso i libri gi&agrave; inseriti nel carrello vi rimarranno, e i libri inseriti durante le nuove ricerche verranno aggiunti ai libri gi&agrave; presenti. Potete fare ricerche e selezionare libri, visualizzare il carrello e modificarne il contenuto, quante volte lo desiderate: i vostri libri verranno aggiunti al carrello man mano, fino a che non deciderete di procedere alla procedura definitiva di acquisto.
+</para>
+        </section>
+        <section>
+            <title>Acquisto</title>
+<para>
+Potete acquistare il contenuto del vostro carrello semplicemente visualizzandolo e selezionando "Checkout". Se desiderate modificare il numero delle vostre copie un'ultima volta, potete farlo tranquillamente e poi selezionare direttamente "Checkout". G8Bookshop aggiorner&agrave; il carrello con le vostre ultime modifiche prima di procedere all'acquisto. Fate attenzione: solo i libri presenti nel carrello, col numero di copie ivi specificato, verranno acquistati. Non &egrave; possibile acquistare libri non presenti nel carrello, n&acute; &egrave; possibile non acquistare un libro che ci trova nel vostro carrello. Selezionate ogni libro che desiderate acquistare e controllate che il numero di copie per libro che risulta nel vostro carrello sia quello desiderato, e accertatevi che il vostro carrello non contenga libri che non volete acquistare, prima di procedere al "Checkout".</para>
+            <para>
+                Dopo l'acquisto il contenuto del vostro carrello vi sar&agrave; mostrato nuovamente, cos&igrave; potrete revisionare i libri comprati. Potete ignorarlo e proseguire con le ricerche per riempire di nuovo il carrello oppure disconnettervi e abbandonare G8Presentation.
+            </para>
     </section>
 </chapter>
