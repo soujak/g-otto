@@ -29,8 +29,8 @@
         			chiara competenza del livello business. 
         			Questa accurata distinzione delle responsabilità ha permesso di ottenere due risultati progettuali molto significativi:
         			<orderedlist>
-        			<listitem> alta coesione all'interno degli stessi livelli; </listitem>
-        			<listitem> basso accoppiamento tra i livelli. </listitem>
+        			<listitem> <para>alta coesione all'interno degli stessi livelli;</para> </listitem>
+        			<listitem> <para>basso accoppiamento tra i livelli.</para> </listitem>
         			</orderedlist>
         			La scelta di definire un formato XML per i messaggi di scambio tra la presentazione e il business li ha resi ancor 
         			più indipendenti.
