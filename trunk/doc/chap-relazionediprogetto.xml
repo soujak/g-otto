@@ -11,27 +11,13 @@
         <title>Relazione di progetto</title>
         <!-- Empty PARA for SPACING -->
         
-        <section xml:id="sect-introduzione">
-            <title>Introduzione</title>
-            <figure>
-                <title>Diagramma dei casi d'uso.</title>
-                <mediaobject>
-                    <imageobject role="fo">
-                        <imagedata fileref="DiagrammiModelloCasiUso/DiagrammaCasiUso.svg"
-                            align="center" scalefit="1" depth="245pt" format="SVG"/>
-                    </imageobject>
-                    <imageobject role="dblatex">
-                        <imagedata fileref="DiagrammiModelloCasiUso/DiagrammaCasiUso.pdf"
-                            align="center" scalefit="1" depth="245pt" format="PDF"/>
-                    </imageobject>
-                </mediaobject>
-            </figure>
-            <xi:include href="sect-attivita.xml" xpointer="sect-diagrammi-attivita"/>
-        </section>
-        
-        <xi:include href="sect-architettura.xml" xpointer="sect-architettura"/>
-        <xi:include href="sect-implementazione.xml" xpointer="sect-implementazione"/>
-        <xi:include href="sect-clusterizzazione.xml" xpointer="sect-clusterizzazione"/>
+        <xi:include href="sect-modellazione_req_funzionali.xml" xpointer="sect-modellazione_req_funzionali"/>
+        <?very-hard-pagebreak?> 
+        <xi:include href="sect-scelte_architetturali.xml" xpointer="sect-scelte_architetturali"/>
+        <?very-hard-pagebreak?>
+        <xi:include href="sect-presentation.xml" xpointer="sect-presentation"/>
+        <?very-hard-pagebreak?>
+        <xi:include href="sect-business.xml" xpointer="sect-business"/>
 
     </chapter>
 </book>
