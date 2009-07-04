@@ -11,6 +11,17 @@
         <title/>
         <section xml:id="sect-scelte_architetturali">
             <title>Scelte architetturali</title>
+            <para>J2EE offre la possibilità di realizzare applicazioni web basate su un modello architetturale
+a 4 livelli, ovvero Client tier, Web tier, Business tier e Information tier. Tale caratteristica stimola
+in particolar modo a progettare i componenti software che costituiscono l'applicazione in maniera fortemente modulare, forzando
+così la flessibilità e propendendo naturalmente ad una logica di riutilizzo dei componenti software.</para>
+            <para>Tipicamente però, è comune pratica accorpare i due livelli centrali del modello in un unico tier. In questo modo si ottiene
+un forte accoppiamento tra il livello web e quello business e non si sfrutta pienamente il paradigma proposto dalla tecnologia in questione.</para>
+            <para>Quindi, considerando anche che le specifiche del progetto impongono l'utilizzo di Web Service, e quindi di uno standard, per realizzare la comunicazione tra il livello business e quello web, abbiamo ritenuto ragionevole adottare strettamente il modello architetturale J2EE, e quindi separare in maniera netta la logica di presentazione da quella business.</para>
+            <para>Infatti una peculiarità del nostro modello è appunto la "traduzione" da Web tier a Presentation tier. Tale distinzione ci consente di stabilire in maniera ottimale le responsabilità di ogni componente e quindi di non sconfinare con processi business nella logica di presentazione, mantenendo così il livello di accoppiamento tra i due tier molto basso. Questa scelta è stata fatta anche in base all'assunzione che, in un ottica di possibili sviluppi futuri, gioca un importante ruolo la flessibilità, sia in caso di cambiamenti sostanziali all'interfaccia utente che al core dell'applicazione.</para>
+            <para>Per quanto riguarda lo schieramento, è stata una scelta quasi obbligata separare presentazione e business in due differenti cluster.
+Questo per l'evidente e ricercata distinzione logica tra i componenti e per necessità riguardanti le differenti metodologie di replicazione adottate per i dati di sessione. Entrambi cluster infatti sono stateful.</para>
+            <para>Infine, per quanto riguarda il bilanciamento di carico, entrambi i cluster vengono gestiti da un unico server. In caso di collo di bottiglia, la replicazione di quest'ultimo con le opportune configurazione non rappresenteranno assolutamente un ostacolo.</para>
         <figure xml:id="deployment_clusters">
             <title>Deployment diagram</title>
             <mediaobject>
