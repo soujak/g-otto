@@ -26,7 +26,7 @@
         immagini o trasformatori XSLT. -->
     </para>
     <section xml:id="sect-managing">
-        <title>Managing</title>
+        <title>Strumenti per la gestione del progetto</title>
         <variablelist xml:id="googlegroups">
             <title>Google Groups</title>
             <varlistentry>
@@ -69,45 +69,7 @@
                 </listitem>
             </varlistentry>
         </variablelist>
-        <variablelist xml:id="googlecalendar">
-            <title>Google Calendar</title>
-            <varlistentry>
-                <term>Riferimento</term>
-                <listitem>
-                    <para>
-                        <link xmlns:ns1="http://www.w3.org/1999/xlink"
-                            ns1:href="http://www.calendar.google.com/"
-                            >http://www.calendar.google.com/</link>
-                    </para>
-                </listitem>
-            </varlistentry>
-            <varlistentry>
-                <term>Licenza</term>
-                <listitem>
-                    <para>L'utilizzo dell'applicazione &egrave; possibile, e gratuito, per
-                        chiunque possegga un account Google. Le condizioni di utilizzo e la policy
-                        sulla privacy sono specifiche di Google e descritte in documenti visionabili
-                        online.</para>
-                </listitem>
-            </varlistentry>
-            <varlistentry>
-                <term>Descrizione</term>
-                <listitem>
-                    <para>Applicazione Web di tipo calendario di Google.</para>
-                </listitem>
-            </varlistentry>
-            <varlistentry>
-                <term>Motivazioni della scelta</term>
-                <listitem>
-                    <para>Dal momento che tutti i membri del gruppo possedevano gi&agrave; un
-                        account Google, necessario per l'utilizzo del servizio, Google Calendar ci
-                        si &egrave; subito presentata come una semplice soluzione per la
-                        gestione degli incontri del gruppo, delle scadenze e di quant'altro sia
-                        comodo visualizzare su un calendario.</para>
-                </listitem>
-            </varlistentry>
-        </variablelist>
-        <variablelist xml:id="googlecode">
+               <variablelist xml:id="googlecode">
             <title>Google code</title>
             <varlistentry>
                 <term>Riferimento</term>
@@ -184,7 +146,7 @@
             <varlistentry>
                 <term>Motivazioni della scelta</term>
                 <listitem>
-                    <para>Subclipse &egrave; la soluzione standard, nonch&eacute; unica, per
+                    <para>Subclipse &egrave; la soluzione standard per
                         gestire un repository Subversion internamente a
                             <application>Eclipse</application>. Abbiamo tutti concordato che avere
                         SVN integrato nella nostra IDE di preferenza fosse molot comodo: questa
@@ -496,7 +458,7 @@
         </variablelist>
     </section>
     <section xml:id="sect-pianoprocesso">
-        <title>Strumenti per stesura del piano di processo</title>
+        <title>Strumenti per la gestione del processo</title>
         <variablelist xml:id="taskjuggler">
             <title>TaskJuggler 2.4.1</title>
             <varlistentry>
@@ -530,9 +492,47 @@
                 </listitem>
             </varlistentry>
         </variablelist>
+        <variablelist xml:id="googlecalendar">
+            <title>Google Calendar</title>
+            <varlistentry>
+                <term>Riferimento</term>
+                <listitem>
+                    <para>
+                        <link xmlns:ns1="http://www.w3.org/1999/xlink"
+                            ns1:href="http://www.calendar.google.com/"
+                            >http://www.calendar.google.com/</link>
+                    </para>
+                </listitem>
+            </varlistentry>
+            <varlistentry>
+                <term>Licenza</term>
+                <listitem>
+                    <para>L'utilizzo dell'applicazione &egrave; possibile, e gratuito, per
+                        chiunque possegga un account Google. Le condizioni di utilizzo e la policy
+                        sulla privacy sono specifiche di Google e descritte in documenti visionabili
+                        online.</para>
+                </listitem>
+            </varlistentry>
+            <varlistentry>
+                <term>Descrizione</term>
+                <listitem>
+                    <para>Applicazione Web di tipo calendario di Google.</para>
+                </listitem>
+            </varlistentry>
+            <varlistentry>
+                <term>Motivazioni della scelta</term>
+                <listitem>
+                    <para>Dal momento che tutti i membri del gruppo possedevano gi&agrave; un
+                        account Google, necessario per l'utilizzo del servizio, Google Calendar ci
+                        si &egrave; subito presentata come una semplice soluzione per la
+                        gestione degli incontri del gruppo, delle scadenze e di quant'altro sia
+                        comodo visualizzare su un calendario.</para>
+                </listitem>
+            </varlistentry>
+        </variablelist>
     </section>
     <section xml:id="sect-test">
-        <title>Strumenti per il piano di processo</title>
+        <title>Strumenti per il collaudo e la qualit&agrave;</title>
         <variablelist xml:id="junit4">
             <title>JUnit</title>
             <varlistentry>
@@ -562,6 +562,39 @@
                 <term>Motivazioni della scelta</term>
                 <listitem>
                     <para>Abbiamo scelto di utilizzare JUnit in quanto &egrave; comunemente considerata  una delle migliori librerie Java mai sviluppate. L'utilizzo di questo framework forza la definizione di specifici risultati attesi nell'esecuzione di un dato programma, permettendo un controllo preciso della correttezza e dell'attinenza di quanto sviluppato ai requisiti delineati: questo approccio di testing gi&agrave; canonizzato ci &egrave; sembrato una scelta migliore rispetto all'abituale testing generico e non strutturato.
+                    </para>
+                </listitem>
+            </varlistentry>
+        </variablelist>
+        <variablelist xml:id="eclipsemetrics">
+            <title>Metrics 1.3.6</title>
+            <varlistentry>
+                <term>Riferimento</term>
+                <listitem>
+                    <para>
+                        <link xmlns:ns1="http://www.w3.org/1999/xlink"
+                            ns1:href="http://metrics.sourceforge.net/"
+                            >http://metrics.sourceforge.net/</link>
+                    </para>
+                </listitem>
+            </varlistentry>
+            <varlistentry>
+                <term>Licenza</term>
+                <listitem>
+                    <para>Eclipse Public Licence</para>
+                </listitem>
+            </varlistentry>
+            <varlistentry>
+                <term>Descrizione</term>
+                <listitem>
+                    <para>Metrics &egrave; un plugin per Eclipse che permette di calcolare metriche e analizzare dipenze. Permette di individuare cicli all'interno di pacchetti e dipendenze di tipo, e visualizzarli graficamente. Possono essere calcolate diverse metriche con deviazioni medie e standard.
+                    </para>
+                </listitem>
+            </varlistentry>
+            <varlistentry>
+                <term>Motivazioni della scelta</term>
+                <listitem>
+                    <para>Non sono moltissimi gli strumenti gratuiti per il calcolo delle metriche: Metrics &egrave; un plugin per Eclipse quindi &egrave; stato semplice trovarlo, e si &egrave; rivelato semplice anche utilizzarlo. Metrics &egrave; altamente personalizzabile: i valori per le metriche, e anche parte della sua interfaccia, lo sono. Il suo essere integrato in Eclipse ci ha aiutato a svolgere le diverse operazioni tutte internamente al framework. I risultati dei calcoli effettuati da Metrics possono inoltre essere esportati in xml, permettendo una loro facile trasformazione in altri formati (pdf, xhtml).
                     </para>
                 </listitem>
             </varlistentry>

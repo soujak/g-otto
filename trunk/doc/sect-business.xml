@@ -25,6 +25,21 @@
                     </imageobject>
                 </mediaobject>
             </figure>
+            <figure xml:id="business_package_relations">
+                <title>
+                    <filename>g8.bookshop.business</filename>
+                </title>
+                <mediaobject>
+                    <imageobject role="fo">
+                        <imagedata fileref="DiagrammiBusiness/business_package_relations.svg" align="center"
+                            depth="300pt" format="SVG"/>
+                    </imageobject>
+                    <imageobject role="dblatex">
+                        <imagedata fileref="DiagrammiBusiness/business_package_relations.pdf" align="center"
+                            depth="300pt" format="PDF"/>
+                    </imageobject>
+                </mediaobject>
+            </figure>
             <figure xml:id="business_core">
                 <title>
                     <filename>g8.bookshop.business.core</filename>
@@ -46,15 +61,17 @@
                 </title>
                 <mediaobject>
                     <imageobject role="fo">
-                        <imagedata fileref="DiagrammiBusiness/business_ws.png" align="center"
-                            format="PNG"/>
+                        <imagedata fileref="DiagrammiBusiness/business_ws.svg" align="center"
+                            format="SVG"/>
+<!--                        <imagedata fileref="DiagrammiBusiness/business_ws.png" align="center"
+                            format="PNG"/>-->
                     </imageobject>
                     <imageobject role="dblatex">
                         <imagedata fileref="DiagrammiBusiness/business_ws.pdf" align="center"
                             depth="500pt" format="PDF"/>
                     </imageobject>
                 </mediaobject>
-            </figure>     
+            </figure>
             <figure xml:id="business_util">
                 <title>
                     <filename>g8.bookshop.business.util</filename>
@@ -88,19 +105,33 @@
             <para/>
             <para/>
             <figure xml:id="sequence_business_auth">
+                <title> Diagramma di sequenza </title>
+                <mediaobject>
+                    <imageobject role="fo">
+                        <imagedata fileref="DiagrammiBusiness/sequence_business_auth.svg"
+                            align="center" depth="450pt" format="SVG"/>
+                    </imageobject>
+                    <imageobject role="dblatex">
+                        <imagedata fileref="DiagrammiBusiness/sequence_business_auth.pdf"
+                            align="center" depth="350pt" format="PDF"/>
+                    </imageobject>
+                </mediaobject>
+            </figure>
+
+            <figure xml:id="persistence">
                 <title>
-                    Diagramma di sequenza
+                    <filename>g8.bookshop.persistence</filename>
                 </title>
                 <mediaobject>
                     <imageobject role="fo">
-                        <imagedata fileref="DiagrammiBusiness/sequence_business_auth.svg" align="center"
-                        depth="450pt" format="SVG"/>
-<!--                        <imagedata fileref="DiagrammiBusiness/sequence_business_auth.png" align="center"
-                        format="PNG"/>-->
-                        </imageobject>
+                        <!--                        <imagedata fileref="DiagrammiBusiness/persistence.png" align="center"
+                            format="PNG"/>-->
+                        <imagedata fileref="DiagrammiBusiness/persistence.svg" align="center"
+                            depth="300pt" format="SVG"/>
+                    </imageobject>
                     <imageobject role="dblatex">
-                        <imagedata fileref="DiagrammiBusiness/sequence_business_auth.pdf" align="center"
-                            depth="350pt" format="PDF"/>
+                        <imagedata fileref="DiagrammiBusiness/persistence.pdf" align="center"
+                            depth="300pt" format="PDF"/>
                     </imageobject>
                 </mediaobject>
             </figure>

@@ -35,8 +35,8 @@
                 <tfoot>
                     <row>
                         <entry>Totale</entry>
-                        <entry>119 ore</entry>
-                        <entry>Fino al 2/7/2009</entry>
+                        <entry>127 ore</entry>
+                        <entry>Fino al 3/7/2009</entry>
                     </row>
                 </tfoot>
                 <tbody>
@@ -491,6 +491,23 @@
                                 </listitem>
                                 <listitem>
                                     <para>Modifiche alla formattazione della relazione finale.</para>
+                                </listitem>
+                            </itemizedlist>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry>3/07/2009</entry>
+                        <entry>8</entry>
+                        <entry>
+                            <itemizedlist>
+                                <listitem>
+                                    <para>Diagrammi UML: correzioni e disegno.</para>
+                                </listitem>
+                                <listitem>
+                                    <para>Correzioni/modifiche capitolo sugli strumenti.</para>
+                                </listitem>
+                                <listitem>
+                                    <para>Correzioni e refactoring sulla relazione.</para>
                                 </listitem>
                             </itemizedlist>
                         </entry>
