@@ -10,6 +10,65 @@
         <title/>
         <section xml:id="sect-business">
             <title>Business</title>
+            <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+            <para>Paragrafo introduttivo</para>
+        	<section>
+        		<title>Panoramica delle scelte progettuali</title>
+        		<para>
+        			<!-- TODO  -->
+        			coesione
+						 attenzione a cosa deve stare nel business e cosa no, il carrello e` business
+        		</para>
+        		<para>
+					<!-- TODO  -->
+					disaccoppiamento
+							  il business e` fortemente indipendente dalla presentazione (XML), oltre che dal livello informativo
+        		</para>
+        		<para>
+        			<!-- TODO -->
+        			alta disponibilita` 
+					  	  i componenti dell'applicazione sono quanto piu` replicati fra i nodi del cluster
+					  	  (clustered 'n cached)
+					  	  => prestazioni
+					  	  => tolleranza ai guasti
+        		</para>
+        	</section>
+        	<section>
+        		<title>Scelte implementative</title>
+        		<section>
+        			<title>Servizio singleton ad alta disponibilita`</title>
+        			<para>
+	        			<!-- TODO -->
+  						il business necessita di informazioni che siano application-wide e non session-wide
+  						servizio ha-singleton realizzato grazie a Jboss e HASingletonController (gestione failover rapido)
+  						logica nel diagramma sequenza authenticate
+        			</para>
+        		</section>
+        		<!-- new by SoujaK -->
+        		<section>
+        			<title>Alta replicazione</title>
+        			<para>
+	        			<!-- TODO -->
+						entity bean: replicate grazie alla cache di secondo livello offerta da hibernate
+						stateful session bean: replicate grazie alla funzionalita` clustered di JBossCache
+											   bilanciamento di carico offerto da 
+        			</para>
+        		</section>
+        		<section>
+        			<title>Design patterns</title>
+        			<para>
+	        			<!-- TODO -->
+	        			adapter allo user manager affiche` sia utilizzabile tramite un'interfaccia conveniente
+	        			locator incapsula la ricerca delle bean per fattorizzare la funzionalita`, in modo da centralizzare le ricerche delle EJB
+        			</para>
+        		
+        			<para>
+        				<!-- TODO 
+						  	-->
+        			</para>
+        		</section>
+        	</section>
+        	<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
             <figure xml:id="business_package">
                 <title>
                     <filename>g8.bookshop.business</filename>
