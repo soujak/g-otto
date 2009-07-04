@@ -10,10 +10,23 @@
         <title/>
         <section xml:id="sect-presentation">
                 <title>Presentation</title>
-                <para>La parte relativa alla presentazione &egrave; stata sviluppata in modo
-                    indipendente dal lato business, per poter essere schierata su di un cluster
-                    separato. I diagrammi seguenti illustrano la struttura del progetto presentation, la divisione in package e classi, e le relazioni tra essi.</para>
-                <figure xml:id="presentation_packages_overview">
+                <section>
+                    <title>Scelte progettuali</title>
+                    
+                    <para>
+                        La logica di presentazione &egrave; stata implementata, in puro stile J2EE, utilizzando sia servlet che JSP, in modo da dividere quanto pi&ugrave; possibile la parte puramente presentazionale, ovvero il codice xhtml, dalla . Si &egrave; mantenuto il codice
+</para>
+                    <para>caching mediante httpsession</para>
+                    
+                    <para>replicazione http</para>
+                    
+                  
+            </section>
+            
+               <section>
+                   <title>Scelte implementative</title>
+                   <para>In questa sezione verr&agrave; illustrata la struttura del lato presentation del progetto Bookshop. Il diagramma in <xref linkend="presentation_packages_overview"/> descrive la struttura complessiva del progetto, roganizzato in package. I diversi package verranno esposti pi&ugrave; in dettaglio nelle sezioni che seguiranno.</para>
+                   <figure xml:id="presentation_packages_overview">
                     <title>Panoramica su package e cartelle</title>
                     <mediaobject>
                         <imageobject role="fo">
@@ -46,7 +59,6 @@
                         </para>
                     </caption>
                 </figure>
-                <para>I diversi package appena citati verranno esposti pi&ugrave; in dettaglio nelle quattro sezioni che seguono.</para>
                 <section>
                     <title>Servlet</title>
                     <figure xml:id="presentation_servlet">
@@ -227,7 +239,7 @@
                         </imageobject>
                     </mediaobject>
                 </figure>
-            </section>
+            </section></section>
             </section>
     </chapter>
 </book>
