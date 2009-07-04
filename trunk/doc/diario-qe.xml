@@ -30,8 +30,8 @@
                 <tfoot>
                     <row>
                         <entry>Totale </entry>
-                        <entry>142.83 </entry>
-                        <entry>Aggiornato al </entry>
+                        <entry>195.33 </entry>
+                        <entry>Aggiornato al 3/7/2009</entry>
                     </row>
                 </tfoot>
                 <tbody>
@@ -269,13 +269,53 @@
                         <entry>Collaudi e aggiornamento del piano di qualità.</entry>
                     </row>
                     
-                    <!-- mancano le due settimane, vedi soujak -->
                     
+                    <row>
+						<entry>15/06/2009</entry>
+						<entry>9</entry>
+						<entry>Clusterizzazione del business: collaudi (con PM).</entry>
+					</row>
+					<row>
+						<entry>16/06/2009</entry>
+						<entry>9.5</entry>
+						<entry>Clusterizzazione del business: collaudi (con PM).</entry>
+					</row>
+					<row>
+						<entry>17/06/2009</entry>
+						<entry>10.5</entry>
+						<entry>Clusterizzazione del business: collaudi (con PM).</entry>
+					</row>
+					<row>
+						<entry>18/06/2009</entry>
+						<entry>9</entry>
+						<entry>Clusterizzazione del business: collaudi (con PM).</entry>
+					</row>
+					<row>
+						<entry>19/06/2009</entry>
+						<entry>1</entry>
+						<entry>Incontro con lo stakeholder Prof.ssa Giorgia Lodi.</entry>
+					</row>
+					<row>
+						<entry>19/06/2009</entry>
+						<entry>4</entry>
+						<entry>Clusterizzazione del business: collaudi (con PM).</entry>
+					</row>
                     <row>
                         <entry>20/6/09</entry>
                         <entry>3</entry>
                         <entry>Implementazione: prove di schieramento e debug.</entry>
                     </row>
+                    <row>
+						<entry>22/06/2009</entry>
+						<entry>2</entry>
+						<entry>Clusterizzazione del business: collaudi (con PM).</entry>
+					</row>
+					<row>
+						<entry>23/06/2009</entry>
+						<entry>7.5</entry>
+						<entry>Clusterizzazione del business: collaudi (con PM).</entry>
+					</row>
+					<!-- forse mancano due giorni di lavoro qua. -->
                     
                     <row>
                         <entry>27/6/09</entry>
