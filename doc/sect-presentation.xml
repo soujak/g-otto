@@ -97,7 +97,7 @@
                             <imageobject role="dblatex">
                                 <imagedata
                                     fileref="DiagrammiPresentation/presentation_servlet_to_jsp.pdf"
-                                    align="center" depth="345pt" format="PDF"/>
+                                    align="center" depth="360pt" format="PDF"/>
                             </imageobject>
                         </mediaobject>
                     </figure>
