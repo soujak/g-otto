@@ -233,6 +233,7 @@ In relazione a quanto accennato nella sezione precedente riguardo alla netta sep
                 </section>
             <section>
                 <title>Flusso</title>
+                <para>Si riporta in questa sezione un sequence diagram non esaustivo per quanto riguarda la logica del lato presentation, ma utile per la comprensione di alcuni suoi funzionamenti fondamentali. Il caso d'uso rappresentato &egrave; l'autenticazione, lo stesso che si &egrave; rappresentato relativamente al lato business: in questo modo speriamo di dare una visione complessiva sul sistema. In questo caso d'uso non viene effettuata la trasformazione xslt operata internamente al POJO <filename>DataExchange</filename>, ma non ci &egrave; parsa un'operazione abbastanza significativa da necessitare ad ogni costo di essere rappresentata.</para>
                 <figure xml:id="sequence_presentation_auth">
                     <title>Diagramma di sequenza per il caso d'uso Autenticazione</title>
                     <mediaobject>
@@ -246,6 +247,13 @@ In relazione a quanto accennato nella sezione precedente riguardo alla netta sep
                         </imageobject>
                     </mediaobject>
                 </figure>
+                <para>
+                    Il caso d'uso viene innescato quando l'utente, trovandosi sulla pagina guest_search.jsp, notifica la sua volont&agrave; di autenticarsi selezionando un link apposito. Viene di conseguenza caricata la pagina auth.jsp, nel quale si trova il form di autenticazione. L'utente vi inserisce username e password e selezionando submit questi valori vengono passati alla servlet incaricata dell'autenticazione, Authenticate. </para>
+                <para>La servlet in primo luogo verifica che l'utente non gi&agrave; autenticato per il sistema: questa informazione pu&ograve; trovarsi solo all'interno dell'oggetto condiviso tra servlet e jsp, DataExchange. La servlet quindi richiede, attraverso un metodo della classe Utils, l'oggetto DataExchange: le viene restituito un nuovo oggetto qualora nessuno esistesse, o l'oggetto gi&agrave; esistente. A questo oggetto essa richiede lo stato di autenticazione dell'utente.</para>
+                <para>Qualora l'utente non risultasse autenticato la servlet provvede a contattare il web service: per farlo, crea un nuovo oggetto ServiceLocator al quale poi richiede la creazione di un oggetto UserManagerService. A questo oggetto fa la sua richiesta di autenticazione. La richiesta raggiunge il lato business dove viene completata: questa parte non &egrave; relativa al lato presentation e pertanto non &egrave; rappresentata nel diagramma. Quel che &egrave; rappresentato &egrave; il risultato della computazione che ritorna alla servlet Authenticate, la quale conseguentemente setta opportuni parametri indicanti il nuovo stato di autenticazione nell'oggetto condiviso, nonch&eacute; un messaggio testuale indicante il risultato dell'autenticazione (completata, o fallita).</para>
+                <para>
+                    Si verifica nuovamente lo stato dell'autenticazione, e attraverso il metodo forwardToPage della classe Utils, si trasferisce il controllo alla jsp appropriata: se l'utente risulta non autenticato, a guest_search.jsp, oppure a customer_search.jsp. La JSP chiamata legger&agrave; le informazioni dall'oggetto condiviso, in particolare il messaggio sul risultato dell'autenticazione, che visualizzer&agrave; adeguatamente nella pagina.
+                </para>
             </section></section>
             </section>
     </chapter>
