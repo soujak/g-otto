@@ -46,7 +46,7 @@
         <title>Pratiche, standard e strumenti a supporto della qualità</title>
         
         <para>
-        Le revisioni costituiscono lo strumento principale mediante il quale è possibile assicurare qualità. Esse costituiscono una sorta di filtro durante il processo di sviluppo e servono a scoprire errori e difetti di un qualsiasi artefatto. In letteratura si trovano due tipi di revisioni: quelle informali, condotte anche davanti ad una macchinetta del caffè tra i diretti interessati, e quelli formali, per le quali invece sono previste delle vere e proprie riunioni oltre che un dettagliato protocollo a cui attenersi.
+        Le revisioni costituiscono lo strumento principale mediante il quale è possibile assicurare qualità. Esse costituiscono una sorta di filtro durante il processo di sviluppo e servono a scoprire errori e difetti di un qualsiasi artefatto. In letteratura si trovano due tipi di revisioni: quelle informali, condotte anche davanti ad una macchinetta del caffè tra i diretti interessati, e quelle formali, per le quali invece sono previste delle vere e proprie riunioni oltre che un dettagliato protocollo a cui attenersi.
         
         Per il presente progetto sono quindi pianificate due diversi tipi di revisioni: quelle informali, i cui esiti non saranno documentati, e una sorta di revisioni "formali".
         In particolare per le revisioni formali si stabilisce che:
@@ -61,7 +61,7 @@
         In generale si consiglia un approccio Test Driven per la produzione di software: si dovranno sviluppare quanto prima test di regressione mediante l'utilizzo di JUnit.
         </para>
         <para>
-        Lo standard ISO 9126 identifica in sei attributi la qualità nel capo del software:
+        Lo standard ISO 9126 identifica in sei attributi la qualità nel campo del software:
         <itemizedlist>
         <listitem><para>funzionalità;</para></listitem>
         <listitem><para>affidabilità;</para></listitem>
