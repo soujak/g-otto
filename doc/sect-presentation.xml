@@ -14,12 +14,14 @@
                     <title>Scelte progettuali</title>
                     
                     <para>
-                        La logica di presentazione &egrave; stata implementata, in puro stile J2EE, utilizzando sia servlet che JSP, in modo da dividere quanto pi&ugrave; possibile la parte puramente presentazionale, ovvero il codice xhtml, dalla . Si &egrave; mantenuto il codice
+                        La logica di presentazione &egrave; stata implementata, in puro stile J2EE, utilizzando sia servlet che JSP, in modo da dividere quanto pi&ugrave; possibile la parte puramente presentazionale, ovvero il codice xhtml, dalla logica di interazione. Si &egrave; mantenuto il codice
 </para>
-                    <para>caching mediante httpsession</para>
+                    <!-- caching dei risultati --> 
+                    <para>Durante il processo di navigazione, l'utente sottopone le servlet ad alcuni passaggi di gestione. Per la logica di presentazione alcuni di questi "passaggi" richiedono visualizzazioni differenti dei risultati di ricerca. Questa condizione si presenta nel passaggio tra ricerca semplice e ricerca autenticata, la quale consente la selezione dei libri mediante un apposita interfaccia specifica. Con un occhio di riguardo alle performance e grazie alla natura del formato dei dati che vengono scambiati tramite Web Service tra presentazione e business è stato possibile realizzare un meccanismo di caching, basato sull'utilizzo delle sessioni http, che consente di non effettuare ulteriori invocazione ai servizi di ricerca lato business ogni qualvolta si presenta la necessità di avere due rappresentazioni differenti dello stesso risultato. Per entrare brevemente nei dettagli implementativi, tale semplice operazione si realizza memorizzando in variabili di sessione il risultato dell'ultima ricerca in formato XML, utilizzando, a seconda delle necessità, differenti trasformazioni XSLT per le rispettive visualizzazioni.</para>
                     
-                    <para>replicazione http</para>
-                    
+                    <!-- replicazione http -->
+                    <para>Per tollerare guasti di tipo crash tra i nodi del cluster di presentazione e garantire la continuità del servizio, è stato deciso di attivare il supporto per la replicazione della sessione http che offre JBoss.
+In relazione a quanto accennato nella sezione precedente riguardo alla netta separazione logica dei due tier centrali, mi sembra doveroso specificare che in tali sessioni non sussistono informazioni o dati utili alla gestione di procedure stateful lato business, come ad esempio lo stato del carrello, ma viene solamente tenuta traccia dell'identificativo della sessione con il quale l'infrastruttura di gestione degli utenti compirà ogni aggiornamento di stato lato business.</para>
                   
             </section>
             
