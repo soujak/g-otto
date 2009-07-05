@@ -70,13 +70,32 @@
         <listitem><para>facilità di manutenzione;</para></listitem>
         <listitem><para>portabilità.</para></listitem>
         </itemizedlist>
-        La qualità del software prodotto dovrà essere di volta in volta misurata rispetto a questi attributi.
+        La qualità del software prodotto dovrà essere di volta in volta misurata rispetto a questi attributi. Per questi scopi
+        si consiglia l'installazione del plugin EclipseMetrics per Eclipse al fine di monitorare la qualità del codice prodotto.
+        EclipseMetrics calcola diverse metriche per il codice, è altamente configurabile e attraverso la vista dei problemi di
+        Eclipse avverte di eventuali violazioni degli intervalli tollerati.
         </para>
     </section>
     <section>
-        <title>Metriche utilizzate</title>
-        <para>TODO</para>
-        <para/>
+        <title>Metriche</title>
+        <para>
+        Nella precedente sezione si è accennato all'utilizzo del plugin EclipseMetrics per il calcolo di diverse metriche per il
+        codice sorgente. Quelle che effettivamente saranno calcolate e tenute in considerazione sono riassunte nell'elenco che segue:
+        <itemizedlist>
+        <listitem><para> CC (Cyclomatic Complexity): misura il numero di sezioni di codice senza diramazioni all'interno di un
+		metodo; è un indicatore della sua complessità;</para>
+        </listitem>
+        <listitem><para>NOL (Number of Level): misura il livello di annidamento del metodo;</para></listitem>
+        <listitem><para>NOS (Number of Statement): misura il numero di statement in un metodo;</para></listitem>
+        <listitem><para>NOP (Number of Parameters): misura il numero di parametri di un metodo;</para></listitem>
+        <listitem><para>NOF (Number of Field): misura il numero di campi di una classe;</para></listitem>
+        <listitem><para>Ec (Efferent Coupling): misura l'accoppiamento di una classe;</para></listitem>
+        <listitem><para>WMpC (Weighted Methods per Class): è la somma delle complessità ciclomatiche dei metodi della
+        classe;</para></listitem>
+        <listitem><para>LCOM-CK (Lack of Cohesion in Methods - Chidamber e Kemerer): misura la coesione di una classe
+        secondo la metrica proposta da Chidamber e collega.</para></listitem>
+        </itemizedlist>
+        </para>
     </section>
     
     <section>
@@ -173,7 +192,7 @@
                 <para> Revisori: QE</para>
                 <para> Verifiche: complessità, coesione, completezza rispetto al problema,
                     compatibilità con le specifiche dei requisiti, dimensioni, chiarezza, compatibilità rispetto al piano di schieramento, calcolo dell'indice di qualità strutturale DSQI. </para>
-                <para> Esito: il modello architetturale raffina coerentemente il modello elaborato e rivisto in fase di avvio. E' pienamente compatibile con le specifiche dei requisiti e mantiene dimensioni più che accettabili. La strutturazione a tre livelli tipica delle applicazioni enterprise conferisce al progetto un adeguato accoppiamento tra i moduli così come una buona coesione. Si rileva la compatibilità del modello rispetto al piano di schieramento.
+                <para> Esito: il modello architetturale raffina coerentemente il modello elaborato e rivisto in fase di avvio. E' pienamente compatibile con le specifiche dei requisiti e mantiene dimensioni più che accettabili. La strutturazione a quattro livelli tipica delle applicazioni enterprise conferisce al progetto un adeguato accoppiamento tra i moduli così come una buona coesione. Si rileva la compatibilità del modello rispetto al piano di schieramento.
 <!--                Di seguito si propone il calcolo dell'indice di qualità strutturale DSQI:-->
 <!--                -->
 <!--                s1 Numero totale di moduli.-->
@@ -234,5 +253,31 @@
                 <para>Modalità di collaudo: verificare che l'applicazione soddisfi tutti i requisiti mediante user testing basato sui casi d'uso.</para>
             </section>
         </section>
+    </section>
+    <section>
+    <title>Risultati delle misurazioni sul software</title>
+    <para>
+    A titolo d'esempio si riporta in questa sezione un output del plugin EclipseMetrics relativo ai pacchetti
+    <filename>g8.bookshop.business.core</filename> e <filename>g8.bookshop.business.util</filename>.
+    Nella prima tabella sono presenti le metriche calcolate sulle classi, mentre nella seconda sui metodi.
+    <figure xml:id="metrics_classes">
+                        <title><filename>Metriche sulle classi</filename></title>
+                        <mediaobject>
+                            <imageobject>
+                                <imagedata fileref="ReportQualita/EclipseMetricsClasses.png"
+                                    align="center" depth="450pt" format="SVG"/>
+                            </imageobject>
+                        </mediaobject>
+    </figure>
+    <figure xml:id="metrics_methods">
+                        <title><filename>Metriche sui metodi</filename></title>
+                        <mediaobject>
+                            <imageobject>
+                                <imagedata fileref="ReportQualita/EclipseMetricsMethods.png"
+                                    align="center" depth="450pt" format="SVG"/>
+                            </imageobject>
+                        </mediaobject>
+    </figure>
+    </para>
     </section>
 </chapter>
