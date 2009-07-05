@@ -32,8 +32,8 @@
         			<listitem> <para>alta coesione all'interno degli stessi livelli;</para> </listitem>
         			<listitem> <para>basso accoppiamento tra i livelli.</para> </listitem>
         			</orderedlist>
-        			La scelta di definire un formato XML per i messaggi di scambio tra la presentazione e il business li ha resi ancor 
-        			più indipendenti.
+        			La scelta di definire un formato XML per i messaggi di scambio tra la presentazione e il business unitamente
+        			all'utilizzo dei web service, ha reso ancor più indipendenti le due componenti. 
         		</para>
         		<para>
         			Un'attenzione particolare durante la progettazione è stata posta anche per quanto riguarda gli aspetti connessi
@@ -46,8 +46,18 @@
        			<title>Scelte architetturali</title>       			
         			<para>
         				Il livello business è stato progettato secondo i criteri di modularità che fino ad ora hanno contraddistinto
-        				l'applicazione. In <xref linkend="business_package" /> è possibile osservare il diagramma complessivo dei pacchetti
-        				costituenti questo livello. L'elenco sottostante chiarisce le responsabilità per ciascun pacchetto:
+        				l'applicazione.
+        				Prima di scendere nei dettagli architetturali è opportuno chiarire alcuni aspetti chiave al fine
+        				di apprezzare al meglio la soluzione proposta. Allo stato attuale dell'arte, le uniche session bean esponibili tramite web service sono le bean stateless.
+        				Questo fatto ha comportato alcune complicazioni alla progettazione del livello business dal momento che è richiesto 
+        				il mantenimento di alcune informazioni di stato, come ad esempio il carrello. Nella fattispecie si è resa necessaria
+        				la realizzazione di un servizio singleton, il cui stato fosse sia condiviso tra i diversi client, sia preservato
+        				tra le diverse richieste. Nel prosieguo il lettore troverà spiegazioni più dettagliate.
+       				</para>
+       				<para>
+        				In <xref linkend="business_package" />  si può osservare la strutturazione in pacchetti del livello
+        				e le relazioni di dipendenza che intercorrono fra essi. L'elenco sottostante chiarisce le responsabilità 
+        				per ciascun modulo:
         				<itemizedlist>
         				<listitem><para><filename>g8.bookshop.business.ws</filename>: espone tramite web service stateless i servizi
         				offerti dal livello business;</para></listitem>
@@ -56,14 +66,6 @@
         				<listitem><para><filename>g8.bookshop.business.persistence</filename>: costituisce il punto di accesso verso il livello informativo (contiene tutte le entity bean);</para></listitem>
         				<listitem><para><filename>g8.bookshop.business.util</filename>: offre alcune funzioni di utilità per tutto il livello business.</para></listitem>
         				</itemizedlist>
-        				Prima di addentrarsi completamente nei dettagli implementativi è opportuno chiarire alcuni aspetti chiave al fine
-        				di apprezzare al meglio la soluzione proposta.
-        				Allo stato attuale dell'arte, le uniche session bean esponibili tramite web service sono le bean stateless.
-        				Questo fatto ha comportato alcune complicazioni alla progettazione del livello business dal momento che è richiesto 
-        				il mantenimento di alcune informazioni di stato, come ad esempio il carrello. Nella fattispecie si è resa necessaria
-        				la realizzazione di un servizio singleton, il cui stato fosse sia condiviso tra i diversi client, sia preservato
-        				tra le diverse richieste. Nel prosieguo il lettore troverà spiegazioni più dettagliate.
-        				
         			</para>
         			<figure xml:id="business_package">
 		                <title>
@@ -81,13 +83,11 @@
 		                </mediaobject>
 		            </figure>
         			<para>
-        				Il pacchetto <filename>g8.bookshop.business.ws</filename> è composto
-        				da tre bean stateless, tutte esposte come web service:
-        				<itemizedlist>
-        				<listitem><para><filename>CatalogueService.java</filename>: espone i metodi per l'accesso al catalogo dei libri;</para></listitem>
-        				<listitem><para><filename>ShoppingCartService.java</filename>: espone i metodi per la gestione del carrello del cliente;</para></listitem>
-        				<listitem><para><filename>UserManagerService.java</filename>: espone i metodi per la autenticazione e la disconnessione dell'utente.</para></listitem>
-        				</itemizedlist>  
+        				Scendendo un po' più in profondità, si osserva che il pacchetto <filename>g8.bookshop.business.ws</filename> è composto
+        				da tre bean stateless, tutte esposte come web service: <filename>CatalogueService</filename>, <filename>ShoppingCartService</filename>
+        				e <filename>UserManagerService</filename>. La prima fornisce i metodi per l'accesso al catalogo dei
+        				libri (e.g. ricerca), la seconda al carrello dei clienti e infine la terza offre i servizi di
+        				autenticazione e disconnessione.
         			</para>
 					<figure xml:id="business_ws">
 		                <title>
@@ -163,7 +163,10 @@
 		                </mediaobject>
 		            </figure>
 					<para>
-					 Il package <filename>g8.bookshop.business.persistence</filename> contiene le entità EJB 3.0 
+					 Il package <filename>g8.bookshop.business.persistence</filename> contiene le entità business che
+					 hanno necessità di essere persistenti. Nella fattispecie si tratta solamente di <filename>Book</filename>
+					 e <filename>Credential</filename>. La prima rappresenta l'entità libro mentre la seconda memorizza
+					 l'associazione tra nome utente e password, informazioni indispensabili per l'autenticazione dei clienti. 
 					</para>
 					<figure xml:id="business_persistence">
 		                <title>
@@ -183,7 +186,12 @@
 		                </mediaobject>
 		            </figure>
 		            <para>
-		            	<filename>g8.bookshop.business.util</filename>
+		            	Infine il pacchetto <filename>g8.bookshop.business.util</filename> contiene alcuni
+		            	strumenti di utilità per tutto il livello business. Il <filename>Converter</filename>
+		            	è una bean stateless che offre funzioni per la conversione da XML a oggetti business e
+		            	viceversa; il <filename>BeanLocator</filename> offre una comoda primitiva per la localizzazione
+		            	delle bean e <filename>Name</filename> definisce alcune costanti utilizzate
+		            	diffusamente nel progetto.   
         			</para>
 					<figure xml:id="business_util">
 		                <title>
@@ -202,8 +210,8 @@
 		            </figure>
 		            
         			<para>
-        				dipendenze fra package
-        				diagramma "package con relazioni dettagliate"
+        				Il diagramma in <xref linkend="business_package_relations" /> esplicita in maniera 
+        				ancora più dettagliata le dipendenze tra i vari pacchetti, chiarendone la natura:
        				</para>
 					<figure xml:id="business_package_relations">
 		                <title>
@@ -226,15 +234,31 @@
         		<section>
         			<title>Servizio singleton ad alta disponibilita`</title>
         			<para>
-  						il business necessita di informazioni che siano application-wide e non session-wide
+        				La decisione di realizzare un servizio singleton per mantenere le informazioni di stato dei
+        				vari utenti rappresenta a prima vista un singolo punto di guasto per l'intera applicazione.
+        				
+        				Fortunatamente <productname>JBoss 5.1.0.GA</productname> offre l'opportunità di
+        				realizzare servizi singleton ad alta disponibilità. Nella fattispecie è possibile schierare
+        				il servizio su tutte le macchine del cluster ma eseguirlo solamente su uno, il master node. Nell'ipotesi
+        				in cui il master node si guastasse, il cluster ne rieleggerebbe uno nuovo sul quale sarebbe avviato
+        				nuovamente il servizio. Purtroppo al momento in cui si scrive, lo stato del servizio non viene preservato
+        				durante la procedura di migrazione sebbene s'intravedono gli spiragli per raggiungere anche questo traguardo.
 					</para>
    					<para>
-  						servizio ha-singleton realizzato grazie a Jboss e HASingletonController (gestione failover rapido)
- 					</para>
+   						Per schierare il servizio singleton ci si è appoggiati sull'<filename>HASingletonController</filename>,
+   						un servizio offerto da JBoss e attivo su ogni nodo del cluster.
+   						Il compito dell'<filename>HASingletonController</filename> è quello di monitorare la partizione e
+   						determinare se il nodo sul quale è attivo è il master node. A seconda della condizione del nodo,
+   						quindi, avvia o arresta il servizio invocando opportuni metodi (in questo caso dello <filename>UserManager</filename>).
+   						L'<filename>HASingletonController</filename>, comparato ad altre soluzioni analoghe, permette un rapidissima
+   						gestione del failover in quanto il servizio è già schierato su tutte le macchine del cluster.
+   						
+   					</para>
    					<para>
-  						logica nel diagramma sequenza authenticate
-	<!--        		xml:id="sequence_business_auth"-->
-        			</para>
+   						L'accesso al servizio singleton è però un po' complessa dal momento che non è una normale bean EJB 3.0 ma
+   						una mbean; il diagramma in <xref linkend="sequence_business_auth"/>
+   						lo dettaglia in maniera approfondita nel caso dell'autenticazione:   
+ 					</para>
   		            <figure xml:id="sequence_business_auth">
 		                <title> Diagramma di sequenza </title>
 		                <mediaobject>
@@ -252,28 +276,38 @@
         		<section>
        				<title>Alta replicazione</title>
        				<para>
-						entity bean: replicate grazie alla cache di secondo livello offerta da hibernate con politica ad alte prestazioni (sola lettura)
+       					Come annunciato nell'introduzione alle scelte progettuali, si è cercato di replicare quanto più è
+       					possibile le componenti del business per avere benifici sia in termini di prestazioni che di
+       					tolleranza ai guasti.
+					</para>
+					
+					<para>
+						In particolare tutte le entity bean sono state replicate grazie all'utilizzo della cache di secondo
+						livello offerta da hibernate. Considerata che la natura degli accessi alle informazioni persistenti è
+						di sola lettura, è stata impostata un politica di caching che favorisse le prestazioni in questo
+						senso.
 					</para>
   					<para>
-						session bean: bilanciamento di carico in fase di risoluzione nomi HAJNDI
+  						Grazie a HAJNDI, invece, si è ottenuto bilanciamento di carico per tutte le session bean.
+  						Le stateful bean inoltre sono state distribuite utilizzando la funzionalità "clustered" offerta da JBoss.
 					</para>
-   					<para>
-						stateful session bean: distribuite grazie alla funzionalita` clustered di JBossCache
-       				</para>
         		</section>
        		</section>
        		<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
    			<section>
     			<title>Scelte progettuali minori</title>
     			<para>
-    				design pattern utilizzati
+    				La manutenibilità del prodotto è stata ricercata anche attraverso piccole scelte progettuali all'interno del livello
+    				business.
+   				</para>
+   				<para>
+    				E' stato utilizzato il pattern Adapter per incapsulare le richieste allo <filename>UserManager</filename>
+    				in modo tale che dall'esterno fosse accedibile in maniera conveniente tramite una banale lookup. 
     			</para>
-   				<para>
-    				adapter allo user manager affiche` sia utilizzabile tramite un'interfaccia conveniente
-   				</para>
-   				<para>
-    				locator incapsula la ricerca delle bean per fattorizzare la funzionalita`, in modo da centralizzare le ricerche delle EJB
-   				</para>
+    			<para>
+    				Attraverso il <filename>BeanLocator</filename> invece si è fattorizzata la funzionalità di ricerca delle
+    				bean evitando di duplicare eccessivamente il codice.
+    			</para>
    			</section>
         	<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
         </section>
