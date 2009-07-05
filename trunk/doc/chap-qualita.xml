@@ -22,12 +22,12 @@
     <section>
         <title>Portata del piano di qualità</title>
         
+<!--        <para>-->
+<!--        "Il controllo della qualità è la serie di esami, revisioni e collaudi applicati lungo tutto il ciclo di sviluppo per garantire che ogni lavorato soddisfi i requisiti imposti". Pressman-->
+<!--        </para>-->
         <para>
-        "Il controllo della qualità è la serie di esami, revisioni e collaudi applicati lungo tutto il ciclo di sviluppo per garantire che ogni lavorato soddisfi i requisiti imposti". Pressman
-        </para>
-        <para>
-        Com'è facile intuire gli artefatti creati lungo tutto il processo software sono molteplici;
-        il sottostante elenco definisce la portata, in questi termini, del piano di qualità:
+        Il controllo di qualità è applicabile a tutti gli artefatti prodotti lungo il ciclo di sviluppo del prodotto.
+        L'elenco che segue definisce in questi termini la portata del presente piano:
         <itemizedlist>
         <listitem><para>piano di processo;</para></listitem>
         <listitem><para>specifiche dei requisiti;</para></listitem>
@@ -209,25 +209,30 @@
             <title>Fase di costruzione</title>
             <section>
                 <title>Collaudo delle unità</title>
-                <para/>
+                <para>Collaudatori: squadra.</para>
+                <para>Modalità di collaudo: sviluppare test di regressione con JUnit; in particolare si consiglia di
+                fare attenzione ai test sui valori limite e sui flussi eccezionali. </para>
             </section>
             <section>
                 <title>Collaudo di integrazione</title>
-                <para/>
+                <para>Collaudatori: squadra.</para>
+                <para>Modalità di collaudo: verificare la corretta integrazione del modulo business, del modulo presentazione e
+                del modulo informativo in un singolo nodo Jboss.</para>
             </section>
             <section>
                 <title>Collaudo dello schieramento</title>
-                <para/>
-            </section>
-            <section>
-                <title>Validazione</title>
-                <para/>
+                <para>Collaudatori: squadra.</para>
+                <para>Modalità di collaudo: schierare l'applicazione in due cluster omogenei nelle macchine dipartimentali: verificare la corretta configurazione
+                dei nodi JBoss, del database MySQL e del load balancer.</para>
             </section>
         </section>
         <section>
             <title>Fase di transizione</title>
-            <para>
-            </para>
+            <section>
+                <title>Validazione</title>
+                <para>Collaudatori: squadra.</para>
+                <para>Modalità di collaudo: verificare che l'applicazione soddisfi tutti i requisiti mediante user testing basato sui casi d'uso.</para>
+            </section>
         </section>
     </section>
 </chapter>
