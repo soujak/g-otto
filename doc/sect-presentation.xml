@@ -9,31 +9,79 @@
     <chapter>
         <title/>
         <section xml:id="sect-presentation">
-                <title>Presentation</title>
+            <title>Presentation</title>
+            <section>
+                <title>Scelte progettuali</title>
+
                 <section>
-                    <title>Scelte progettuali</title>
-                    
-                    <section>
-                        <title>Logica di presentazione</title>
-                        <para>
-                            La logica di presentazione &egrave; stata implementata, in puro stile J2EE, utilizzando sia servlet che JSP, in modo da dividere quanto pi&ugrave; possibile la parte puramente presentazionale, ovvero il codice xhtml, dalla logica di interazione. Questa scelta di utilizzare entrambe le tecnologie &egrave; il solo modo nel quale ci &egrave; sembrato possibile mantenere il codice pulito da ogni traccia di markup, obiettivo a cui tenevamo molto. Le JSP, d'altro canto, sono state create modulari, composte di frammenti JSP (JSPF) rappresentanti elementi ripetuti e significativi, come la parte di head del documento, il titolo, il pi&egrave; di pagina e i menu. Questa divisione permette naturalmente semplici e veloci modifiche al layout, senza contare che naturalmente gran parte dello stile &egrave; a parte, descritto in un CSS. Per la comunicazione tra servlet e JSP e viceversa, si &egrave; utilizzato un POJO condiviso, nel quale ad esempio la servlet &egrave; solita inserire i risultati di ritorno delle chiamate ai web service, prima di trasferire il controllo alla JSP. La JSP a quel punto pu&ograve; comodamente leggere le informazioni dall'oggetto condivisio e inserirle adeguatamente formattate, nel punto corretto del codice xhtml. La formattazione dei risultati xml in arrivo dal web service viene svolta all'interno dei metodi getter del POJO, attraverso una trasformazione xslt. 
-           </para></section>
-                   <section>
-                       <title>Caching dei risultati</title>
-                       <!-- caching dei risultati --> 
-                    <para>Durante il processo di navigazione, l'utente sottopone le servlet ad alcuni passaggi di gestione. Per la logica di presentazione alcuni di questi "passaggi" richiedono visualizzazioni differenti dei risultati di ricerca. Questa condizione si presenta nel passaggio tra ricerca semplice e ricerca autenticata, la quale consente la selezione dei libri mediante un apposita interfaccia specifica. Con un occhio di riguardo alle performance e grazie alla natura del formato dei dati che vengono scambiati tramite Web Service tra presentazione e business è stato possibile realizzare un meccanismo di caching, basato sull'utilizzo delle sessioni http, che consente di non effettuare ulteriori invocazione ai servizi di ricerca lato business ogni qualvolta si presenta la necessità di avere due rappresentazioni differenti dello stesso risultato. Per entrare brevemente nei dettagli implementativi, tale semplice operazione si realizza memorizzando in variabili di sessione il risultato dell'ultima ricerca in formato XML, utilizzando, a seconda delle necessità, differenti trasformazioni XSLT per le rispettive visualizzazioni.</para></section>
-                    
-                    <section><title>Replicazione HTTP</title>
-                        <!-- replicazione http -->
-                    <para>Per tollerare guasti di tipo crash tra i nodi del cluster di presentazione e garantire la continuità del servizio, è stato deciso di attivare il supporto per la replicazione della sessione http che offre JBoss.
-In relazione a quanto accennato nella sezione precedente riguardo alla netta separazione logica dei due tier centrali, &egrave; doveroso specificare che in tali sessioni non si trovano informazioni o dati utili alla gestione di procedure stateful lato business, come ad esempio lo stato del carrello, ma viene solamente tenuta traccia dell'identificativo della sessione con il quale l'infrastruttura di gestione degli utenti compirà ogni aggiornamento di stato lato business.</para></section>
-                  
+                    <title>Logica di presentazione</title>
+                    <para> La logica di presentazione &egrave; stata implementata, in puro stile
+                        J2EE, utilizzando sia servlet che JSP, in modo da dividere quanto
+                        pi&ugrave; possibile la parte puramente presentazionale, ovvero il
+                        codice xhtml, dalla logica di interazione. Questa scelta di utilizzare
+                        entrambe le tecnologie &egrave; il solo modo nel quale ci &egrave;
+                        sembrato possibile mantenere il codice pulito da ogni traccia di markup,
+                        obiettivo a cui tenevamo molto. Le JSP, d'altro canto, sono state create
+                        modulari, composte di frammenti JSP (JSPF) rappresentanti elementi ripetuti
+                        e significativi, come la parte di head del documento, il titolo, il
+                        pi&egrave; di pagina e i menu. Questa divisione permette naturalmente
+                        semplici e veloci modifiche al layout, senza contare che naturalmente gran
+                        parte dello stile &egrave; a parte, descritto in un CSS. Per la
+                        comunicazione tra servlet e JSP e viceversa, si &egrave; utilizzato un
+                        POJO condiviso, nel quale ad esempio la servlet &egrave; solita inserire
+                        i risultati di ritorno delle chiamate ai web service, prima di trasferire il
+                        controllo alla JSP. La JSP a quel punto pu&ograve; comodamente leggere
+                        le informazioni dall'oggetto condivisio e inserirle adeguatamente
+                        formattate, nel punto corretto del codice xhtml. La formattazione dei
+                        risultati xml in arrivo dal web service viene svolta all'interno dei metodi
+                        getter del POJO, attraverso una trasformazione xslt. </para>
+                </section>
+                <section>
+                    <title>Caching dei risultati</title>
+                    <!-- caching dei risultati -->
+                    <para>Durante il processo di navigazione, l'utente sottopone le servlet ad
+                        alcuni passaggi di gestione. Per la logica di presentazione alcuni di questi
+                        "passaggi" richiedono visualizzazioni differenti dei risultati di ricerca.
+                        Questa condizione si presenta nel passaggio tra ricerca semplice e ricerca
+                        autenticata, la quale consente la selezione dei libri mediante un apposita
+                        interfaccia specifica. Con un occhio di riguardo alle performance e grazie
+                        alla natura del formato dei dati che vengono scambiati tramite Web Service
+                        tra presentazione e business è stato possibile realizzare un meccanismo di
+                        caching, basato sull'utilizzo delle sessioni http, che consente di non
+                        effettuare ulteriori invocazione ai servizi di ricerca lato business ogni
+                        qualvolta si presenta la necessità di avere due rappresentazioni differenti
+                        dello stesso risultato. Per entrare brevemente nei dettagli implementativi,
+                        tale semplice operazione si realizza memorizzando in variabili di sessione
+                        il risultato dell'ultima ricerca in formato XML, utilizzando, a seconda
+                        delle necessità, differenti trasformazioni XSLT per le rispettive
+                        visualizzazioni.</para>
+                </section>
+
+                <section>
+                    <title>Replicazione HTTP</title>
+                    <!-- replicazione http -->
+                    <para>Per tollerare guasti di tipo crash tra i nodi del cluster di presentazione
+                        e garantire la continuità del servizio, è stato deciso di attivare il
+                        supporto per la replicazione della sessione http che offre JBoss. In
+                        relazione a quanto accennato nella sezione precedente riguardo alla netta
+                        separazione logica dei due tier centrali, &egrave; doveroso specificare
+                        che in tali sessioni non si trovano informazioni o dati utili alla gestione
+                        di procedure stateful lato business, come ad esempio lo stato del carrello,
+                        ma viene solamente tenuta traccia dell'identificativo della sessione con il
+                        quale l'infrastruttura di gestione degli utenti compirà ogni aggiornamento
+                        di stato lato business.</para>
+                </section>
+
             </section>
-            
-               <section>
-                   <title>Scelte implementative</title>
-                   <para>In questa sezione verr&agrave; illustrata la struttura del lato presentation del progetto Bookshop. Il diagramma in <xref linkend="presentation_packages_overview"/> descrive la struttura complessiva del progetto, roganizzato in package. I diversi package verranno esposti pi&ugrave; in dettaglio nelle sezioni che seguiranno.</para>
-                   <figure xml:id="presentation_packages_overview">
+
+            <section>
+                <title>Scelte implementative</title>
+                <para>In questa sezione verr&agrave; illustrata la struttura del lato
+                    presentation del progetto Bookshop. Il diagramma in <xref
+                        linkend="presentation_packages_overview"/> descrive la struttura complessiva
+                    del progetto, roganizzato in package. I diversi package verranno esposti
+                    pi&ugrave; in dettaglio nelle sezioni che seguiranno.</para>
+                <figure xml:id="presentation_packages_overview">
                     <title>Panoramica su package e cartelle</title>
                     <mediaobject>
                         <imageobject role="fo">
@@ -51,25 +99,28 @@ In relazione a quanto accennato nella sezione precedente riguardo alla netta sep
                         <para>La parte di presentazione &egrave; raccolta in un progetto dal
                             nome <filename>g8.bookshop.presentation</filename>. Esso contiene due
                             macro package: <filename>business</filename> e
-                            <filename>presentation</filename>. Il primo, business, contiene le
+                                <filename>presentation</filename>. Il primo, business, contiene le
                             classi che permettono alle servlet di connettersi ai web service. Il
                             secondo, pi&ugrave; complesso, contiene la parte di presentazione
                             vera e propria, divisa nelle due parti <filename>servlet</filename> e
-                            <filename>content</filename>. Il package servlet naturalmente
+                                <filename>content</filename>. Il package servlet naturalmente
                             raggruppa le classi che implementano l'interfaccia
-                            <filename>javax.servlet.http.HttpServlet</filename>, mentre il
+                                <filename>javax.servlet.http.HttpServlet</filename>, mentre il
                             package content raccoglie classi e altri file relativi alla gestione del
                             contenuto. Spiegazioni pi&ugrave; accurate sul ruolo dei package
                             descritti e sulle loro classi verranno fatti in seguito.</para>
-                        <para>
-                            Essenziale nella presentazione &egrave; anche la cartella <filename>WebContent</filename>, la quale contiente le pagine JSP del progetto, i frammenti JSPF usati per modularizzare le pagine stesse, e i fogli di stile CSS.
-                        </para>
+                        <para> Essenziale nella presentazione &egrave; anche la cartella
+                                <filename>WebContent</filename>, la quale contiente le pagine JSP
+                            del progetto, i frammenti JSPF usati per modularizzare le pagine stesse,
+                            e i fogli di stile CSS. </para>
                     </caption>
                 </figure>
                 <section>
                     <title>Servlet</title>
                     <figure xml:id="presentation_servlet">
-                        <title><filename>g8.bookshop.presentation.servlet</filename></title>
+                        <title>
+                            <filename>g8.bookshop.presentation.servlet</filename>
+                        </title>
                         <mediaobject>
                             <imageobject role="fo">
                                 <imagedata fileref="DiagrammiPresentation/presentation_servlet.svg"
@@ -84,8 +135,8 @@ In relazione a quanto accennato nella sezione precedente riguardo alla netta sep
                             <para>Il pacchetto <filename>g8.bookshop.presentation.servlet</filename>
                                 raggruppa le classi che implementano l'interfaccia HttpServlet.
                                 Contiene tre pacchetti, <filename>usermanager</filename>,
-                                <filename>catalogue</filename> e
-                                <filename>shoppingcart</filename> i quali contengono le servlet
+                                    <filename>catalogue</filename> e
+                                    <filename>shoppingcart</filename> i quali contengono le servlet
                                 che si occupano, nell'ordine, di autenticazione e disconnessione,
                                 della gestione del catalogo (la ricerca), e della gestione del
                                 carrello (visualizzazione e modifica). La servlet Home si trova nel
@@ -96,17 +147,19 @@ In relazione a quanto accennato nella sezione precedente riguardo alla netta sep
                                 due. </para>
                             <para>Il trasferimento del controllo tra servlet e JSP &egrave;
                                 mediato dalla classe
-                                <filename>g8.bookshop.presentation.Constants</filename>, la
-                                quale contiene, oltre a diverse costanti del progetto, ogni riferimento ai file JSP. Questo collegamento
-                                &egrave; illustrato nel diagramma in <xref
-                                    linkend="presentation_servlet_to_jsp"/>
+                                    <filename>g8.bookshop.presentation.Constants</filename>, la
+                                quale contiene, oltre a diverse costanti del progetto, ogni
+                                riferimento ai file JSP. Questo collegamento &egrave; illustrato
+                                nel diagramma in <xref linkend="presentation_servlet_to_jsp"/>
                             </para>
                             <para>A titolo di esempio, in questo diagramma sono state rappresentate
                                 anche le librerie utilizzate dal package.</para>
                         </caption>
                     </figure>
                     <figure xml:id="presentation_servlet_to_jsp">
-                        <title><filename>g8.bookshop.presentation.Constants</filename></title>
+                        <title>
+                            <filename>g8.bookshop.presentation.Constants</filename>
+                        </title>
                         <mediaobject>
                             <imageobject role="fo">
                                 <imagedata
@@ -123,10 +176,13 @@ In relazione a quanto accennato nella sezione precedente riguardo alla netta sep
                 </section>
                 <section>
                     <title>WebContent: pagine JSP</title>
-                    <para>La cartella WebContent contiene le JSP e i frammenti JSPF. In <xref linkend="presentation_webcontent"/> sono rappresentati i file contenuti. In <xref linkend="presentation_webcontent_relationships"/> si sintetizza come i frammenti JSPF sono inclusi nelle diverse pagine JSP.
-                    </para>
+                    <para>La cartella WebContent contiene le JSP e i frammenti JSPF. In <xref
+                            linkend="presentation_webcontent"/> sono rappresentati i file contenuti.
+                        In <xref linkend="presentation_webcontent_relationships"/> si sintetizza
+                        come i frammenti JSPF sono inclusi nelle diverse pagine JSP. </para>
                     <figure xml:id="presentation_webcontent">
-                        <title><filename>WebContent</filename>: contenitore per pagine JSP e JSPF</title>
+                        <title><filename>WebContent</filename>: contenitore per pagine JSP e
+                            JSPF</title>
                         <mediaobject>
                             <imageobject role="fo">
                                 <imagedata
@@ -141,7 +197,8 @@ In relazione a quanto accennato nella sezione precedente riguardo alla netta sep
                         </mediaobject>
                     </figure>
                     <figure xml:id="presentation_webcontent_relationships">
-                        <title><filename>Web Content</filename>: relazioni tra pagine JSP e frammenti JSPF</title>
+                        <title><filename>Web Content</filename>: relazioni tra pagine JSP e
+                            frammenti JSPF</title>
                         <mediaobject>
                             <imageobject role="fo">
                                 <imagedata
@@ -158,7 +215,12 @@ In relazione a quanto accennato nella sezione precedente riguardo alla netta sep
                 </section>
                 <section>
                     <title>Content: gestione, manipolazione e formattazione dei contenuti</title>
-                    <para>Il diagramma in <xref linkend="presentation_content"/> rappresenta il package delegato alla gestione dei contenuti, con le classi per la trasformazione xslt del xml proveniente dal lato business, e la classe dedicata alla condivisione dei contenuti tra JSP e Servlet. Vengono poi illustrate in <xref linkend="presentation_connections"/> le relazioni tra i diversi package che compongono l'intero lato presentation.</para>
+                    <para>Il diagramma in <xref linkend="presentation_content"/> rappresenta il
+                        package delegato alla gestione dei contenuti, con le classi per la
+                        trasformazione xslt del xml proveniente dal lato business, e la classe
+                        dedicata alla condivisione dei contenuti tra JSP e Servlet. Vengono poi
+                        illustrate in <xref linkend="presentation_connections"/> le relazioni tra i
+                        diversi package che compongono l'intero lato presentation.</para>
                     <figure xml:id="presentation_content">
                         <title><filename>g8.bookshop.presentation.content</filename>: gestione dei
                             contenuti.</title>
@@ -172,15 +234,34 @@ In relazione a quanto accennato nella sezione precedente riguardo alla netta sep
                                     align="center" depth="345pt" format="PDF"/>
                             </imageobject>
                         </mediaobject>
-                        <caption><para>
-                            Il package <filename>manager</filename> contiene una sola classe, <filename>DataExchange</filename>, che viene utilizzata come oggetto condiviso tra servlet e JSP per il passaggio di informazioni e contenuti tra le due; essa contiene esclusivamente metodi getter e setter (tralasciati per semplicit&agrave; nel diagramma).</para>
-                            <para>Il package <filename>formatter</filename> si occupa invece dell'interpretazione dei dati che le servlet ricevono dal lato business: le liste di libri risultanti da una ricerca, o il contenuto di un carrello.   
-                                La classe <filename>XsltFormatter</filename> &egrave; la classe centrale del package. Essa utilizza un foglio di stile xslt per la trasformazione dell'xml ricevuto in xhtml pronto per la visualizzazione. Per farlo, carica il foglio di stile attraverso la classe <filename>StylesheetCache</filename> che a sua volta si avvale dei metodi forniti dalla classe <filename>FileLoader</filename>. <filename>StylesheetCache</filename> &egrave; una classe singleton che implementa una cache per i fogli di stile in modo da evitare di ricaricare pi&ugrave; volte lo stesso foglio di stile ad ogni invocazione del transformatore.</para> 
+                        <caption>
+                            <para> Il package <filename>manager</filename> contiene una sola classe,
+                                    <filename>DataExchange</filename>, che viene utilizzata come
+                                oggetto condiviso tra servlet e JSP per il passaggio di informazioni
+                                e contenuti tra le due; essa contiene esclusivamente metodi getter e
+                                setter (tralasciati per semplicit&agrave; nel diagramma).</para>
+                            <para>Il package <filename>formatter</filename> si occupa invece
+                                dell'interpretazione dei dati che le servlet ricevono dal lato
+                                business: le liste di libri risultanti da una ricerca, o il
+                                contenuto di un carrello. La classe
+                                    <filename>XsltFormatter</filename> &egrave; la classe
+                                centrale del package. Essa utilizza un foglio di stile xslt per la
+                                trasformazione dell'xml ricevuto in xhtml pronto per la
+                                visualizzazione. Per farlo, carica il foglio di stile attraverso la
+                                classe <filename>StylesheetCache</filename> che a sua volta si
+                                avvale dei metodi forniti dalla classe
+                                    <filename>FileLoader</filename>.
+                                    <filename>StylesheetCache</filename> &egrave; una classe
+                                singleton che implementa una cache per i fogli di stile in modo da
+                                evitare di ricaricare pi&ugrave; volte lo stesso foglio di stile
+                                ad ogni invocazione del transformatore.</para>
                         </caption>
                     </figure>
-                    <para>Il diagramma in <xref linkend="presentation_connections"/> rappresenta le relazioni</para>
+                    <para>Il diagramma in <xref linkend="presentation_connections"/> rappresenta le
+                        relazioni</para>
                     <figure xml:id="presentation_connections">
-                        <title><filename>g8.bookshop.presentation</filename>: relazioni tra classi e package del progetto g8Presentation</title>
+                        <title><filename>g8.bookshop.presentation</filename>: relazioni tra classi e
+                            package del progetto g8Presentation</title>
                         <mediaobject>
                             <imageobject role="fo">
                                 <imagedata
@@ -193,14 +274,34 @@ In relazione a quanto accennato nella sezione precedente riguardo alla netta sep
                                     align="center" depth="345pt" format="PDF"/>
                             </imageobject>
                         </mediaobject>
-                        <caption><para>In questo diagramma &egrave; rappresentato l'intero lato presentation con le relazioni tra le sue classi e i suoi package. Praticamente l'intero lato presentation dipende dalle classi di ausilio <filename>Utils</filename> e <filename>Constants</filename>. Le diverse servlet sono indipententi tra loro, mentre utilizzano le classi del package <filename>business.ws</filename> per la connessione ai web service, le informazioni nella classe <filename>Constants</filename> per richiamare le JSP, e la classe <filename>DataExchange</filename> per los scambio di informazioni con le JSP.</para>
-                            <para>Quest'ultima classe, <filename>DataExchange</filename> &egrave; la sola ad utilizzare i metodi della classe <filename>XsltTransformer</filename>, la quale a sua volta &egrave; la sola ad utilizzare i metodi delle altre classi del suo package.</para></caption>
+                        <caption>
+                            <para>In questo diagramma &egrave; rappresentato l'intero lato
+                                presentation con le relazioni tra le sue classi e i suoi package.
+                                Praticamente l'intero lato presentation dipende dalle classi di
+                                ausilio <filename>Utils</filename> e <filename>Constants</filename>.
+                                Le diverse servlet sono indipententi tra loro, mentre utilizzano le
+                                classi del package <filename>business.ws</filename> per la
+                                connessione ai web service, le informazioni nella classe
+                                    <filename>Constants</filename> per richiamare le JSP, e la
+                                classe <filename>DataExchange</filename> per los scambio di
+                                informazioni con le JSP.</para>
+                            <para>Quest'ultima classe, <filename>DataExchange</filename>
+                                &egrave; la sola ad utilizzare i metodi della classe
+                                    <filename>XsltTransformer</filename>, la quale a sua volta
+                                &egrave; la sola ad utilizzare i metodi delle altre classi del
+                                suo package.</para>
+                        </caption>
                     </figure>
                 </section>
                 <section>
                     <title>Web service</title>
-                    <para>In questa sezione due diagrammi descrivono i web service utilizzati nel progetto. Alcune di queste classi sono state generate automaticamente a partire dalle altre. Non tutte vengono utilizzate.</para>
-                    <para>Nel diagramma in <xref linkend="presentation_ws_catalogueservice"/> &egrave; rappresentato uno dei tre sottoinsiemi di queste classi, ovvero tutte le classi relative al CatalogueService. Tutte le classi del package sono poi riassunte nel digramma in <xref linkend="presentation_ws"/>.</para>
+                    <para>In questa sezione due diagrammi descrivono i web service utilizzati nel
+                        progetto. Alcune di queste classi sono state generate automaticamente a
+                        partire dalle altre. Non tutte vengono utilizzate.</para>
+                    <para>Nel diagramma in <xref linkend="presentation_ws_catalogueservice"/>
+                        &egrave; rappresentato uno dei tre sottoinsiemi di queste classi, ovvero
+                        tutte le classi relative al CatalogueService. Tutte le classi del package
+                        sono poi riassunte nel digramma in <xref linkend="presentation_ws"/>.</para>
                     <figure xml:id="presentation_ws_catalogueservice">
                         <title><filename>g8.bookshop.business.ws.catalogueservice</filename>: un
                             esempio di web service</title>
@@ -218,7 +319,8 @@ In relazione a quanto accennato nella sezione precedente riguardo alla netta sep
                         </mediaobject>
                     </figure>
                     <figure xml:id="presentation_ws">
-                        <title><filename>g8.bookshop.business.ws</filename>: diagramma completo dei web service</title>
+                        <title><filename>g8.bookshop.business.ws</filename>: diagramma completo dei
+                            web service</title>
                         <mediaobject>
                             <imageobject role="fo">
                                 <imagedata fileref="DiagrammiPresentation/presentation_ws.svg"
@@ -231,30 +333,67 @@ In relazione a quanto accennato nella sezione precedente riguardo alla netta sep
                         </mediaobject>
                     </figure>
                 </section>
-            <section>
-                <title>Flusso</title>
-                <para>Si riporta in questa sezione un sequence diagram non esaustivo per quanto riguarda la logica del lato presentation, ma utile per la comprensione di alcuni suoi funzionamenti fondamentali. Il caso d'uso rappresentato &egrave; l'autenticazione, lo stesso che si &egrave; rappresentato relativamente al lato business: in questo modo speriamo di dare una visione complessiva sul sistema. In questo caso d'uso non viene effettuata la trasformazione xslt operata internamente al POJO <filename>DataExchange</filename>, ma non ci &egrave; parsa un'operazione abbastanza significativa da necessitare ad ogni costo di essere rappresentata.</para>
-                <figure xml:id="sequence_presentation_auth">
-                    <title>Diagramma di sequenza per il caso d'uso Autenticazione</title>
-                    <mediaobject>
-                        <imageobject role="fo">
-                            <imagedata fileref="DiagrammiPresentation/sequence_presentation_auth.svg"
-                                align="center" depth="400pt" format="SVG"/>
-                        </imageobject>
-                        <imageobject role="dblatex">
-                            <imagedata fileref="DiagrammiPresentation/sequence_presentation_auth.pdf"
-                                align="center" depth="345pt" format="PDF"/>
-                        </imageobject>
-                    </mediaobject>
-                </figure>
-                <para>
-                    Il caso d'uso viene innescato quando l'utente, trovandosi sulla pagina guest_search.jsp, notifica la sua volont&agrave; di autenticarsi selezionando un link apposito. Viene di conseguenza caricata la pagina auth.jsp, nel quale si trova il form di autenticazione. L'utente vi inserisce username e password e selezionando submit questi valori vengono passati alla servlet incaricata dell'autenticazione, Authenticate. </para>
-                <para>La servlet in primo luogo verifica che l'utente non gi&agrave; autenticato per il sistema: questa informazione pu&ograve; trovarsi solo all'interno dell'oggetto condiviso tra servlet e jsp, DataExchange. La servlet quindi richiede, attraverso un metodo della classe Utils, l'oggetto DataExchange: le viene restituito un nuovo oggetto qualora nessuno esistesse, o l'oggetto gi&agrave; esistente. A questo oggetto essa richiede lo stato di autenticazione dell'utente.</para>
-                <para>Qualora l'utente non risultasse autenticato la servlet provvede a contattare il web service: per farlo, crea un nuovo oggetto ServiceLocator al quale poi richiede la creazione di un oggetto UserManagerService. A questo oggetto fa la sua richiesta di autenticazione. La richiesta raggiunge il lato business dove viene completata: questa parte non &egrave; relativa al lato presentation e pertanto non &egrave; rappresentata nel diagramma. Quel che &egrave; rappresentato &egrave; il risultato della computazione che ritorna alla servlet Authenticate, la quale conseguentemente setta opportuni parametri indicanti il nuovo stato di autenticazione nell'oggetto condiviso, nonch&eacute; un messaggio testuale indicante il risultato dell'autenticazione (completata, o fallita).</para>
-                <para>
-                    Si verifica nuovamente lo stato dell'autenticazione, e attraverso il metodo forwardToPage della classe Utils, si trasferisce il controllo alla jsp appropriata: se l'utente risulta non autenticato, a guest_search.jsp, oppure a customer_search.jsp. La JSP chiamata legger&agrave; le informazioni dall'oggetto condiviso, in particolare il messaggio sul risultato dell'autenticazione, che visualizzer&agrave; adeguatamente nella pagina.
-                </para>
-            </section></section>
+                <section>
+                    <title>Flusso</title>
+                    <para>Si riporta in questa sezione un sequence diagram non esaustivo per quanto
+                        riguarda la logica del lato presentation, ma utile per la comprensione di
+                        alcuni suoi funzionamenti fondamentali. Il caso d'uso rappresentato
+                        &egrave; l'autenticazione, lo stesso che si &egrave; rappresentato
+                        relativamente al lato business: in questo modo speriamo di dare una visione
+                        complessiva sul sistema. In questo caso d'uso non viene effettuata la
+                        trasformazione xslt operata internamente al POJO
+                            <filename>DataExchange</filename>, ma non ci &egrave; parsa
+                        un'operazione abbastanza significativa da necessitare ad ogni costo di
+                        essere rappresentata.</para>
+                    <figure xml:id="sequence_presentation_auth">
+                        <title>Diagramma di sequenza per il caso d'uso Autenticazione</title>
+                        <mediaobject>
+                            <imageobject role="fo">
+                                <imagedata
+                                    fileref="DiagrammiPresentation/sequence_presentation_auth.svg"
+                                    align="center" depth="400pt" format="SVG"/>
+                            </imageobject>
+                            <imageobject role="dblatex">
+                                <imagedata
+                                    fileref="DiagrammiPresentation/sequence_presentation_auth.pdf"
+                                    align="center" depth="345pt" format="PDF"/>
+                            </imageobject>
+                        </mediaobject>
+                    </figure>
+                    <para> Il caso d'uso viene innescato quando l'utente, trovandosi sulla pagina
+                        guest_search.jsp, notifica la sua volont&agrave; di autenticarsi
+                        selezionando un link apposito. Viene di conseguenza caricata la pagina
+                        auth.jsp, nel quale si trova il form di autenticazione. L'utente vi
+                        inserisce username e password e selezionando submit questi valori vengono
+                        passati alla servlet incaricata dell'autenticazione, Authenticate. </para>
+                    <para>La servlet in primo luogo verifica che l'utente non gi&agrave;
+                        autenticato per il sistema: questa informazione pu&ograve; trovarsi solo
+                        all'interno dell'oggetto condiviso tra servlet e jsp, DataExchange. La
+                        servlet quindi richiede, attraverso un metodo della classe Utils, l'oggetto
+                        DataExchange: le viene restituito un nuovo oggetto qualora nessuno
+                        esistesse, o l'oggetto gi&agrave; esistente. A questo oggetto essa
+                        richiede lo stato di autenticazione dell'utente.</para>
+                    <para>Qualora l'utente non risultasse autenticato la servlet provvede a
+                        contattare il web service: per farlo, crea un nuovo oggetto ServiceLocator
+                        al quale poi richiede la creazione di un oggetto UserManagerService. A
+                        questo oggetto fa la sua richiesta di autenticazione. La richiesta raggiunge
+                        il lato business dove viene completata: questa parte non &egrave;
+                        relativa al lato presentation e pertanto non &egrave; rappresentata nel
+                        diagramma. Quel che &egrave; rappresentato &egrave; il risultato
+                        della computazione che ritorna alla servlet Authenticate, la quale
+                        conseguentemente setta opportuni parametri indicanti il nuovo stato di
+                        autenticazione nell'oggetto condiviso, nonch&eacute; un messaggio
+                        testuale indicante il risultato dell'autenticazione (completata, o
+                        fallita).</para>
+                    <para> Si verifica nuovamente lo stato dell'autenticazione, e attraverso il
+                        metodo forwardToPage della classe Utils, si trasferisce il controllo alla
+                        jsp appropriata: se l'utente risulta non autenticato, a guest_search.jsp,
+                        oppure a customer_search.jsp. La JSP chiamata legger&agrave; le
+                        informazioni dall'oggetto condiviso, in particolare il messaggio sul
+                        risultato dell'autenticazione, che visualizzer&agrave; adeguatamente
+                        nella pagina. </para>
+                </section>
             </section>
+        </section>
     </chapter>
 </book>
