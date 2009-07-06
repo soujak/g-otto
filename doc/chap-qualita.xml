@@ -261,20 +261,20 @@
     <filename>g8.bookshop.business.core</filename> e <filename>g8.bookshop.business.util</filename>.
     Nella prima tabella sono presenti le metriche calcolate sulle classi, mentre nella seconda sui metodi.
     <figure xml:id="metrics_classes">
-                        <title><filename>Metriche sulle classi</filename></title>
+                        <title>Metriche sulle classi</title>
                         <mediaobject>
                             <imageobject>
                                 <imagedata fileref="ReportQualita/EclipseMetricsClasses.png"
-                                    align="center" depth="450pt" format="SVG"/>
+                                    align="center" depth="200pt" format="PNG"/>
                             </imageobject>
                         </mediaobject>
     </figure>
     <figure xml:id="metrics_methods">
-                        <title><filename>Metriche sui metodi</filename></title>
+                        <title>Metriche sui metodi</title>
                         <mediaobject>
                             <imageobject>
-                                <imagedata fileref="ReportQualita/EclipseMetricsMethods.png"
-                                    align="center" depth="450pt" format="SVG"/>
+                                <imagedata fileref="ReportQualita/EclipseMetricsMethods-v.png"
+                                    align="center" depth="650pt" format="PNG"/>
                             </imageobject>
                         </mediaobject>
     </figure>
