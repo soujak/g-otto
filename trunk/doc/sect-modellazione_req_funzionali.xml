@@ -11,7 +11,8 @@
         <title/>
         <section xml:id="sect-modellazione_req_funzionali">
             <title>Modellazione requisiti funzionali</title>
-            <figure>
+            <para>A partire dai requisiti funzionali si &egrave; partiti nell'analizzare ci&ograve; che il sistema doveva offrire ai suoi utenti. Il diagramma dei casi d'uso in <xref linkend="diagramma_casi_uso"/> modella le possibili azioni per un utente.</para>
+            <figure xml:id="diagramma_casi_uso">
                 <title>Diagramma dei casi d'uso.</title>
                 <mediaobject>
                     <imageobject role="fo">
@@ -24,13 +25,20 @@
                     </imageobject>
                 </mediaobject>
             </figure>
-            <figure>
+            <para>Ogni utente pu&ograve; essere un visitatore, ovvero un utente non autenticato e di conseguenza non riconosciuto dal sistema, o un cliente. Il solo caso d'uso comune ai due attori &egrave; la Ricerca (UC01), anche se nel caso del cliente questa rientra in un caso d'uso pi&ugrave; ampio detto Acquisto (UC04).</para>
+            <para>Ogni utente inizia la sua interazione col sistema come visitatore: oltre alla ricerca egli pu&ograve; quindi effettuare l'Autenticazione, che modifica il suo stato e lo trasforma in un cliente. Un cliente, a sua volta, pu&ograve; entrare nel caso d'uso Disconnessione (UC05) e riprendere il ruolo di visitatore. Il visitatore pu&ograve; solo autenticarsi (Autenticazione, UC03) o effettuare ricerche (Ricerca, UC01). Il cliente pu&ograve; invece entrare nel caso d'uso Acquisto (UC04).  Il caso d'uso Acquisto include prima di tutto altri due casi d'uso: Ricerca (UC01) e Selezione (UC02). Infatti il caso d'uso Acquisto inizia in modo analogo al caso d'uso Ricerca per il visitatore, e terminata la Ricerca entra nel caso d'uso Selezione. Terminate le operazio di questi due casi d'uso,l'Acquisto include anche il caso d'uso VisualizzaCarrelo (UC06), poich&eacute; la visualizzazione &egrave; necessaria prima della conferma dell'acquisto.
+                Il cliente pu&ograve; anche decidere di attivare il caso d'uso ModificaCarrello (UC07), prima di svolgere i passi del caso d'uso Acquisto (UC04) vero e proprio, che terminano l'acquisto. 
+                Le schede dei casi d'uso (dei quali viene riportato l'ID) possono essere riviste nella sezione 1.2.
+            </para>
+            <para>La mopdellazione precedente tuttavia illustra le funzionalit&agrave; del sistema offerte all'utente ma non descrive in modo adeguato l'ordine delle diverse azioni. Mostriamo quindi la sequenza delle attivit&agrave; con diagrammi pi&ugrave; adeguati.</para>
+            <para>Il diagramma delle attivit&agrave; in <xref linkend="diagramma_attivita_complessiva"/> rappresenta in modo generale le diverse attivit&agrave;. All'arrivo di un visitatore su G8Bookshoop, egli pu&ograve; effettuare la ricerca o l'autenticazione. Se sceglie di effettuare una ricerca, al termine di essa pu&ograve; ripetere la'ttivit&agrave; effettuando nuove ricerche, o passare all'attivit&agrave; autenticazione. Scegliendo invece di autenticarsi, passer&agrave; a un ramo diverso del diagramma (a cui appunto si accede solo passando attraverso l'autenticazione) nel quale gli viene fornita la possibilit&agrave; di effettuare acquisti. Una volta entrato in questo ramo egli pu&ograve; in ogni momento interrompere l'attivit&agrave; corrente e disconnettersi: in questo modo ritorna al punto di partenza del diagramma (aspetto non modellato per semplicit&agrave;). L'attivit&agrave; Acquisto pu&ograve; essere ripetuta a piacere.</para>
+            <figure xml:id="diagramma_attivita_complessiva">
                 <title>Diagramma dell'attivit&agrave; complessiva.</title>
                 <mediaobject>
                     <imageobject role="fo">
                         <imagedata
                             fileref="DiagrammiModellazioneBusiness/DiagrammaAttivitaGenerale.svg"
-                            align="center" scalefit="1" depth="160pt" format="SVG"/>
+                            align="center" scalefit="1" depth="180pt" format="SVG"/>
                     </imageobject>
                     <imageobject role="dblatex">
                         <imagedata
@@ -39,9 +47,9 @@
                     </imageobject>
                 </mediaobject>
             </figure>
-            <para/>
-            <para/>
-            <figure>
+            <para>Osserviamo pi&ugrave; nel dettaglio l'attivit&agrave; Acquisto: essa &egrave; una macro attivit&agrave; composta di tre sottoattviti&agrave;. Appena iniziata l'attivit&agrave; Acquisto, il cliente si trover&agrave; a svolgere l'attivit&agrave; Ricerca; una volta effettuata una ricerca egli pu&ograve; effettuarne di nuove o procedere alla selezione di alcuni dei libri risultanti. Dopo una selezione, pu&ograve; tornare a una nuova ricerca (o pi&ugrave; di una) oppure procedere all'attivit&agrave; Cassa, nella quale potr&agrave; acquistare i libri selezionati.</para>
+            <para>Dopo aver effettuato l'attivit&agrave; Cassa, e anche durante, &egrave; possibile tornare all'attivit&agrave; Ricerca. Ricordiamo che in ogni momento &egrave; possibile abbandonare qualsiasi attivit&agrave; di Acquisto iniziando l'attivit&agrave; Disconnessione.</para>
+            <figure xml:id="diagramma_attivita_cassa">
                 <title>Diagramma dell'attivit&agrave; Cassa.</title>
                 <mediaobject>
                     <imageobject role="fo">
@@ -56,9 +64,8 @@
                     </imageobject>
                 </mediaobject>
             </figure>
-            <para/>
-            <para/>
-            <figure>
+            <para>Il diagramma in figura <xref linkend="diagramma_stati_cassa"/> riporta gli stati possibili relativi all'attivit&agrave; Cassa. Appena inziata l'attivit&agrave; Cassa, il Cliente si trova nello stato VisualizzaCarrello. Egli pu&ograve; notificare la sua volont&agrave; di acquistare il contenuto del suo carrello, passando cos&igrave; allo stato finale AcquistaCarrello (ed esce di conseguenza dall'attivit&agrave; Cassa). Alternativamente, egli pu&ograve; richiedere la modifica del suo carrello passando allo stato ModificaCarrello: da qui pu&ograve; poi tornare allo stato VisualizzaCarrello e riprendere da qui. In ogni momento &egrave; possibile uscire da qualsiasi stato di Cassa muovendosi verso l'attivit&agrave; Ricerca o Disconnessione.</para>
+            <figure xml:id="diagramma_stati_cassa">
                 <title>Diagramma degli stati relativi all'attivit&agrave; Cassa.</title>
                 <mediaobject>
                     <imageobject role="fo">
