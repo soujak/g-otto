@@ -10,13 +10,13 @@
 	<chapter xml:id="chap-processo">
 
 		<title>Piano di processo</title>
-		<para> Prima di poter presentare il piano di processo che ha guidato lo svolgimento del
+			<para> Prima di poter presentare il piano di processo che ha guidato lo svolgimento del
 			progetto, è bene soffermarsi anzitutto ad illustrare sinteticamente gli obiettivi che ne
 			hanno ispirato le scelte, poi a chiarire le modalità con le quali la pianificazione è
 			stata sviluppata e gestita. Quando, quindi, saranno illustrati il piano preventivo e
 			quello consuntivo, si potrà proseguire ad esporre alcune considerazioni di verifica
 			della pianificazione. </para>
-		<section xml:id="sect-obiettivi">
+		<section xml:id="sect-processo-obiettivi">
 			<title>Obiettivi della gestione di processo</title>
 			<para> Sia nella gestione di progetti software tramite metodologie ingegneristiche, sia
 				nella realizzazione di progetti middleware con la tecnologia JBossAS i membri della
@@ -42,7 +42,7 @@
 				tratta di Agile Unified Process v1.1, pubblicato dalla Ambysoft Inc. di Scott W.
 				Ambler. </para>
 		</section>
-		<section xml:id="sect-gestione">
+		<section xml:id="sect-processo-gestione">
 			<title>Gestione della pianificazione</title>
 			<para> Durante la prima fase di avvio del progetto (inception phase), si è abbozzato un
 				piano di processo ad alto livello. Si è scelto di rendere il modello AUP ancora più
@@ -72,7 +72,7 @@
 				si andavano anche ad allocare le risorse umane alle varie attività, secondo criteri
 				di efficienza. </para>
 		</section>
-		<section xml:id="sect-diagrammi">
+		<section xml:id="sect-processo-diagrammi">
 			<title>Diagrammi di pianificazione</title>
 			<para> La pianificazione è stata gestita e organizzata anche attraverso diagrammi di
 				Gantt che potessero non solo illustrare visivamente la programmazione temporale
@@ -82,22 +82,90 @@
 				processo, costruito unendo le pianificazioni realizzate all'inizio di ogni fase del
 				processo. Poi si presenterà un rapporto dell'andamento effettivo del processo,
 				realizzato nel diagramma di Gantt consuntivo del processo. </para>
-			<mediaobject>
-				<imageobject>
-					<imagedata fileref="GestioneProgetto/GanttPreventivo.pdf" align="center"
-						format="PDF"/>
-					<!--		                depth="NNpt"-->
-				</imageobject>
-			</mediaobject>
-			<mediaobject>
-				<imageobject>
-					<imagedata fileref="GestioneProgetto/GanttConsuntivo.pdf" align="center"
-						format="PDF"/>
-					<!--		                depth="NNpt"-->
-				</imageobject>
-			</mediaobject>
+		<!-- Gantt Preventivo -->
+			<figure>
+				<title/>
+				<mediaobject>
+					<imageobject>
+						<imagedata
+							fileref="GestioneProgetto/GanttPreventivo1-v.jpg"
+							align="center" depth="750pt" format="JPG"/>
+					</imageobject>
+				</mediaobject>
+			</figure>
+			<figure>
+				<title/>
+				<mediaobject>
+					<imageobject>
+						<imagedata
+							fileref="GestioneProgetto/GanttPreventivo2-v.jpg"
+							align="center" depth="750pt" format="JPG"/>
+					</imageobject>
+				</mediaobject>
+			</figure>
+			<figure>
+				<title/>
+				<mediaobject>
+					<imageobject>
+						<imagedata
+							fileref="GestioneProgetto/GanttPreventivo3-v.jpg"
+							align="center" depth="750pt" format="JPG"/>
+					</imageobject>
+				</mediaobject>
+			</figure>
+			<figure>
+				<title/>
+				<mediaobject>
+					<imageobject>
+						<imagedata
+							fileref="GestioneProgetto/GanttPreventivo4-v.jpg"
+							align="center" depth="750pt" format="JPG"/>
+					</imageobject>
+				</mediaobject>
+			</figure>
+			<!-- Gantt consuntivo -->
+			<figure>
+				<title/>
+				<mediaobject>
+					<imageobject>
+						<imagedata
+							fileref="GestioneProgetto/GanttConsuntivo1-v.jpg"
+							align="center" depth="750pt" format="JPG"/>
+					</imageobject>
+				</mediaobject>
+			</figure>
+			<figure>
+				<title/>
+				<mediaobject>
+					<imageobject>
+						<imagedata
+							fileref="GestioneProgetto/GanttConsuntivo2-v.jpg"
+							align="center" depth="750pt" format="JPG"/>
+					</imageobject>
+				</mediaobject>
+			</figure>
+			<figure>
+				<title/>
+				<mediaobject>
+					<imageobject>
+						<imagedata
+							fileref="GestioneProgetto/GanttConsuntivo3-v.jpg"
+							align="center" depth="750pt" format="JPG"/>
+					</imageobject>
+				</mediaobject>
+			</figure>
+			<figure>
+				<title/>
+				<mediaobject>
+					<imageobject>
+						<imagedata
+							fileref="GestioneProgetto/GanttConsuntivo4-v.jpg"
+							align="center" depth="750pt" format="JPG"/>
+					</imageobject>
+				</mediaobject>
+			</figure>
 		</section>
-		<section xml:id="sect-verifica">
+		<section xml:id="sect-processo-verifica">
 			<title>Verifica della pianificazione</title>
 			<para> Giudicando la mera discrepanza di oltre due settimane fra il piano preventivo e
 				quello consuntivo, la pianificazione non può che risultare grandemente perfettibile.
