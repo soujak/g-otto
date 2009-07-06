@@ -31,8 +31,9 @@
 				dettaglio, risultano essere adatti a modelli di processo più dettagliatamente e
 				rigidamemnte pianificati. È pertanto risultato preferibile un modello di processo
 				che goda della produzione di tali artefatti. </para>
-			<para> Il buon livello comunicativo della squadra di lavoro e gli obiettivi didattici
-				del progetto hanno inoltre privilegiato un piano di processo che permettesse un
+			<para> Il buon livello comunicativo della squadra di lavoro, l'esiguità del numero dei
+				suoi partecipanti, uniti agli obiettivi didattici del progetto hanno inoltre
+				privilegiato un piano di processo che permettesse un
 					<emphasis>alto grado di partecipazione</emphasis> della squadra alla gestione
 				del processo. Il processo quindi avrebbe dovuto essere gestito tramite
 					<emphasis>artefatti semplici e concisi</emphasis>, affinché possano essere
@@ -40,7 +41,7 @@
 			<para> Queste tre caratteristiche hanno indirizzato la scelta verso un modello di
 				processo recente, poiché è risalente al vicino 2005, ma piuttosto promettente. Si
 				tratta di Agile Unified Process v1.1, pubblicato dalla Ambysoft Inc. di Scott W.
-				Ambler. </para>
+				Ambler (http://www.ambysoft.com/unifiedprocess/agileUP.html). </para>
 		</section>
 		<section xml:id="sect-processo-gestione">
 			<title>Gestione della pianificazione</title>
