@@ -498,7 +498,7 @@
                             <entry>
                                 <formalpara>
                                     <title>Precondizioni</title>
-                                    <para>Il carrello non &egrave; vuoto. </para>
+                                    <para>Il carrello non &egrave; vuoto.</para>
                                 </formalpara>
                             </entry>
                         </row>
@@ -520,22 +520,17 @@
                                             <listitem>
                                                 <para>include(SelezionaLibri)</para>
                                             </listitem>
+                                            <listitem><para>include(VisualizzaCarrello)</para></listitem>
+                                            <listitem>
+                                                <para>extends(ModificaCarrello): il cliente pu&ograve; entrare nel caso d'uso ModificaCarrello.</para>
+                                            </listitem>
                                             <listitem>
                                                 <para>Il cliente specifica al sistema mediante
                                                   l'interfaccia preposta la volont&agrave; di
                                                   acquistare i libri nel suo carrello.</para>
                                             </listitem>
                                             <listitem>
-                                                <para>[opzionale] Il sistema mostra al cliente il
-                                                  contenuto del suo carrello. [a questo punto il
-                                                  cliente pu&ograve; decidere di proseguire
-                                                  all'acquisto o abbandonare la schermata]</para>
-                                            </listitem>
-                                            <listitem>
                                                 <para>Il sistema conferma l'acquisto.</para>
-                                            </listitem>
-                                            <listitem>
-                                                <para>include(Disconnessione)</para>
                                             </listitem>
                                         </orderedlist>
                                     </para>
