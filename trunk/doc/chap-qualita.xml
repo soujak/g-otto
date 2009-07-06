@@ -285,8 +285,8 @@
                         <title>Metriche sulle classi</title>
                         <mediaobject>
                             <imageobject>
-                                <imagedata fileref="ReportJUnit/ReportJUnit.png"
-                                    align="center" depth="200pt" format="PNG"/>
+                                <imagedata fileref="ReportJUnit/ReportJUnit-v.png"
+                                    align="center" depth="550pt" format="PNG"/>
                             </imageobject>
                         </mediaobject>
     </figure>
