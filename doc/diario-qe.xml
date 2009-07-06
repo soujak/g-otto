@@ -30,8 +30,8 @@
                 <tfoot>
                     <row>
                         <entry>Totale </entry>
-                        <entry>195.33 </entry>
-                        <entry>Aggiornato al 3/7/2009</entry>
+                        <entry>215.33 </entry>
+                        <entry>Aggiornato al 5/7/2009</entry>
                     </row>
                 </tfoot>
                 <tbody>
@@ -337,6 +337,37 @@
                         <entry>1/7/09</entry>
                         <entry>4</entry>
                         <entry>Documentazione: esteso il piano della qualità.</entry>
+                    </row>
+                    
+                    <row>
+                        <entry>2/7/09</entry>
+                        <entry>3</entry>
+                        <entry>Business: refattorizzazione del livello business (con PM).</entry>
+                    </row>
+                    <row>
+                        <entry>2/7/09</entry>
+                        <entry>2</entry>
+                        <entry>Documentazione: bozza relazione di progetto (con PM).</entry>
+                    </row>
+                    <row>
+                        <entry>3/7/09</entry>
+                        <entry>7</entry>
+                        <entry>Documentazione: raffinamento diagrammi business (con PM).</entry>
+                    </row>
+                    <row>
+                        <entry>4/7/09</entry>
+                        <entry>2</entry>
+                        <entry>Documentazione: bozza documentazione del business (con PM).</entry>
+                    </row>
+                    <row>
+                        <entry>4/7/09</entry>
+                        <entry>4</entry>
+                        <entry>Documentazione: stesura documentazione del livello business.</entry>
+                    </row>
+                    <row>
+                        <entry>5/7/09</entry>
+                        <entry>4</entry>
+                        <entry>Documentazione: raffinamenti al piano di qualità.</entry>
                     </row>
                     
                     <!-- Aggiungere nuove righe qui copiando la <row> precedente -->
