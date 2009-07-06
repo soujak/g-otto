@@ -212,26 +212,29 @@
 					</informalequation>
 				</para>
 			</section>
-			<para>
-				Per avvicinare la metrica dei punti funzione ad una quantificazione
-				dello sforzo concreta e verificabile si è anzitutto deciso di
-				stimare le linee di codice sorgente che saranno prodotte.
-				Sfruttando una stima empirica del rapporto fra linee di codice
-				di un software e i punti funzione in esso contenuti, che per
-				applicazioni Java Enterprise, è pari a 50, si è quindi stimato
-				che venissero prodotte 2114 righe di codice sorgente.
-			</para>
-			<para>
-				In secondo luogo si è voluto stimare lo sforzo anche secondo
-				un'altra misura altamente verificabile: i giorni di lavoro per
-				uomo.
-				A partire da una valutazione empirica della produttività
-				degli sviluppatori in una media di 15 punti funzione mensili,
-				si è ricavato che lo sforzo globale previsto per il progetto
-				è pari a 2,3 mesi/uomo.
-				Per la squadra di quattro componenti tale stima equivale a
-				poco più di 12 giorni di lavoro a testa.
-			</para>
+	    	<section>
+	    		<title>Stima dello sforzo</title>
+	    			<para>
+	    				Per avvicinare la metrica dei punti funzione ad una quantificazione
+	    				dello sforzo concreta e verificabile si è anzitutto deciso di
+	    				stimare le linee di codice sorgente che saranno prodotte.
+	    				Sfruttando una stima empirica del rapporto fra linee di codice
+	    				di un software e i punti funzione in esso contenuti, che per
+	    				applicazioni Java Enterprise, è pari a 50, si è quindi stimato
+	    				che venissero prodotte 2114 righe di codice sorgente.
+	    			</para>
+	    			<para>
+	    				In secondo luogo si è voluto stimare lo sforzo anche secondo
+	    				un'altra misura altamente verificabile: i giorni di lavoro per
+	    				uomo.
+	    				A partire da una valutazione empirica della produttività
+	    				degli sviluppatori in una media di 15 punti funzione mensili,
+	    				si è ricavato che lo sforzo globale previsto per il progetto
+	    				è pari a 2,3 mesi/uomo.
+	    				Per la squadra di quattro componenti tale stima equivale a
+	    				poco più di 12 giorni di lavoro a testa.
+	    			</para>
+	    	</section>
 	    </section>
 	
 		<section>
@@ -326,7 +329,7 @@
 				La causa prima di questa discrepanza risiede 
 				sicuramente nell'inesperienza gestionale e attuativa nello
 				specifico ambito di progetto di cui è parlato nella sezione
-				<xref linkend="sect-verifica"/>.
+				3.4.
 				Non si può trascurare, peraltro, che le date di consegna multiple
 				abbiano creato, in concordanza con il teorema di Parkinson,
 				una disponibilità di sforzo che ha aumentato le necessità di

@@ -5,333 +5,331 @@
 <!ENTITY % myent SYSTEM "entities.ent">
 %myent;
 ]>
-<book
-	xml:lang="it"
-	xmlns="http://docbook.org/ns/docbook"
-	xmlns:xi="http://www.w3.org/2001/XInclude"
-    xmlns:xlink="http://www.w3.org/1999/xlink"
-    version="5.0">
-    <chapter>
-        <title/>
-        <section xml:id="sect-business">
-            <title>Business</title>
-            <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
-        	<section>
-        		<title>Introduzione alle scelte progettuali</title>
-        		<para>
-        			Come già chiarito nelle precedenti sezioni, la progettazione dell'intera applicazione è stata fortemente 
-        			guidata dalla strutturazione a 4 livelli che le stesse specifiche <productname> Java EE </productname> suggeriscono.
-        			E' stato quindi naturale identificare l'area di ingerenza del livello business nel dominio di lavoro dell'applicazione di
-        			negozio virtuale di libri, delegando così ad altri livelli il compito di presentare i contenuti. Tuttavia
-        			quella che sembrebbe una decisione scontata non è in realtà così diffusa: per ragioni d'opportunità
-        			si assiste, nella pratica comune, ad un accoppiamento eccessivo tra i due livelli. Infatti, in applicazioni simili, la
-        			gestione del carrello degli acquisti è spesso ad appannaggio esclusivo del livello web quando invece sarebbe
-        			chiara competenza del livello business. 
-        			Questa accurata distinzione delle responsabilità ha permesso di ottenere due risultati progettuali molto significativi:
-        			<orderedlist>
-        			<listitem> <para>alta coesione all'interno degli stessi livelli;</para> </listitem>
-        			<listitem> <para>basso accoppiamento tra i livelli.</para> </listitem>
-        			</orderedlist>
-        			La scelta di definire un formato XML per i messaggi di scambio tra la presentazione e il business unitamente
-        			all'utilizzo dei web service, ha reso ancor più indipendenti le due componenti. 
-        		</para>
-        		<para>
-        			Un'attenzione particolare durante la progettazione è stata posta anche per quanto riguarda gli aspetti connessi
-        			alle prestazioni e alle tolleranze ai guasti. <productname> JBOSS AS 5.1.GA </productname> offre in questo senso importantissimi 
-        			ausili tecnologici che hanno permesso di ottenere componenti ad altà disponibilità, quanto più replicati fra i nodi del cluster.
-        		</para>
-        	</section>
-   	        <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
-        	<section>
-       			<title>Scelte architetturali</title>       			
-        			<para>
-        				Il livello business è stato progettato secondo i criteri di modularità che fino ad ora hanno contraddistinto
-        				l'applicazione.
-        				Prima di scendere nei dettagli architetturali è opportuno chiarire alcuni aspetti chiave al fine
-        				di apprezzare al meglio la soluzione proposta. Allo stato attuale dell'arte, le uniche session bean esponibili tramite web service sono le bean stateless.
-        				Questo fatto ha comportato alcune complicazioni alla progettazione del livello business dal momento che è richiesto 
-        				il mantenimento di alcune informazioni di stato, come ad esempio il carrello. Nella fattispecie si è resa necessaria
-        				la realizzazione di un servizio singleton, il cui stato fosse sia condiviso tra i diversi client, sia preservato
-        				tra le diverse richieste. Nel prosieguo il lettore troverà spiegazioni più dettagliate.
-       				</para>
-       				<para>
-        				In <xref linkend="business_package" />  si può osservare la strutturazione in pacchetti del livello
-        				e le relazioni di dipendenza che intercorrono fra essi. L'elenco sottostante chiarisce le responsabilità 
-        				per ciascun modulo:
-        				<itemizedlist>
-        				<listitem><para><filename>g8.bookshop.business.ws</filename>: espone tramite web service stateless i servizi
-        				offerti dal livello business;</para></listitem>
-        				<listitem><para><filename>g8.bookshop.business.um</filename>: gestisce gli utenti e ne mantiene lo stato nel negozio virtuale;</para></listitem>
-        				<listitem><para><filename>g8.bookshop.business.core</filename>: definisce le entità, in senso lato, del business congiuntamente alle operazioni che le coinvolgono;</para></listitem>
-        				<listitem><para><filename>g8.bookshop.business.persistence</filename>: costituisce il punto di accesso verso il livello informativo (contiene tutte le entity bean);</para></listitem>
-        				<listitem><para><filename>g8.bookshop.business.util</filename>: offre alcune funzioni di utilità per tutto il livello business.</para></listitem>
-        				</itemizedlist>
-        			</para>
-        			<figure xml:id="business_package">
-		                <title>
-		                    <filename>g8.bookshop.business</filename>
-		                </title>
-		                <mediaobject>
-		                    <imageobject role="fo">
-		                        <imagedata fileref="DiagrammiBusiness/business_package.svg" align="center"
-		                            depth="250pt" format="SVG"/>
-		                    </imageobject>
-		                    <imageobject role="dblatex">
-		                        <imagedata fileref="DiagrammiBusiness/business_package.pdf" align="center"
-		                            depth="250pt" format="PDF"/>
-		                    </imageobject>
-		                </mediaobject>
-		            </figure>
-        			<para>
-        				Scendendo un po' più in profondità, si osserva che il pacchetto <filename>g8.bookshop.business.ws</filename> è composto
-        				da tre bean stateless, tutte esposte come web service: <filename>CatalogueService</filename>, <filename>ShoppingCartService</filename>
-        				e <filename>UserManagerService</filename>. La prima fornisce i metodi per l'accesso al catalogo dei
-        				libri (e.g. ricerca), la seconda al carrello dei clienti e infine la terza offre i servizi di
-        				autenticazione e disconnessione.
-        			</para>
-					<figure xml:id="business_ws">
-		                <title>
-		                    <filename>g8.bookshop.business.ws</filename>
-		                </title>
-		                <mediaobject>
-		                    <imageobject role="fo">
-		                        <imagedata fileref="DiagrammiBusiness/business_ws.svg" depth="450pt" align="center"
-		                            format="SVG"/>
-		<!--                        <imagedata fileref="DiagrammiBusiness/business_ws.png" align="center"
+<book xml:lang="it" xmlns="http://docbook.org/ns/docbook" xmlns:xi="http://www.w3.org/2001/XInclude"
+	xmlns:xlink="http://www.w3.org/1999/xlink" version="5.0">
+	<chapter>
+		<title/>
+		<section xml:id="sect-business">
+			<title>Business</title>
+			<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+			<section>
+				<title>Introduzione alle scelte progettuali</title>
+				<para> Come già chiarito nelle precedenti sezioni, la progettazione dell'intera
+					applicazione è stata fortemente guidata dalla strutturazione a 4 livelli che le
+					stesse specifiche <productname> Java EE </productname> suggeriscono. E' stato
+					quindi naturale identificare l'area di ingerenza del livello business nel
+					dominio di lavoro dell'applicazione di negozio virtuale di libri, delegando così
+					ad altri livelli il compito di presentare i contenuti. Tuttavia quella che
+					sembrebbe una decisione scontata non è in realtà così diffusa: per ragioni
+					d'opportunità si assiste, nella pratica comune, ad un accoppiamento eccessivo
+					tra i due livelli. Infatti, in applicazioni simili, la gestione del carrello
+					degli acquisti è spesso ad appannaggio esclusivo del livello web quando invece
+					sarebbe chiara competenza del livello business. Questa accurata distinzione
+					delle responsabilità ha permesso di ottenere due risultati progettuali molto
+					significativi: <orderedlist>
+						<listitem>
+							<para>alta coesione all'interno degli stessi livelli;</para>
+						</listitem>
+						<listitem>
+							<para>basso accoppiamento tra i livelli.</para>
+						</listitem>
+					</orderedlist> La scelta di definire un formato XML per i messaggi di scambio
+					tra la presentazione e il business unitamente all'utilizzo dei web service, ha
+					reso ancor più indipendenti le due componenti. </para>
+				<para> Un'attenzione particolare durante la progettazione è stata posta anche per
+					quanto riguarda gli aspetti connessi alle prestazioni e alle tolleranze ai
+					guasti. <productname> JBOSS AS 5.1.GA </productname> offre in questo senso
+					importantissimi ausili tecnologici che hanno permesso di ottenere componenti ad
+					altà disponibilità, quanto più replicati fra i nodi del cluster. </para>
+			</section>
+			<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+			<section>
+				<title>Scelte architetturali</title>
+				<para> Il livello business è stato progettato secondo i criteri di modularità che
+					fino ad ora hanno contraddistinto l'applicazione. Prima di scendere nei dettagli
+					architetturali è opportuno chiarire alcuni aspetti chiave al fine di apprezzare
+					al meglio la soluzione proposta. Allo stato attuale dell'arte, le uniche session
+					bean esponibili tramite web service sono le bean stateless. Questo fatto ha
+					comportato alcune complicazioni alla progettazione del livello business dal
+					momento che è richiesto il mantenimento di alcune informazioni di stato, come ad
+					esempio il carrello. Nella fattispecie si è resa necessaria la realizzazione di
+					un servizio singleton, il cui stato fosse sia condiviso tra i diversi client,
+					sia preservato tra le diverse richieste. Nel prosieguo il lettore troverà
+					spiegazioni più dettagliate. </para>
+				<para> In <xref linkend="business_package"/> si può osservare la strutturazione in
+					pacchetti del livello e le relazioni di dipendenza che intercorrono fra essi.
+					L'elenco sottostante chiarisce le responsabilità per ciascun modulo: <itemizedlist>
+						<listitem>
+							<para><filename>g8.bookshop.business.ws</filename>: espone tramite web
+								service stateless i servizi offerti dal livello business;</para>
+						</listitem>
+						<listitem>
+							<para><filename>g8.bookshop.business.um</filename>: gestisce gli utenti
+								e ne mantiene lo stato nel negozio virtuale;</para>
+						</listitem>
+						<listitem>
+							<para><filename>g8.bookshop.business.core</filename>: definisce le
+								entità, in senso lato, del business congiuntamente alle operazioni
+								che le coinvolgono;</para>
+						</listitem>
+						<listitem>
+							<para><filename>g8.bookshop.business.persistence</filename>: costituisce
+								il punto di accesso verso il livello informativo (contiene tutte le
+								entity bean);</para>
+						</listitem>
+						<listitem>
+							<para><filename>g8.bookshop.business.util</filename>: offre alcune
+								funzioni di utilità per tutto il livello business.</para>
+						</listitem>
+					</itemizedlist>
+				</para>
+				<figure xml:id="business_package">
+					<title>
+						<filename>g8.bookshop.business</filename>
+					</title>
+					<mediaobject>
+						<imageobject role="fo">
+							<imagedata fileref="DiagrammiBusiness/business_package.svg"
+								align="center" depth="250pt" format="SVG"/>
+						</imageobject>
+						<imageobject role="dblatex">
+							<imagedata fileref="DiagrammiBusiness/business_package.pdf"
+								align="center" depth="250pt" format="PDF"/>
+						</imageobject>
+					</mediaobject>
+				</figure>
+				<para> Scendendo un po' più in profondità, si osserva che il pacchetto
+						<filename>g8.bookshop.business.ws</filename> è composto da tre bean
+					stateless, tutte esposte come web service:
+					<filename>CatalogueService</filename>, <filename>ShoppingCartService</filename>
+					e <filename>UserManagerService</filename>. La prima fornisce i metodi per
+					l'accesso al catalogo dei libri (e.g. ricerca), la seconda al carrello dei
+					clienti e infine la terza offre i servizi di autenticazione e disconnessione. </para>
+				<figure xml:id="business_ws">
+					<title>
+						<filename>g8.bookshop.business.ws</filename>
+					</title>
+					<mediaobject>
+						<imageobject role="fo">
+							<imagedata fileref="DiagrammiBusiness/business_ws.svg" depth="450pt"
+								align="center" format="SVG"/>
+							<!--                        <imagedata fileref="DiagrammiBusiness/business_ws.png" align="center"
 		                            format="PNG"/>-->
-		                    </imageobject>
-		                    <imageobject role="dblatex">
-		                        <imagedata fileref="DiagrammiBusiness/business_ws.pdf" align="center"
-		                            depth="500pt" format="PDF"/>
-		                    </imageobject>
-		                </mediaobject>
-		            </figure>
-        			<para>
-        				Il pacchetto <filename>g8.bookshop.business.um</filename> contiene la classe 
-        				<filename>UserManager</filename> che 
-        				implementa il servizio singleton per la gestione degli utenti e del loro stato.
-        				In particolare tramite una <filename>HashMap</filename> mantiene gli utenti che sono al momento
-        				presenti nel negozio virtuale. L'<filename>HashMap</filename>
-        				in questione associa a ciascun identificativo di sessione un utente. Come si vedrà
-        				nel seguito, il carrello è mantenuto all'interno della bean che rappresenta il cliente.
-        				Infine il gestore degli utenti è anche il responsabile dell'autenticazione e della disconnessione
-        				dei clienti.
-       				</para>
-       				<para>
-        				La bean <filename>UserManagerAdaptor.java</filename>, invece, fornisce metodi convenienti
-        				per accedere ai servizi offerti dal gestore degli utenti.
-					</para>
-					<figure xml:id="business_um">
-		                <title>
-		                    <filename>g8.bookshop.business.um</filename>
-		                </title>
-		                <mediaobject>
-		                    <imageobject role="fo">
-		                        <imagedata fileref="DiagrammiBusiness/business_um.svg" align="center"
-		                            depth="350pt" format="SVG"/>
-		                    </imageobject>
-		                    <imageobject role="dblatex">
-		                        <imagedata fileref="DiagrammiBusiness/business_um.pdf" align="center"
-		                            depth="350pt" format="PDF"/>
-		                    </imageobject>
-		                </mediaobject>
-		            </figure>
-					<para>
-						Il pacchetto <filename>g8.bookshop.business.core</filename> contiene tutte le bean che rappresentano
-						le entità del business che non hanno necessità di essere persistenti ma che comunque devono
-						mantenere uno stato.
-						In particolare si è codificato tramite le bean <filename>Guest</filename> e <filename>Customer</filename>
-						le due diverse tipologie di clienti che possono accedere al negozio virtuale di libri, cioè il visitatore occasionale
-						e il cliente (per il quale è prevista l'autenticazione). Chiaramente solo il cliente possiede il carrello (<filename>ShoppingCart</filename>)
-						che è costituito da un insieme di ordini (<filename>Order</filename>), cioè una coppia libro, quantità.
-					</para>
-					<para>
-					</para>
-					<figure xml:id="business_core">
-		                <title>
-		                    <filename>g8.bookshop.business.core</filename>
-		                </title>
-		                <mediaobject>
-		                    <imageobject role="fo">
-		                        <imagedata fileref="DiagrammiBusiness/business_core.svg" align="center"
-		                            depth="500pt" format="SVG"/>
-		                    </imageobject>
-		                    <imageobject role="dblatex">
-		                        <imagedata fileref="DiagrammiBusiness/business_core.pdf" align="center"
-		                            depth="500pt" format="PDF"/>
-		                    </imageobject>
-		                </mediaobject>
-		            </figure>
-					<para>
-					 Il package <filename>g8.bookshop.business.persistence</filename> contiene le entità business che
-					 hanno necessità di essere persistenti. Nella fattispecie si tratta solamente di <filename>Book</filename>
-					 e <filename>Credential</filename>. La prima rappresenta l'entità libro mentre la seconda memorizza
-					 l'associazione tra nome utente e password, informazioni indispensabili per l'autenticazione dei clienti. 
-					</para>
-					<figure xml:id="business_persistence">
-		                <title>
-		                    <filename>g8.bookshop.business.persistence</filename>
-		                </title>
-		                <mediaobject>
-		                    <imageobject role="fo">
-		                        <!--                        <imagedata fileref="DiagrammiBusiness/persistence.png" align="center"
+						</imageobject>
+						<imageobject role="dblatex">
+							<imagedata fileref="DiagrammiBusiness/business_ws.pdf" align="center"
+								depth="500pt" format="PDF"/>
+						</imageobject>
+					</mediaobject>
+				</figure>
+				<para> Il pacchetto <filename>g8.bookshop.business.um</filename> contiene la classe
+						<filename>UserManager</filename> che implementa il servizio singleton per la
+					gestione degli utenti e del loro stato. In particolare tramite una
+						<filename>HashMap</filename> mantiene gli utenti che sono al momento
+					presenti nel negozio virtuale. L'<filename>HashMap</filename> in questione
+					associa a ciascun identificativo di sessione un utente. Come si vedrà nel
+					seguito, il carrello è mantenuto all'interno della bean che rappresenta il
+					cliente. Infine il gestore degli utenti è anche il responsabile
+					dell'autenticazione e della disconnessione dei clienti. </para>
+				<para> La bean <filename>UserManagerAdaptor.java</filename>, invece, fornisce metodi
+					convenienti per accedere ai servizi offerti dal gestore degli utenti. </para>
+				<figure xml:id="business_um">
+					<title>
+						<filename>g8.bookshop.business.um</filename>
+					</title>
+					<mediaobject>
+						<imageobject role="fo">
+							<imagedata fileref="DiagrammiBusiness/business_um.svg" align="center"
+								depth="350pt" format="SVG"/>
+						</imageobject>
+						<imageobject role="dblatex">
+							<imagedata fileref="DiagrammiBusiness/business_um.pdf" align="center"
+								depth="350pt" format="PDF"/>
+						</imageobject>
+					</mediaobject>
+				</figure>
+				<para> Il pacchetto <filename>g8.bookshop.business.core</filename> contiene tutte le
+					bean che rappresentano le entità del business che non hanno necessità di essere
+					persistenti ma che comunque devono mantenere uno stato. In particolare si è
+					codificato tramite le bean <filename>Guest</filename> e
+						<filename>Customer</filename> le due diverse tipologie di clienti che
+					possono accedere al negozio virtuale di libri, cioè il visitatore occasionale e
+					il cliente (per il quale è prevista l'autenticazione). Chiaramente solo il
+					cliente possiede il carrello (<filename>ShoppingCart</filename>) che è
+					costituito da un insieme di ordini (<filename>Order</filename>), cioè una coppia
+					libro, quantità. </para>
+				<para> </para>
+				<figure xml:id="business_core">
+					<title>
+						<filename>g8.bookshop.business.core</filename>
+					</title>
+					<mediaobject>
+						<imageobject role="fo">
+							<imagedata fileref="DiagrammiBusiness/business_core.svg" align="center"
+								depth="500pt" format="SVG"/>
+						</imageobject>
+						<imageobject role="dblatex">
+							<imagedata fileref="DiagrammiBusiness/business_core.pdf" align="center"
+								depth="500pt" format="PDF"/>
+						</imageobject>
+					</mediaobject>
+				</figure>
+				<para> Il package <filename>g8.bookshop.business.persistence</filename> contiene le
+					entità business che hanno necessità di essere persistenti. Nella fattispecie si
+					tratta solamente di <filename>Book</filename> e <filename>Credential</filename>.
+					La prima rappresenta l'entità libro mentre la seconda memorizza l'associazione
+					tra nome utente e password, informazioni indispensabili per l'autenticazione dei
+					clienti. </para>
+				<figure xml:id="business_persistence">
+					<title>
+						<filename>g8.bookshop.business.persistence</filename>
+					</title>
+					<mediaobject>
+						<imageobject role="fo">
+							<!--                        <imagedata fileref="DiagrammiBusiness/persistence.png" align="center"
 		                            format="PNG"/>-->
-		                        <imagedata fileref="DiagrammiBusiness/business_persistence.svg" align="center"
-		                            depth="300pt" format="SVG"/>
-		                    </imageobject>
-		                    <imageobject role="dblatex">
-		                        <imagedata fileref="DiagrammiBusiness/business_persistence.pdf" align="center"
-		                            depth="300pt" format="PDF"/>
-		                    </imageobject>
-		                </mediaobject>
-		            </figure>
-		            <para>
-		            	Infine il pacchetto <filename>g8.bookshop.business.util</filename> contiene alcuni
-		            	strumenti di utilità per tutto il livello business. Il <filename>Converter</filename>
-		            	è una bean stateless che offre funzioni per la conversione da XML a oggetti business e
-		            	viceversa; il <filename>BeanLocator</filename> offre una comoda primitiva per la localizzazione
-		            	delle bean e <filename>Name</filename> definisce alcune costanti utilizzate
-		            	diffusamente nel progetto.   
-        			</para>
-					<figure xml:id="business_util">
-		                <title>
-		                    <filename>g8.bookshop.business.util</filename>
-		                </title>
-		                <mediaobject>
-		                    <imageobject role="fo">
-		                        <imagedata fileref="DiagrammiBusiness/business_util.svg" align="center"
-		                            depth="350pt" format="SVG"/>
-		                    </imageobject>
-		                    <imageobject role="dblatex">
-		                        <imagedata fileref="DiagrammiBusiness/business_util.pdf" align="center"
-		                            depth="350pt" format="PDF"/>
-		                    </imageobject>
-		                </mediaobject>
-		            </figure>
-		            
-        			<para>
-        				Il diagramma in <xref linkend="business_package_relations" /> esplicita in maniera 
-        				ancora più dettagliata le dipendenze tra i vari pacchetti, chiarendone la natura:
-       				</para>
-					<figure xml:id="business_package_relations">
-		                <title>
-		                    <filename>g8.bookshop.business</filename>
-		                </title>
-		                <mediaobject>
-		                    <imageobject role="fo">
-		                        <imagedata fileref="DiagrammiBusiness/business_package_relations.svg" align="center"
-		                            depth="300pt" format="SVG"/>
-		                    </imageobject>
-		                    <imageobject role="dblatex">
-		                        <imagedata fileref="DiagrammiBusiness/business_package_relations.pdf" align="center"
-		                            depth="300pt" format="PDF"/>
-		                    </imageobject>
-		                </mediaobject>
-		            </figure>
-       			</section>
-        	<section>
-        		<title>Scelte di schieramento</title>
-        		<section xml:id="sect-business-singleton">
-        			<title>Servizio singleton ad alta disponibilita`</title>
-        			<para>
-        				La decisione di realizzare un servizio singleton per mantenere le informazioni di stato dei
-        				vari utenti rappresenta a prima vista un singolo punto di guasto per l'intera applicazione.
-        				
-        				Fortunatamente <productname>JBoss 5.1.0.GA</productname> offre l'opportunità di
-        				realizzare servizi singleton ad alta disponibilità. Nella fattispecie è possibile schierare
-        				il servizio su tutte le macchine del cluster ma eseguirlo solamente su uno, il master node. Nell'ipotesi
-        				in cui il master node si guastasse, il cluster ne rieleggerebbe uno nuovo sul quale sarebbe avviato
-        				nuovamente il servizio. Purtroppo al momento in cui si scrive, lo stato del servizio non viene preservato
-        				durante la procedura di migrazione sebbene s'intravedono gli spiragli per raggiungere anche questo traguardo.
-					</para>
-   					<para>
-   						Per schierare il servizio singleton ci si è appoggiati sull'<filename>HASingletonController</filename>,
-   						un servizio offerto da JBoss e attivo su ogni nodo del cluster.
-   						Il compito dell'<filename>HASingletonController</filename> è quello di monitorare la partizione e
-   						determinare se il nodo sul quale è attivo è il master node. A seconda della condizione del nodo,
-   						quindi, avvia o arresta il servizio invocando opportuni metodi (in questo caso dello <filename>UserManager</filename>).
-   						L'<filename>HASingletonController</filename>, comparato ad altre soluzioni analoghe, permette la più rapida
-   						gestione del failover in quanto il servizio è già schierato su tutte le macchine del cluster.
-   						
-   					</para>
-   					<para>
-   						L'accesso al servizio singleton è però un po' complessa dal momento che non è una normale bean EJB 3.0 ma
-   						una mbean; il diagramma in <xref linkend="sequence_business_auth"/>
-   						lo dettaglia in maniera approfondita nel caso dell'autenticazione:   
- 					</para>
-  		            <figure xml:id="sequence_business_auth">
-		                <title> Diagramma di sequenza </title>
-		                <mediaobject>
-		                    <imageobject role="fo">
-		                        <imagedata fileref="DiagrammiBusiness/sequence_business_auth.svg"
-		                            align="center" depth="450pt" format="SVG"/>
-		                    </imageobject>
-		                    <imageobject role="dblatex">
-		                        <imagedata fileref="DiagrammiBusiness/sequence_business_auth.pdf"
-		                            align="center" depth="350pt" format="PDF"/>
-		                    </imageobject>
-		                </mediaobject>
-		            </figure>
-        		</section>
-        		<section>
-       				<title>Alta replicazione</title>
-       				<para>
-       					Come annunciato nell'introduzione alle scelte progettuali, si è cercato di replicare quanto più
-       					possibile le componenti del business per avere benifici sia in termini di prestazioni che di
-       					tolleranza ai guasti.
-					</para>
-					
-					<para>
-						In particolare tutte le entity bean sono state replicate grazie all'utilizzo della cache di secondo
-						livello offerta da hibernate. Considerata che la natura degli accessi alle informazioni persistenti è
-						di sola lettura, è stata impostata un politica di caching che favorisse le prestazioni in questo
-						senso.
-					</para>
-  					<para>
-  						Grazie a HAJNDI, invece, si è ottenuto bilanciamento di carico per tutte le session bean.
-  						Le stateful bean inoltre sono state distribuite utilizzando la funzionalità "clustered" offerta da JBoss.
-					</para>
-        		</section>
-       		</section>
-       		<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
-   			<section>
-    			<title>Scelte progettuali minori</title>
-    			<para>
-    				La manutenibilità del prodotto è stata ricercata anche attraverso piccole scelte progettuali all'interno del livello
-    				business.
-   				</para>
-   				<para>
-    				E' stato utilizzato il pattern Adapter per incapsulare le richieste allo <filename>UserManager</filename>
-    				in modo tale che dall'esterno fosse accedibile in maniera conveniente tramite una banale lookup. 
-    			</para>
-    			<para>
-    				Attraverso il <filename>BeanLocator</filename> invece si è fattorizzata la funzionalità di ricerca delle
-    				bean evitando di duplicare eccessivamente il codice e, quindi, semplificandone la gestione in un unico punto.
-    			</para>
-   			</section>
-       		<section>
-      			<title> Livello informativo </title>
-      				<para>
-      				Il documento dei requisiti non impone particolari vincoli sul livello informativo che quindi non ha rappresentato 
-      				un grosso scoglio nella realizzazione del progetto. Tuttavia
-	      			è bene documentare alcune scelte che sono state operate in questo ambito.
-     				</para>
-     				<para>
-     				In primis, si è scelto di non adottare il DBMS predefinito (Hypersonic) distribuito con JBoss AS 5.1.0.GA 
-     				in favore del ben più noto e diffuso MySQL (versione 5.0.1), disponibile sulle macchine dipartimentali.
-     				La ragione di tale scelta è da ricercare nel fatto che Hypersonic non implementa correttamente le
-     				proprietà acide, esponendo quindi il database a possibili stati non consistenti. Inoltre le decisione
-     				di adottare MySQL ci ha permesso di familiarizzare ulteriormente con l'ambiente di JBoss, uno degli 
-     				obiettivi principali del progetto.
-     				</para>
-     				
-     				<para>
-     				In secundis, si è scelto di mantenere la progettazione del database il più semplice possibile lasciando
-     				aperta la possibilità di investire il tempo a disposizione in altre aree giudicate più interessanti, come lo
-     				schieramento, la progettazione architetturale e i servizi ad alta disponibilità.
-     				</para>
-       		</section>
-        	<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
-        </section>
-    </chapter>
+							<imagedata fileref="DiagrammiBusiness/business_persistence.svg"
+								align="center" depth="300pt" format="SVG"/>
+						</imageobject>
+						<imageobject role="dblatex">
+							<imagedata fileref="DiagrammiBusiness/business_persistence.pdf"
+								align="center" depth="300pt" format="PDF"/>
+						</imageobject>
+					</mediaobject>
+				</figure>
+				<para> Infine il pacchetto <filename>g8.bookshop.business.util</filename> contiene
+					alcuni strumenti di utilità per tutto il livello business. Il
+						<filename>Converter</filename> è una bean stateless che offre funzioni per
+					la conversione da XML a oggetti business e viceversa; il
+						<filename>BeanLocator</filename> offre una comoda primitiva per la
+					localizzazione delle bean e <filename>Name</filename> definisce alcune costanti
+					utilizzate diffusamente nel progetto. </para>
+				<figure xml:id="business_util">
+					<title>
+						<filename>g8.bookshop.business.util</filename>
+					</title>
+					<mediaobject>
+						<imageobject role="fo">
+							<imagedata fileref="DiagrammiBusiness/business_util.svg" align="center"
+								depth="350pt" format="SVG"/>
+						</imageobject>
+						<imageobject role="dblatex">
+							<imagedata fileref="DiagrammiBusiness/business_util.pdf" align="center"
+								depth="350pt" format="PDF"/>
+						</imageobject>
+					</mediaobject>
+				</figure>
+
+				<para> Il diagramma in <xref linkend="business_package_relations"/> esplicita in
+					maniera ancora più dettagliata le dipendenze tra i vari pacchetti, chiarendone
+					la natura: </para>
+				<figure xml:id="business_package_relations">
+					<title>
+						<filename>g8.bookshop.business</filename>
+					</title>
+					<mediaobject>
+						<imageobject role="fo">
+							<imagedata fileref="DiagrammiBusiness/business_package_relations.svg"
+								align="center" depth="300pt" format="SVG"/>
+						</imageobject>
+						<imageobject role="dblatex">
+							<imagedata fileref="DiagrammiBusiness/business_package_relations.pdf"
+								align="center" depth="300pt" format="PDF"/>
+						</imageobject>
+					</mediaobject>
+				</figure>
+			</section>
+			<section>
+				<title>Scelte di schieramento</title>
+				<section xml:id="sect-business-singleton">
+					<title>Servizio singleton ad alta disponibilita`</title>
+					<para> La decisione di realizzare un servizio singleton per mantenere le
+						informazioni di stato dei vari utenti rappresenta a prima vista un singolo
+						punto di guasto per l'intera applicazione. Fortunatamente <productname>JBoss
+							5.1.0.GA</productname> offre l'opportunità di realizzare servizi
+						singleton ad alta disponibilità. Nella fattispecie è possibile schierare il
+						servizio su tutte le macchine del cluster ma eseguirlo solamente su uno, il
+						master node. Nell'ipotesi in cui il master node si guastasse, il cluster ne
+						rieleggerebbe uno nuovo sul quale sarebbe avviato nuovamente il servizio.
+						Purtroppo al momento in cui si scrive, lo stato del servizio non viene
+						preservato durante la procedura di migrazione sebbene s'intravedono gli
+						spiragli per raggiungere anche questo traguardo. </para>
+					<para> Per schierare il servizio singleton ci si è appoggiati
+							sull'<filename>HASingletonController</filename>, un servizio offerto da
+						JBoss e attivo su ogni nodo del cluster. Il compito
+							dell'<filename>HASingletonController</filename> è quello di monitorare
+						la partizione e determinare se il nodo sul quale è attivo è il master node.
+						A seconda della condizione del nodo, quindi, avvia o arresta il servizio
+						invocando opportuni metodi (in questo caso dello
+							<filename>UserManager</filename>).
+							L'<filename>HASingletonController</filename>, comparato ad altre
+						soluzioni analoghe, permette la più rapida gestione del failover in quanto
+						il servizio è già schierato su tutte le macchine del cluster. </para>
+					<para> L'accesso al servizio singleton è però un po' complessa dal momento che
+						non è una normale bean EJB 3.0 ma una mbean; il diagramma in <xref
+							linkend="sequence_business_auth"/> lo dettaglia in maniera approfondita
+						nel caso dell'autenticazione: </para>
+					<figure xml:id="sequence_business_auth">
+						<title> Diagramma di sequenza </title>
+						<mediaobject>
+							<imageobject role="fo">
+								<imagedata fileref="DiagrammiBusiness/sequence_business_auth.svg"
+									align="center" depth="450pt" format="SVG"/>
+							</imageobject>
+							<imageobject role="dblatex">
+								<imagedata fileref="DiagrammiBusiness/sequence_business_auth.pdf"
+									align="center" depth="350pt" format="PDF"/>
+							</imageobject>
+						</mediaobject>
+					</figure>
+				</section>
+				<section>
+					<title>Alta replicazione</title>
+					<para> Come annunciato nell'introduzione alle scelte progettuali, si è cercato
+						di replicare quanto più possibile le componenti del business per avere
+						benifici sia in termini di prestazioni che di tolleranza ai guasti. </para>
+
+					<para> In particolare tutte le entity bean sono state replicate grazie
+						all'utilizzo della cache di secondo livello offerta da hibernate.
+						Considerata che la natura degli accessi alle informazioni persistenti è di
+						sola lettura, è stata impostata un politica di caching che favorisse le
+						prestazioni in questo senso. </para>
+					<para> Grazie a HAJNDI, invece, si è ottenuto bilanciamento di carico per tutte
+						le session bean. Le stateful bean inoltre sono state distribuite utilizzando
+						la funzionalità "clustered" offerta da JBoss. </para>
+				</section>
+			</section>
+			<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+			<section>
+				<title>Scelte progettuali minori</title>
+				<para> La manutenibilità del prodotto è stata ricercata anche attraverso piccole
+					scelte progettuali all'interno del livello business. </para>
+				<para> E' stato utilizzato il pattern Adapter per incapsulare le richieste allo
+						<filename>UserManager</filename> in modo tale che dall'esterno fosse
+					accedibile in maniera conveniente tramite una banale lookup. </para>
+				<para> Attraverso il <filename>BeanLocator</filename> invece si è fattorizzata la
+					funzionalità di ricerca delle bean evitando di duplicare eccessivamente il
+					codice e, quindi, semplificandone la gestione in un unico punto. </para>
+			</section>
+		</section>
+		<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+		<section xml:id="sect-livello_informativo">
+			<title> Livello informativo </title>
+			<para> Il documento dei requisiti non impone particolari vincoli sul livello informativo
+				che quindi non ha rappresentato un grosso scoglio nella realizzazione del progetto.
+				Tuttavia è bene documentare alcune scelte che sono state operate in questo ambito. </para>
+			<para> In primis, si è scelto di non adottare il DBMS predefinito (Hypersonic)
+				distribuito con JBoss AS 5.1.0.GA in favore del ben più noto e diffuso MySQL
+				(versione 5.0.1), disponibile sulle macchine dipartimentali. La ragione di tale
+				scelta è da ricercare nel fatto che Hypersonic non implementa correttamente le
+				proprietà acide, esponendo quindi il database a possibili stati non consistenti.
+				Inoltre le decisione di adottare MySQL ci ha permesso di familiarizzare
+				ulteriormente con l'ambiente di JBoss, uno degli obiettivi principali del progetto. </para>
+
+			<para> In secundis, si è scelto di mantenere la progettazione del database il più
+				semplice possibile lasciando aperta la possibilità di investire il tempo a
+				disposizione in altre aree giudicate più interessanti, come lo schieramento, la
+				progettazione architetturale e i servizi ad alta disponibilità. </para>
+		</section>
+	</chapter>
 </book>
