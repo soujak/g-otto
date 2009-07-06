@@ -12,176 +12,258 @@
     xmlns:xlink="http://www.w3.org/1999/xlink"
     version="5.0">
     <chapter xml:id="chap-sforzo">
-    
 	    <title>Valutazione dello sforzo</title>
     
 	    <section>
 	    	<title>Valutazione preventiva</title>
 			<para>
-				La valutazione preventiva dello sforzo è stata utilizzata, sin dalle prime fasi del progetto per stimare i tempi ad esso necessario e prevederne così la conclusione.
-				La valutazione effettuata è fondata sulla nota metrica dei punti funzione, di seguito se ne riporta in dettaglio il procedimento di calcolo.  
+				La valutazione preventiva dello sforzo è stata utile, sin
+				dalle prime fasi del progetto per stimare i tempi ad esso
+				necessario e prevederne così la conclusione.
+				La valutazione effettuata, fondata sulla metrica dei
+				punti funzione, è riportata nella presente sezione.
+			</para>
+			<section>
+				<title>Calcolo dei punti funzione</title>
+				<para>
+					Il calcolo della metrica è stato effetuato secondo il
+					procedimento più classico, proposto da Albrecht.
+					La tabella che segue è mostrato il computo dei punti
+					funzione ancora non aggiustati, comprensiva di qualche
+					commento ai valori scelti.
+				</para>
+				<table>
+					<title>Calcolo punti funzione non aggiustati</title>
+					<tgroup cols="4">
+						<colspec colname="tipo" align="center"/>
+						<colspec colname="numero" align="center"/>
+						<colspec colname="complessita" align="center"/>
+						<colspec colname="totale" align="center"/>
+						<thead>
+							<row>
+								<entry>Fattore</entry>
+								<entry>Quantità</entry>
+								<entry>Complessità</entry>
+								<entry>Totale</entry>
+							</row>
+						</thead>
+						<tfoot>
+							<row>
+								<entry>Conto totale grezzo</entry>
+								<entry></entry>
+								<entry></entry>
+								<entry>35</entry>
+							</row>
+						</tfoot>
+						<tbody>
+							<row>
+								<entry>Input utente</entry>
+								<entry>
+									<para>3</para>
+									<para>ricerca, credenziali, gestione carrello</para>
+								</entry>
+								<entry>
+									<para>4</para>
+									<para>media</para>
+								</entry>
+								<entry>12</entry>
+							</row>
+							<row>
+								<entry>Output utente</entry>
+								<entry>
+									<para>2</para>
+									<para>ricerca, carrello</para>
+								</entry>
+								<entry>
+									<para>7</para>
+									<para>media</para>
+								</entry>
+								<entry>14</entry>
+							</row>
+							<row>
+								<entry>Richieste utente</entry>
+								<entry>0</entry>
+								<entry></entry>
+								<entry></entry>
+							</row>
+							<row>
+								<entry>File logici</entry>
+								<entry>
+									<para>2</para>
+									<para>libro, credenziali</para>
+								</entry>
+								<entry>
+									<para>10</para>
+									<para>media</para>
+								</entry>
+								<entry>20</entry>
+							</row>
+							<row>
+								<entry>Interfacce esterne</entry>
+								<entry>0</entry>
+								<entry></entry>
+								<entry></entry>
+							</row>
+						</tbody>
+					</tgroup>
+				</table>
+				<para>
+					L'aggiustamento è stato poi calcolato attraverso il
+					noto questionario riportato di seguito: 
+					<orderedlist>
+						<listitem>
+							<para>
+								Il sistema ha bisogno di operazioni di backup e
+								ripristino afidabili? [0]
+							</para>
+						</listitem>
+						<listitem>
+							<para>
+								È necessario impiegare comunicazioni specializzate
+								per trasferire le informazioni da o verso
+								l’applicazione? [5]
+							</para>
+						</listitem>
+						<listitem>
+							<para>
+								Esistono funzioni di elaborazione distribuita?
+								[3]
+							</para>
+						</listitem>
+						<listitem>
+							<para>
+								Le prestazioni rappresentano un fattore critico?
+								[1]
+							</para>
+						</listitem>
+						<listitem>
+							<para>
+								Il sistema può funzionare in un ambiente
+								operativo esistente, pesantemente utilizzato? [5]
+							</para>
+						</listitem>
+						<listitem>
+							<para>
+								Il sistema richiede un inserimento online dei dati? [1]
+							</para>
+						</listitem>
+						<listitem>
+							<para>
+								L’inserimento online dei dati richiede che venga
+								realizzata una transazione di input costituita da più schermi od operazioni? [0]
+							</para>
+						</listitem>
+						<listitem>
+							<para>
+								I ﬁle IFL vengono aggiornati online? [0]
+							</para>
+						</listitem>
+						<listitem>
+							<para>
+								Esistono input, output, ﬁle o richieste di natura
+								complessa? [1]
+							</para>
+						</listitem>
+						<listitem>
+							<para>
+								L’elaborazione interna è complessa? [2]
+							</para>
+						</listitem>
+						<listitem>
+							<para>
+								Il codice è progettato per essere
+								riutilizzabile? [5]
+							</para>
+						</listitem>
+						<listitem>
+							<para>
+								Nel progetto sono compresi la conversione e
+								l’installazione? [4]
+							</para>
+						</listitem>
+						<listitem>
+							<para>
+								Il sistema è progettato per più installazioni
+								in più organizzazioni? [4]
+							</para>
+						</listitem>
+						<listitem>
+							<para>
+								L’applicazione è progettata per facilitare le modiﬁche e la facilità d’uso da parte degli utenti? [3]
+							</para>
+						</listitem>
+					</orderedlist>
+				</para>
+				<para>
+					Il risultato totale di 34 costituisce il valore di
+					aggiustamento da sostituire nell'equazione empirica
+					assieme al conto totale grezzo precedentemente ottenuto.
+					<informalequation>
+						<mathphrase>
+							Punti funzione =
+							"conto totale grezzo" x (0.65 + 0.01 x "valore di aggiustamento")
+						</mathphrase>
+					</informalequation>
+					Si ottiene quindi il numero di punti funzione dell'applicazione.
+					<informalequation>
+						<mathphrase>
+							Punti funzione = 35 x (0.65 + 0.01 x 34) = 34.63
+						</mathphrase>
+					</informalequation>
+				</para>
+			</section>
+			<para>
+				Per avvicinare la metrica dei punti funzione ad una quantificazione
+				dello sforzo concreta e verificabile si è anzitutto deciso di
+				stimare le linee di codice sorgente che saranno prodotte.
+				Sfruttando una stima empirica del rapporto fra linee di codice
+				di un software e i punti funzione in esso contenuti, che per
+				applicazioni Java Enterprise, è pari a 50, si è quindi stimato
+				che venissero prodotte 2114 righe di codice sorgente.
 			</para>
 			<para>
-				Nella tabella che segue è mostrato il computo dei punti funzione ancora non aggiustati.
-			</para>
-			<table>
-				<title>Stima dello sforzo con punti funzione</title>
-				<tgroup cols="4">
-					<colspec colname="tipo" align="center"/>
-					<colspec colname="numero" align="center"/>
-					<colspec colname="complessita" align="center"/>
-					<colspec colname="totale" align="center"/>
-					<thead>
-						<row>
-							<entry>Fattore</entry>
-							<entry>Quantità</entry>
-							<entry>Complessità</entry>
-							<entry>Totale</entry>
-						</row>
-					</thead>
-					<tfoot>
-						<row>
-							<entry>Conto totale grezzo</entry>
-							<entry></entry>
-							<entry></entry>
-							<entry>35</entry>
-						</row>
-					</tfoot>
-					<tbody>
-						<row>
-							<entry>Input utente</entry>
-							<entry>
-								<para>3</para>
-								<para>ricerca, credenziali, gestione carrello</para>
-							</entry>
-							<entry>
-								<para>4</para>
-								<para>media</para>
-							</entry>
-							<entry>12</entry>
-						</row>
-						<row>
-							<entry>Output utente</entry>
-							<entry>
-								<para>2</para>
-								<para>ricerca, carrello</para>
-							</entry>
-							<entry>
-								<para>7</para>
-								<para>media</para>
-							</entry>
-							<entry>14</entry>
-						</row>
-						<row>
-							<entry>Richieste utente</entry>
-							<entry>0</entry>
-							<entry></entry>
-							<entry></entry>
-						</row>
-						<row>
-							<entry>File logici</entry>
-							<entry>
-								<para>2</para>
-								<para>libro, credenziali</para>
-							</entry>
-							<entry>
-								<para>10</para>
-								<para>media</para>
-							</entry>
-							<entry>20</entry>
-						</row>
-						<row>
-							<entry>Interfacce esterne</entry>
-							<entry>0</entry>
-							<entry></entry>
-							<entry></entry>
-						</row>
-					</tbody>
-				</tgroup>
-			</table>
-			<para>
-				L'aggiustamento viene calcolato attraverso il seguente questionario.
-			</para>
-			<orderedlist>
-				<listitem>
-					<para>Il sistema ha bisogno di operazioni di backup e ripristino afidabili? [0]</para>
-				</listitem>
-				<listitem>
-					<para>È necessario impiegare comunicazioni specializzate per trasferire le informazioni da o verso l’applicazione? [5]</para>
-				</listitem>
-				<listitem>
-					<para>Esistono funzioni di elaborazione distribuita? [3]</para>
-				</listitem>
-				<listitem>
-					<para>Le prestazioni rappresentano un fattore critico? [1]</para>
-				</listitem>
-				<listitem>
-					<para>Il sistema può funzionare in un ambiente operativo esistente, pesantemente utilizzato? [5]</para>
-				</listitem>
-				<listitem>
-					<para>Il sistema richiede un inserimento online dei dati? [1]</para>
-				</listitem>
-				<listitem>
-					<para>L’inserimento online dei dati richiede che venga realizzata una transazione di input costituita da più schermi od operazioni? [0]</para>
-				</listitem>
-				<listitem>
-					<para>I ﬁle IFL vengono aggiornati online? [0]</para>
-				</listitem>
-				<listitem>
-					<para>Esistono input, output, ﬁle o richieste di natura complessa? [1]</para>
-				</listitem>
-				<listitem>
-					<para>L’elaborazione interna è complessa? [2]</para>
-				</listitem>
-				<listitem>
-					<para>Il codice è progettato per essere riutilizzabile? [5]</para>
-				</listitem>
-				<listitem>
-					<para>Nel progetto sono compresi la conversione e l’installazione? [4]</para>
-				</listitem>
-				<listitem>
-					<para>Il sistema è progettato per più installazioni in più organizzazioni? [4]</para>
-				</listitem>
-				<listitem>
-					<para>L’applicazione è progettata per facilitare le modiﬁche e la facilità d’uso da parte degli utenti? [3]</para>
-				</listitem>
-			</orderedlist>
-			<para>
-				Il risultato totale di 34 costituisce il valore di
-				aggiustamento da sostituire nell'equazione empirica
-				assieme al conto totale grezzo precedentemente ottenuto.
-				<informalequation>
-					<mathphrase>
-						"conto totale grezzo" x (0.65 + 0.01 x "valore di aggiustamento")
-					</mathphrase>
-				</informalequation>
-				Si ottiene quindi il numero di punti funzione dell'applicazione.
-				<informalequation>
-					<mathphrase>
-						35 x (0.65 + 0.01 x 34) = 34.63
-					</mathphrase>
-				</informalequation>
-			</para>
-			<para>
-				Per avvicinare la metrica ad una quantificazione dello sforzo
-				in termini di ore di lavoro si è scelto di sfruttare il rapporto
-				fra linee di codice di un software e i punti funzione in esso
-				contenuti.
-				In particolare, per applicazioni Java Enterprise, il valore medio è
-				 di 50, quindi si stima un numero di righe di codice di 2114.
-			</para>
-			<para>
-				TODO: stima ore di lavoro da loc
+				In secondo luogo si è voluto stimare lo sforzo anche secondo
+				un'altra misura altamente verificabile: i giorni di lavoro per
+				uomo.
+				A partire da una valutazione empirica della produttività
+				degli sviluppatori in una media di 15 punti funzione mensili,
+				si è ricavato che lo sforzo globale previsto per il progetto
+				è pari a 2,3 mesi/uomo.
+				Per la squadra di quattro componenti tale stima equivale a
+				poco più di 12 giorni di lavoro a testa.
 			</para>
 	    </section>
 	
 		<section>
 	    	<title>Valutazione consuntiva</title>
 	    	<para>
-	    		TODO: confronto fra linee di codice preventive e consuntive
+	    		La valutazione consuntiva degli sforzi effettuati è stata
+	    		elaborata sia per la stima di righe di codice che per la stima
+	    		di ore di lavoro.
+	    		Infatti, nonostante entrambe le stime siano basate sulla metrica
+	    		dei punti funzione, è bene ricordare che, delle due, la prima
+	    		stima è stata usata per la valutazione della seconda. 
 	    	</para>
+	    	<para>
+	    		La quantità di codice sorgente prodotto dalla squadra è stato
+	    		calcolato a partire dai codici Java Enterprise e dalle
+	    		configurazioni dell'application server in XML.
+	    		Sono stati inseriti nel conteggio i soli sorgenti effettivamente
+	    		prodotti dalla squadra per l'applicazione, escludendo i sorgenti
+	    		generati automaticamente da alcuni strumenti di sviluppo e
+	    		tralasciando anche i codici usati per i collaudi di unità.
+	    		Il conto totale di righe di codice ammonta a 2069 ed è davvero
+	    		molto vicino alla previsione precendentemente illustrata.
+    		</para>
 			<para>
-				TODO: confronto fra ore di lavoro preventive e consuntive
+				Il conto delle ore di lavoro effettivamente spese dalla squadra
+				è stato computato ancor più facilmente a partire dai diari che
+				hanno puntualmente registrato le attività.
+				Il diario tenuto da ogni componente e il diario degli incontri
+				di gruppo, infatti, è stato stilato riportando le ore di sforzo
+				dedicate ai lavori.
+				La tabella seguente riassume la somma degli sforzi parziali dei
+				componenti del team.
 			</para>
 			<table>
 				<title>Valutazione consuntiva dello sforzo</title>
@@ -233,8 +315,23 @@
 				</tgroup>
 			</table>
 			<para>
-				TODO: commenti ai risultati
+				Lo sforzo consuntivo espresso in mesi uomo supera di pochissimo
+				i 4 mesi/uomo, equivalenti circa 21,1 giorni per componente.
+				Lo scarto fra la stima preventiva e la valutazione consuntiva
+				costituisce un errore relativo del 74%, che supera di gran lunga
+				la peggiore stima d'errore preventivata informalmente nelle fasi
+				di pianificazione del progetto.
 			</para> 
+			<para>
+				La causa prima di questa discrepanza risiede 
+				sicuramente nell'inesperienza gestionale e attuativa nello
+				specifico ambito di progetto di cui è parlato nella sezione
+				<xref linkend="sect-verifica"/>.
+				Non si può trascurare, peraltro, che le date di consegna multiple
+				abbiano creato, in concordanza con il teorema di Parkinson,
+				una disponibilità di sforzo che ha aumentato le necessità di
+				sforzo per il progetto.
+			</para>
 	    </section>
     </chapter>
 </book>
