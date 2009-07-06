@@ -6,15 +6,13 @@
 ]>
 <bibliography xmlns="http://docbook.org/ns/docbook">
 
-<!-- entry di esempio -->
-    <biblioentry xml:id="Pressman05">
-<!--        <abbrev>Pressman05</abbrev>-->
-            <author>
-                <personname>
-                    <firstname>Roger S.</firstname>
-                    <surname>Pressman</surname>
-                </personname>
-            </author>
+    <biblioentry>
+        <author>
+            <personname>
+                <firstname>Roger S.</firstname>
+                <surname>Pressman</surname>
+            </personname>
+        </author>
         <copyright>
             <year>1991</year>
             <holder>The MacGraw-Hill Companies, S.r.l.</holder>
@@ -23,6 +21,201 @@
             <publishername>McGraw-Hill</publishername>
         </publisher>
         <title>Principi di Ingegneria del software</title>
+    </biblioentry>
+
+    <biblioentry>
+        <author>
+            <personname>Ian Sommerville</personname>
+        </author>
+        <title>Software Engineering</title>
+        <edition>Eighth Edition</edition>
+        <publishername>Addison-Wesley</publishername>
+        <pubdate>2007</pubdate>
+    </biblioentry>
+
+
+    <biblioentry>
+        <authorgroup>
+            <author>
+                <personname>J. Arlow</personname>
+            </author>
+            <author>
+                <personname>I. Neustadt</personname>
+            </author>
+        </authorgroup>
+        <title> UML and the Unified Process</title>
+        <publishername>Addison Wesley</publishername>
+        <pubdate>2002</pubdate>
+    </biblioentry>
+
+
+    <biblioentry>
+        <author>
+            <personname>Martin Fowler</personname>
+        </author>
+        <title>UML Distilled Third Edition </title>
+        <pubdate>2003</pubdate>
+    </biblioentry>
+    <biblioentry>
+        <authorgroup>
+            <author>
+                <orgname>Dan Pilone</orgname>
+            </author>
+            <author>
+                <personname>Neil Pitman</personname>
+            </author>
+        </authorgroup>
+        <title>UML 2.0 in a Nutshell </title>
+        <publishername>O'Reilly</publishername>
+        <pubdate>2005</pubdate>
+    </biblioentry>
+    <biblioentry>
+        <author>
+            <personname>Craig Larman</personname>
+        </author>
+        <title>Applying UML and Patterns</title>
+        <edition>2</edition>
+        <publishername>Prentice-Hall</publishername>
+        <pubdate>2001</pubdate>
+    </biblioentry>
+
+    <biblioentry><authorgroup>
+            <author>
+                <personname>Erich Gamma</personname>
+            </author>
+            <author>
+                <personname>Richard Helm</personname>
+            </author>
+            <author>
+                <personname>Ralph Johnson</personname>
+            </author>
+            <author>
+                <personname>John Vlissides</personname>
+            </author>
+        </authorgroup>
+        <title>Design Patterns: Elements of Reusable Object-Oriented Software</title>
+        <publishername>Addison-Wesley</publishername> <pubdate>1995</pubdate></biblioentry>
+    <biblioentry>
+        <author>
+            <personname>Scott Ambler</personname>
+        </author>
+        <title>Agile Modeling</title>
+        <publishername>Wiley</publishername>
+        <pubdate>2002</pubdate>
+    </biblioentry>
+    <biblioentry>
+        <author>
+            <personname>
+                <firstname>Scoot W.</firstname>
+                <surname>Ambler</surname>
+            </personname>
+        </author>
+        <title>The Agile Unified Process (AUP)</title>
+        <releaseinfo>URL:&nbsp;http://www.ambysoft.com/unifiedprocess/agileUP.html</releaseinfo>
+        <pubdate>2009</pubdate>
+    </biblioentry>
+
+    <biblioentry>
+        <author>
+            <personname>Kent Beck</personname>
+        </author>
+        <title>Extreme Programming Explained: Embrace Change</title>
+        <publishername>Addison-Wesley</publishername>
+        <pubdate>2000</pubdate>
+    </biblioentry>
+
+    <biblioentry>
+        <authorgroup>
+            <author>
+                <personname>Kent Beck </personname>
+            </author>
+            <author>
+                <personname>Martin Fowler</personname>
+            </author>
+        </authorgroup>
+        <title>Planning Extreme Programming</title>
+        <publishername>Addison-Wesley</publishername>
+        <pubdate>2000</pubdate>
+    </biblioentry>
+    <biblioentry>
+        <authorgroup>
+            <author>
+                <personname>Deepak Alur</personname>
+            </author>
+            <author>
+                <personname>John Crupi</personname>
+            </author>
+            <author>
+                <personname>Dan Malks</personname>
+            </author>
+        </authorgroup>
+        <title>Core J2EE Patterns</title>
+        <publishername>Prentice-Hall</publishername>
+        <pubdate>2001</pubdate>
+    </biblioentry>
+    <biblioentry>
+        <authorgroup>
+            <author>
+                <personname>Bill Burke</personname>
+            </author>
+            <author>
+                <personname>Richard Monson-Haefel</personname>
+            </author>
+        </authorgroup>
+        <title>Enterprise JavaBeans, 3.0</title>
+        <publishername>O'Reilly</publishername>
+        <pubdate>May 2006</pubdate>
+    </biblioentry>
+    <biblioentry>
+        <authorgroup>
+            <author>
+                <personname>Brian Stansberry</personname>
+            </author>
+            <author>
+                <personname>Galder Zamarreno</personname>
+            </author>
+        </authorgroup>
+        <title>JBoss Application Server 5 Clustering Guide</title>
+        <pubdate>Nov 2008</pubdate>
+    </biblioentry>
+    <biblioentry>
+        <author>
+            <personname>JBoss Community</personname>
+        </author>
+        <title>JBoss Application Server Installation And Getting Started Guide</title>
+        <pubdate>Feb 2009</pubdate>
+    </biblioentry>
+    <biblioentry>
+        <authorgroup>
+            <author>
+                <personname>Chris Schlager</personname>
+            </author>
+            <author>
+                <personname>Marc Ruhrschneck</personname>
+            </author>
+        </authorgroup>
+        <title>The TaskJuggler Manual</title>
+    </biblioentry>
+    
+    <biblioentry>
+        <authorgroup>
+            <author>
+                <personname>
+                    <firstname>Norman</firstname>
+                    <surname>Walsh</surname>
+                </personname>
+            </author>
+            <author>
+                <personname>
+                    <firstname>Leonard</firstname>
+                    <surname>Muellner</surname>
+                </personname>
+            </author>
+        </authorgroup>
+        <title>DocBook</title>
+        <subtitle>The Definitive Guide</subtitle>
+        <pubdate>2008</pubdate>
+        <releaseinfo> http://www.docbook.org/tdg5/en/html/docbook.html </releaseinfo>
     </biblioentry>
 
 </bibliography>
