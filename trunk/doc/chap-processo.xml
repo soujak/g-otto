@@ -5,181 +5,116 @@
 <!ENTITY % myent SYSTEM "entities.ent">
 %myent;
 ]>
-<book
-	xml:lang="it"
-	xmlns="http://docbook.org/ns/docbook"
-    xmlns:xi="http://www.w3.org/2001/XInclude"
-    xmlns:xlink="http://www.w3.org/1999/xlink"
-    version="5.0">
-    <chapter xml:id="chap-processo">
-    
-	    <title>Piano di processo</title>
-	    <para>
-	    	Prima di poter presentare il piano di processo che ha guidato lo
-	    	svolgimento del progetto, è bene soffermarsi anzitutto ad illustrare
-	    	sinteticamente gli obiettivi che ne hanno ispirato le scelte, poi
-	    	a chiarire le modalità con le quali la pianificazione è stata
-	    	sviluppata e gestita.
-	    	Quando, quindi, saranno illustrati il piano preventivo e quello
-	    	consuntivo, si potrà proseguire ad esporre alcune considerazioni di
-	    	verifica della pianificazione.
-	   	</para>
-	    <section xml:id="sect-obiettivi">
-	    	<title>Obiettivi della gestione di processo</title>
-	    	<para>
-		    	Sia nella gestione di progetti software tramite metodologie
-		    	ingegneristiche, sia  nella realizzazione di progetti middleware
-		    	con la tecnologia JBossAS i membri della squadra non potevano
-		    	contare su quasi alcuna esperienza pregressa.
-		    	Questo fatto si è previsto potesse costituire rischio ad alto
-		    	fattore a cui essere sottoposti durante l'intero processo.
-		    	Per questa ragione si è quindi scelto di adottare un modello
-		    	di processo che facilitasse la gestione di cambiamenti durante
-		    	il processo, che aderisse quindi ai principi dello
-		    	<emphasis>sviluppo agile</emphasis> secondo le linee guida
-		    	della Agile Alliance.
-	   		 </para>
-	    	 <para>
-	    	 	Le specifiche di processo hanno tuttavia imposto la produzione
-	    	 	di una serie di <emphasis>artefatti di processo</emphasis> che,
-	    	 	a causa dell'alto grado di dettaglio, risultano essere adatti a
-	    	 	modelli di processo più dettagliatamente e rigidamemnte
-	    	 	pianificati.
-	    	 	È pertanto risultato preferibile un modello di processo che
-	    	 	goda della produzione di tali artefatti.
-	   	 	</para>
-	    	 <para>
-	    	 	Il buon livello comunicativo della squadra di lavoro e
-	    	 	gli obiettivi didattici del progetto hanno inoltre privilegiato
-	    	 	un piano di processo che permettesse un <emphasis>alto grado di
-	    	 	partecipazione</emphasis> della squadra alla gestione del
-	    	 	processo.
-	    	 	Il processo quindi avrebbe dovuto essere gestito tramite
-	    	 	<emphasis>artefatti semplici e concisi</emphasis>, affinché
-	    	 	possano essere compresi e utilizzati da ogni membro del team. 
-	    	 </para>
-	    	 <para>
-	    	 	Queste tre caratteristiche hanno indirizzato la scelta verso un
-	    	 	modello di processo recente, poiché è risalente al vicino 2005,
-	    	 	ma piuttosto promettente. Si tratta di Agile Unified Process
-	    	 	v1.1, pubblicato dalla Ambysoft Inc. di Scott W. Ambler.  
-	    	 </para>    	 
-	    </section>
-	    <section xml:id="sect-gestione">
-	    	<title>Gestione della pianificazione</title>
-    		<para>
-    			Durante la prima fase di avvio del progetto (inception phase),
-    			si è abbozzato un piano di processo ad alto livello.
-    			Si è scelto di rendere il modello AUP ancora più agile,
-    			evitando le iterazioni che possono essere eseguite nelle
-    			fasi di elaborazione o costruzione (rispettivamente
-    			elaboration e construction) limitando il numero di
-    			iterazioni totali alle seguenti quattro:
-    			<orderedlist>
-       				<listitem>
-       					<para>
-       						Avvio
-   						</para>
-  						</listitem>
-  						<listitem>
-       					<para>
-       						Elaborazione
-   						</para>
-  						</listitem>
-  						<listitem>
-       					<para>
-       						Costruzione
-   						</para>
-  						</listitem>
-  						<listitem>
-       					<para>
-       						Transizione
-   						</para>
-  						</listitem>
+<book xml:lang="it" xmlns="http://docbook.org/ns/docbook" xmlns:xi="http://www.w3.org/2001/XInclude"
+	xmlns:xlink="http://www.w3.org/1999/xlink" version="5.0">
+	<chapter xml:id="chap-processo">
+
+		<title>Piano di processo</title>
+		<para> Prima di poter presentare il piano di processo che ha guidato lo svolgimento del
+			progetto, è bene soffermarsi anzitutto ad illustrare sinteticamente gli obiettivi che ne
+			hanno ispirato le scelte, poi a chiarire le modalità con le quali la pianificazione è
+			stata sviluppata e gestita. Quando, quindi, saranno illustrati il piano preventivo e
+			quello consuntivo, si potrà proseguire ad esporre alcune considerazioni di verifica
+			della pianificazione. </para>
+		<section xml:id="sect-obiettivi">
+			<title>Obiettivi della gestione di processo</title>
+			<para> Sia nella gestione di progetti software tramite metodologie ingegneristiche, sia
+				nella realizzazione di progetti middleware con la tecnologia JBossAS i membri della
+				squadra non potevano contare su quasi alcuna esperienza pregressa. Questo fatto si è
+				previsto potesse costituire rischio ad alto fattore a cui essere sottoposti durante
+				l'intero processo. Per questa ragione si è quindi scelto di adottare un modello di
+				processo che facilitasse la gestione di cambiamenti durante il processo, che
+				aderisse quindi ai principi dello <emphasis>sviluppo agile</emphasis> secondo le
+				linee guida della Agile Alliance. </para>
+			<para> Le specifiche di processo hanno tuttavia imposto la produzione di una serie di
+					<emphasis>artefatti di processo</emphasis> che, a causa dell'alto grado di
+				dettaglio, risultano essere adatti a modelli di processo più dettagliatamente e
+				rigidamemnte pianificati. È pertanto risultato preferibile un modello di processo
+				che goda della produzione di tali artefatti. </para>
+			<para> Il buon livello comunicativo della squadra di lavoro e gli obiettivi didattici
+				del progetto hanno inoltre privilegiato un piano di processo che permettesse un
+					<emphasis>alto grado di partecipazione</emphasis> della squadra alla gestione
+				del processo. Il processo quindi avrebbe dovuto essere gestito tramite
+					<emphasis>artefatti semplici e concisi</emphasis>, affinché possano essere
+				compresi e utilizzati da ogni membro del team. </para>
+			<para> Queste tre caratteristiche hanno indirizzato la scelta verso un modello di
+				processo recente, poiché è risalente al vicino 2005, ma piuttosto promettente. Si
+				tratta di Agile Unified Process v1.1, pubblicato dalla Ambysoft Inc. di Scott W.
+				Ambler. </para>
+		</section>
+		<section xml:id="sect-gestione">
+			<title>Gestione della pianificazione</title>
+			<para> Durante la prima fase di avvio del progetto (inception phase), si è abbozzato un
+				piano di processo ad alto livello. Si è scelto di rendere il modello AUP ancora più
+				agile, evitando le iterazioni che possono essere eseguite nelle fasi di elaborazione
+				o costruzione (rispettivamente elaboration e construction) limitando il numero di
+				iterazioni totali alle seguenti quattro: <orderedlist>
+					<listitem>
+						<para> Avvio </para>
+					</listitem>
+					<listitem>
+						<para> Elaborazione </para>
+					</listitem>
+					<listitem>
+						<para> Costruzione </para>
+					</listitem>
+					<listitem>
+						<para> Transizione </para>
+					</listitem>
 				</orderedlist>
 			</para>
-   			<para>
-    			La stime dello sforzo esposta nel capitolo <xref
-    			linkend="chap_sforzo" /> ha consentito di stimare una
-    			data di conclusione del processo.
-    			Stimando quindi lo sforzo necessario ad ognuna delle fasi
-    			si e` quindi ripartito il periodo temporale al fine di
-    			organizzare ad alto livello le attività del processo.
-   			</para>
-    		<para>
-    			All'inizio di ogni fase si è proceduto all'effettiva specifica
-    			delle attività effettivamente da svolgere, in modo da poter
-    			organizzare il lavoro.
-    			Contestualmente si andavano anche ad allocare le risorse umane
-    			alle varie attività, secondo criteri di efficienza. 
-			</para>
-	    </section>
-	    <section xml:id="sect-diagrammi">
-	    	<title>Diagrammi di pianificazione</title>
-	    	<para>	
-	    		La pianificazione è stata gestita e organizzata anche attraverso
-	    		diagrammi di Gantt che potessero non solo illustrare visivamente
-	    		la programmazione temporale delle attività, ma anche dettagliare
-	    		con minuzia le relazioni relazioni di dipendenza che intercorrono
-	    		fra di esse.
-    		</para>
-	    	<para>
-	    		Di seguito si riporterà anzitutto il diagramma contenente il piano
-	    		preventivo di processo, costruito unendo le pianificazioni
-	    		realizzate all'inizio di ogni fase del processo.
-	    		Poi si presenterà un rapporto dell'andamento effettivo del
-	    		processo, realizzato nel diagramma di Gantt consuntivo del
-	    		processo. 
-	    	</para>
-	    	<mediaobject>
-            	<imageobject>
-            		<imagedata
-            			fileref="GestioneProgetto/GanttPreventivo.pdf"
-            			align="center"
-		                format="PDF"/>
-<!--		                depth="NNpt"-->
-                </imageobject>
+			<para> La stima dello sforzo esposta nel capitolo 7 ha consentito di stimare una data di
+				conclusione del processo. Stimando quindi lo sforzo necessario ad ognuna delle fasi
+				si e` quindi ripartito il periodo temporale al fine di organizzare ad alto livello
+				le attività del processo. </para>
+			<para> All'inizio di ogni fase si è proceduto all'effettiva specifica delle attività
+				effettivamente da svolgere, in modo da poter organizzare il lavoro. Contestualmente
+				si andavano anche ad allocare le risorse umane alle varie attività, secondo criteri
+				di efficienza. </para>
+		</section>
+		<section xml:id="sect-diagrammi">
+			<title>Diagrammi di pianificazione</title>
+			<para> La pianificazione è stata gestita e organizzata anche attraverso diagrammi di
+				Gantt che potessero non solo illustrare visivamente la programmazione temporale
+				delle attività, ma anche dettagliare con minuzia le relazioni relazioni di
+				dipendenza che intercorrono fra di esse. </para>
+			<para> Di seguito si riporterà anzitutto il diagramma contenente il piano preventivo di
+				processo, costruito unendo le pianificazioni realizzate all'inizio di ogni fase del
+				processo. Poi si presenterà un rapporto dell'andamento effettivo del processo,
+				realizzato nel diagramma di Gantt consuntivo del processo. </para>
+			<mediaobject>
+				<imageobject>
+					<imagedata fileref="GestioneProgetto/GanttPreventivo.pdf" align="center"
+						format="PDF"/>
+					<!--		                depth="NNpt"-->
+				</imageobject>
 			</mediaobject>
 			<mediaobject>
-            	<imageobject>
-            		<imagedata
-            			fileref="GestioneProgetto/GanttConsuntivo.pdf"
-            			align="center"
-		                format="PDF"/>
-<!--		                depth="NNpt"-->
-                </imageobject>
+				<imageobject>
+					<imagedata fileref="GestioneProgetto/GanttConsuntivo.pdf" align="center"
+						format="PDF"/>
+					<!--		                depth="NNpt"-->
+				</imageobject>
 			</mediaobject>
-	    </section>
-	    <section xml:id="sect-verifica">
-	    	<title>Verifica della pianificazione</title>
-	    	<para>
-	    		Giudicando la mera discrepanza di oltre due settimane fra il
-	    		piano preventivo e quello consuntivo, la pianificazione non
-	    		può che risultare grandemente perfettibile.
-	    		Un'analisi più attenta rivela che gli errori di valutazione sono
-	    		 stati molto limitati e che quindi il piano è stato elaborato
-	    		 con una qualità più che discreta.
-	   		</para>
-			<para>
-				Il primo e più importante errore di valutazione i tempi da
-				dedicare alla formazione implementativa, all'implementazione e
-				al collaudo durante la fase di costruzione.
-				Sottovalutando il rischio di non padroneggiare a
-				sufficienza bene la tecnologia, si sono prese alcune
-				scelte archietturali (in particolare quelle trattate in
-				<xref linkend="sect-business-singleton"/>) che hanno richiesto
-				una formazione implementativa estremamente dettagliata
-				dell'application server JBoss e non prevista per quella fase.
-			</para>
-			<para>
-				Il secondo errore riguarda più banalmente la mancanza di
-				esperienza nella gestione di progetti secondo metodologie
-				ingegneristiche che ha reso difficile l'effettuazione di
-				stime e di pianificazioni.
-				Si tratta di un rischio che, pur essendo chiaro, non poteva
-				essere gestito completamente, ma solo affrontato di volta in
-				volta, secondo gli scopi didattici del progetto.
-			</para>
-		</section> 
+		</section>
+		<section xml:id="sect-verifica">
+			<title>Verifica della pianificazione</title>
+			<para> Giudicando la mera discrepanza di oltre due settimane fra il piano preventivo e
+				quello consuntivo, la pianificazione non può che risultare grandemente perfettibile.
+				Un'analisi più attenta rivela che gli errori di valutazione sono stati molto
+				limitati e che quindi il piano è stato elaborato con una qualità più che discreta. </para>
+			<para> Il primo e più importante errore di valutazione i tempi da dedicare alla
+				formazione implementativa, all'implementazione e al collaudo durante la fase di
+				costruzione. Sottovalutando il rischio di non padroneggiare a sufficienza bene la
+				tecnologia, si sono prese alcune scelte archietturali (in particolare quelle
+				trattate nella sezione 2.4.3) che hanno richiesto una formazione implementativa
+				estremamente dettagliata dell'application server JBoss e non prevista per quella
+				fase. </para>
+			<para> Il secondo errore riguarda più banalmente la mancanza di esperienza nella
+				gestione di progetti secondo metodologie ingegneristiche che ha reso difficile
+				l'effettuazione di stime e di pianificazioni. Si tratta di un rischio che, pur
+				essendo chiaro, non poteva essere gestito completamente, ma solo affrontato di volta
+				in volta, secondo gli scopi didattici del progetto. </para>
+		</section>
 	</chapter>
 </book>
