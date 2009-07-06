@@ -108,7 +108,7 @@
 		            </figure>
         			<para>
         				Il pacchetto <filename>g8.bookshop.business.um</filename> contiene la classe 
-        				<filename>UserManager.java</filename> che 
+        				<filename>UserManager</filename> che 
         				implementa il servizio singleton per la gestione degli utenti e del loro stato.
         				In particolare tramite una <filename>HashMap</filename> mantiene gli utenti che sono al momento
         				presenti nel negozio virtuale. L'<filename>HashMap</filename>
@@ -250,7 +250,7 @@
    						Il compito dell'<filename>HASingletonController</filename> è quello di monitorare la partizione e
    						determinare se il nodo sul quale è attivo è il master node. A seconda della condizione del nodo,
    						quindi, avvia o arresta il servizio invocando opportuni metodi (in questo caso dello <filename>UserManager</filename>).
-   						L'<filename>HASingletonController</filename>, comparato ad altre soluzioni analoghe, permette un rapidissima
+   						L'<filename>HASingletonController</filename>, comparato ad altre soluzioni analoghe, permette la più rapida
    						gestione del failover in quanto il servizio è già schierato su tutte le macchine del cluster.
    						
    					</para>
@@ -276,7 +276,7 @@
         		<section>
        				<title>Alta replicazione</title>
        				<para>
-       					Come annunciato nell'introduzione alle scelte progettuali, si è cercato di replicare quanto più è
+       					Come annunciato nell'introduzione alle scelte progettuali, si è cercato di replicare quanto più
        					possibile le componenti del business per avere benifici sia in termini di prestazioni che di
        					tolleranza ai guasti.
 					</para>
@@ -306,7 +306,7 @@
     			</para>
     			<para>
     				Attraverso il <filename>BeanLocator</filename> invece si è fattorizzata la funzionalità di ricerca delle
-    				bean evitando di duplicare eccessivamente il codice.
+    				bean evitando di duplicare eccessivamente il codice e, quindi, semplificandone la gestione in un unico punto.
     			</para>
    			</section>
         	<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
