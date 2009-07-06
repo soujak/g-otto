@@ -309,6 +309,28 @@
     				bean evitando di duplicare eccessivamente il codice e, quindi, semplificandone la gestione in un unico punto.
     			</para>
    			</section>
+       		<section>
+      			<title> Livello informativo </title>
+      				<para>
+      				Il documento dei requisiti non impone particolari vincoli sul livello informativo che quindi non ha rappresentato 
+      				un grosso scoglio nella realizzazione del progetto. Tuttavia
+	      			è bene documentare alcune scelte che sono state operate in questo ambito.
+     				</para>
+     				<para>
+     				In primis, si è scelto di non adottare il DBMS predefinito (Hypersonic) distribuito con JBoss AS 5.1.0.GA 
+     				in favore del ben più noto e diffuso MySQL (versione 5.0.1), disponibile sulle macchine dipartimentali.
+     				La ragione di tale scelta è da ricercare nel fatto che Hypersonic non implementa correttamente le
+     				proprietà acide, esponendo quindi il database a possibili stati non consistenti. Inoltre le decisione
+     				di adottare MySQL ci ha permesso di familiarizzare ulteriormente con l'ambiente di JBoss, uno degli 
+     				obiettivi principali del progetto.
+     				</para>
+     				
+     				<para>
+     				In secundis, si è scelto di mantenere la progettazione del database il più semplice possibile lasciando
+     				aperta la possibilità di investire il tempo a disposizione in altre aree giudicate più interessanti, come lo
+     				schieramento, la progettazione architetturale e i servizi ad alta disponibilità.
+     				</para>
+       		</section>
         	<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
         </section>
     </chapter>
