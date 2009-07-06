@@ -255,7 +255,7 @@
         </section>
     </section>
     <section>
-    <title>Risultati delle misurazioni sul software</title>
+    <title>Risultati delle misurazioni e dei collaudi sul software</title>
     <para>
     A titolo d'esempio si riporta in questa sezione un output del plugin EclipseMetrics relativo ai pacchetti
     <filename>g8.bookshop.business.core</filename> e <filename>g8.bookshop.business.util</filename>.
@@ -275,6 +275,18 @@
                             <imageobject>
                                 <imagedata fileref="ReportQualita/EclipseMetricsMethods-v.png"
                                     align="center" depth="650pt" format="PNG"/>
+                            </imageobject>
+                        </mediaobject>
+    </figure>
+    </para>
+    <para>
+    Nella figura che segue invece è stato catturato un output di JUnit durante il ciclo di sviluppo del prodotto.
+    <figure xml:id="test_junit">
+                        <title>Metriche sulle classi</title>
+                        <mediaobject>
+                            <imageobject>
+                                <imagedata fileref="ReportJUnit/ReportJUnit.png"
+                                    align="center" depth="200pt" format="PNG"/>
                             </imageobject>
                         </mediaobject>
     </figure>
