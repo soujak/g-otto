@@ -7,7 +7,7 @@ h1#logo {
     font-size: 4em;   
 }
 
-h1#logo span {
+.g8color, h1#logo span {
     color: #708090;
 }
 
@@ -82,10 +82,11 @@ td.quantity {
 
 td.price, td.title { color: #708090; font-weight: bold; }
 
-td.price { text-align: right; }
+th + th + th + th + th + th, td.price { text-align: right; }
+
+td.quantity, td.checkbox { text-align: center; }
 
 th { color: #708090; text-align:left; }
 
-th + th + th + th + th { text-align: center; }
+th + th + th + th + th, th + th + th + th + th + th + th, tr.update td, tr.checkout td, tr.select td { text-align: center; }
 
-th + th + th + th + th + th { text-align: right; }

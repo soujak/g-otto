@@ -86,17 +86,20 @@ public class Update extends HttpServlet {
 			dataExchange.setShoppingcart(xml_shoppingcart);
 			// caching cart updated order list
 			dataExchange.setXmlCartCache(xml_shoppingcart);
+			if(updated) dataExchange.setMessage("Shopping cart updated.");
 
-			if(request.getParameter("operation").equalsIgnoreCase("checkout"))
+			// check if user wants to checkout shopping cart...
+			if(request.getParameter("operation").equalsIgnoreCase("checkout")) {
+				// then checkout and write user message
 				payed = service.checkOut(session.getId());
+				dataExchange.setXmlCartCache(Constants.EMPTY_CART);
+				if(payed) dataExchange.setMessage("Shopping cart checked out.");
+			}
 			
 		} catch (Exception e) {
 			dataExchange.setMessage("Shoppingcart update failed: an error occurred.");
 			e.printStackTrace();
 		}
-		
-		if(updated) dataExchange.setMessage("Shopping cart updated.");
-		else if(payed) dataExchange.setMessage("Shopping cart checked out.");
 		
 		Utils.forwardToPage(Constants.JSP_CART, getServletContext(),
 				request, response);
