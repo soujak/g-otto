@@ -231,7 +231,7 @@
        			</section>
         	<section>
         		<title>Scelte di schieramento</title>
-        		<section>
+        		<section xml:id="sect-business-singleton">
         			<title>Servizio singleton ad alta disponibilita`</title>
         			<para>
         				La decisione di realizzare un servizio singleton per mantenere le informazioni di stato dei
