@@ -22,15 +22,15 @@
                 <thead>
                     <row>
                         <entry>Giorno</entry>
-                        <entry>Quantità di Ore</entry>
+                        <entry>Durata (ore)</entry>
                         <entry>Descrizione</entry>
                     </row>
                 </thead>
                 <tfoot>
                     <row>
                         <entry>Totale</entry>
-                        <entry> - </entry>
-                        <entry> - </entry>
+                        <entry>117</entry>
+                        <entry>Aggiornato al 04/07/2009</entry>
 
                     </row>
                 </tfoot>
