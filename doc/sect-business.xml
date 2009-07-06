@@ -48,8 +48,8 @@
 				<para> Il livello business è stato progettato secondo i criteri di modularità che
 					fino ad ora hanno contraddistinto l'applicazione. Prima di scendere nei dettagli
 					architetturali è opportuno chiarire alcuni aspetti chiave al fine di apprezzare
-					al meglio la soluzione proposta. Allo stato attuale dell'arte, le uniche session
-					bean esponibili tramite web service sono le bean stateless. Questo fatto ha
+					al meglio la soluzione proposta. Allo stato attuale dell'arte, le uniche
+					EJB di sessione esponibili tramite web service sono le EJB stateless. Questo fatto ha
 					comportato alcune complicazioni alla progettazione del livello business dal
 					momento che è richiesto il mantenimento di alcune informazioni di stato, come ad
 					esempio il carrello. Nella fattispecie si è resa necessaria la realizzazione di
@@ -99,7 +99,7 @@
 					</mediaobject>
 				</figure>
 				<para> Scendendo un po' più in profondità, si osserva che il pacchetto
-						<filename>g8.bookshop.business.ws</filename> è composto da tre bean
+						<filename>g8.bookshop.business.ws</filename> è composto da tre EJB
 					stateless, tutte esposte come web service:
 					<filename>CatalogueService</filename>, <filename>ShoppingCartService</filename>
 					e <filename>UserManagerService</filename>. La prima fornisce i metodi per
@@ -128,10 +128,10 @@
 						<filename>HashMap</filename> mantiene gli utenti che sono al momento
 					presenti nel negozio virtuale. L'<filename>HashMap</filename> in questione
 					associa a ciascun identificativo di sessione un utente. Come si vedrà nel
-					seguito, il carrello è mantenuto all'interno della bean che rappresenta il
+					seguito, il carrello è mantenuto all'interno della EJB che rappresenta il
 					cliente. Infine il gestore degli utenti è anche il responsabile
 					dell'autenticazione e della disconnessione dei clienti. </para>
-				<para> La bean <filename>UserManagerAdaptor.java</filename>, invece, fornisce metodi
+				<para> L'EJB <filename>UserManagerAdaptor</filename>, invece, fornisce metodi
 					convenienti per accedere ai servizi offerti dal gestore degli utenti. </para>
 				<figure xml:id="business_um">
 					<title>
@@ -149,9 +149,9 @@
 					</mediaobject>
 				</figure>
 				<para> Il pacchetto <filename>g8.bookshop.business.core</filename> contiene tutte le
-					bean che rappresentano le entità del business che non hanno necessità di essere
+					EJB che rappresentano le entità del business che non hanno necessità di essere
 					persistenti ma che comunque devono mantenere uno stato. In particolare si è
-					codificato tramite le bean <filename>Guest</filename> e
+					codificato tramite <filename>Guest</filename> e
 						<filename>Customer</filename> le due diverse tipologie di clienti che
 					possono accedere al negozio virtuale di libri, cioè il visitatore occasionale e
 					il cliente (per il quale è prevista l'autenticazione). Chiaramente solo il
@@ -199,10 +199,10 @@
 				</figure>
 				<para> Infine il pacchetto <filename>g8.bookshop.business.util</filename> contiene
 					alcuni strumenti di utilità per tutto il livello business. Il
-						<filename>Converter</filename> è una bean stateless che offre funzioni per
+						<filename>Converter</filename> è una EJB stateless che offre funzioni per
 					la conversione da XML a oggetti business e viceversa; il
 						<filename>BeanLocator</filename> offre una comoda primitiva per la
-					localizzazione delle bean e <filename>Name</filename> definisce alcune costanti
+					localizzazione delle EJB e <filename>Name</filename> definisce alcune costanti
 					utilizzate diffusamente nel progetto. </para>
 				<figure xml:id="business_util">
 					<title>
@@ -295,7 +295,7 @@
 						sola lettura, è stata impostata un politica di caching che favorisse le
 						prestazioni in questo senso. </para>
 					<para> Grazie a HAJNDI, invece, si è ottenuto bilanciamento di carico per tutte
-						le session bean. Le stateful bean inoltre sono state distribuite utilizzando
+						le session EJB. Le stateful EJB inoltre sono state distribuite utilizzando
 						la funzionalità "clustered" offerta da JBoss. </para>
 				</section>
 			</section>
@@ -308,7 +308,7 @@
 						<filename>UserManager</filename> in modo tale che dall'esterno fosse
 					accedibile in maniera conveniente tramite una banale lookup. </para>
 				<para> Attraverso il <filename>BeanLocator</filename> invece si è fattorizzata la
-					funzionalità di ricerca delle bean evitando di duplicare eccessivamente il
+					funzionalità di ricerca delle EJB evitando di duplicare eccessivamente il
 					codice e, quindi, semplificandone la gestione in un unico punto. </para>
 			</section>
 		</section>
