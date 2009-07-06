@@ -10,7 +10,7 @@
 \usepackage{makeidx}
 \usepackage[italian]{babel}
 \usepackage{cmap}
-\usepackage[hyperlink]{docbook}
+\usepackage[hyperlink]{dbsimple}
 \setuplocale{it}
 \setupbabel{it}
 \renewcommand{\DBKreleaseinfo}{}
@@ -176,6 +176,24 @@ R4N.3%
 Non funzionale%
 }&\multicolumn{1}{m{\newtblstarfactor}|}{%
 Realizzazione interfaccia utente con pagine web%
+}\tabularnewline
+\cline{1-1}\cline{2-2}\cline{3-3}\cline{4-4}\multicolumn{1}{|m{60pt}|}{\centering%
+R5N.1%
+}&\multicolumn{1}{m{60pt}|}{\centering%
+5%
+}&\multicolumn{1}{m{60pt}|}{\centering%
+Non funzionale%
+}&\multicolumn{1}{m{\newtblstarfactor}|}{%
+Bilanciamento di carico mediante un bilanciatore esterno realizzato con Apache HTTP Server 2.x%
+}\tabularnewline
+\cline{1-1}\cline{2-2}\cline{3-3}\cline{4-4}\multicolumn{1}{|m{60pt}|}{\centering%
+R5N.2%
+}&\multicolumn{1}{m{60pt}|}{\centering%
+5%
+}&\multicolumn{1}{m{60pt}|}{\centering%
+Non funzionale%
+}&\multicolumn{1}{m{\newtblstarfactor}|}{%
+Realizzazione della persistenza mediante un database MySql%
 }\tabularnewline
 \hline
 \end{longtable}\endgroup%
@@ -1026,7 +1044,7 @@ X%
 
 \chapter{Relazione di progetto}
        
-\section{Diagrammi dei casi d'uso}
+\section{Introduzione}
     \begin{figure}[H]
 
 \begin{center}
@@ -1036,8 +1054,8 @@ X%
 \end{center}
 \caption{Diagramma dei casi d'uso.}
 \end{figure}
-     
-\section{Diagrammi delle attività}
+  
+\subsection{Diagrammi delle attività}
     
 
   
@@ -1077,8 +1095,8 @@ X%
 \end{center}
 \caption{Diagramma dell'attività Cassa.}
 \end{figure}
-    
-\section{Diagrammi preliminari dell'architettura}
+       
+\section{Descrizione dell'architettura}
     
 \subsection{Diagrammi preliminari dell'architettura}
     
@@ -1116,7 +1134,7 @@ X%
   \begin{figure}[H]
 
 \begin{center}
-\imgexists{DiagrammiModelloArchitettura/DiagrammaArchitettura.png}{{\centering \imgevalsize{DiagrammiModelloArchitettura/DiagrammaArchitettura.png}{\includegraphics[width=\imgwidth,height=\imgheight,keepaspectratio=true]{DiagrammiModelloArchitettura/DiagrammaArchitettura.png}}
+\imgexists{DiagrammiModelloArchitettura/DiagrammaArchitettura.pdf}{{\centering \imgevalsize{DiagrammiModelloArchitettura/DiagrammaArchitettura.pdf}{\includegraphics[height=150pt,keepaspectratio=true]{DiagrammiModelloArchitettura/DiagrammaArchitettura.pdf}}
 }
 }{}
 \end{center}
@@ -1133,9 +1151,27 @@ X%
 }
 }{}
 \end{center}
-\caption{Diagramma dell'archiettura ? ? }
+\caption{Diagramma dell'architettura ? ? }
 \end{figure}
-        
+       
+\section{Implementazione}
+    
+\subsection{Business}
+    
+
+    
+\subsection{Information manager}
+    
+
+    
+\subsection{Presentation}
+    
+
+      
+\section{Clusterizzazione}
+    
+
+     
 % ------- 
 % Chapter 
 % ------- 
@@ -1261,74 +1297,38 @@ Collaudatori:
 
 \chapter{Tools utilizzati}
     
-\section{Strumenti per la documentazione}
-    
-{\sc Docbook}
-\nopagebreak
-
-\noindent
-\begin{description}
-\item[{Riferimento}]     http://www.docbook.org 
-  \item[{Licenza}]   Oasis Open Standard
-  \item[{Descrizione}]   Linguaggio di markup semantico, basato su XML, per la redazione di documentazione tecnica. È possibile da sorgenti Docbook generare, tra gli altri, documenti html, xhtml, pdf, tex.
-  \item[{Motivazioni della scelta}]   Docbook è un linguaggio estremamente flessibile e versatile, ben più di LaTeX. Il vocabolario che offre è molto ricco, e grazie al fatto che è basato su XML la riorganizzazione della struttura complessiva di un documento redatto in DocBook si può effettuare rapidamente con un semplice foglio di stile XSLT. Permette minore precisione nella specifica delle caratteristiche tipografiche del documento finale rispetto a LaTeX, ma abbiamo ritenuto che la qualità dei documenti prodotti fosse comunque più che accettabile.
+Questo capitolo elenca gli strumenti utilizzati durante lo sviluppo del progetto, sia per
+        lo sviluppo stesso che per la documentazione. 
+        Non sono stati inseriti in questa trattazione gli strumenti lasciati al gusto
+        de singoli, come ad esempio gli editor di testo per la documentazione semplice. Fanno
+        eccezione particolari strumenti non utilizzati da tutti i componenti del gruppo ma tuttavia
+        significativi nello sviluppo, le cui funzionalità non sarebbero state fornite
+        allo stesso modo da un qualunque altro strumento simile: ad esempio, particolari editor di
+        immagini o trasformatori XSLT.
   
-Docbook ci ha inoltre permesso di mantenere una versione XHTML dei nostri documenti sempre aggiornata sul wiki, generata al volo alla visione delle pagine wiki a partire dai sorgenti Docbook sul SVN. Tramite dblatex è ad ogni modo possibile trasformare i sorgenti Docbook in LaTeX: modifiche specifiche su aspetti tipografici possono volendo essere effettuate qui.
   
-Nessuno dei membri del gruppo aveva utilizzato precedentemente Docbook, e proprio per questo abbiamo voluto utilizzarlo nello sviluppo di questo progetto, considerando che sarebbe stata una buona occasione per imparare a utilizzarlo.
-  \end{description}
-      
-\section{IDE di programmazione}
-    
-{\sc Eclipse Enterprise Edition}
-\nopagebreak
-
-\noindent
-\begin{description}
-\item[{Riferimento}]     \href{http://www.eclipse.org/}{http://www.eclipse.org/\-}  
-  \item[{Licenza}]   Eclipse Public Licence
-  \item[{Descrizione}]   Eclipse è un ambiente di sviluppo software  che comprende un IDE e un sistema di plugin che permettono di estendere l'IDE stessa. Si tratta di un ambiente multilinguaggio, ma indirizzato in primis agli sviluppatori Java. Nella sua versione EE si rivolge ovviamente allo sviluppo di applicazioni di tipo Enterprise, in particolare J2EE. 
-  \item[{Motivazioni della scelta}]   Quando si tratta di sviluppare in codice Java, la scelta dell'IDE da utilizzare è molto spesso tra Eclipse e NetBeans. Abbiamo scelto il primo in favore del secondo in quanto era uno strumento già stato utilizzato da tutti i membri del gruppo, e una breve ricerca non ci ha indicato caratteristiche di NetBeans che potessero interessarci in modo particolare. Come diretta conseguenza di questa scelta, si sono utilizzati il plugin Subclipse per le interazioni col repository SVN, e il plugin JBossTools per una migliore integrazione dell'IDE con JBoss. Ogni componente del gruppo ha poi personalizzato l'IDE a suo piacimento con altri, o nessuno, dei numerosi plugin disponibili per essa.
-  \end{description}
-    
-\section{Strumenti UML}
-    
-{\sc Green UML}
-\nopagebreak
-
-\noindent
-\begin{description}
-\item[{Riferimento}]     \href{http://www.docbook.org/}{Sito dedicato}  
-  \item[{Licenza}]    tipo di licenza 
-  \item[{Descrizione}]    Descrizione 
-  \item[{Motivazioni della scelta}]    Motivazioni della scelta 
-  \end{description}
-  
-{\sc ArgoUML}
-\nopagebreak
-
-\noindent
-\begin{description}
-\item[{Riferimento}]     \href{http://www.docbook.org/}{Sito dedicato}  
-  \item[{Licenza}]    tipo di licenza 
-  \item[{Descrizione}]    Descrizione 
-  \item[{Motivazioni della scelta}]    Motivazioni della scelta 
-  \end{description}
-    
 \section{Managing}
     
-{\sc Google code}
+{\sc Google Groups}
 \nopagebreak
 
 \noindent
 \begin{description}
-\item[{Riferimento}]     \href{http://code.google.com/}{http://code.google.com/\-}  
-  \item[{Licenza}]   L'utilizzo dell'applicazione è possibile, e gratuito, per chiunque possegga un account Google. Le condizioni di utilizzo e la policy sulla privacy sono specifiche di Google e descritte in documenti visionabili online.
-
-                         Per quanto riguarda i progetti caricati  il sito permette di impostare una tra le seguenti nove licenze disponibili: Apache, Artistic, BSD, GPLv2, GPLv3, LGPL, MIT, MPL e EPL.
-  \item[{Descrizione}]   Sito di Google per sviluppatori che intendano sviluppare progetti da rilasciare sotto una licenza free software. Fornisce diversi servizi, di nostro interesse principalmente il servizio gratuito di hosting con controllo delle revisioni mediante Subversion.
-  \item[{Motivazioni della scelta}]   Google Code ci è sembrato un servizio di facile utilizzo preferibile per questo alla richiesta di uno spazio in laboratorio con conseguente configurazione di un repository SVN. La possibilità di caricare il codice e accedervi mediante Subversion lo rendono molto comodo per essere utilizzato col plugin Subclipse di Ecplise. È poi possibile visualizzare il codice anche tramite browser, e questo ci ha permesso di rendere i documenti della nostra relazione disponibili sul wiki al volo, senza la necessità di convertire in un altro documento da caricare ogni volta. In ultimo, anche la possibilità di effettuare issue tracking ci ha interessato.
- 
+\item[{Riferimento}]     \href{http://www.groups.google.com/}{http://www.groups.google.com/\-}  
+  \item[{Licenza}]   L'utilizzo dei servizi forniti da Google Groups è gratuito. Le
+                        condizioni di utilizzo e la policy sulla privacy sono specifiche di Google e
+                        descritte in documenti visionabili online.
+  \item[{Descrizione}]   Servizio gratuito offerto da Google che permette di creare e gestire
+                        gruppi di discussione.
+  \item[{Motivazioni della scelta}]   Nessuna motivazione in particolare: una mailing list e alcuni servizi
+                        addizionali come la possibilità di caricare files in uno spazio
+                        comune e avere a disposizione un archivio delle mail scambiate era
+                        importante per la gestione dello sviluppo del progetto. Abbiamo scelto
+                        Google Groups per la familiarità coi servizi di Google in
+                        generale. Non ci risulta che tra gli altri servizi che forniscano
+                        funzionalità simile qualcuno si distingua per qualche aspetto
+                        particolarmente interessante per le nostre limitate necessità, di
+                        conseguenza nessuna ricerca in questo senso è stata fatta.
   \end{description}
   
 {\sc Google Calendar}
@@ -1337,20 +1337,245 @@ Nessuno dei membri del gruppo aveva utilizzato precedentemente Docbook, e propri
 \noindent
 \begin{description}
 \item[{Riferimento}]     \href{http://www.calendar.google.com/}{http://www.calendar.google.com/\-}  
-  \item[{Licenza}]   L'utilizzo dell'applicazione è possibile, e gratuito, per chiunque possegga un account Google. Le condizioni di utilizzo e la policy sulla privacy sono specifiche di Google e descritte in documenti visionabili online.
+  \item[{Licenza}]   L'utilizzo dell'applicazione è possibile, e gratuito, per
+                        chiunque possegga un account Google. Le condizioni di utilizzo e la policy
+                        sulla privacy sono specifiche di Google e descritte in documenti visionabili
+                        online.
   \item[{Descrizione}]   Applicazione Web di tipo calendario di Google.
-  \item[{Motivazioni della scelta}]   Dal momento che tutti i membri del gruppo possedevano già un account Google, necessario per l'utilizzo del servizio, Google Calendar ci si è subito presentata come una semplice soluzione per la gestione degli incontri del gruppo, delle scadenze e di quant'altro sia comodo visualizzare su un calendario.
+  \item[{Motivazioni della scelta}]   Dal momento che tutti i membri del gruppo possedevano già un
+                        account Google, necessario per l'utilizzo del servizio, Google Calendar ci
+                        si è subito presentata come una semplice soluzione per la
+                        gestione degli incontri del gruppo, delle scadenze e di quant'altro sia
+                        comodo visualizzare su un calendario.
   \end{description}
   
-{\sc Google Groups}
+{\sc Google code}
 \nopagebreak
 
 \noindent
 \begin{description}
-\item[{Riferimento}]     \href{http://www.groups.google.com/}{http://www.groups.google.com/\-}  
-  \item[{Licenza}]   L'utilizzo dei servizi forniti da Google Groups è gratuito. Le condizioni di utilizzo e la policy sulla privacy sono specifiche di Google e descritte in documenti visionabili online.
-  \item[{Descrizione}]   Servizio gratuito offerto da Google che permette di creare e gestire gruppi di discussione.
-  \item[{Motivazioni della scelta}]   Nessuna motivazione in particolare: una mailing list e alcuni servizi addizionali come la possibilità di caricare files in uno spazio comune e avere a disposizione un archivio delle mail scambiate era importante per la gestione dello sviluppo del progetto. Abbiamo scelto Google Groups per la familiarità coi servizi di Google in generale. Non ci risulta che tra gli altri servizi che forniscano funzionalità simile qualcuno si distingua per qualche aspetto particolarmente interessante per le nostre limitate necessità, di conseguenza nessuna ricerca in questo senso è stata fatta.
+\item[{Riferimento}]     \href{http://code.google.com/}{http://code.google.com/\-}  
+  \item[{Licenza}]   L'utilizzo dell'applicazione è possibile, e gratuito, per
+                        chiunque possegga un account Google. Le condizioni di utilizzo e la policy
+                        sulla privacy sono specifiche di Google e descritte in documenti visionabili
+                        online.
+  
+ Per quanto riguarda i progetti caricati il sito permette di impostare una
+                        tra le seguenti nove licenze disponibili: Apache, Artistic, BSD, GPLv2,
+                        GPLv3, LGPL, MIT, MPL e EPL.
+  \item[{Descrizione}]   Sito di Google per sviluppatori che intendano sviluppare progetti da
+                        rilasciare sotto una licenza free software. Fornisce diversi servizi, di
+                        nostro interesse principalmente il servizio gratuito di hosting con
+                        controllo delle revisioni mediante Subversion.
+  \item[{Motivazioni della scelta}]   Google Code ci è sembrato un servizio di facile utilizzo
+                        preferibile per questo alla richiesta di uno spazio in laboratorio con
+                        conseguente configurazione di un repository SVN. La possibilità
+                        di caricare il codice e accedervi mediante Subversion lo rendono molto
+                        comodo per essere utilizzato col plugin Subclipse                         di Ecplise. È poi possibile
+                        visualizzare il codice anche tramite browser, e questo ci ha permesso di
+                        rendere i documenti della nostra relazione disponibili sul wiki al volo,
+                        senza la necessità di convertire in un altro documento da
+                        caricare ogni volta. In ultimo, anche la possibilità di
+                        effettuare issue tracking ci ha interessato. 
+  \end{description}
+  
+{\sc Subclipse 1.6}
+\nopagebreak
+
+\noindent
+\begin{description}
+\item[{Riferimento}]     \href{http://subclipse.tigris.org/}{http://subclipse.tigris.org/\-}  
+  \item[{Licenza}]   Eclipse Public Licence
+  \item[{Descrizione}]   Plug-{}in per Eclipse che fornisce supporto per Subversio internamente
+                        all'IDE.
+  \item[{Motivazioni della scelta}]   Subclipse è la soluzione standard, nonché unica, per
+                        gestire un repository Subversion internamente a
+ Eclipse. Abbiamo tutti concordato che avere
+                        SVN integrato nella nostra IDE di preferenza fosse molot comodo: questa
+                        scelta non è stata fatta inizialmente ma è risultata
+                        successivamente come dato di fatto. Subclipse permette di visualizzare i
+                        file modificati rispetto all'ultima sicnronizzazione direttamente durante la
+                        fase di programmazione, e caricare le proprie modifiche è molto
+                        veloce in quanto è sufficiente cambiare prospettiva nell'editor.
+                        Anche grazie a questo è stato fatto un uso massiccio dell'SVN.
+ 
+  \end{description}
+    
+\section{Strumenti per la documentazione}
+    
+{\sc Docbook V5.0}
+\nopagebreak
+
+\noindent
+\begin{description}
+\item[{Riferimento}]     \href{http://www.docbook.org/}{http://www.docbook.org}  
+  \item[{Licenza}]   Oasis Open Standard
+  \item[{Descrizione}]   Linguaggio di markup semantico, basato su XML, per la redazione di
+                        documentazione tecnica. È possibile da sorgenti Docbook generare,
+                        tra gli altri, documenti html, xhtml, pdf, tex.
+  \item[{Motivazioni della scelta}]   Docbook è un linguaggio estremamente flessibile e versatile,
+                        ben più di LaTeX. Il vocabolario che
+                        offre è molto ricco, e grazie al fatto che è basato su
+                        XML la riorganizzazione della struttura complessiva di un documento redatto
+                        in DocBook si può effettuare rapidamente con un semplice foglio
+                        di stile XSLT. Permette minore precisione nella specifica delle
+                        caratteristiche tipografiche del documento finale rispetto a LaTeX, ma
+                        abbiamo ritenuto che la qualità dei documenti prodotti fosse
+                        comunque più che accettabile.
+  
+Docbook ci ha inoltre permesso di mantenere una versione XHTML dei nostri
+                        documenti sempre aggiornata sul wiki, generata al volo alla visione delle
+                        pagine wiki a partire dai sorgenti Docbook sul SVN. Tramite
+ dblatex è ad ogni modo possibile
+                        trasformare i sorgenti Docbook in LaTeX: modifiche specifiche su aspetti
+                        tipografici possono volendo essere effettuate qui.
+  
+Nessuno dei membri del gruppo aveva utilizzato precedentemente Docbook, e
+                        proprio per questo abbiamo voluto utilizzarlo nello sviluppo di questo
+                        progetto, considerando che sarebbe stata una buona occasione per imparare a
+                        utilizzarlo.
+  \end{description}
+  
+{\sc dblatex}
+\nopagebreak
+
+\noindent
+\begin{description}
+\item[{Riferimento}]     \href{http://dblatex.sourceforge.net/}{http://dblatex.sourceforge.net/\-}  
+  \item[{Licenza}]   Oasis Open Standard
+  \item[{Descrizione}]   Si tratta di una collezione di fogli di stile che permettono di convertire sorgenti Docbook in diversi formati passando attraverso una prima conversione in TeX.
+  \item[{Motivazioni della scelta}]   Con dblatex abbiamo potuto trasformare la nostra documentazione scritta in Docbook in LaTeX. Mentre Docbook ci ha permesso grande maneggevolezza del contenuto, la conversione in LaTeX ci ha permesso controllo sulla versione finale per la stampa. Grazie a dblatex abbiamo potuto produrre file TeX, da modificare e compilare successivamente, o direttamente file PDF o PS.
+ 
+  \end{description}
+      
+\section{Strumenti per lo sviluppo: application framework, IDE e editor}
+    
+{\sc Eclipse JEE Ganymede}
+\nopagebreak
+
+\noindent
+\begin{description}
+\item[{Riferimento}]     \href{http://www.eclipse.org/}{http://www.eclipse.org/\-}  
+  \item[{Licenza}]   Eclipse Public Licence
+  \item[{Descrizione}]   Eclipse è un ambiente di sviluppo software che comprende un IDE
+                        e un sistema di plugin che permettono di estendere l'IDE stessa. Si tratta
+                        di un ambiente multilinguaggio, ma indirizzato in primis agli sviluppatori
+                        Java. Nella sua versione EE si rivolge ovviamente allo sviluppo di
+                        applicazioni di tipo Enterprise, in particolare J2EE. 
+  \item[{Motivazioni della scelta}]   Quando si tratta di sviluppare in codice Java, la scelta dell'IDE da
+                        utilizzare è molto spesso tra Eclipse e
+ NetBeans. Abbiamo scelto il primo in favore
+                        del secondo in quanto era uno strumento già stato utilizzato da
+                        tutti i membri del gruppo, e una breve ricerca non ci ha indicato
+                        caratteristiche di NetBeans che potessero interessarci in modo particolare.
+                        Come diretta conseguenza di questa scelta, si sono utilizzati il plugin
+ Subclipse per le interazioni col repository
+                        SVN, e il plugin JBossTools per una migliore
+                        integrazione dell'IDE con JBoss. Ogni componente del gruppo ha poi
+                        personalizzato l'IDE a suo piacimento con altri, o nessuno, dei numerosi
+                        plugin disponibili per essa.
+  \end{description}
+  
+{\sc JBoss Tools 3.0}
+\nopagebreak
+
+\noindent
+\begin{description}
+\item[{Riferimento}]     \href{http://www.jboss.org/tools}{http://www.jboss.org/\-tools}  
+  \item[{Licenza}]   GNU General Public Licence
+  \item[{Descrizione}]   JBoss Tools è un insieme di plugin per Eclipse per lo sviluppo
+                        di applicazioni JBoss e J2EE.
+  \item[{Motivazioni della scelta}]    JBoss Tools è una scelta ovvia per lo sviluppo con JBoss ed
+                        Eclipse. I plugin che lo costituiscono permettono di avviare, configurare e
+                        fermare in modo semplice e veloce JBoss. Offrono supporto alla modifica di
+                        file HTML e JSP, nonchè di file di configurazione XML propri di
+                        JBoss o J2EE grazie a un editor visuale. Permettono la generazione
+                        automatica di test e servizi, e includono funzionalità per
+                        packaging efficiente e deployment di vari tipi di progetti. 
+  \end{description}
+    
+\section{Strumenti UML}
+    
+Buona parte dei diagrammi UML è stata disegnata su carta o su lavagna,
+            fotografata e riportata in formato elettronico solo successivamente: questo
+            perché per quanto semplici e intuitivi fossero gli strumenti scelti per la
+            progettazione UML, questi non eguagliavano l'immediatezza della bozza a mano libera
+            durante gli incontri di gruppo. I diagrammi così schizzati sono poi stati
+            riportati in relazione alle volte nella forma semplicemente fotografata, altre schizzati
+            con OmniGraffle, altre ancora con GreenUML (queste ultime nei casi nei quali ci
+            interessassero le funzionalità di ingegneria diretta e inversa di
+            GreenUML).
+  
+{\sc Green UML 3.1}
+\nopagebreak
+
+\noindent
+\begin{description}
+\item[{Riferimento}]     \href{http://green.sourceforge.net/}{http://green.sourceforge.net/\-}  
+  \item[{Licenza}]   Eclipse Public Licence
+  \item[{Descrizione}]   Green è un editor UML che supporta sia software engineering che
+                        reverse engineering. Permette di creare diagrammi UML a partire da codice e
+                        di generare codice da una classe UML appena disegnata.
+  \item[{Motivazioni della scelta}]    Abbiamo ritenuto che Green UML fosse il miglior editor UML rilasciato con
+                        una public licence disponibile, e uno dei pochi a permettere ingegneria
+                        inversa. L'interfaccia è semplice, e le immagini prodotte sono
+                        esportabili in jpg e gif, quindi facilmente inseribili in documentazione e
+                        visualizzabili con qualsiasi visualizzatore di immagine. In ultimo, Green
+                        è sviluppato come plugin di Eclipse,
+                        caratteristica che abbiamo molto apprezzato in quanto ci ha permesso sia di
+                        non aumentare ulteriormente il numero di diverse applicazioni indipendenti
+                        da utilizzare allo stesso tempo, sia di sfruttare al massimo le sue
+                        funzionalità di produzione codice e ingegneria inversa. 
+  \end{description}
+  
+{\sc OmniGraffle Professional 5}
+\nopagebreak
+
+\noindent
+\begin{description}
+\item[{Riferimento}]     \href{http://www.omnigroup.com/applications/OmniGraffle/}{http://www.omnigroup.com/\-applications/\-OmniGraffle/\-}  
+  \item[{Licenza}]   Proprietaria
+  \item[{Descrizione}]   OmniGraffle è un'applicazione per disegno e diagrammi
+                        sviluppata per Mac Os X. È uno strumento molto intuitivo e molto
+                        veloce per la creazione di diagrammi anche complessi. 
+  \item[{Motivazioni della scelta}]    OmniGraffle era stato utilizzato da uno dei componenti del gruppo in
+                        precedenza: nonostante si tratti di software proprietario e utilizzabile
+                        solo sulla piattaforma Mac Os X, è stato sfruttato molto per
+                        schizzare velocemente in virtù della sua immediatezza e
+                        facilità d'uso. Permette di esportare in molti formati le
+                        immagini prodotte, tra cui SVG e PDF, ottimali per l'inserimento nella
+                        relazione Docbook. È inoltre facilmente estendibile con una serie
+                        di stencil di strutture UML. 
+  \end{description}
+    
+\section{Strumenti per stesura del piano di processo}
+    
+{\sc TaskJuggler 2.4.1}
+\nopagebreak
+
+\noindent
+\begin{description}
+\item[{Riferimento}]     \href{http://www.taskjuggler.org/}{http://www.taskjuggler.org/\-}  
+  \item[{Licenza}]   GNU Public Licence version 2
+  \item[{Descrizione}]   TaskJuggler è un software per il supporto alla gestione di progetto. Fornisce funzionalità di pianificazione, tracciamento degli obiettivi, assegnazione delle risorse, analisi dei rischi. 
+ 
+  \item[{Motivazioni della scelta}]   Si tratta di un gestore di progetto molto evoluto, ricco di funzionalità, col quale abbiamo ottimamente gestito tutto quanto riguarda il piano di processo e l'analisi di costi e sforzi. È stato ritenuto il miglior software open source di questo tipo. Fornisce template già pronti per un inizio veloce, permette di generare e visualizzare diagrammi di Gantt con una comoda interfaccia grafica. Permette di esportare tutti i manufatti prodotti in formati facili allo scambio e alla conversione.
+ 
+  \end{description}
+    
+\section{Strumenti per il piano di processo}
+    
+{\sc JUnit}
+\nopagebreak
+
+\noindent
+\begin{description}
+\item[{Riferimento}]     \href{http://www.junit.org/}{http://www.junit.org/\-}  
+  \item[{Licenza}]   Common Public Licence
+  \item[{Descrizione}]   JUnit è un framework di testing per il linguaggio Java. Fornisce un modo semplice per testare in modo esplicito aree specifiche di un programma Java.
+
+  \item[{Motivazioni della scelta}]   Abbiamo scelto di utilizzare JUnit in quanto è comunemente considerata  una delle migliori librerie Java mai sviluppate. L'utilizzo di questo framework forza la definizione di specifici risultati attesi nell'esecuzione di un dato programma, permettendo un controllo preciso della correttezza e dell'attinenza di quanto sviluppato ai requisiti delineati: questo approccio di testing già canonizzato ci è sembrato una scelta migliore rispetto all'abituale testing generico e non strutturato.
+ 
   \end{description}
    
 % ------- 
@@ -2538,8 +2763,50 @@ Descrizione%
 
 \item{}  Modifica immagini per inserimento nella relazione, composizione relazione.
   
+\end{itemize}
+  %
+}\tabularnewline
+\cline{1-1}\cline{2-2}\cline{3-3}\multicolumn{1}{|m{50pt}|}{\centering%
+13/06/2009%
+}&\multicolumn{1}{m{40pt}|}{\centering%
+2%
+}&\multicolumn{1}{m{\newtblstarfactor}|}{%
+  \begin{itemize}
 
-\item{}  ?
+\item{}  Aggiornamento glossario ed environment.
+  
+\end{itemize}
+  %
+}\tabularnewline
+\cline{1-1}\cline{2-2}\cline{3-3}\multicolumn{1}{|m{50pt}|}{\centering%
+15/06/2009%
+}&\multicolumn{1}{m{40pt}|}{\centering%
+4%
+}&\multicolumn{1}{m{\newtblstarfactor}|}{%
+  \begin{itemize}
+
+\item{}  Bugfix ed elaborazione: XSLT, JSP, CSS
+  
+
+\item{}  Relazione: bugfix per uso con dblatex e per stampa ottimale con entrambi i trasformatori.
+  
+\end{itemize}
+  %
+}\tabularnewline
+\cline{1-1}\cline{2-2}\cline{3-3}\multicolumn{1}{|m{50pt}|}{\centering%
+16/06/2009%
+}&\multicolumn{1}{m{40pt}|}{\centering%
+4%
+}&\multicolumn{1}{m{\newtblstarfactor}|}{%
+  \begin{itemize}
+
+\item{}  Conversione immagini per inserimento in relazione.
+  
+
+\item{}  Modifica di configurazioni JBoss e MySql.
+  
+
+\item{}  Refactoring relazione.
   
 \end{itemize}
   %

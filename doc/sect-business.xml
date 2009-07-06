@@ -95,7 +95,7 @@
 		                </title>
 		                <mediaobject>
 		                    <imageobject role="fo">
-		                        <imagedata fileref="DiagrammiBusiness/business_ws.svg" align="center"
+		                        <imagedata fileref="DiagrammiBusiness/business_ws.svg" depth="450pt" align="center"
 		                            format="SVG"/>
 		<!--                        <imagedata fileref="DiagrammiBusiness/business_ws.png" align="center"
 		                            format="PNG"/>-->
