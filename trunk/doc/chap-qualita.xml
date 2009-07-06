@@ -192,7 +192,7 @@
                 <para> Revisori: QE</para>
                 <para> Verifiche: complessità, coesione, completezza rispetto al problema,
                     compatibilità con le specifiche dei requisiti, dimensioni, chiarezza, compatibilità rispetto al piano di schieramento, calcolo dell'indice di qualità strutturale DSQI. </para>
-                <para> Esito: il modello architetturale raffina coerentemente il modello elaborato e rivisto in fase di avvio. E' pienamente compatibile con le specifiche dei requisiti e mantiene dimensioni più che accettabili. La strutturazione a quattro livelli tipica delle applicazioni enterprise conferisce al progetto un adeguato accoppiamento tra i moduli così come una buona coesione. Si rileva la compatibilità del modello rispetto al piano di schieramento.
+                <para> Esito: il modello architetturale raffina coerentemente il modello elaborato e rivisto in fase di avvio. È pienamente compatibile con le specifiche dei requisiti e mantiene dimensioni più che accettabili. La strutturazione a quattro livelli tipica delle applicazioni enterprise conferisce al progetto un adeguato accoppiamento tra i moduli così come una buona coesione. Si rileva la compatibilità del modello rispetto al piano di schieramento.
 <!--                Di seguito si propone il calcolo dell'indice di qualità strutturale DSQI:-->
 <!--                -->
 <!--                s1 Numero totale di moduli.-->
