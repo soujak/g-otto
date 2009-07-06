@@ -18,6 +18,8 @@
         <xi:include href="sect-presentation.xml" xpointer="sect-presentation"/>
         <?very-hard-pagebreak?>
         <xi:include href="sect-business.xml" xpointer="sect-business"/>
+        <?very-hard-pagebreak?>
+        <xi:include href="sect-business.xml" xpointer="sect-livello_informativo"/>
 
     </chapter>
 </book>
