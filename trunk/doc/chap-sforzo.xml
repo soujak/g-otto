@@ -39,6 +39,14 @@
 							<entry>Totale</entry>
 						</row>
 					</thead>
+					<tfoot>
+						<row>
+							<entry>Conto totale grezzo</entry>
+							<entry></entry>
+							<entry></entry>
+							<entry>35</entry>
+						</row>
+					</tfoot>
 					<tbody>
 						<row>
 							<entry>Input utente</entry>
@@ -89,14 +97,6 @@
 							<entry></entry>
 						</row>
 					</tbody>
-					<tfoot>
-						<row>
-							<entry>Conto totale grezzo</entry>
-							<entry></entry>
-							<entry></entry>
-							<entry>35</entry>
-						</row>
-					</tfoot>
 				</tgroup>
 			</table>
 			<para>
@@ -196,6 +196,13 @@
 							<entry>Sforzo (ore di lavoro)</entry>
 						</row>
 					</thead>
+					<tfoot>
+						<row>
+							<entry>Totale</entry>
+							<entry></entry>
+							<entry>675.58</entry>
+						</row>
+					</tfoot>
 					<tbody>
 						<row>
 							<entry>Francesco Draicchio</entry>
@@ -223,13 +230,6 @@
 							<entry>40.5</entry>
 						</row>
 					</tbody>
-					<tfoot>
-						<row>
-							<entry>Totale</entry>
-							<entry></entry>
-							<entry>675.58</entry>
-						</row>
-					</tfoot>
 				</tgroup>
 			</table>
 			<para>
