@@ -150,17 +150,18 @@
 						<listitem>
 							<para>
 								L’inserimento online dei dati richiede che venga
-								realizzata una transazione di input costituita da più schermi od operazioni? [0]
+								realizzata una transazione di input costituita da più
+								schermi od operazioni? [0]
 							</para>
 						</listitem>
 						<listitem>
 							<para>
-								I ﬁle IFL vengono aggiornati online? [0]
+								I file IFL vengono aggiornati online? [0]
 							</para>
 						</listitem>
 						<listitem>
 							<para>
-								Esistono input, output, ﬁle o richieste di natura
+								Esistono input, output, file o richieste di natura
 								complessa? [1]
 							</para>
 						</listitem>
@@ -189,7 +190,8 @@
 						</listitem>
 						<listitem>
 							<para>
-								L’applicazione è progettata per facilitare le modiﬁche e la facilità d’uso da parte degli utenti? [3]
+								L’applicazione è progettata per facilitare le
+								modifiche e la facilità d’uso da parte degli utenti? [3]
 							</para>
 						</listitem>
 					</orderedlist>
@@ -319,7 +321,7 @@
 			</table>
 			<para>
 				Lo sforzo consuntivo espresso in mesi uomo supera di pochissimo
-				i 4 mesi/uomo, equivalenti circa 21,1 giorni per componente.
+				i 4 mesi/uomo, equivalenti a circa 21,1 giorni per componente.
 				Lo scarto fra la stima preventiva e la valutazione consuntiva
 				costituisce un errore relativo del 74%, che supera di gran lunga
 				la peggiore stima d'errore preventivata informalmente nelle fasi
@@ -330,10 +332,10 @@
 				sicuramente nell'inesperienza gestionale e attuativa nello
 				specifico ambito di progetto di cui è parlato nella sezione
 				3.4.
-				Non si può trascurare, peraltro, che le date di consegna multiple
-				abbiano creato, in concordanza con la legge di Parkinson,
-				una disponibilità di sforzo che ha aumentato le necessità di
-				sforzo per il progetto.
+				Non si può trascurare, peraltro, che in accorco con la legge di
+				Parkinson,le date di consegna multiple abbiano aumentato le necessità
+				 di sforzo per il progetto, dal momento che hanno creato disponibilità
+				 di sforzo.
 			</para>
 	    </section>
     </chapter>
