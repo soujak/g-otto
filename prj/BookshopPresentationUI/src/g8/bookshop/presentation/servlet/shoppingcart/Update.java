@@ -43,13 +43,9 @@ public class Update extends HttpServlet {
 		
 		// initialize orders xml string
 		String xml_orders = Constants.EMPTY_ORDERS;
-		// initialize update result variable
-		boolean updated = false;
 		
 		// initialize shopping cart xml string
 		String xml_shoppingcart = Constants.EMPTY_CART;
-		// initialize checkout result variable
-		boolean payed = false;
 		
 		try {
 			Enumeration params = request.getParameterNames();
@@ -79,21 +75,35 @@ public class Update extends HttpServlet {
 			}
 			// initialize shoppingcart service client...
 			ShoppingCartService service = (new ShoppingCartServiceServiceLocator()).getShoppingCartServicePort();			
-			// updates cart
-			updated = service.update(session.getId(), xml_orders);
-			// retrieves updated order list
-			xml_shoppingcart = service.view(session.getId());			
-			dataExchange.setShoppingcart(xml_shoppingcart);
-			// caching cart updated order list
-			dataExchange.setXmlCartCache(xml_shoppingcart);
-			if(updated) dataExchange.setMessage("Shopping cart updated.");
 
-			// check if user wants to checkout shopping cart...
-			if(request.getParameter("operation").equalsIgnoreCase("checkout")) {
-				// then checkout and write user message
-				payed = service.checkOut(session.getId());
-				dataExchange.setXmlCartCache(Constants.EMPTY_CART);
-				if(payed) dataExchange.setMessage("Shopping cart checked out.");
+			// updates cart...			
+			// and check update result
+			if(service.update(session.getId(), xml_orders)) {
+				// if update succeded...
+				// retrieves updated order list
+				xml_shoppingcart = service.view(session.getId());			
+				dataExchange.setShoppingcart(xml_shoppingcart);
+				// caching cart updated order list
+				dataExchange.setXmlCartCache(xml_shoppingcart);
+				dataExchange.setMessage("Shopping cart updated.");
+				
+				// finally...
+				// check if user wants to checkout shopping cart...
+				if(request.getParameter("operation").equalsIgnoreCase("checkout")) {
+					// then checkout and write user message
+					if(service.checkOut(session.getId())) {
+						// if checkout succeded set user message and update shopping cart cache
+						dataExchange.setMessage("Shopping cart checked out.");
+						dataExchange.setXmlCartCache(Constants.EMPTY_CART);
+					}
+				}
+			} else {
+				// if update service method returns false, an error occurred on business cluster
+				// then force user disconnection
+				session.invalidate();
+				session = request.getSession();
+				dataExchange = Utils.getDataExchange(session);
+				dataExchange.setMessage("Disconnection forced: an error occurred but all session data has been removed correctly.");
 			}
 			
 		} catch (Exception e) {

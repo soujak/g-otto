@@ -71,17 +71,28 @@ public class AddOrders extends HttpServlet {
 					}
 				}
 				xml_orders = Utils.xmlDocumentToString(document);
+			}			
+			ShoppingCartService service = (new ShoppingCartServiceServiceLocator()).getShoppingCartServicePort();
+			
+			// invoke shopping cart service method to add item to cart...
+			// and check addOrders result
+			if(service.addOrders(id, xml_orders)) {
+				// if addOrder succeded...
+				// invoke method to get cart content
+				xml_shoppingcart = service.view(id);
+				// fills dataExchange variable
+				dataExchange.setShoppingcart(xml_shoppingcart);
+				// caching shopping cart
+				dataExchange.setXmlCartCache(xml_shoppingcart);
+			} else {
+				// if addOrders service method returns false, an error occurred on business cluster
+				// then force user disconnection
+				session.invalidate();
+				session = request.getSession();
+				dataExchange = Utils.getDataExchange(session);
+				dataExchange.setMessage("Disconnection forced: an error occurred but all session data has been removed correctly.");
 			}
 			
-			ShoppingCartService service = (new ShoppingCartServiceServiceLocator()).getShoppingCartServicePort();
-			// invoke shopping cart service method to add item to cart
-			if(!(service.addOrders(id, xml_orders))) dataExchange.setMessage("Book selection failed: an error occurred.");
-			// invoke method to get cart content
-			xml_shoppingcart = service.view(id);
-			// fills dataExchange variable
-			dataExchange.setShoppingcart(xml_shoppingcart);
-			// caching shopping cart
-			dataExchange.setXmlCartCache(xml_shoppingcart);
 		} catch (Exception e) {
 			dataExchange.setMessage("Book selection failed: an error occurred.");
 			e.printStackTrace();
