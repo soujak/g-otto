@@ -1,12 +1,12 @@
 package g8.bookshop.business.core;
 
-import javax.ejb.Local;
+import javax.ejb.Remote;
 
 /**
  * Interface User
  * @author soujak
  */
-@Local
+@Remote
 public interface UserRemote {
 	/**
 	 * @return user unique id

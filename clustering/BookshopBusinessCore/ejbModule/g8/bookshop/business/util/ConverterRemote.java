@@ -19,9 +19,9 @@ import org.xml.sax.SAXException;
 public interface ConverterRemote {
 
 	/**
-	 * Transform Book list to XML element
-	 * @param books
-	 * @return
+	 * Transform Book list to XML
+	 * @param books list of Book to convert
+	 * @return the XML representation of the books
 	 * @throws ParserConfigurationException
 	 * @throws TransformerFactoryConfigurationError
 	 * @throws TransformerException
@@ -32,8 +32,8 @@ public interface ConverterRemote {
 
 	/**
 	 * Transform ShoppingCart object (order list) to XML element
-	 * @param sc
-	 * @return
+	 * @param sc ShoppingCart to convert
+	 * @return the XML representation of the ShoppingCart
 	 * @throws ParserConfigurationException
 	 * @throws TransformerFactoryConfigurationError
 	 * @throws TransformerException

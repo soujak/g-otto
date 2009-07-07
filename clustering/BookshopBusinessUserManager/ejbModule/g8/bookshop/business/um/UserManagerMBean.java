@@ -36,33 +36,21 @@ public interface UserManagerMBean {
 	 */
 	public boolean disconnect(CustomerRemote customerRemote);
 	
-	/**
-	 * @throws Exception
-	 */
 	void create() throws Exception;
-	/**
-	 * @throws Exception
-	 */
 	void start() throws Exception;
-	/**
-	 * 
-	 */
 	void stop();
-	/**
-	 * 
-	 */
 	void destroy();
 	
 	/**
-	 * @return
+	 * @return true if the singleton service is active, false otherwise
 	 */
 	boolean isMasterNode();
 	/**
-	 * 
+	 * Start the HA singleton service 
 	 */
 	void startSingleton();
 	/**
-	 * 
+	 * Stop the HA singleton service
 	 */
 	void stopSingleton();
 }

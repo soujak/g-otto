@@ -21,7 +21,7 @@ public class Customer extends User implements CustomerRemote {
 	private ShoppingCartRemote shoppingCart;
 
 	/**
-	 * @see CustomerRemote#getShoppingCart()
+	 * TODO javadoc
 	 */
 	public ShoppingCartRemote getShoppingCart() {
 		System.out.println(this.getId() + ": getShoppingCart()");
@@ -36,6 +36,9 @@ public class Customer extends User implements CustomerRemote {
 		customer = true;
 	}
 	
+	/**
+	 * TODO javadoc
+	 */
 	@SuppressWarnings("unused")
 	@PostConstruct
 	private void createShoppingCart() {

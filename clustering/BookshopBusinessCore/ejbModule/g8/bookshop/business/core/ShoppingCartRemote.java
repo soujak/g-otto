@@ -36,8 +36,8 @@ public interface ShoppingCartRemote {
 	public boolean checkOut();
 	
 	/**
-	 * Return the orders
-	 * @return
+	 * View shopping cart content
+	 * @return the orders of the shopping cart
 	 */
 	public List<OrderRemote> getOrders();
 }

@@ -3,6 +3,7 @@ package g8.bookshop.business.ws;
 import javax.ejb.Remote;
 
 /**
+ * TODO javadoc
  * WebService Session Bean remote interface UserManagerServiceRemote
  * @author soujak
  */
@@ -19,8 +20,8 @@ public interface UserManagerServiceRemote {
 	
 	/**
 	 * Disconnect a given user.
-	 * @param id user id
-	 * @return
+	 * @param id user id to disconnect
+	 * @return true if the customer is successfully disconnected, false otherwise. 
 	 */
 	boolean Disconnect(String id);
 }

@@ -49,7 +49,7 @@ public class CatalogueService implements CatalogueServiceRemote {
     	this.c = (ConverterRemote) ctx.lookup(Name.EJB.CONVERTER_REMOTE);
     }
     
-	/**
+    /**
      * Advanced search
      * @param s book definition in XML format
      * @return corresponding books in XML format
@@ -57,7 +57,7 @@ public class CatalogueService implements CatalogueServiceRemote {
     // @SuppressWarnings("unchecked")
 	@WebMethod
 	public String Search(String s) {
-		// TODO
+		// FIXME rimuovere scheletro di metodo non implementato
 //    	Book b = ((ConverterLocal)sessionContext.lookup("BookshopBusiness/Converter/local")).xmlToBook(s);
 //    	List<Book> res = em.createNamedQuery("search").setParameter("Author", b.getAuthor())
 //    		.setParameter("Editor", b.getEditor())
