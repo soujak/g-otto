@@ -11,7 +11,7 @@
 	scope="session" />
 	
 <%@include file="/template/top.jspf"%>
-
+<%@include file="/template/userinfo.jspf"%>
 <%@include file="/template/guest_menu.jspf"%>
 
 <p id="message"><jsp:getProperty property="message" name="DataExchange" /></p>

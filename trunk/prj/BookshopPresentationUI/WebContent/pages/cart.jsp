@@ -14,6 +14,7 @@
 <h1 id="logo">G<span>8</span>Cart</h1>
 </div>
 
+<%@include file="/template/userinfo.jspf"%>
 <%@include file="/template/cart_menu.jspf"%>
 
 <p id="message"><jsp:getProperty property="message" name="DataExchange" /></p>

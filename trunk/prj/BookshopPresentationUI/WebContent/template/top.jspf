@@ -1,8 +1,3 @@
 <div id="top">
 <h1 id="logo">G<span>8</span>Bookshop</h1>
-<div id="userinfo">
-    <strong>User:
-    <span id="username"><jsp:getProperty property="username" name="DataExchange" /></span>
-    </strong>
-</div>
 </div>

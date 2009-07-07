@@ -1,0 +1,5 @@
+<div id="userinfo">
+    <strong>User:
+    <span id="username"><jsp:getProperty property="username" name="DataExchange" /></span>
+    </strong>
+</div>
