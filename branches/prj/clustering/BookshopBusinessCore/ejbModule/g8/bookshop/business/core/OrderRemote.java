@@ -4,6 +4,9 @@ import g8.bookshop.persistence.Book;
 
 import javax.ejb.Remote;
 
+/**
+ * TODO javadoc
+ */
 @Remote
 public interface OrderRemote {
 	/**

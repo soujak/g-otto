@@ -9,13 +9,10 @@ import g8.bookshop.business.util.ConverterRemote;
 import g8.bookshop.business.util.Name;
 
 import java.io.IOException;
-import java.util.Properties;
 
 import javax.ejb.Stateless;
 import javax.jws.WebMethod;
 import javax.jws.WebService;
-import javax.naming.Context;
-import javax.naming.InitialContext;
 import javax.naming.NamingException;
 import javax.xml.parsers.ParserConfigurationException;
 import javax.xml.transform.TransformerException;

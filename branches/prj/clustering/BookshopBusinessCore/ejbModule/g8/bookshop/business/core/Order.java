@@ -20,6 +20,7 @@ public class Order implements OrderRemote {
 	private int quantity;
 	
 	/**
+	 * TODO javadoc
 	 * Constructor
 	 * @param b
 	 * @param q
@@ -51,12 +52,10 @@ public class Order implements OrderRemote {
 	/**
 	 * @param q
 	 * 			the quantity to set
-	 * 
 	 */
 	public void setQuantity(int q) {
 		this.quantity = q; 
 	}
-
 	/**
 	 * @param b
 	 * 			the book to set

@@ -3,6 +3,7 @@ package g8.bookshop.business.ws;
 import javax.ejb.Remote;
 
 /**
+ * TODO javadoc
  * WebService Session Bean remote interface ShoppingCartServiceRemote
  */
 @Remote
