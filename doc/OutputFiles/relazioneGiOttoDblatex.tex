@@ -10,7 +10,7 @@
 \usepackage{makeidx}
 \usepackage[italian]{babel}
 \usepackage{cmap}
-\usepackage[hyperlink]{dbsimple}
+\usepackage[hyperlink]{docbook}
 \setuplocale{it}
 \setupbabel{it}
 \renewcommand{\DBKreleaseinfo}{}
@@ -23,11 +23,11 @@
 
         
         
-    \title{Relazione Progetto Architetture Software 2008/09 gruppo G8}
+    \title{Relazione Progetto Architetture Software Gruppo G8}
 \author{Francesco Draicchio, Andrea Rappini, Silvia Righini, e Marco Solieri}
 \hypersetup{%
 pdfcreator={DBLaTeX-0.2.8},%
-pdftitle={Relazione Progetto Architetture Software 2008/09 gruppo G8},%
+pdftitle={Relazione Progetto Architetture Software Gruppo G8},%
 pdfauthor={Francesco Draicchio, Andrea Rappini, Silvia Righini, e Marco Solieri}%
 }
 % ------------------
@@ -365,6 +365,9 @@ Il cliente autenticato desidera selezionare alcuni libri
 {\bf Sequenza degli eventi}     
   \begin{enumerate}
 
+\item{}include(RicercaLibri)
+
+
 \item{}  il cliente indica uno o più libri
                                                   (eventualmente specificandone la
                                                   quantità) attraverso l'interfaccia, che
@@ -601,7 +604,7 @@ Permette di acquistare l'intero contenuto del
 \cline{1-1}\multicolumn{1}{|m{\newtblstarfactor}|}{\raggedright%
   
 {\bf Precondizioni}     
-Il carrello non è vuoto. 
+Il carrello non è vuoto.
   
 
   %
@@ -620,10 +623,13 @@ Il cliente desidera acquistare il contenuto del suo
 {\bf Sequenza degli eventi}     
   \begin{enumerate}
 
-\item{}  include(RicercaLibri)
+\item{}  include(SelezionaLibri)
   
 
-\item{}  include(SelezionaLibri)
+\item{}include(VisualizzaCarrello)
+
+
+\item{}  extends(ModificaCarrello): il cliente può entrare nel caso d'uso ModificaCarrello.
   
 
 \item{}  Il cliente specifica al sistema mediante
@@ -631,16 +637,7 @@ Il cliente desidera acquistare il contenuto del suo
                                                   acquistare i libri nel suo carrello.
   
 
-\item{}  [opzionale] Il sistema mostra al cliente il
-                                                  contenuto del suo carrello. [a questo punto il
-                                                  cliente può decidere di proseguire
-                                                  all'acquisto o abbandonare la schermata]
-  
-
 \item{}  Il sistema conferma l'acquisto.
-  
-
-\item{}  include(Disconnessione)
   
 \end{enumerate}
   
@@ -1044,8 +1041,10 @@ X%
 
 \chapter{Relazione di progetto}
        
-\section{Introduzione}
-    \begin{figure}[H]
+\section{Modellazione requisiti funzionali}
+    
+A partire dai requisiti funzionali si è partiti nell'analizzare ciò che il sistema doveva offrire ai suoi utenti. Il diagramma dei casi d'uso in Figura~\ref{} modella le possibili azioni per un utente.
+  \begin{figure}[H]
 
 \begin{center}
 \imgexists{DiagrammiModelloCasiUso/DiagrammaCasiUso.pdf}{{\centering \imgevalsize{DiagrammiModelloCasiUso/DiagrammaCasiUso.pdf}{\includegraphics[height=245pt,keepaspectratio=true]{DiagrammiModelloCasiUso/DiagrammaCasiUso.pdf}}
@@ -1055,247 +1054,870 @@ X%
 \caption{Diagramma dei casi d'uso.}
 \end{figure}
   
-\subsection{Diagrammi delle attività}
-    
-
+Ogni utente può essere un visitatore, ovvero un utente non autenticato e di conseguenza non riconosciuto dal sistema, o un cliente. Il solo caso d'uso comune ai due attori è la Ricerca (UC01), anche se nel caso del cliente questa rientra in un caso d'uso più ampio detto Acquisto (UC04).
   
-
+Ogni utente inizia la sua interazione col sistema come visitatore: oltre alla ricerca egli può quindi effettuare l'Autenticazione, che modifica il suo stato e lo trasforma in un cliente. Un cliente, a sua volta, può entrare nel caso d'uso Disconnessione (UC05) e riprendere il ruolo di visitatore. Il visitatore può solo autenticarsi (Autenticazione, UC03) o effettuare ricerche (Ricerca, UC01). Il cliente può invece entrare nel caso d'uso Acquisto (UC04).  Il caso d'uso Acquisto include prima di tutto altri due casi d'uso: Ricerca (UC01) e Selezione (UC02). Infatti il caso d'uso Acquisto inizia in modo analogo al caso d'uso Ricerca per il visitatore, e terminata la Ricerca entra nel caso d'uso Selezione. Terminate le operazio di questi due casi d'uso,l'Acquisto include anche il caso d'uso VisualizzaCarrelo (UC06), poiché la visualizzazione è necessaria prima della conferma dell'acquisto.
+                Il cliente può anche decidere di attivare il caso d'uso ModificaCarrello (UC07), prima di svolgere i passi del caso d'uso Acquisto (UC04) vero e proprio, che terminano l'acquisto. 
+                Le schede dei casi d'uso (dei quali viene riportato l'ID) possono essere riviste nella sezione 1.2.
+ 
+  
+La mopdellazione precedente tuttavia illustra le funzionalità del sistema offerte all'utente ma non descrive in modo adeguato l'ordine delle diverse azioni. Mostriamo quindi la sequenza delle attività con diagrammi più adeguati.
+  
+Il diagramma delle attività in Figura~\ref{} rappresenta in modo generale le diverse attività. All'arrivo di un visitatore su G8Bookshoop, egli può effettuare la ricerca o l'autenticazione. Se sceglie di effettuare una ricerca, al termine di essa può ripetere la'ttività effettuando nuove ricerche, o passare all'attività autenticazione. Scegliendo invece di autenticarsi, passerà a un ramo diverso del diagramma (a cui appunto si accede solo passando attraverso l'autenticazione) nel quale gli viene fornita la possibilità di effettuare acquisti. Una volta entrato in questo ramo egli può in ogni momento interrompere l'attività corrente e disconnettersi: in questo modo ritorna al punto di partenza del diagramma (aspetto non modellato per semplicità). L'attività Acquisto può essere ripetuta a piacere.
   \begin{figure}[H]
 
 \begin{center}
-\imgexists{DiagrammiModellazioneBusiness/DiagrammaAttivitaGenerale.pdf}{{\centering \imgevalsize{DiagrammiModellazioneBusiness/DiagrammaAttivitaGenerale.pdf}{\includegraphics[height=245pt,keepaspectratio=true]{DiagrammiModellazioneBusiness/DiagrammaAttivitaGenerale.pdf}}
+\imgexists{DiagrammiModellazioneBusiness/DiagrammaAttivitaGenerale.pdf}{{\centering \imgevalsize{DiagrammiModellazioneBusiness/DiagrammaAttivitaGenerale.pdf}{\includegraphics[height=180pt,keepaspectratio=true]{DiagrammiModellazioneBusiness/DiagrammaAttivitaGenerale.pdf}}
 }
 }{}
 \end{center}
 \caption{Diagramma dell'attività complessiva.}
 \end{figure}
   
-
+Osserviamo più nel dettaglio l'attività Acquisto: essa è una macro attività composta di tre sottoattvitià. Appena iniziata l'attività Acquisto, il cliente si troverà a svolgere l'attività Ricerca; una volta effettuata una ricerca egli può effettuarne di nuove o procedere alla selezione di alcuni dei libri risultanti. Dopo una selezione, può tornare a una nuova ricerca (o più di una) oppure procedere all'attività Cassa, nella quale potrà acquistare i libri selezionati.
   
-
+Dopo aver effettuato l'attività Cassa, e anche durante, è possibile tornare all'attività Ricerca. Ricordiamo che in ogni momento è possibile abbandonare qualsiasi attività di Acquisto iniziando l'attività Disconnessione.
   \begin{figure}[H]
 
 \begin{center}
-\imgexists{DiagrammiModellazioneBusiness/DiagrammaAttivitaAcquisto.pdf}{{\centering \imgevalsize{DiagrammiModellazioneBusiness/DiagrammaAttivitaAcquisto.pdf}{\includegraphics[height=245pt,keepaspectratio=true]{DiagrammiModellazioneBusiness/DiagrammaAttivitaAcquisto.pdf}}
+\imgexists{DiagrammiModellazioneBusiness/DiagrammaAttivitaAcquisto.pdf}{{\centering \imgevalsize{DiagrammiModellazioneBusiness/DiagrammaAttivitaAcquisto.pdf}{\includegraphics[height=160pt,keepaspectratio=true]{DiagrammiModellazioneBusiness/DiagrammaAttivitaAcquisto.pdf}}
 }
 }{}
 \end{center}
 \caption{Diagramma dell'attività Cassa.}
 \end{figure}
   
-
-  
-
+Il diagramma in figura Figura~\ref{} riporta gli stati possibili relativi all'attività Cassa. Appena inziata l'attività Cassa, il Cliente si trova nello stato VisualizzaCarrello. Egli può notificare la sua volontà di acquistare il contenuto del suo carrello, passando così allo stato finale AcquistaCarrello (ed esce di conseguenza dall'attività Cassa). Alternativamente, egli può richiedere la modifica del suo carrello passando allo stato ModificaCarrello: da qui può poi tornare allo stato VisualizzaCarrello e riprendere da qui. In ogni momento è possibile uscire da qualsiasi stato di Cassa muovendosi verso l'attività Ricerca o Disconnessione.
   \begin{figure}[H]
 
 \begin{center}
-\imgexists{DiagrammiModellazioneBusiness/DiagrammaAttivitaCassa.pdf}{{\centering \imgevalsize{DiagrammiModellazioneBusiness/DiagrammaAttivitaCassa.pdf}{\includegraphics[height=245pt,keepaspectratio=true]{DiagrammiModellazioneBusiness/DiagrammaAttivitaCassa.pdf}}
+\imgexists{DiagrammiModellazioneBusiness/DiagrammaAttivitaCassa.pdf}{{\centering \imgevalsize{DiagrammiModellazioneBusiness/DiagrammaAttivitaCassa.pdf}{\includegraphics[height=160pt,keepaspectratio=true]{DiagrammiModellazioneBusiness/DiagrammaAttivitaCassa.pdf}}
 }
 }{}
 \end{center}
-\caption{Diagramma dell'attività Cassa.}
+\caption{Diagramma degli stati relativi all'attività Cassa.}
 \end{figure}
-       
-\section{Descrizione dell'architettura}
-    
-\subsection{Diagrammi preliminari dell'architettura}
-    
-
-  
-
-  \begin{figure}[H]
-
-\begin{center}
-\imgexists{DiagrammiModelloArchitettura/bookshop-component-preliminary.pdf}{{\centering \imgevalsize{DiagrammiModelloArchitettura/bookshop-component-preliminary.pdf}{\includegraphics[height=245pt,keepaspectratio=true]{DiagrammiModelloArchitettura/bookshop-component-preliminary.pdf}}
-}
-}{}
-\end{center}
-\caption{Diagramma dell'archiettura dal punto di vista dei componenti}
-\end{figure}
-  
-
-  
-
-  \begin{figure}[H]
-
-\begin{center}
-\imgexists{DiagrammiModelloArchitettura/bookshop-client-server-arch-preliminary.pdf}{{\centering \imgevalsize{DiagrammiModelloArchitettura/bookshop-client-server-arch-preliminary.pdf}{\includegraphics[height=245pt,keepaspectratio=true]{DiagrammiModelloArchitettura/bookshop-client-server-arch-preliminary.pdf}}
-}
-}{}
-\end{center}
-\caption{Diagramma dell'archiettura client-{}server.}
-\end{figure}
-    
-\subsection{Diagrammi dell'architettura ? ? }
-    
-
-  
-
-  \begin{figure}[H]
-
-\begin{center}
-\imgexists{DiagrammiModelloArchitettura/DiagrammaArchitettura.pdf}{{\centering \imgevalsize{DiagrammiModelloArchitettura/DiagrammaArchitettura.pdf}{\includegraphics[height=150pt,keepaspectratio=true]{DiagrammiModelloArchitettura/DiagrammaArchitettura.pdf}}
-}
-}{}
-\end{center}
-\caption{Diagramma dell'archiettura ? ? }
-\end{figure}
-  
-
-  
-
-  \begin{figure}[H]
-
-\begin{center}
-\imgexists{DiagrammiModelloArchitettura/DiagrammaArchitettura2.pdf}{{\centering \imgevalsize{DiagrammiModelloArchitettura/DiagrammaArchitettura2.pdf}{\includegraphics[height=400pt,keepaspectratio=true]{DiagrammiModelloArchitettura/DiagrammaArchitettura2.pdf}}
-}
-}{}
-\end{center}
-\caption{Diagramma dell'architettura ? ? }
-\end{figure}
-       
-\section{Implementazione}
-    
-\subsection{Business}
-    
-
-    
-\subsection{Information manager}
-    
-
-    
-\subsection{Presentation}
-    
-
       
-\section{Clusterizzazione}
+\section{Scelte architetturali}
     
+J2EE offre la possibilità di realizzare applicazioni web basate su un modello architetturale
+a 4 livelli, ovvero Client tier, Web tier, Business tier e Information tier. Tale caratteristica stimola
+in particolar modo a progettare i componenti software che costituiscono l'applicazione in maniera fortemente modulare, forzando
+così la flessibilità e propendendo naturalmente ad una logica di riutilizzo dei componenti software.
+  
+Tipicamente però, è comune pratica accorpare i due livelli centrali del modello in un unico tier. In questo modo si ottiene
+un forte accoppiamento tra il livello web e quello business e non si sfrutta pienamente il paradigma proposto dalla tecnologia in questione.
+  
+Quindi, considerando anche che le specifiche del progetto impongono l'utilizzo di Web Service, e quindi di uno standard, per realizzare la comunicazione tra il livello business e quello web, abbiamo ritenuto ragionevole adottare strettamente il modello architetturale J2EE, e quindi separare in maniera netta la logica di presentazione da quella business.
+  
+Infatti una peculiarità del nostro modello è appunto la "traduzione" da Web tier a Presentation tier. Tale distinzione ci consente di stabilire in maniera ottimale le responsabilità di ogni componente e quindi di non sconfinare con processi business nella logica di presentazione, mantenendo così il livello di accoppiamento tra i due tier molto basso. Questa scelta è stata fatta anche in base all'assunzione che, in un ottica di possibili sviluppi futuri, gioca un importante ruolo la flessibilità, in caso di cambiamenti sostanziali sia all'interfaccia utente sia al core dell'applicazione.
+  
+Per quanto riguarda lo schieramento, è stata una scelta quasi obbligata separare presentazione e business in due differenti cluster,
+                questo per l'evidente e ricercata distinzione logica tra i componenti e per necessità riguardanti le differenti metodologie di replicazione adottate per i dati di sessione. Entrambi cluster sono infatti stateful.
+  
+Infine, per quanto riguarda il bilanciamento di carico, entrambi i cluster vengono gestiti da un unico server. In caso di collo di bottiglia, la replicazione di quest'ultimo con le opportune configurazione non rappresenteranno assolutamente un ostacolo. Il diagramma in Figura~\ref{} illustra la struttura del porogetto G8Bookshop schierato.
+  \begin{figure}[H]
 
+\begin{center}
+\imgexists{DiagrammiModelloArchitetturaEClustering/deployment_clusters.pdf}{{\centering \imgevalsize{DiagrammiModelloArchitetturaEClustering/deployment_clusters.pdf}{\includegraphics[height=550pt,keepaspectratio=true]{DiagrammiModelloArchitetturaEClustering/deployment_clusters.pdf}}
+}
+}{}
+\end{center}
+\caption{Deployment diagram del progetto G8Bookshop}
+\end{figure}
+      
+\section{Livello presentazione}
+    
+\subsection{Scelte progettuali}
      
-% ------- 
-% Chapter 
-% ------- 
-
-\chapter{Piano di qualità}
+\subsubsection{Logica di presentazione}
+    
+ La logica di presentazione è stata implementata, in puro stile
+                        Java Enterprise, utilizzando sia servlet che JSP, in modo da dividere quanto
+                        più possibile la parte puramente presentazionale, ovvero il
+                        codice xhtml, dalla logica di interazione. Questa scelta di utilizzare
+                        entrambe le tecnologie è il solo modo nel quale ci è
+                        sembrato possibile mantenere il codice pulito da ogni traccia di markup,
+                        obiettivo a cui tenevamo molto. Le JSP, d'altro canto, sono state create
+                        modulari, composte di frammenti JSP (JSPF) rappresentanti elementi ripetuti
+                        e significativi, come la parte di head del documento, il titolo, il
+                        piè di pagina e i menu. Questa suddivisione permette naturalmente
+                        semplici e veloci modifiche al layout, senza contare che naturalmente gran
+                        parte dello stile è a parte, descritto in un CSS. Per la
+                        comunicazione tra servlet e JSP e viceversa, si è utilizzato un
+                        POJO condiviso, nel quale ad esempio la servlet è solita inserire
+                        i risultati di ritorno delle chiamate ai web service, prima di trasferire il
+                        controllo alla JSP. La JSP a quel punto può comodamente leggere
+                        le informazioni dall'oggetto condivisio e inserirle adeguatamente
+                        formattate, nel punto corretto del codice XHTML. La formattazione dei
+                        risultati XML in arrivo dal web service viene svolta all'interno dei metodi
+                        getter del POJO, attraverso una trasformazione XSLT. 
+    
+\subsubsection{Caching dei risultati delle ricerche}
       
-\section{Manufatti soggetti a controllo di qualità}
+Durante il processo di navigazione, l'utente sottopone le servlet ad
+                        alcuni passaggi di gestione. Per la logica di presentazione alcuni di questi
+                        "passaggi" richiedono visualizzazioni differenti dei risultati di ricerca.
+                        Questa condizione si presenta nel passaggio tra ricerca semplice e ricerca
+                        autenticata, che consente la selezione dei libri mediante un'apposita
+                        interfaccia. Con un occhio di riguardo alle performance e grazie
+                        alla natura del formato dei dati che vengono scambiati tramite web service
+                        tra i livelli di presentazione e di business è stato possibile realizzare un
+                        meccanismo di caching dei risultati delle ricerche dell'utente, basato
+                        sull'utilizzo delle sessioni http, che consente di non
+                        effettuare ulteriori invocazione ai servizi di ricerca lato business ogni
+                        qualvolta si presenta la necessità di avere due rappresentazioni differenti
+                        dello stesso risultato. Per entrare brevemente nei dettagli implementativi,
+                        tale semplice operazione si realizza memorizzando in variabili di sessione
+                        il risultato dell'ultima ricerca in formato XML, utilizzando, a seconda
+                        delle necessità, differenti trasformazioni XSLT per le rispettive
+                        visualizzazioni.
+     
+\subsubsection{Replicazione HTTP}
+      
+Per tollerare guasti di tipo crash tra i nodi del cluster di presentazione
+                        e garantire la continuità del servizio, è stato deciso di attivare il
+                        supporto per la replicazione della sessione http che offre JBoss. In
+                        relazione a quanto accennato nella sezione precedente riguardo alla netta
+                        separazione logica dei due livelli centrali, è doveroso specificare
+                        che in tali sessioni non si trovano informazioni o dati utili alla gestione
+                        di procedure legate allo stato della sessione che riguardino il lato business,
+                        come ad esempio lo stato del carrello, ma viene solamente tenuta traccia
+                        dell'identificativo della sessione con il
+                        quale l'infrastruttura di gestione degli utenti compirà ogni aggiornamento
+                        di stato lato business.
+        
+\subsection{Scelte implementative}
     
+In questa sezione verrà illustrata la struttura del lato
+                    presentation del progetto Bookshop. Il diagramma in Figura~\ref{} descrive la struttura complessiva
+                    del progetto, organizzato in package. I diversi package verranno esposti
+                    più in dettaglio nelle sezioni che seguiranno.
+  \begin{figure}[H]
 
-    
-\section{Pratiche e strumenti a supporto della qualità}
-    
+\begin{center}
+\imgexists{DiagrammiPresentation/presentation_packages_overview.pdf}{{\centering \imgevalsize{DiagrammiPresentation/presentation_packages_overview.pdf}{\includegraphics[height=245pt,keepaspectratio=true]{DiagrammiPresentation/presentation_packages_overview.pdf}}
+}
+}{}% <caption>
+  
+La parte di presentazione è raccolta in un progetto dal
+                            nome \nolinkurl{g8.bookshop.presentation}. Esso contiene due
+                            macro package: \nolinkurl{business} e
+ \nolinkurl{presentation}. Il primo, business, contiene le
+                            classi che permettono alle servlet di connettersi ai web service sottostanti.
+                            Il secondo, più complesso, contiene la parte di presentazione
+                            vera e propria, divisa nelle due parti \nolinkurl{servlet} e
+ \nolinkurl{content}. Il package servlet naturalmente
+                            raggruppa le classi che implementano l'interfaccia
+ \nolinkurl{javax.servlet.http.HttpServlet}, mentre il
+                            package content raccoglie classi e altri file relativi alla gestione del
+                            contenuto. Spiegazioni più accurate sul ruolo dei package
+                            descritti e sulle loro classi verranno fatti in seguito.
+  
+ Essenziale nella presentazione è anche la cartella
+ \nolinkurl{WebContent}, la quale contiente le pagine JSP
+                            del progetto, i frammenti JSPF usati per modularizzare le pagine stesse,
+                            e i fogli di stile CSS. 
+  
+\end{center}
+\caption{Panoramica su package e cartelle}
+\end{figure}
+  
+\subsubsection{Servlet}
+    \begin{figure}[H]
 
-    
-\section{Attività per la garanzia della qualità}
-    
-\subsection{Fase di avvio}
-    
-\subsubsection{Revisione delle specifiche dei requisiti}
-    
- Revisori: squadra.
+\begin{center}
+\imgexists{DiagrammiPresentation/presentation_servlet.pdf}{{\centering \imgevalsize{DiagrammiPresentation/presentation_servlet.pdf}{\includegraphics[height=450pt,keepaspectratio=true]{DiagrammiPresentation/presentation_servlet.pdf}}
+}
+}{}% <caption>
   
- Verifiche: completezza delle specifiche dei requisiti rispetto al documento
-                    dei requisiti, chiarezza, coerenza, tracciabilità, precisione, assenza di
-                    ambiguità nella comprensione tra i membri della squadra, convergenza
-                    sull'assegnazione delle priorità. 
+Il pacchetto \nolinkurl{g8.bookshop.presentation.servlet}                                 raggruppa le classi che implementano l'interfaccia \nolinkurl{HttpServlet}.
+                                Contiene tre pacchetti, \nolinkurl{usermanager},
+ \nolinkurl{catalogue} e
+ \nolinkurl{shoppingcart} i quali contengono le servlet
+                                che si occupano, nell'ordine, di autenticazione e disconnessione,
+                                della gestione del catalogo (la ricerca), e della gestione del
+                                carrello (visualizzazione e modifica). La servlet \nolinkurl{Home}                                 si trova nel package principale, insieme al file
+ \nolinkurl{Utils.java} che fornisce metodi
+                                ausiliari per la manipolazione di stringhe XML, per il passaggio di
+                                controllo da una servlet a una JSP e per la gestione dell'oggetto
+                                condiviso tra servlet e JSP che permette il passaggio di dati tra le
+                                due. 
   
- Esito: revisione effettuata in data 30/04/2009. Chiarite alcune divergenze
-                    sull'assegnazione delle priorità. 
+Il trasferimento del controllo tra servlet e JSP è
+                                mediato dalla classe
+ \nolinkurl{g8.bookshop.presentation.Constants}, la
+                                quale contiene, oltre a diverse costanti del progetto, ogni
+                                riferimento ai file JSP. Questo collegamento è illustrato
+                                nel diagramma in Figura~\ref{}  
+  
+A titolo di esempio, in questo diagramma sono state rappresentate
+                                anche le librerie esterne utilizzate dal package.
+  
+\end{center}
+\caption{  \texttt{g\-8\-.\-b\-o\-o\-k\-s\-h\-o\-p\-.\-p\-r\-e\-s\-e\-n\-t\-a\-t\-i\-o\-n\-.\-s\-e\-r\-v\-l\-e\-t}  }
+\end{figure}
+  \begin{figure}[H]
+
+\begin{center}
+\imgexists{DiagrammiPresentation/presentation_servlet_to_jsp.pdf}{{\centering \imgevalsize{DiagrammiPresentation/presentation_servlet_to_jsp.pdf}{\includegraphics[height=360pt,keepaspectratio=true]{DiagrammiPresentation/presentation_servlet_to_jsp.pdf}}
+}
+}{}
+\end{center}
+\caption{  \texttt{g\-8\-.\-b\-o\-o\-k\-s\-h\-o\-p\-.\-p\-r\-e\-s\-e\-n\-t\-a\-t\-i\-o\-n\-.\-C\-o\-n\-s\-t\-a\-n\-t\-s}  }
+\end{figure}
     
-\subsubsection{Revisione del modello dei casi d'uso}
+\subsubsection{WebContent: pagine JSP}
     
- Revisori: squadra.
-  
- Verifiche: completezza e coerenza dei casi d'uso rispetto ai requisiti
-                    funzionali e viceversa, corretta identificazione degli attori, coerenza
-                    chiarezza e completezza nella descrizione degli scenari e dei flussi
-                    alternativi, completezza e correttezza delle relazioni tra casi d'uso. 
-  
- Esito: revisione effettuata in data 30/04/2009. Ristrutturazione di parte del
-                    diagramma UML: eliminazione di qualche caso d'uso, individuazione di nuove
-                    relazioni tra casi d'uso. Chiarimenti sul flusso degli eventi. 
+La cartella WebContent contiene le JSP e i frammenti JSPF. In Figura~\ref{} sono rappresentati i file contenuti.
+                        In Figura~\ref{} si sintetizza
+                        come i frammenti JSPF sono inclusi nelle diverse pagine JSP. 
+  \begin{figure}[H]
+
+\begin{center}
+\imgexists{DiagrammiPresentation/presentation_webcontent.pdf}{{\centering \imgevalsize{DiagrammiPresentation/presentation_webcontent.pdf}{\includegraphics[height=240pt,keepaspectratio=true]{DiagrammiPresentation/presentation_webcontent.pdf}}
+}
+}{}
+\end{center}
+\caption{\texttt{W\-e\-b\-C\-o\-n\-t\-e\-n\-t}: contenitore per pagine JSP e
+                            JSPF}
+\end{figure}
+  \begin{figure}[H]
+
+\begin{center}
+\imgexists{DiagrammiPresentation/presentation_webcontent_relationships.pdf}{{\centering \imgevalsize{DiagrammiPresentation/presentation_webcontent_relationships.pdf}{\includegraphics[height=345pt,keepaspectratio=true]{DiagrammiPresentation/presentation_webcontent_relationships.pdf}}
+}
+}{}
+\end{center}
+\caption{\texttt{W\-e\-b C\-o\-n\-t\-e\-n\-t}: relazioni tra pagine JSP e
+                            frammenti JSPF}
+\end{figure}
     
-\subsubsection{Revisione del modello architetturale}
+\subsubsection{Content: gestione, manipolazione e formattazione dei contenuti}
     
- Revisori: TS, PM.
+Il diagramma in Figura~\ref{} rappresenta il
+                        package delegato alla gestione dei contenuti, con le classi per la
+                        trasformazione XSLT del XML proveniente dal lato business, e la classe
+                        dedicata alla condivisione dei contenuti tra JSP e servlet. Vengono poi
+                        illustrate in Figura~\ref{} le relazioni tra i
+                        diversi package che compongono l'intero lato presentazione.
+  \begin{figure}[H]
+
+\begin{center}
+\imgexists{DiagrammiPresentation/presentation_content.pdf}{{\centering \imgevalsize{DiagrammiPresentation/presentation_content.pdf}{\includegraphics[height=345pt,keepaspectratio=true]{DiagrammiPresentation/presentation_content.pdf}}
+}
+}{}% <caption>
   
- Verifiche: complessità, coesione, completezza rispetto al problema,
-                    compatibilità con le specifiche dei requisiti, dimensioni, chiarezza. 
+ Il package \nolinkurl{manager} contiene una sola classe,
+ \nolinkurl{DataExchange}, che viene utilizzata come
+                                oggetto condiviso tra servlet e JSP per il passaggio di informazioni
+                                e contenuti tra le due; essa contiene esclusivamente metodi getter e
+                                setter (tralasciati per semplicità nel diagramma).
   
- Esito (TS): revisione effettuata in data 4/5/2009. Entrambi i modelli sono
-                    semplici e abbastanza astratti: il sistema che rappresentano non è
-                    più complesso del previsto, e di sicura fattibilità. I modelli
-                    sono compatibili coi requisiti, non propongono soluzioni non necessarie agli
-                    scopi del progetto, ma si limitano a soddisfare alcuni dei requisiti di base.
-                    Non si rileva che vi siano requisiti che avrebbero dovuto essere espressi nel
-                    modello che siano stati tralasciati.
+Il package \nolinkurl{formatter} si occupa invece
+                                dell'interpretazione dei dati che le servlet ricevono dal lato
+                                business: le liste di libri risultanti da una ricerca, o il
+                                contenuto di un carrello. La classe
+ \nolinkurl{XsltFormatter} è la classe
+                                centrale del package. Essa utilizza un foglio di stile XSLT per la
+                                trasformazione dell'XML ricevuto in XHTML pronto per la
+                                visualizzazione. Per farlo, carica il foglio di stile attraverso la
+                                classe \nolinkurl{StylesheetCache} che a sua volta si
+                                avvale dei metodi forniti dalla classe
+ \nolinkurl{FileLoader}.
+ \nolinkurl{StylesheetCache} è una classe
+                                singleton che implementa una cache per i fogli di stile in modo da
+                                evitare di ricaricare più volte lo stesso foglio di stile
+                                ad ogni invocazione del transformatore.
   
- Esito (PM): revisione effettuata in data 6/5/2009.
-                      I diagrammi non rispettano del tutto i requisiti R1N e
-                      R2N, poiché non aderiscono allo schema a tre livelli
-                      consueto per le applicazioni realizzate con tecnologia
-                      J2EE (in particolare la comunicazione fra il livello
-                      informativo e il livello di interfaccia utente dovrebbe
-                      sempre essere veicolata attraverso il livello business).
+\end{center}
+\caption{\texttt{g\-8\-.\-b\-o\-o\-k\-s\-h\-o\-p\-.\-p\-r\-e\-s\-e\-n\-t\-a\-t\-i\-o\-n\-.\-c\-o\-n\-t\-e\-n\-t}: gestione dei
+                            contenuti.}
+\end{figure}
+  
+Il diagramma in Figura~\ref{} rappresenta le
+                        relazioni
+  \begin{figure}[H]
+
+\begin{center}
+\imgexists{DiagrammiPresentation/presentation_connections.pdf}{{\centering \imgevalsize{DiagrammiPresentation/presentation_connections.pdf}{\includegraphics[height=345pt,keepaspectratio=true]{DiagrammiPresentation/presentation_connections.pdf}}
+}
+}{}% <caption>
+  
+In questo diagramma è rappresentato l'intero lato
+                                presentation con le relazioni tra le sue classi e i suoi package.
+                                Praticamente l'intero lato presentation dipende dalle classi di
+                                ausilio \nolinkurl{Utils} e \nolinkurl{Constants}.
+                                Le diverse servlet sono indipententi tra loro, mentre utilizzano le
+                                classi del package \nolinkurl{business.ws} per la
+                                connessione ai web service, le informazioni nella classe
+ \nolinkurl{Constants} per richiamare le JSP, e la
+                                classe \nolinkurl{DataExchange} per los scambio di
+                                informazioni con le JSP.
+  
+Quest'ultima classe, \nolinkurl{DataExchange}                                 è la sola ad utilizzare i metodi della classe
+ \nolinkurl{XsltTransformer}, la quale a sua volta
+                                è la sola ad utilizzare i metodi delle altre classi del
+                                suo package.
+  
+\end{center}
+\caption{\texttt{g\-8\-.\-b\-o\-o\-k\-s\-h\-o\-p\-.\-p\-r\-e\-s\-e\-n\-t\-a\-t\-i\-o\-n}: relazioni tra classi e
+                            package del progetto g8Presentation}
+\end{figure}
+    
+\subsubsection{Web service}
+    
+In questa sezione due diagrammi descrivono i web service utilizzati nel
+                        progetto. Alcune di queste classi sono state generate automaticamente a
+                        partire dalle altre. Non tutte vengono utilizzate.
+  
+Nel diagramma in Figura~\ref{}                         è rappresentato uno dei tre sottoinsiemi di queste classi, ovvero
+                        tutte le classi relative al \nolinkurl{CatalogueService}. Tutte le classi del package
+                        sono poi riassunte nel digramma in Figura~\ref{}.
+  \begin{figure}[H]
+
+\begin{center}
+\imgexists{DiagrammiPresentation/presentation_ws_catalogueservice.pdf}{{\centering \imgevalsize{DiagrammiPresentation/presentation_ws_catalogueservice.pdf}{\includegraphics[height=345pt,keepaspectratio=true]{DiagrammiPresentation/presentation_ws_catalogueservice.pdf}}
+}
+}{}
+\end{center}
+\caption{\texttt{g\-8\-.\-b\-o\-o\-k\-s\-h\-o\-p\-.\-b\-u\-s\-i\-n\-e\-s\-s\-.\-w\-s\-.\-c\-a\-t\-a\-l\-o\-g\-u\-e\-s\-e\-r\-v\-i\-c\-e}: un
+                            esempio di web service}
+\end{figure}
+  \begin{figure}[H]
+
+\begin{center}
+\imgexists{DiagrammiPresentation/presentation_ws.pdf}{{\centering \imgevalsize{DiagrammiPresentation/presentation_ws.pdf}{\includegraphics[height=345pt,keepaspectratio=true]{DiagrammiPresentation/presentation_ws.pdf}}
+}
+}{}
+\end{center}
+\caption{\texttt{g\-8\-.\-b\-o\-o\-k\-s\-h\-o\-p\-.\-b\-u\-s\-i\-n\-e\-s\-s\-.\-w\-s}: diagramma completo dei
+                            web service}
+\end{figure}
+    
+\subsubsection{Flusso}
+    
+Si riporta in questa sezione un sequence diagram non esaustivo per quanto
+                        riguarda la logica del lato presentation, ma utile per la comprensione di
+                        alcuni suoi funzionamenti fondamentali. Il caso d'uso rappresentato
+                        è l'autenticazione, lo stesso che si è rappresentato
+                        relativamente al lato business: in questo modo speriamo di dare una visione
+                        complessiva sul sistema. In questo caso d'uso non viene effettuata la
+                        trasformazione XSLT operata internamente al POJO
+ \nolinkurl{DataExchange}, ma non ci è parsa
+                        un'operazione abbastanza significativa da necessitare ad ogni costo di
+                        essere rappresentata.
+  \begin{figure}[H]
+
+\begin{center}
+\imgexists{DiagrammiPresentation/sequence_presentation_auth.pdf}{{\centering \imgevalsize{DiagrammiPresentation/sequence_presentation_auth.pdf}{\includegraphics[height=345pt,keepaspectratio=true]{DiagrammiPresentation/sequence_presentation_auth.pdf}}
+}
+}{}
+\end{center}
+\caption{Diagramma di sequenza per il caso d'uso Autenticazione}
+\end{figure}
+  
+ Il caso d'uso viene innescato quando l'utente, trovandosi sulla pagina
+ \nolinkurl{guest_search.jsp}, notifica la sua volontà di autenticarsi
+                        selezionando un collegamento apposito. Viene di conseguenza caricata la pagina
+ \nolinkurl{auth.jsp}, nel quale si trova la maschera di autenticazione. L'utente vi
+                        inserisce il nome utente e la password e selezionando "submit" questi valori vengono
+                        passati alla servlet incaricata dell'autenticazione, \nolinkurl{Authenticate}. 
+  
+La servlet in primo luogo verifica che l'utente non già
+                        autenticato per il sistema: questa informazione può trovarsi solo
+                        all'interno dell'oggetto condiviso tra servlet e JSP, \nolinkurl{DataExchange}. La
+                        servlet quindi richiede, attraverso un metodo della classe \nolinkurl{Utils}, l'oggetto
+ \nolinkurl{DataExchange}: le viene restituito un nuovo oggetto qualora nessuno
+                        esistesse, o l'oggetto già esistente. A questo oggetto essa
+                        richiede lo stato di autenticazione dell'utente.
+  
+Qualora l'utente non risultasse autenticato la servlet provvede a
+                        contattare il web service: per farlo, crea un nuovo oggetto \nolinkurl{ServiceLocator}                         al quale poi richiede la creazione di un oggetto \nolinkurl{UserManagerService}. A
+                        questo oggetto fa la sua richiesta di autenticazione. La richiesta raggiunge
+                        il lato business dove viene completata: questa parte non è
+                        relativa al lato presentation e pertanto non è rappresentata nel
+                        diagramma. Quel che è rappresentato è il risultato
+                        della computazione che ritorna alla servlet Authenticate, la quale
+                        conseguentemente setta opportuni parametri indicanti il nuovo stato di
+                        autenticazione nell'oggetto condiviso, nonché un messaggio
+                        testuale indicante il risultato dell'autenticazione (completata, o
+                        fallita).
+  
+ Si verifica nuovamente lo stato dell'autenticazione, e attraverso il
+                        metodo \nolinkurl{forwardToPage} della classe \nolinkurl{Utils},
+                        si trasferisce il controllo alla JSP appropriata: se l'utente risulta
+                        non autenticato, a \nolinkurl{guest_search.jsp},
+                        oppure a \nolinkurl{customer_search.jsp}. La JSP chiamata
+                        leggerà le informazioni dall'oggetto condiviso, in particolare il messaggio sul
+                        risultato dell'autenticazione, che visualizzerà adeguatamente
+                        nella pagina. 
+          
+\section{Livello Business}
+      
+\subsection{Introduzione alle scelte progettuali}
+    
+ Come già chiarito nelle precedenti sezioni, la progettazione dell'intera
+					applicazione è stata fortemente guidata dalla strutturazione a 4 livelli che le
+					stesse specifiche  Java EE  suggeriscono. E' stato
+					quindi naturale identificare l'area di ingerenza del livello business nel
+					dominio di lavoro dell'applicazione di negozio virtuale di libri, delegando così
+					ad altri livelli il compito di presentare i contenuti. Tuttavia quella che
+					sembrebbe una decisione scontata non è in realtà così diffusa: per ragioni
+					d'opportunità si assiste, nella pratica comune, ad un accoppiamento eccessivo
+					tra i due livelli. Infatti, in applicazioni simili, la gestione del carrello
+					degli acquisti è spesso ad appannaggio esclusivo del livello web quando invece
+					sarebbe chiara competenza del livello business. Questa accurata distinzione
+					delle responsabilità ha permesso di ottenere due risultati progettuali molto
+					significativi: \begin{enumerate}
+
+\item{}  alta coesione all'interno degli stessi livelli;
+  
+
+\item{}  basso accoppiamento tra i livelli.
+  
+\end{enumerate}
+ La scelta di definire un formato XML per i messaggi di scambio
+					tra la presentazione e il business unitamente all'utilizzo dei web service, ha
+					reso ancor più indipendenti le due componenti. 
+  
+ Un'attenzione particolare durante la progettazione è stata posta anche per
+					quanto riguarda gli aspetti connessi alle prestazioni e alle tolleranze ai
+					guasti.  JBOSS AS 5.1.GA  offre in questo senso
+					importantissimi ausili tecnologici che hanno permesso di ottenere componenti ad
+					altà disponibilità, quanto più replicati fra i nodi del cluster. 
+      
+\subsection{Scelte architetturali}
+    
+ Il livello business è stato progettato secondo i criteri di modularità che
+					fino ad ora hanno contraddistinto l'applicazione. Prima di scendere nei dettagli
+					architetturali è opportuno chiarire alcuni aspetti chiave al fine di apprezzare
+					al meglio la soluzione proposta. Allo stato attuale dell'arte, le uniche
+					EJB di sessione esponibili tramite web service sono le EJB stateless. Questo fatto ha
+					comportato alcune complicazioni alla progettazione del livello business dal
+					momento che è richiesto il mantenimento di alcune informazioni di stato, come ad
+					esempio il carrello. Nella fattispecie si è resa necessaria la realizzazione di
+					un servizio singleton, il cui stato fosse sia condiviso tra i diversi client,
+					sia preservato tra le diverse richieste. Nel prosieguo il lettore troverà
+					spiegazioni più dettagliate. 
+  
+ In Figura~\ref{} si può osservare la strutturazione in
+					pacchetti del livello e le relazioni di dipendenza che intercorrono fra essi.
+					L'elenco sottostante chiarisce le responsabilità per ciascun modulo: \begin{itemize}
+
+\item{}  \nolinkurl{g8.bookshop.business.ws}: espone tramite web
+								service stateless i servizi offerti dal livello business;
+  
+
+\item{}  \nolinkurl{g8.bookshop.business.um}: gestisce gli utenti
+								e ne mantiene lo stato nel negozio virtuale;
+  
+
+\item{}  \nolinkurl{g8.bookshop.business.core}: definisce le
+								entità, in senso lato, del business congiuntamente alle operazioni
+								che le coinvolgono;
+  
+
+\item{}  \nolinkurl{g8.bookshop.business.persistence}: costituisce
+								il punto di accesso verso il livello informativo (contiene tutte le
+								entity bean);
+  
+
+\item{}  \nolinkurl{g8.bookshop.business.util}: offre alcune
+								funzioni di utilità per tutto il livello business.
+  
+\end{itemize}
+  
+  \begin{figure}[H]
+
+\begin{center}
+\imgexists{DiagrammiBusiness/business_package.pdf}{{\centering \imgevalsize{DiagrammiBusiness/business_package.pdf}{\includegraphics[height=250pt,keepaspectratio=true]{DiagrammiBusiness/business_package.pdf}}
+}
+}{}
+\end{center}
+\caption{  \texttt{g\-8\-.\-b\-o\-o\-k\-s\-h\-o\-p\-.\-b\-u\-s\-i\-n\-e\-s\-s}  }
+\end{figure}
+  
+ Scendendo un po' più in profondità, si osserva che il pacchetto
+ \nolinkurl{g8.bookshop.business.ws} è composto da tre EJB
+					stateless, tutte esposte come web service:
+ \nolinkurl{CatalogueService}, \nolinkurl{ShoppingCartService} 					e \nolinkurl{UserManagerService}. La prima fornisce i metodi per
+					l'accesso al catalogo dei libri (e.g. ricerca), la seconda al carrello dei
+					clienti e infine la terza offre i servizi di autenticazione e disconnessione. 
+  \begin{figure}[H]
+
+\begin{center}
+\imgexists{DiagrammiBusiness/business_ws.pdf}{{\centering \imgevalsize{DiagrammiBusiness/business_ws.pdf}{\includegraphics[height=500pt,keepaspectratio=true]{DiagrammiBusiness/business_ws.pdf}}
+}
+}{}
+\end{center}
+\caption{  \texttt{g\-8\-.\-b\-o\-o\-k\-s\-h\-o\-p\-.\-b\-u\-s\-i\-n\-e\-s\-s\-.\-w\-s}  }
+\end{figure}
+  
+ Il pacchetto \nolinkurl{g8.bookshop.business.um} contiene la classe
+ \nolinkurl{UserManager} che implementa il servizio singleton per la
+					gestione degli utenti e del loro stato. In particolare tramite una
+ \nolinkurl{HashMap} mantiene gli utenti che sono al momento
+					presenti nel negozio virtuale. L'\nolinkurl{HashMap} in questione
+					associa a ciascun identificativo di sessione un utente. Come si vedrà nel
+					seguito, il carrello è mantenuto all'interno della EJB che rappresenta il
+					cliente. Infine il gestore degli utenti è anche il responsabile
+					dell'autenticazione e della disconnessione dei clienti. 
+  
+ L'EJB \nolinkurl{UserManagerAdaptor}, invece, fornisce metodi
+					convenienti per accedere ai servizi offerti dal gestore degli utenti. 
+  \begin{figure}[H]
+
+\begin{center}
+\imgexists{DiagrammiBusiness/business_um.pdf}{{\centering \imgevalsize{DiagrammiBusiness/business_um.pdf}{\includegraphics[height=350pt,keepaspectratio=true]{DiagrammiBusiness/business_um.pdf}}
+}
+}{}
+\end{center}
+\caption{  \texttt{g\-8\-.\-b\-o\-o\-k\-s\-h\-o\-p\-.\-b\-u\-s\-i\-n\-e\-s\-s\-.\-u\-m}  }
+\end{figure}
+  
+ Il pacchetto \nolinkurl{g8.bookshop.business.core} contiene tutte le
+					EJB che rappresentano le entità del business che non hanno necessità di essere
+					persistenti ma che comunque devono mantenere uno stato. In particolare si è
+					codificato tramite \nolinkurl{Guest} e
+ \nolinkurl{Customer} le due diverse tipologie di clienti che
+					possono accedere al negozio virtuale di libri, cioè il visitatore occasionale e
+					il cliente (per il quale è prevista l'autenticazione). Chiaramente solo il
+					cliente possiede il carrello (\nolinkurl{ShoppingCart}) che è
+					costituito da un insieme di ordini (\nolinkurl{Order}), cioè una coppia
+					libro, quantità. 
+  
  
-    
-\subsubsection{Revisione del piano di schieramento}
-    
- La revisione del piano di schieramento sarà informale e non necessiterà di
-                    essere documentata.
-    
-\subsubsection{Revisione del prototipo dell'interfaccia}
-    
- La revisione del prototipo dell'interfaccia sarà informale e non necessiterà di
-                    essere documentata.
-      
-\subsection{Fase di elaborazione}
-    
-\subsubsection{Revisione del modello architetturale}
-    
- Revisori: QE.
-  
- Verifiche: complessità, coesione, completezza rispetto al problema,
-                    compatibilità con le specifiche dei requisiti, dimensioni, chiarezza, calcolo
-                    dell'indice di qualità strutturale DSQI. 
-  
- Esito: 
-    
-\subsubsection{Collaudo del prototipo architetturale}
-    
-Collaudatori: 
-  
- Verifiche: collaudare le collaborazioni tra i componenti architetturali. 
-  
- Esito: 
-      
-\subsection{Fase di costruzione}
-    
-\subsubsection{Collaudo delle unità}
-    
+  \begin{figure}[H]
 
-    
-\subsubsection{Collaudo di integrazione}
-    
-
-    
-\subsubsection{Collaudo dello schieramento}
-    
-
-    
-\subsubsection{Validazione}
-    
-
-      
-\subsection{Fase di transizione}
-    
+\begin{center}
+\imgexists{DiagrammiBusiness/business_core.pdf}{{\centering \imgevalsize{DiagrammiBusiness/business_core.pdf}{\includegraphics[height=500pt,keepaspectratio=true]{DiagrammiBusiness/business_core.pdf}}
+}
+}{}
+\end{center}
+\caption{  \texttt{g\-8\-.\-b\-o\-o\-k\-s\-h\-o\-p\-.\-b\-u\-s\-i\-n\-e\-s\-s\-.\-c\-o\-r\-e}  }
+\end{figure}
   
+ Il package \nolinkurl{g8.bookshop.business.persistence} contiene le
+					entità business che hanno necessità di essere persistenti. Nella fattispecie si
+					tratta solamente di \nolinkurl{Book} e \nolinkurl{Credential}.
+					La prima rappresenta l'entità libro mentre la seconda memorizza l'associazione
+					tra nome utente e password, informazioni indispensabili per l'autenticazione dei
+					clienti. 
+  \begin{figure}[H]
+
+\begin{center}
+\imgexists{DiagrammiBusiness/business_persistence.pdf}{{\centering \imgevalsize{DiagrammiBusiness/business_persistence.pdf}{\includegraphics[height=300pt,keepaspectratio=true]{DiagrammiBusiness/business_persistence.pdf}}
+}
+}{}
+\end{center}
+\caption{  \texttt{g\-8\-.\-b\-o\-o\-k\-s\-h\-o\-p\-.\-b\-u\-s\-i\-n\-e\-s\-s\-.\-p\-e\-r\-s\-i\-s\-t\-e\-n\-c\-e}  }
+\end{figure}
+  
+ Infine il pacchetto \nolinkurl{g8.bookshop.business.util} contiene
+					alcuni strumenti di utilità per tutto il livello business. Il
+ \nolinkurl{Converter} è una EJB stateless che offre funzioni per
+					la conversione da XML a oggetti business e viceversa; il
+ \nolinkurl{BeanLocator} offre una comoda primitiva per la
+					localizzazione delle EJB e \nolinkurl{Name} definisce alcune costanti
+					utilizzate diffusamente nel progetto. 
+  \begin{figure}[H]
+
+\begin{center}
+\imgexists{DiagrammiBusiness/business_util.pdf}{{\centering \imgevalsize{DiagrammiBusiness/business_util.pdf}{\includegraphics[height=350pt,keepaspectratio=true]{DiagrammiBusiness/business_util.pdf}}
+}
+}{}
+\end{center}
+\caption{  \texttt{g\-8\-.\-b\-o\-o\-k\-s\-h\-o\-p\-.\-b\-u\-s\-i\-n\-e\-s\-s\-.\-u\-t\-i\-l}  }
+\end{figure}
+   
+ Il diagramma in Figura~\ref{} esplicita in
+					maniera ancora più dettagliata le dipendenze tra i vari pacchetti, chiarendone
+					la natura: 
+  \begin{figure}[H]
+
+\begin{center}
+\imgexists{DiagrammiBusiness/business_package_relations.pdf}{{\centering \imgevalsize{DiagrammiBusiness/business_package_relations.pdf}{\includegraphics[height=300pt,keepaspectratio=true]{DiagrammiBusiness/business_package_relations.pdf}}
+}
+}{}
+\end{center}
+\caption{  \texttt{g\-8\-.\-b\-o\-o\-k\-s\-h\-o\-p\-.\-b\-u\-s\-i\-n\-e\-s\-s}  }
+\end{figure}
+    
+\subsection{Scelte di schieramento}
+    
+\subsubsection{Servizio singleton ad alta disponibilita`}
+    
+ La decisione di realizzare un servizio singleton per mantenere le
+						informazioni di stato dei vari utenti rappresenta a prima vista un singolo
+						punto di guasto per l'intera applicazione. Fortunatamente JBoss
+							5.1.0.GA offre l'opportunità di realizzare servizi
+						singleton ad alta disponibilità. Nella fattispecie è possibile schierare il
+						servizio su tutte le macchine del cluster ma eseguirlo solamente su uno, il
+						master node. Nell'ipotesi in cui il master node si guastasse, il cluster ne
+						rieleggerebbe uno nuovo sul quale sarebbe avviato nuovamente il servizio.
+						Purtroppo al momento in cui si scrive, lo stato del servizio non viene
+						preservato durante la procedura di migrazione sebbene s'intravedono gli
+						spiragli per raggiungere anche questo traguardo. 
+  
+ Per schierare il servizio singleton ci si è appoggiati
+							sull'\nolinkurl{HASingletonController}, un servizio offerto da
+						JBoss e attivo su ogni nodo del cluster. Il compito
+							dell'\nolinkurl{HASingletonController} è quello di monitorare
+						la partizione e determinare se il nodo sul quale è attivo è il master node.
+						A seconda della condizione del nodo, quindi, avvia o arresta il servizio
+						invocando opportuni metodi (in questo caso dello
+ \nolinkurl{UserManager}).
+							L'\nolinkurl{HASingletonController}, comparato ad altre
+						soluzioni analoghe, permette la più rapida gestione del failover in quanto
+						il servizio è già schierato su tutte le macchine del cluster. 
+  
+ L'accesso al servizio singleton è però un po' complessa dal momento che
+						non è una normale bean EJB 3.0 ma una mbean; il diagramma in Figura~\ref{} lo dettaglia in maniera approfondita
+						nel caso dell'autenticazione: 
+  \begin{figure}[H]
+
+\begin{center}
+\imgexists{DiagrammiBusiness/sequence_business_auth.pdf}{{\centering \imgevalsize{DiagrammiBusiness/sequence_business_auth.pdf}{\includegraphics[height=350pt,keepaspectratio=true]{DiagrammiBusiness/sequence_business_auth.pdf}}
+}
+}{}
+\end{center}
+\caption{ Diagramma di sequenza }
+\end{figure}
+    
+\subsubsection{Alta replicazione}
+    
+ Come annunciato nell'introduzione alle scelte progettuali, si è cercato
+						di replicare quanto più possibile le componenti del business per avere
+						benifici sia in termini di prestazioni che di tolleranza ai guasti. 
+   
+ In particolare tutte le entity bean sono state replicate grazie
+						all'utilizzo della cache di secondo livello offerta da hibernate.
+						Considerata che la natura degli accessi alle informazioni persistenti è di
+						sola lettura, è stata impostata un politica di caching che favorisse le
+						prestazioni in questo senso. 
+  
+ Grazie a HAJNDI, invece, si è ottenuto bilanciamento di carico per tutte
+						le session EJB. Le stateful EJB inoltre sono state distribuite utilizzando
+						la funzionalità "clustered" offerta da JBoss. 
+        
+\subsection{Scelte progettuali minori}
+    
+ La manutenibilità del prodotto è stata ricercata anche attraverso piccole
+					scelte progettuali all'interno del livello business. 
+  
+ E' stato utilizzato il pattern Adapter per incapsulare le richieste allo
+ \nolinkurl{UserManager} in modo tale che dall'esterno fosse
+					accedibile in maniera conveniente tramite una banale lookup. 
+  
+ Attraverso il \nolinkurl{BeanLocator} invece si è fattorizzata la
+					funzionalità di ricerca delle EJB evitando di duplicare eccessivamente il
+					codice e, quindi, semplificandone la gestione in un unico punto. 
+        
+\section{ Livello informativo }
+    
+ Il documento dei requisiti non impone particolari vincoli sul livello informativo
+				che quindi non ha rappresentato un grosso scoglio nella realizzazione del progetto.
+				Tuttavia è bene documentare alcune scelte che sono state operate in questo ambito. 
+  
+ In primis, si è scelto di non adottare il DBMS predefinito (Hypersonic)
+				distribuito con JBoss AS 5.1.0.GA in favore del ben più noto e diffuso MySQL
+				(versione 5.0.1), disponibile sulle macchine dipartimentali. La ragione di tale
+				scelta è da ricercare nel fatto che Hypersonic non implementa correttamente le
+				proprietà acide, esponendo quindi il database a possibili stati non consistenti.
+				Inoltre le decisione di adottare MySQL ci ha permesso di familiarizzare
+				ulteriormente con l'ambiente di JBoss, uno degli obiettivi principali del progetto. 
+   
+ In secundis, si è scelto di mantenere la progettazione del database il più
+				semplice possibile lasciando aperta la possibilità di investire il tempo a
+				disposizione in altre aree giudicate più interessanti, come lo schieramento, la
+				progettazione architetturale e i servizi ad alta disponibilità. 
      
 % ------- 
 % Chapter 
 % ------- 
 
-\chapter{Tools utilizzati}
+\chapter{Piano di processo}
+     
+ Prima di poter presentare il piano di processo che ha guidato lo svolgimento del
+			progetto, è bene soffermarsi anzitutto ad illustrare sinteticamente gli obiettivi che ne
+			hanno ispirato le scelte, poi a chiarire le modalità con le quali la pianificazione è
+			stata sviluppata e gestita. Quando, quindi, saranno illustrati il piano preventivo e
+			quello consuntivo, si potrà proseguire ad esporre alcune considerazioni di verifica
+			della pianificazione. 
+  
+\section{Obiettivi della gestione di processo}
+    
+ Sia nella gestione di progetti software tramite metodologie ingegneristiche, sia
+				nella realizzazione di progetti middleware con la tecnologia JBossAS i membri della
+				squadra non potevano contare su quasi alcuna esperienza pregressa. Questo fatto si è
+				previsto potesse costituire rischio ad alto fattore a cui essere sottoposti durante
+				l'intero processo. Per questa ragione si è quindi scelto di adottare un modello di
+				processo che facilitasse la gestione di cambiamenti durante il processo, che
+				aderisse quindi ai principi dello \emph{sviluppo agile} secondo le
+				linee guida della Agile Alliance. 
+  
+ Le specifiche di processo hanno tuttavia imposto la produzione di una serie di
+ \emph{artefatti di processo} che, a causa dell'alto grado di
+				dettaglio, risultano essere adatti a modelli di processo più dettagliatamente e
+				rigidamemnte pianificati. È pertanto risultato preferibile un modello di processo
+				che goda della produzione di tali artefatti. 
+  
+ Il buon livello comunicativo della squadra di lavoro, l'esiguità del numero dei
+				suoi partecipanti, uniti agli obiettivi didattici del progetto hanno inoltre
+				privilegiato un piano di processo che permettesse un
+ \emph{alto grado di partecipazione} della squadra alla gestione
+				del processo. Il processo quindi avrebbe dovuto essere gestito tramite
+ \emph{artefatti semplici e concisi}, affinché possano essere
+				compresi e utilizzati da ogni membro del team. 
+  
+ Queste tre caratteristiche hanno indirizzato la scelta verso un modello di
+				processo recente, poiché è risalente al vicino 2005, ma piuttosto promettente. Si
+				tratta di Agile Unified Process v1.1, pubblicato dalla Ambysoft Inc. di Scott W.
+				Ambler (http://www.ambysoft.com/unifiedprocess/agileUP.html). 
+    
+\section{Gestione della pianificazione}
+    
+ Durante la prima fase di avvio del progetto (inception phase), si è abbozzato un
+				piano di processo ad alto livello. Si è scelto di rendere il modello AUP ancora più
+				agile, evitando le iterazioni che possono essere eseguite nelle fasi di elaborazione
+				o costruzione (rispettivamente elaboration e construction) limitando il numero di
+				iterazioni totali alle seguenti quattro: \begin{enumerate}
+
+\item{}   Avvio 
+  
+
+\item{}   Elaborazione 
+  
+
+\item{}   Costruzione 
+  
+
+\item{}   Transizione 
+  
+\end{enumerate}
+  
+  
+ La stima dello sforzo esposta nel capitolo 7 ha consentito di stimare una data di
+				conclusione del processo. Stimando quindi lo sforzo necessario ad ognuna delle fasi
+				si e` quindi ripartito il periodo temporale al fine di organizzare ad alto livello
+				le attività del processo. 
+  
+ All'inizio di ogni fase si è proceduto alla specifica delle attività
+				effettivamente da svolgere, in modo da poter organizzare il lavoro. Contestualmente
+				si andavano anche ad allocare le risorse umane alle varie attività, secondo criteri
+				di efficienza. 
+    
+\section{Diagrammi di pianificazione}
+    
+ La pianificazione è stata gestita e organizzata anche attraverso diagrammi di
+				Gantt che potessero non solo illustrare visivamente la programmazione temporale
+				delle attività, ma anche dettagliare con minuzia le relazioni di
+				dipendenza che intercorrono fra di esse. 
+  
+ Di seguito si riporterà anzitutto il diagramma contenente il piano preventivo di
+				processo, costruito unendo le pianificazioni realizzate all'inizio di ogni fase del
+				processo. Poi si presenterà un rapporto dell'andamento effettivo del processo,
+				realizzato nel diagramma di Gantt consuntivo del processo. 
+    \begin{figure}[H]
+
+\begin{center}
+\imgexists{GestioneProgetto/GanttPreventivo1-v.jpg}{{\centering \imgevalsize{GestioneProgetto/GanttPreventivo1-v.jpg}{\includegraphics[height=750pt,keepaspectratio=true]{GestioneProgetto/GanttPreventivo1-v.jpg}}
+}
+}{}
+\end{center}
+\caption{Diagramma di Gant preventivo (1 di 4)}
+\end{figure}
+  \begin{figure}[H]
+
+\begin{center}
+\imgexists{GestioneProgetto/GanttPreventivo2-v.jpg}{{\centering \imgevalsize{GestioneProgetto/GanttPreventivo2-v.jpg}{\includegraphics[height=750pt,keepaspectratio=true]{GestioneProgetto/GanttPreventivo2-v.jpg}}
+}
+}{}
+\end{center}
+\caption{Diagramma di Gant preventivo (2 di 4)}
+\end{figure}
+  \begin{figure}[H]
+
+\begin{center}
+\imgexists{GestioneProgetto/GanttPreventivo3-v.jpg}{{\centering \imgevalsize{GestioneProgetto/GanttPreventivo3-v.jpg}{\includegraphics[height=750pt,keepaspectratio=true]{GestioneProgetto/GanttPreventivo3-v.jpg}}
+}
+}{}
+\end{center}
+\caption{Diagramma di Gant preventivo (3 di 4)}
+\end{figure}
+  \begin{figure}[H]
+
+\begin{center}
+\imgexists{GestioneProgetto/GanttPreventivo4-v.jpg}{{\centering \imgevalsize{GestioneProgetto/GanttPreventivo4-v.jpg}{\includegraphics[height=750pt,keepaspectratio=true]{GestioneProgetto/GanttPreventivo4-v.jpg}}
+}
+}{}
+\end{center}
+\caption{Diagramma di Gant preventivo (4 di 4)}
+\end{figure}
+    \begin{figure}[H]
+
+\begin{center}
+\imgexists{GestioneProgetto/GanttConsuntivo1-v.jpg}{{\centering \imgevalsize{GestioneProgetto/GanttConsuntivo1-v.jpg}{\includegraphics[height=750pt,keepaspectratio=true]{GestioneProgetto/GanttConsuntivo1-v.jpg}}
+}
+}{}
+\end{center}
+\caption{Diagramma di Gant consuntivo (1 di 4)}
+\end{figure}
+  \begin{figure}[H]
+
+\begin{center}
+\imgexists{GestioneProgetto/GanttConsuntivo2-v.jpg}{{\centering \imgevalsize{GestioneProgetto/GanttConsuntivo2-v.jpg}{\includegraphics[height=750pt,keepaspectratio=true]{GestioneProgetto/GanttConsuntivo2-v.jpg}}
+}
+}{}
+\end{center}
+\caption{Diagramma di Gant consuntivo (2 di 4)}
+\end{figure}
+  \begin{figure}[H]
+
+\begin{center}
+\imgexists{GestioneProgetto/GanttConsuntivo3-v.jpg}{{\centering \imgevalsize{GestioneProgetto/GanttConsuntivo3-v.jpg}{\includegraphics[height=750pt,keepaspectratio=true]{GestioneProgetto/GanttConsuntivo3-v.jpg}}
+}
+}{}
+\end{center}
+\caption{Diagramma di Gant consuntivo (3 di 4)}
+\end{figure}
+  \begin{figure}[H]
+
+\begin{center}
+\imgexists{GestioneProgetto/GanttConsuntivo4-v.jpg}{{\centering \imgevalsize{GestioneProgetto/GanttConsuntivo4-v.jpg}{\includegraphics[height=750pt,keepaspectratio=true]{GestioneProgetto/GanttConsuntivo4-v.jpg}}
+}
+}{}
+\end{center}
+\caption{Diagramma di Gant consuntivo (4 di 4)}
+\end{figure}
+    
+\section{Verifica della pianificazione}
+    
+ Giudicando la mera discrepanza di oltre due settimane fra il piano preventivo e
+				quello consuntivo, la pianificazione non può che risultare grandemente perfettibile.
+				Un'analisi più attenta rivela che gli errori di valutazione sono stati molto
+				limitati e che quindi il piano è stato elaborato con una qualità più che discreta. 
+  
+ Il primo e più importante errore di valutazione i tempi da dedicare alla
+				formazione implementativa, all'implementazione e al collaudo durante la fase di
+				costruzione. Sottovalutando il rischio di non padroneggiare a sufficienza bene la
+				tecnologia, si sono prese alcune scelte archietturali (in particolare quelle
+				trattate nella sezione 2.4.3) che hanno richiesto una formazione implementativa
+				estremamente dettagliata dell'application server JBoss e non prevista per quella
+				fase. 
+  
+ Il secondo errore riguarda più banalmente la mancanza di esperienza nella
+				gestione di progetti secondo metodologie ingegneristiche che ha reso difficile
+				l'effettuazione di stime e di pianificazioni. Si tratta di un rischio che, pur
+				essendo chiaro, non poteva essere gestito completamente, ma solo affrontato di volta
+				in volta, secondo gli scopi didattici del progetto. 
+    
+% ------- 
+% Chapter 
+% ------- 
+
+\chapter{Tool utilizzati}
     
 Questo capitolo elenca gli strumenti utilizzati durante lo sviluppo del progetto, sia per
         lo sviluppo stesso che per la documentazione. 
@@ -1307,7 +1929,7 @@ Questo capitolo elenca gli strumenti utilizzati durante lo sviluppo del progetto
         immagini o trasformatori XSLT.
   
   
-\section{Managing}
+\section{Strumenti per la gestione del progetto}
     
 {\sc Google Groups}
 \nopagebreak
@@ -1329,24 +1951,6 @@ Questo capitolo elenca gli strumenti utilizzati durante lo sviluppo del progetto
                         funzionalità simile qualcuno si distingua per qualche aspetto
                         particolarmente interessante per le nostre limitate necessità, di
                         conseguenza nessuna ricerca in questo senso è stata fatta.
-  \end{description}
-  
-{\sc Google Calendar}
-\nopagebreak
-
-\noindent
-\begin{description}
-\item[{Riferimento}]     \href{http://www.calendar.google.com/}{http://www.calendar.google.com/\-}  
-  \item[{Licenza}]   L'utilizzo dell'applicazione è possibile, e gratuito, per
-                        chiunque possegga un account Google. Le condizioni di utilizzo e la policy
-                        sulla privacy sono specifiche di Google e descritte in documenti visionabili
-                        online.
-  \item[{Descrizione}]   Applicazione Web di tipo calendario di Google.
-  \item[{Motivazioni della scelta}]   Dal momento che tutti i membri del gruppo possedevano già un
-                        account Google, necessario per l'utilizzo del servizio, Google Calendar ci
-                        si è subito presentata come una semplice soluzione per la
-                        gestione degli incontri del gruppo, delle scadenze e di quant'altro sia
-                        comodo visualizzare su un calendario.
   \end{description}
   
 {\sc Google code}
@@ -1388,7 +1992,7 @@ Questo capitolo elenca gli strumenti utilizzati durante lo sviluppo del progetto
   \item[{Licenza}]   Eclipse Public Licence
   \item[{Descrizione}]   Plug-{}in per Eclipse che fornisce supporto per Subversio internamente
                         all'IDE.
-  \item[{Motivazioni della scelta}]   Subclipse è la soluzione standard, nonché unica, per
+  \item[{Motivazioni della scelta}]   Subclipse è la soluzione standard per
                         gestire un repository Subversion internamente a
  Eclipse. Abbiamo tutti concordato che avere
                         SVN integrato nella nostra IDE di preferenza fosse molot comodo: questa
@@ -1548,7 +2152,7 @@ Buona parte dei diagrammi UML è stata disegnata su carta o su lavagna,
                         di stencil di strutture UML. 
   \end{description}
     
-\section{Strumenti per stesura del piano di processo}
+\section{Strumenti per la gestione del processo}
     
 {\sc TaskJuggler 2.4.1}
 \nopagebreak
@@ -1562,8 +2166,26 @@ Buona parte dei diagrammi UML è stata disegnata su carta o su lavagna,
   \item[{Motivazioni della scelta}]   Si tratta di un gestore di progetto molto evoluto, ricco di funzionalità, col quale abbiamo ottimamente gestito tutto quanto riguarda il piano di processo e l'analisi di costi e sforzi. È stato ritenuto il miglior software open source di questo tipo. Fornisce template già pronti per un inizio veloce, permette di generare e visualizzare diagrammi di Gantt con una comoda interfaccia grafica. Permette di esportare tutti i manufatti prodotti in formati facili allo scambio e alla conversione.
  
   \end{description}
+  
+{\sc Google Calendar}
+\nopagebreak
+
+\noindent
+\begin{description}
+\item[{Riferimento}]     \href{http://www.calendar.google.com/}{http://www.calendar.google.com/\-}  
+  \item[{Licenza}]   L'utilizzo dell'applicazione è possibile, e gratuito, per
+                        chiunque possegga un account Google. Le condizioni di utilizzo e la policy
+                        sulla privacy sono specifiche di Google e descritte in documenti visionabili
+                        online.
+  \item[{Descrizione}]   Applicazione Web di tipo calendario di Google.
+  \item[{Motivazioni della scelta}]   Dal momento che tutti i membri del gruppo possedevano già un
+                        account Google, necessario per l'utilizzo del servizio, Google Calendar ci
+                        si è subito presentata come una semplice soluzione per la
+                        gestione degli incontri del gruppo, delle scadenze e di quant'altro sia
+                        comodo visualizzare su un calendario.
+  \end{description}
     
-\section{Strumenti per il piano di processo}
+\section{Strumenti per il collaudo e la qualità}
     
 {\sc JUnit}
 \nopagebreak
@@ -1577,6 +2199,322 @@ Buona parte dei diagrammi UML è stata disegnata su carta o su lavagna,
   \item[{Motivazioni della scelta}]   Abbiamo scelto di utilizzare JUnit in quanto è comunemente considerata  una delle migliori librerie Java mai sviluppate. L'utilizzo di questo framework forza la definizione di specifici risultati attesi nell'esecuzione di un dato programma, permettendo un controllo preciso della correttezza e dell'attinenza di quanto sviluppato ai requisiti delineati: questo approccio di testing già canonizzato ci è sembrato una scelta migliore rispetto all'abituale testing generico e non strutturato.
  
   \end{description}
+  
+{\sc Metrics 1.3.6}
+\nopagebreak
+
+\noindent
+\begin{description}
+\item[{Riferimento}]     \href{http://metrics.sourceforge.net/}{http://metrics.sourceforge.net/\-}  
+  \item[{Licenza}]   Eclipse Public Licence
+  \item[{Descrizione}]   Metrics è un plugin per Eclipse che permette di calcolare metriche e analizzare dipenze. Permette di individuare cicli all'interno di pacchetti e dipendenze di tipo, e visualizzarli graficamente. Possono essere calcolate diverse metriche con deviazioni medie e standard.
+ 
+  \item[{Motivazioni della scelta}]   Non sono moltissimi gli strumenti gratuiti per il calcolo delle metriche: Metrics è un plugin per Eclipse quindi è stato semplice trovarlo, e si è rivelato semplice anche utilizzarlo. Metrics è altamente personalizzabile: i valori per le metriche, e anche parte della sua interfaccia, lo sono. Il suo essere integrato in Eclipse ci ha aiutato a svolgere le diverse operazioni tutte internamente al framework. I risultati dei calcoli effettuati da Metrics possono inoltre essere esportati in xml, permettendo una loro facile trasformazione in altri formati (pdf, xhtml).
+ 
+  \end{description}
+   
+% ------- 
+% Chapter 
+% ------- 
+
+\chapter{Piano di qualità}
+    
+     Il presente piano intende stabilire l'insieme delle attività per la garanzia della qualità dell'intero progetto software. Il piano s'intende compreso e condiviso unanimemente da tutti i membri della squadra.
+ 
+   
+     La guida di riferimento (http://www.ambysoft.com/unifiedprocess/agileUP.html) del modello di processo scelto suggerisce già delle attività necessarie per assicurare la qualità. Quest'ultime sono state opportunamente declinate nel contesto del presente progetto. Il piano di qualità infatti è stato stilato tenendo bene in mente quelli che sono i suoi costi ed il loro rapporto rispetto ai benefici. Considerate, quindi, le ridotte dimensioni e l'abbordabile complessità del progetto si è deciso di optare per attività di garanzia della qualità il più possibile snelle, in linea con il modello di processo scelto, cercando di non gravare eccessivamente sui costi.
+ 
+  
+     Nelle prossime sezioni si definisce la portata del piano di qualità, le pratiche e gli strumenti a supporto, le responsabilità e le metriche utilizzate. Infine l'ultima sezione contiene il piano delle attività da svolgere per ogni fase e i risultati più significativi dei collaudi.
+ 
+  
+\section{Portata del piano di qualità}
+        
+         Il controllo di qualità è applicabile a tutti gli artefatti prodotti lungo il ciclo di sviluppo del prodotto.
+        L'elenco che segue definisce in questi termini la portata del presente piano:
+ \begin{itemize}
+
+\item{}piano di processo;
+
+
+\item{}specifiche dei requisiti;
+
+
+\item{}manufatti della progettazione;
+
+
+\item{}software;
+
+
+\item{}documentazione.
+
+\end{itemize}
+  
+  
+
+    
+\section{Responsabili delle attività di garanzia della qualità}
+   
+        Considerata l'esiguità del numero di persone in seno al progetto e considerata la molteplicità di ruoli che le stesse devono ricoprire, la responsabilità delle attività per la garanzia della qualità (e.g. collaudi o revisioni) è spalmata in maniera più o meno uniforme tra i membri della squadra; tuttavia rimane inteso che il responsabile finale della qualità dei prodotti è il QE.
+    
+\section{Pratiche, standard e strumenti a supporto della qualità}
+     
+         Le revisioni costituiscono lo strumento principale mediante il quale è possibile assicurare qualità. Esse costituiscono una sorta di filtro durante il processo di sviluppo e servono a scoprire errori e difetti di un qualsiasi artefatto. In letteratura si trovano due tipi di revisioni: quelle informali, condotte anche davanti ad una macchinetta del caffè tra i diretti interessati, e quelle formali, per le quali invece sono previste delle vere e proprie riunioni oltre che un dettagliato protocollo a cui attenersi.
+         Per il presente progetto sono quindi pianificate due diversi tipi di revisioni: quelle informali, i cui esiti non saranno documentati, e una sorta di revisioni "formali".
+        In particolare per le revisioni formali si stabilisce che:
+ \begin{itemize}
+
+\item{}l'artefatto da revisionare sia revisionato da uno o più membri della squadra che non hanno partecipato alla sua realizzazione oppure dall'intera squadra;
+
+
+\item{}l'esito della revisione sia documentato in poche righe e sia notificato ai produttori dell'artefatto.
+
+\end{itemize}
+         Le revisioni "formali" saranno comunque in numero ridotto e principalmente saranno fatte per abbattere i rischi più elevati derivanti dalla fase di progettazione.
+ 
+  
+         Considerata la natura del modello di processo scelto si è deciso di adottare alcune pratiche proprie dell'Extreme Programming per ottenere i massimi benefici dal processo agile messo a punto. In particolare si stabilisce che i membri della squadra dovranno partecipare a brevissime riunioni mattutine, anche in piedi, utili per fare il punto della situazione, aggiornarsi sullo stato dei lavori e, perché no, rafforzare lo spirito di squadra. Un'altra pratica che dovrà essere adottata è quella della programmazione a coppie (c.d. pair programming): ciò dovrebbe consentire di ridurre al minimo il numero di bachi nel codice accorciando sensibilmente i tempi per il collaudo.
+        In generale si consiglia un approccio Test Driven per la produzione di software: si dovranno sviluppare quanto prima test di regressione mediante l'utilizzo di JUnit.
+ 
+  
+         Lo standard ISO 9126 identifica in sei attributi la qualità nel campo del software:
+ \begin{itemize}
+
+\item{}funzionalità;
+
+
+\item{}affidabilità;
+
+
+\item{}facilità d'uso;
+
+
+\item{}efficienza;
+
+
+\item{}facilità di manutenzione;
+
+
+\item{}portabilità.
+
+\end{itemize}
+         La qualità del software prodotto dovrà essere di volta in volta misurata rispetto a questi attributi. Per questi scopi
+        si consiglia l'installazione del plugin EclipseMetrics per Eclipse al fine di monitorare la qualità del codice prodotto.
+        EclipseMetrics calcola diverse metriche per il codice, è altamente configurabile e attraverso la vista dei problemi di
+        Eclipse avverte di eventuali violazioni degli intervalli tollerati.
+ 
+    
+\section{Metriche}
+    
+         Nella precedente sezione si è accennato all'utilizzo del plugin EclipseMetrics per il calcolo di diverse metriche per il
+        codice sorgente. Quelle che effettivamente saranno calcolate e tenute in considerazione sono riassunte nell'elenco che segue:
+ \begin{itemize}
+
+\item{} CC (Cyclomatic Complexity): misura il numero di sezioni di codice senza diramazioni all'interno di un
+		metodo; è un indicatore della sua complessità;
+  
+
+\item{}NOL (Number of Level): misura il livello di annidamento del metodo;
+
+
+\item{}NOS (Number of Statement): misura il numero di statement in un metodo;
+
+
+\item{}NOP (Number of Parameters): misura il numero di parametri di un metodo;
+
+
+\item{}NOF (Number of Field): misura il numero di campi di una classe;
+
+
+\item{}Ec (Efferent Coupling): misura l'accoppiamento di una classe;
+
+
+\item{}WMpC (Weighted Methods per Class): è la somma delle complessità ciclomatiche dei metodi della
+        classe;
+
+
+\item{}LCOM-{}CK (Lack of Cohesion in Methods -{} Chidamber e Kemerer): misura la coesione di una classe
+        secondo la metrica proposta da Chidamber e collega.
+
+\end{itemize}
+  
+     
+\section{Attività per la garanzia della qualità}
+    
+         La garanzia di qualità si compone di diverse attività che attraversano tutto il processo software.
+        La presente sezione contiene, per ogni fase, il piano dettagliato delle attività previste.
+ 
+  
+\subsection{Durante tutte le fasi}
+    
+           Uno dei rischi maggiori connessi allo sviluppo del progetto è l'inesperienza dei membri
+          della squadra; pertanto si stabilisce che il piano di processo debba essere continuamente
+          monitorato, in maniera informale, durante tutte le fasi dello sviluppo. Eventuali divergenze significative
+          dovranno essere prese in considerazione e discusse all'interno della squadra al fine di
+          comprenderne le cause. Solo attraverso la comprensione di quest'ultime si
+          sarà in grado di mantenere un adeguato controllo sul processo.
+ 
+  
+           La qualità della presente relazione dovrà anch'essa essere monitorata durante tutto il ciclo 
+          di sviluppo. La responsabilità dei controlli è affidata a tutti i membri della squadra.
+          La qualità della documentazione dovrà essere valutata in termini di completezza, chiarezza e 
+          correttezza. Si dovrà prestare attenzione anche alla qualità della formattazione dei
+          contenuti nonché dell'impaginazione.
+          I controlli, che manterranno un carattere informale, dovranno essere effettuati tramite opportune revisioni incrociate.
+   
+     
+\subsection{Fase di avvio}
+    
+\subsubsection{Revisione delle specifiche dei requisiti}
+    
+ Revisori: squadra.
+       
+ Verifiche: completezza delle specifiche dei requisiti rispetto al documento
+                    dei requisiti, chiarezza, coerenza, tracciabilità, precisione, assenza di
+                    ambiguità nella comprensione tra i membri della squadra, convergenza
+                    sull'assegnazione delle priorità. 
+  
+ Esito: revisione effettuata in data 30/04/2009. Chiarite alcune divergenze
+                    sull'assegnazione delle priorità. 
+    
+\subsubsection{Revisione del modello dei casi d'uso}
+    
+ Revisori: squadra.
+  
+ Verifiche: completezza e coerenza dei casi d'uso rispetto ai requisiti
+                    funzionali e viceversa, corretta identificazione degli attori, coerenza
+                    chiarezza e completezza nella descrizione degli scenari e dei flussi
+                    alternativi, completezza e correttezza delle relazioni tra casi d'uso. 
+  
+ Esito: revisione effettuata in data 30/04/2009. Ristrutturazione di parte del
+                    diagramma UML: eliminazione di qualche caso d'uso, individuazione di nuove
+                    relazioni tra casi d'uso. Chiarimenti sul flusso degli eventi. 
+    
+\subsubsection{Revisione del modello architetturale}
+    
+ Revisori: TS, PM.
+  
+ Verifiche: complessità, coesione, completezza rispetto al problema,
+                    compatibilità con le specifiche dei requisiti, dimensioni, chiarezza. 
+  
+ Esito (TS): revisione effettuata in data 4/5/2009. Entrambi i modelli sono
+                    semplici e abbastanza astratti: il sistema che rappresentano non è
+                    più complesso del previsto, e di sicura fattibilità. I modelli
+                    sono compatibili coi requisiti, non propongono soluzioni non necessarie agli
+                    scopi del progetto, ma si limitano a soddisfare alcuni dei requisiti di base.
+                    Non si rileva che vi siano requisiti che avrebbero dovuto essere espressi nel
+                    modello che siano stati tralasciati.
+  
+ Esito (PM): revisione effettuata in data 6/5/2009.
+                      I diagrammi non rispettano del tutto i requisiti R1N e
+                      R2N, poiché non aderiscono allo schema a tre livelli
+                      consueto per le applicazioni realizzate con tecnologia
+                      J2EE (in particolare la comunicazione fra il livello
+                      informativo e il livello di interfaccia utente dovrebbe
+                      sempre essere veicolata attraverso il livello business).
+ 
+    
+\subsubsection{Revisione del piano preliminare di schieramento}
+    
+ La revisione del piano preliminare di schieramento sarà informale e non necessiterà di essere documentata.
+    
+\subsubsection{Revisione del prototipo dell'interfaccia}
+    
+ La revisione del prototipo dell'interfaccia sarà informale e non necessiterà di
+                    essere documentata.
+      
+\subsection{Fase di elaborazione}
+    
+\subsubsection{Revisione del modello architetturale}
+    
+ Revisori: QE
+  
+ Verifiche: complessità, coesione, completezza rispetto al problema,
+                    compatibilità con le specifiche dei requisiti, dimensioni, chiarezza, compatibilità rispetto al piano di schieramento, calcolo dell'indice di qualità strutturale DSQI. 
+  
+ Esito: il modello architetturale raffina coerentemente il modello elaborato e rivisto in fase di avvio. È pienamente compatibile con le specifiche dei requisiti e mantiene dimensioni più che accettabili. La strutturazione a quattro livelli tipica delle applicazioni enterprise conferisce al progetto un adeguato accoppiamento tra i moduli così come una buona coesione. Si rileva la compatibilità del modello rispetto al piano di schieramento.
+                  
+    
+\subsubsection{Collaudo del prototipo architetturale}
+    
+Revisori: squadra.
+  
+ Verifiche: coerenza del prototipo rispetto al modello architetturale, collaudo delle interazioni tra i tre principali livelli architetturali: scrivere e visualizzare tramite browser dei dati memorizzati sul sistema informativo. Verifica della compatibilità del prototipo rispetto ai requisiti R1N, R2N, R3N.2, R4N.3 e R4N.1
+  
+ Esito: il prototipo ha superato con successo le verifiche previste.
+    
+\subsubsection{Revisione del piano di schieramento}
+    
+ La revisione del piano di schieramento sarà informale e non necessiterà di
+                    essere documentata. 
+      
+\subsection{Fase di costruzione}
+    
+\subsubsection{Collaudo delle unità}
+    
+Collaudatori: squadra.
+  
+Modalità di collaudo: sviluppare test di regressione con JUnit; in particolare si consiglia di
+                fare attenzione ai test sui valori limite e sui flussi eccezionali. 
+    
+\subsubsection{Collaudo di integrazione}
+    
+Collaudatori: squadra.
+  
+Modalità di collaudo: verificare la corretta integrazione del modulo business, del modulo presentazione e
+                del modulo informativo in un singolo nodo Jboss.
+    
+\subsubsection{Collaudo dello schieramento}
+    
+Collaudatori: squadra.
+  
+Modalità di collaudo: schierare l'applicazione in due cluster omogenei nelle macchine dipartimentali: verificare la corretta configurazione
+                dei nodi JBoss, del database MySQL e del load balancer.
+      
+\subsection{Fase di transizione}
+    
+\subsubsection{Validazione}
+    
+Collaudatori: squadra.
+  
+Modalità di collaudo: verificare che l'applicazione soddisfi tutti i requisiti mediante user testing basato sui casi d'uso.
+        
+\section{Risultati delle misurazioni e dei collaudi sul software}
+    
+     A titolo d'esempio si riporta in questa sezione un output del plugin EclipseMetrics relativo ai pacchetti
+ \nolinkurl{g8.bookshop.business.core} e \nolinkurl{g8.bookshop.business.util}.
+    Nella prima tabella sono presenti le metriche calcolate sulle classi, mentre nella seconda sui metodi.
+ \begin{figure}[H]
+
+\begin{center}
+\imgexists{ReportQualita/EclipseMetricsClasses.png}{{\centering \imgevalsize{ReportQualita/EclipseMetricsClasses.png}{\includegraphics[height=200pt,keepaspectratio=true]{ReportQualita/EclipseMetricsClasses.png}}
+}
+}{}
+\end{center}
+\caption{Metriche sulle classi}
+\end{figure}
+  \begin{figure}[H]
+
+\begin{center}
+\imgexists{ReportQualita/EclipseMetricsMethods-v.png}{{\centering \imgevalsize{ReportQualita/EclipseMetricsMethods-v.png}{\includegraphics[height=650pt,keepaspectratio=true]{ReportQualita/EclipseMetricsMethods-v.png}}
+}
+}{}
+\end{center}
+\caption{Metriche sui metodi}
+\end{figure}
+  
+  
+     Nella figura che segue invece è stato catturato un output di JUnit durante il ciclo di sviluppo del prodotto.
+ \begin{figure}[H]
+
+\begin{center}
+\imgexists{ReportJUnit/ReportJUnit-v.png}{{\centering \imgevalsize{ReportJUnit/ReportJUnit-v.png}{\includegraphics[height=550pt,keepaspectratio=true]{ReportJUnit/ReportJUnit-v.png}}
+}
+}{}
+\end{center}
+\caption{Metriche sulle classi}
+\end{figure}
+  
    
 % ------- 
 % Chapter 
@@ -1584,10 +2522,417 @@ Buona parte dei diagrammi UML è stata disegnata su carta o su lavagna,
 
 \chapter{Manuale utente}
       
-\section{Titolo}
+\section{Panoramica}
     
+ G8Bookshop è un negozio di libri online di semplice utilizzo. Le
+            funzionalità di base che offre sono: \begin{itemize}
 
+\item{}  ricerca di libri
+  
+
+\item{}  selezione di libri e inserimento in un carrello personale
+  
+
+\item{}  modifica del contenuto del carrello
+  
+\end{itemize}
+ In altre parole G8Bookshop permette di: \begin{itemize}
+
+\item{}  cercare libri
+  
+
+\item{}  selezionare libri che desiderate acquistare e ricordarli mentre effettuate
+                        altre ricerche
+  
+
+\item{}  modificare i libri selezionati per l'acquisto rimuovendoli o modificando
+                        il numero di copie desiderato
+  
+
+\item{}  effettuare diverse ricerche e selezionare libri in momenti diversi
+  
+
+\item{}  acquistare i vostri libri!
+  
+\end{itemize}
+  
    
+\section{Visitatori e clienti}
+    
+         L'acquisto di libri è possibile solo ad utenti in possesso di uno username e una password che abbiano effettuato la procedura detta "autenticazione", ovvero che abbiano inserito il loro username e password nei campi appositi e siano stati riconosciuti dal sistema: questi utenti vengono detti \emph{clienti}. Se non possedete una coppia username e password, o non l'avete fornita al sistema, siete invece utenti \emph{visitatori}. 
+        Non è possibile allo stato attuale effettuare registrazioni presso G8Bookshop, data la natura sperimentale del sistema. 
+        Arrivando sulla pagina principale di G8Bookshop avrete di fronte due scelte possibili: 
+ \begin{itemize}
+
+\item{}effettuare ricerche mediante il form di ricerca centrale
+
+
+\item{}autenticarvi selezionando "Authenticate"
+
+\end{itemize}
+         Come visitatori, potete ricercare liberamente libri all'interno del nostro catalogo, tuttavia non vi sarà possibile selezionarli tantomeno acquistarli. Se possedere i requisiti richiesti (una valida coppia username/password) potete effettuare la procedura di autenticazione: il sistema vi riconoscerà come clienti e potrete effettuare selezioni e acquisti.
+        Potete effettuare tutte le ricerche che desiderate e autenticarvi in un secondo momento: la vostra ultima ricerca vi attenderà dopo l'autenticazione. Tuttavia, fino a che non vi sarete autenticati non vi sarà possibile selezionare libri. Se possedete uno username e una password proseguite la lettura alla sezione successiva per scoprire come acquistare libri.
+ 
+  
+         Dopo aver effettuato la procedura di autenticazione, potrete effettuare in ogni momento la procedura opposta, la disconnessione, semplicemente selezionando "Disconnect". Ritornerete ad essere un semplice visitatore, e potrete effettuare ricerche senza selezionare libri, o autenticarvi con una diversa coppia username/password. Potete disconnettervi in qualunque momento: durante una ricerca, una modifica di carrello o una selezione. Non dimenticate di disconnettervi al termine della vostra navigazione su G8Bookshop!
+ 
+    
+\section{Il carrello}
+   
+Avete effettuato la procedura di autenticazione? Da questo momento in poi vi è possibile selezionare libri che desiderate acquistare. Il sistema vi fornisce, appena autenticati, un \emph{carrello} virtuale nel quale metterà i libri da voi selezionati. Potete visionarne in ogni momento il contenuto selezionando "View Cart". Appena autenticati il carrello vi apparità vuoto: sarete voi a riempirlo selezionando libri.
+ 
+     Ora che siete dei \emph{clienti} potete notare che i risultati della vostra ricerca vi appaiono in modo diverso: vi è per ognuno di essi un riquadro: se siete interessati a libri che risultano dalla vostra ricerca selezionate il riquadro associato e poi selezionate "Select", che troverete in fondo alla lista dei risultati. I libri scelti si troveranno nel vostro carrello: potete vederli selezionando "View Cart". Una volta visualizzato il contenuto del vostro carrello potete modificarlo: cancellate libri che non desiderare impostando la loro quantità a zero, e modificate la quantità dei libri che volete in più copie; al termine delle modifiche sul vostro carrello non dimenticate di selezionare "Update", o le modifiche non verranno effettuate. Dopo l'aggiornamento vi verrà mostrato il vostro nuovo carrello con le modifiche richieste.
+    Potete procedere all'acquisto selezionando "Checkout", o selezionare "Continue to Search" se desiderate cercare altri libri: in questo caso i libri già inseriti nel carrello vi rimarranno, e i libri inseriti durante le nuove ricerche verranno aggiunti ai libri già presenti. Potete fare ricerche e selezionare libri, visualizzare il carrello e modificarne il contenuto, quante volte lo desiderate: i vostri libri verranno aggiunti al carrello man mano, fino a che non deciderete di procedere alla procedura definitiva di acquisto.
+
+    
+\section{Acquisto}
+   
+ Potete acquistare il contenuto del vostro carrello semplicemente visualizzandolo e selezionando "Checkout". Se desiderate modificare il numero delle vostre copie un'ultima volta, potete farlo tranquillamente e poi selezionare direttamente "Checkout". G8Bookshop aggiornerà il carrello con le vostre ultime modifiche prima di procedere all'acquisto. Fate attenzione: solo i libri presenti nel carrello, col numero di copie ivi specificato, verranno acquistati. Non è possibile acquistare libri non presenti nel carrello, né è possibile non acquistare un libro che ci trova nel vostro carrello. Selezionate ogni libro che desiderate acquistare e controllate che il numero di copie per libro che risulta nel vostro carrello sia quello desiderato, e accertatevi che il vostro carrello non contenga libri che non volete acquistare, prima di procedere al "Checkout".
+  
+                 Dopo l'acquisto il contenuto del vostro carrello vi sarà mostrato nuovamente, così potrete revisionare i libri comprati. Potete ignorarlo e proseguire con le ricerche per riempire di nuovo il carrello oppure disconnettervi e abbandonare G8Bookshop.
+ 
+   
+% ------- 
+% Chapter 
+% ------- 
+
+\chapter{Valutazione dello sforzo}
+     
+\section{Valutazione preventiva}
+    
+ 				La valutazione preventiva dello sforzo è stata utile, sin
+				dalle prime fasi del progetto per stimare i tempi ad esso
+				necessario e prevederne così la conclusione.
+				La valutazione effettuata, fondata sulla metrica dei
+				punti funzione, è riportata nella presente sezione.
+ 
+  
+\subsection{Calcolo dei punti funzione}
+    
+ 					Il calcolo della metrica è stato effetuato secondo il
+					procedimento più classico, proposto da Albrecht.
+					La tabella che segue è mostrato il computo dei punti
+					funzione ancora non aggiustati, comprensiva di qualche
+					commento ai valori scelti.
+ 
+  \begin{table}[htbp]
+\begin{center}
+\begingroup%
+\setlength{\newtblsparewidth}{\linewidth-2\tabcolsep-2\tabcolsep-2\tabcolsep-2\tabcolsep-2\tabcolsep}%
+\setlength{\newtblstarfactor}{\newtblsparewidth / \real{4}}%
+
+\begin{tabular}{llll}\hline
+\multicolumn{1}{|m{\newtblstarfactor}|}{\centering\bfseries%
+%
+Fattore%
+}&\multicolumn{1}{m{\newtblstarfactor}|}{\centering\bfseries%
+%
+Quantità%
+}&\multicolumn{1}{m{\newtblstarfactor}|}{\centering\bfseries%
+%
+Complessità%
+}&\multicolumn{1}{m{\newtblstarfactor}|}{\centering\bfseries%
+%
+Totale%
+}\tabularnewline
+\cline{1-1}\cline{2-2}\cline{3-3}\cline{4-4}\multicolumn{1}{|m{\newtblstarfactor}|}{\centering%
+Input utente%
+}&\multicolumn{1}{m{\newtblstarfactor}|}{\centering%
+  3
+  
+ricerca, credenziali, gestione carrello
+  %
+}&\multicolumn{1}{m{\newtblstarfactor}|}{\centering%
+  4
+  
+media
+  %
+}&\multicolumn{1}{m{\newtblstarfactor}|}{\centering%
+12%
+}\tabularnewline
+\cline{1-1}\cline{2-2}\cline{3-3}\cline{4-4}\multicolumn{1}{|m{\newtblstarfactor}|}{\centering%
+Output utente%
+}&\multicolumn{1}{m{\newtblstarfactor}|}{\centering%
+  2
+  
+ricerca, carrello
+  %
+}&\multicolumn{1}{m{\newtblstarfactor}|}{\centering%
+  7
+  
+media
+  %
+}&\multicolumn{1}{m{\newtblstarfactor}|}{\centering%
+14%
+}\tabularnewline
+\cline{1-1}\cline{2-2}\cline{3-3}\cline{4-4}\multicolumn{1}{|m{\newtblstarfactor}|}{\centering%
+Richieste utente%
+}&\multicolumn{1}{m{\newtblstarfactor}|}{\centering%
+0%
+}&\multicolumn{1}{m{\newtblstarfactor}|}{\centering%
+%
+}&\multicolumn{1}{m{\newtblstarfactor}|}{\centering%
+%
+}\tabularnewline
+\cline{1-1}\cline{2-2}\cline{3-3}\cline{4-4}\multicolumn{1}{|m{\newtblstarfactor}|}{\centering%
+File logici%
+}&\multicolumn{1}{m{\newtblstarfactor}|}{\centering%
+  2
+  
+libro, credenziali
+  %
+}&\multicolumn{1}{m{\newtblstarfactor}|}{\centering%
+  10
+  
+media
+  %
+}&\multicolumn{1}{m{\newtblstarfactor}|}{\centering%
+20%
+}\tabularnewline
+\cline{1-1}\cline{2-2}\cline{3-3}\cline{4-4}\multicolumn{1}{|m{\newtblstarfactor}|}{\centering%
+Interfacce esterne%
+}&\multicolumn{1}{m{\newtblstarfactor}|}{\centering%
+0%
+}&\multicolumn{1}{m{\newtblstarfactor}|}{\centering%
+%
+}&\multicolumn{1}{m{\newtblstarfactor}|}{\centering%
+%
+}\tabularnewline
+\cline{1-1}\cline{2-2}\cline{3-3}\cline{4-4}\multicolumn{1}{|m{\newtblstarfactor}|}{\centering%
+Conto totale grezzo%
+}&\multicolumn{1}{m{\newtblstarfactor}|}{\centering%
+%
+}&\multicolumn{1}{m{\newtblstarfactor}|}{\centering%
+%
+}&\multicolumn{1}{m{\newtblstarfactor}|}{\centering%
+35%
+}\tabularnewline
+\hline
+\end{tabular}\endgroup%
+
+\end{center}
+
+\caption{Calcolo punti funzione non aggiustati}
+\end{table}
+  
+ 					L'aggiustamento è stato poi calcolato attraverso il
+					noto questionario riportato di seguito: 
+ \begin{enumerate}
+
+\item{}   								Il sistema ha bisogno di operazioni di backup e
+								ripristino afidabili? [0]
+ 
+  
+
+\item{}   								È necessario impiegare comunicazioni specializzate
+								per trasferire le informazioni da o verso
+								l'applicazione? [5]
+ 
+  
+
+\item{}   								Esistono funzioni di elaborazione distribuita?
+								[3]
+ 
+  
+
+\item{}   								Le prestazioni rappresentano un fattore critico?
+								[1]
+ 
+  
+
+\item{}   								Il sistema può funzionare in un ambiente
+								operativo esistente, pesantemente utilizzato? [5]
+ 
+  
+
+\item{}   								Il sistema richiede un inserimento online dei dati? [1]
+ 
+  
+
+\item{}   								L'inserimento online dei dati richiede che venga
+								realizzata una transazione di input costituita da più
+								schermi od operazioni? [0]
+ 
+  
+
+\item{}   								I file IFL vengono aggiornati online? [0]
+ 
+  
+
+\item{}   								Esistono input, output, file o richieste di natura
+								complessa? [1]
+ 
+  
+
+\item{}   								L'elaborazione interna è complessa? [2]
+ 
+  
+
+\item{}   								Il codice è progettato per essere
+								riutilizzabile? [5]
+ 
+  
+
+\item{}   								Nel progetto sono compresi la conversione e
+								l'installazione? [4]
+ 
+  
+
+\item{}   								Il sistema è progettato per più installazioni
+								in più organizzazioni? [4]
+ 
+  
+
+\item{}   								L'applicazione è progettata per facilitare le
+								modifiche e la facilità d'uso da parte degli utenti? [3]
+ 
+  
+\end{enumerate}
+  
+  
+ 					Il risultato totale di 34 costituisce il valore di
+					aggiustamento da sostituire nell'equazione empirica
+					assieme al conto totale grezzo precedentemente ottenuto.
+  					Si ottiene quindi il numero di punti funzione dell'applicazione.
+   
+    
+\subsection{Stima dello sforzo}
+    
+ 	    				Per avvicinare la metrica dei punti funzione ad una quantificazione
+	    				dello sforzo concreta e verificabile si è anzitutto deciso di
+	    				stimare le linee di codice sorgente che saranno prodotte.
+	    				Sfruttando una stima empirica del rapporto fra linee di codice
+	    				di un software e i punti funzione in esso contenuti, che per
+	    				applicazioni Java Enterprise, è pari a 50, si è quindi stimato
+	    				che venissero prodotte 2114 righe di codice sorgente.
+ 
+  
+ 	    				In secondo luogo si è voluto stimare lo sforzo anche secondo
+	    				un'altra misura altamente verificabile: i giorni di lavoro per
+	    				uomo.
+	    				A partire da una valutazione empirica della produttività
+	    				degli sviluppatori in una media di 15 punti funzione mensili,
+	    				si è ricavato che lo sforzo globale previsto per il progetto
+	    				è pari a 2,3 mesi/uomo.
+	    				Per la squadra di quattro componenti tale stima equivale a
+	    				poco più di 12 giorni di lavoro a testa.
+ 
+       
+\section{Valutazione consuntiva}
+    
+ 	    		La valutazione consuntiva degli sforzi effettuati è stata
+	    		elaborata sia per la stima di righe di codice che per la stima
+	    		di ore di lavoro.
+	    		Infatti, nonostante entrambe le stime siano basate sulla metrica
+	    		dei punti funzione, è bene ricordare che, delle due, la prima
+	    		stima è stata usata per la valutazione della seconda. 
+ 
+  
+ 	    		La quantità di codice sorgente prodotto dalla squadra è stato
+	    		calcolato a partire dai codici Java Enterprise e dalle
+	    		configurazioni dell'application server in XML.
+	    		Sono stati inseriti nel conteggio i soli sorgenti effettivamente
+	    		prodotti dalla squadra per l'applicazione, escludendo i sorgenti
+	    		generati automaticamente da alcuni strumenti di sviluppo e
+	    		tralasciando anche i codici usati per i collaudi di unità.
+	    		Il conto totale di righe di codice ammonta a 2069 ed è davvero
+	    		molto vicino alla previsione precendentemente illustrata.
+ 
+  
+ 				Il conto delle ore di lavoro effettivamente spese dalla squadra
+				è stato computato ancor più facilmente a partire dai diari che
+				hanno puntualmente registrato le attività.
+				Il diario tenuto da ogni componente e il diario degli incontri
+				di gruppo, infatti, è stato stilato riportando le ore di sforzo
+				dedicate ai lavori.
+				La tabella seguente riassume la somma degli sforzi parziali dei
+				componenti del team.
+ 
+  \begin{table}[htbp]
+\begin{center}
+\begingroup%
+\setlength{\newtblsparewidth}{\linewidth-2\tabcolsep-2\tabcolsep-2\tabcolsep-2\tabcolsep}%
+\setlength{\newtblstarfactor}{\newtblsparewidth / \real{3}}%
+
+\begin{tabular}{lll}\hline
+\multicolumn{1}{|m{\newtblstarfactor}|}{\centering\bfseries%
+%
+Componente%
+}&\multicolumn{1}{m{\newtblstarfactor}|}{\centering\bfseries%
+%
+Ruolo%
+}&\multicolumn{1}{m{\newtblstarfactor}|}{\centering\bfseries%
+%
+Sforzo (ore di lavoro)%
+}\tabularnewline
+\cline{1-1}\cline{2-2}\cline{3-3}\multicolumn{1}{|m{\newtblstarfactor}|}{\centering%
+Francesco Draicchio%
+}&\multicolumn{1}{m{\newtblstarfactor}|}{\centering%
+Librarian%
+}&\multicolumn{1}{m{\newtblstarfactor}|}{\centering%
+117%
+}\tabularnewline
+\cline{1-1}\cline{2-2}\cline{3-3}\multicolumn{1}{|m{\newtblstarfactor}|}{\centering%
+Andrea Rappini%
+}&\multicolumn{1}{m{\newtblstarfactor}|}{\centering%
+Quality engineer%
+}&\multicolumn{1}{m{\newtblstarfactor}|}{\centering%
+195.33%
+}\tabularnewline
+\cline{1-1}\cline{2-2}\cline{3-3}\multicolumn{1}{|m{\newtblstarfactor}|}{\centering%
+Silvia Righini%
+}&\multicolumn{1}{m{\newtblstarfactor}|}{\centering%
+Tool specialist%
+}&\multicolumn{1}{m{\newtblstarfactor}|}{\centering%
+127%
+}\tabularnewline
+\cline{1-1}\cline{2-2}\cline{3-3}\multicolumn{1}{|m{\newtblstarfactor}|}{\centering%
+Marco Solieri%
+}&\multicolumn{1}{m{\newtblstarfactor}|}{\centering%
+Project manager%
+}&\multicolumn{1}{m{\newtblstarfactor}|}{\centering%
+196.75%
+}\tabularnewline
+\cline{1-1}\cline{2-2}\cline{3-3}\multicolumn{1}{|m{\newtblstarfactor}|}{\centering%
+Squadra%
+}&\multicolumn{1}{m{\newtblstarfactor}|}{\centering%
+%
+}&\multicolumn{1}{m{\newtblstarfactor}|}{\centering%
+40.5%
+}\tabularnewline
+\cline{1-1}\cline{2-2}\cline{3-3}\multicolumn{1}{|m{\newtblstarfactor}|}{\centering%
+Totale%
+}&\multicolumn{1}{m{\newtblstarfactor}|}{\centering%
+%
+}&\multicolumn{1}{m{\newtblstarfactor}|}{\centering%
+675.58%
+}\tabularnewline
+\hline
+\end{tabular}\endgroup%
+
+\end{center}
+
+\caption{Valutazione consuntiva dello sforzo}
+\end{table}
+  
+ 				Lo sforzo consuntivo espresso in mesi uomo supera di pochissimo
+				i 4 mesi/uomo, equivalenti a circa 21,1 giorni per componente.
+				Lo scarto fra la stima preventiva e la valutazione consuntiva
+				costituisce un errore relativo del 74\%, che supera di gran lunga
+				la peggiore stima d'errore preventivata informalmente nelle fasi
+				di pianificazione del progetto.
+ 
+  
+ 				La causa prima di questa discrepanza risiede 
+				sicuramente nell'inesperienza gestionale e attuativa nello
+				specifico ambito di progetto di cui è parlato nella sezione
+				3.4.
+				Non si può trascurare, peraltro, che in accorco con la legge di
+				Parkinson,le date di consegna multiple abbiano aumentato le necessità
+				 di sforzo per il progetto, dal momento che hanno creato disponibilità
+				 di sforzo.
+ 
+    
 % ------- 
 % Chapter 
 % ------- 
@@ -1869,9 +3214,12 @@ Fino al 5/6/2009%
 \end{longtable}\endgroup%
 \restoretablecounter%
 }
+  
+             A partire dall'ultima data indicata in tabella i componenti del gruppo si sono trovati regolarmente quasi ogni giorno: gli incontri di gruppo non stati quindi registrati come tali in quanto si sono trasformati in brevi momenti di revisioni e aggiornamenti informali durante il lavoro individuale.
+ 
       
 \section{Diario di Marco Solieri}
-      
+    
 {\centering \savetablecounter \begingroup%
 \setlength{\newtblsparewidth}{\linewidth-2\tabcolsep-60pt-2\tabcolsep-60pt-2\tabcolsep-2\tabcolsep}%
 \setlength{\newtblstarfactor}{\newtblsparewidth / \real{1}}%
@@ -2133,11 +3481,358 @@ Prototipazione architetturale: collegamento di una servlet ad un
 Condivisione artefatti: aggiornamento diario personale. %
 }\tabularnewline
 \cline{1-1}\cline{2-2}\cline{3-3}\multicolumn{1}{|m{60pt}|}{\centering%
+21/05/2009%
+}&\multicolumn{1}{m{60pt}|}{\centering%
+1.5%
+}&\multicolumn{1}{m{\newtblstarfactor}|}{%
+Prototipazione architetturale. Formazione uso entity bean e basi di
+							dati.%
+}\tabularnewline
+\cline{1-1}\cline{2-2}\cline{3-3}\multicolumn{1}{|m{60pt}|}{\centering%
+24/05/2009%
+}&\multicolumn{1}{m{60pt}|}{\centering%
+2%
+}&\multicolumn{1}{m{\newtblstarfactor}|}{%
+Modellazione architetturale definitiva. Modellazione
+							schieramento.%
+}\tabularnewline
+\cline{1-1}\cline{2-2}\cline{3-3}\multicolumn{1}{|m{60pt}|}{\centering%
+28/05/2009%
+}&\multicolumn{1}{m{60pt}|}{\centering%
+3%
+}&\multicolumn{1}{m{\newtblstarfactor}|}{%
+Modellazione livello business: interfaccia ws e microarchitettura del
+							livello (con QE).%
+}\tabularnewline
+\cline{1-1}\cline{2-2}\cline{3-3}\multicolumn{1}{|m{60pt}|}{\centering%
+29/05/2009%
+}&\multicolumn{1}{m{60pt}|}{\centering%
+1%
+}&\multicolumn{1}{m{\newtblstarfactor}|}{%
+Modellazione livello business: microarchitettura del livello (con
+							QE).%
+}\tabularnewline
+\cline{1-1}\cline{2-2}\cline{3-3}\multicolumn{1}{|m{60pt}|}{\centering%
+01/06/2009%
+}&\multicolumn{1}{m{60pt}|}{\centering%
+2%
+}&\multicolumn{1}{m{\newtblstarfactor}|}{%
+Implementazione livello business: ws tramite stateless ejb.%
+}\tabularnewline
+\cline{1-1}\cline{2-2}\cline{3-3}\multicolumn{1}{|m{60pt}|}{\centering%
+03/06/2009%
+}&\multicolumn{1}{m{60pt}|}{\centering%
+3%
+}&\multicolumn{1}{m{\newtblstarfactor}|}{%
+Modellazione livello business: microarchitettura (con QE).%
+}\tabularnewline
+\cline{1-1}\cline{2-2}\cline{3-3}\multicolumn{1}{|m{60pt}|}{\centering%
+03/06/2009%
+}&\multicolumn{1}{m{60pt}|}{\centering%
+3%
+}&\multicolumn{1}{m{\newtblstarfactor}|}{%
+Modellazione business: linguaggio XML per i ws (con TS).%
+}\tabularnewline
+\cline{1-1}\cline{2-2}\cline{3-3}\multicolumn{1}{|m{60pt}|}{\centering%
+03/06/2009%
+}&\multicolumn{1}{m{60pt}|}{\centering%
+1.5%
+}&\multicolumn{1}{m{\newtblstarfactor}|}{%
+Configurazione ambiente: risoluzione problemi legati a Subversion
+							nella la macchina di sviluppo.%
+}\tabularnewline
+\cline{1-1}\cline{2-2}\cline{3-3}\multicolumn{1}{|m{60pt}|}{\centering%
+03/06/2009%
+}&\multicolumn{1}{m{60pt}|}{\centering%
+1%
+}&\multicolumn{1}{m{\newtblstarfactor}|}{%
+Formazione: approfondimenti sull'uso delle Entity.%
+}\tabularnewline
+\cline{1-1}\cline{2-2}\cline{3-3}\multicolumn{1}{|m{60pt}|}{\centering%
+03/06/2009%
+}&\multicolumn{1}{m{60pt}|}{\centering%
+2.5%
+}&\multicolumn{1}{m{\newtblstarfactor}|}{%
+Modellazione ed implementazione business.%
+}\tabularnewline
+\cline{1-1}\cline{2-2}\cline{3-3}\multicolumn{1}{|m{60pt}|}{\centering%
+04/06/2009%
+}&\multicolumn{1}{m{60pt}|}{\centering%
+1%
+}&\multicolumn{1}{m{\newtblstarfactor}|}{%
+Configurazione per schieramento: impostazione DBMS MySQL e
+							integrazione con Eclipse (con QE).%
+}\tabularnewline
+\cline{1-1}\cline{2-2}\cline{3-3}\multicolumn{1}{|m{60pt}|}{\centering%
+04/06/2009%
+}&\multicolumn{1}{m{60pt}|}{\centering%
+2%
+}&\multicolumn{1}{m{\newtblstarfactor}|}{%
+Formazione: approfondimenti sull'uso DBMS MySQL (con QE).%
+}\tabularnewline
+\cline{1-1}\cline{2-2}\cline{3-3}\multicolumn{1}{|m{60pt}|}{\centering%
+04/06/2009%
+}&\multicolumn{1}{m{60pt}|}{\centering%
+2%
+}&\multicolumn{1}{m{\newtblstarfactor}|}{%
+Modellazione ed implementazione business: attività nel lato
+							informativo.%
+}\tabularnewline
+\cline{1-1}\cline{2-2}\cline{3-3}\multicolumn{1}{|m{60pt}|}{\centering%
+04/06/2009%
+}&\multicolumn{1}{m{60pt}|}{\centering%
+1%
+}&\multicolumn{1}{m{\newtblstarfactor}|}{%
+Configurazione schieramento: impostazione data source di
+							JBoss.%
+}\tabularnewline
+\cline{1-1}\cline{2-2}\cline{3-3}\multicolumn{1}{|m{60pt}|}{\centering%
+04/06/2009%
+}&\multicolumn{1}{m{60pt}|}{\centering%
+0.5%
+}&\multicolumn{1}{m{\newtblstarfactor}|}{%
+Condivisione artefatti: condivisione progetti e impostazioni
+							AS%
+}\tabularnewline
+\cline{1-1}\cline{2-2}\cline{3-3}\multicolumn{1}{|m{60pt}|}{\centering%
+05/06/2009%
+}&\multicolumn{1}{m{60pt}|}{\centering%
+0.5%
+}&\multicolumn{1}{m{\newtblstarfactor}|}{%
+Aggiornamento diario personale%
+}\tabularnewline
+\cline{1-1}\cline{2-2}\cline{3-3}\multicolumn{1}{|m{60pt}|}{\centering%
+05/06/2009%
+}&\multicolumn{1}{m{60pt}|}{\centering%
+3%
+}&\multicolumn{1}{m{\newtblstarfactor}|}{%
+Implementazione e formazione: business core -{} problemi con
+							UserManager%
+}\tabularnewline
+\cline{1-1}\cline{2-2}\cline{3-3}\multicolumn{1}{|m{60pt}|}{\centering%
+08/06/2009%
+}&\multicolumn{1}{m{60pt}|}{\centering%
+3%
+}&\multicolumn{1}{m{\newtblstarfactor}|}{%
+Modellazione business (col QE)%
+}\tabularnewline
+\cline{1-1}\cline{2-2}\cline{3-3}\multicolumn{1}{|m{60pt}|}{\centering%
+09/06/2009%
+}&\multicolumn{1}{m{60pt}|}{\centering%
+1%
+}&\multicolumn{1}{m{\newtblstarfactor}|}{%
+Implementazione ws business: bozze di uso del modulo core%
+}\tabularnewline
+\cline{1-1}\cline{2-2}\cline{3-3}\multicolumn{1}{|m{60pt}|}{\centering%
+09/06/2009%
+}&\multicolumn{1}{m{60pt}|}{\centering%
+4%
+}&\multicolumn{1}{m{\newtblstarfactor}|}{%
+Formazione: apprendimento estensione EJB3 di JBoss (col QE)%
+}\tabularnewline
+\cline{1-1}\cline{2-2}\cline{3-3}\multicolumn{1}{|m{60pt}|}{\centering%
+09/06/2009%
+}&\multicolumn{1}{m{60pt}|}{\centering%
+3%
+}&\multicolumn{1}{m{\newtblstarfactor}|}{%
+Implementazione business: costruzione user manager (quasi
+							completa)%
+}\tabularnewline
+\cline{1-1}\cline{2-2}\cline{3-3}\multicolumn{1}{|m{60pt}|}{\centering%
+10/06/2009%
+}&\multicolumn{1}{m{60pt}|}{\centering%
+5%
+}&\multicolumn{1}{m{\newtblstarfactor}|}{%
+Implementazione business: costruzione shopping cart (inizio) (col
+							QE))%
+}\tabularnewline
+\cline{1-1}\cline{2-2}\cline{3-3}\multicolumn{1}{|m{60pt}|}{\centering%
+10/06/2009%
+}&\multicolumn{1}{m{60pt}|}{\centering%
+1.5%
+}&\multicolumn{1}{m{\newtblstarfactor}|}{%
+Implementazione business: costruzione shopping cart (conclusione)
+							(col QE)).%
+}\tabularnewline
+\cline{1-1}\cline{2-2}\cline{3-3}\multicolumn{1}{|m{60pt}|}{\centering%
+11/06/2009%
+}&\multicolumn{1}{m{60pt}|}{\centering%
+0.25%
+}&\multicolumn{1}{m{\newtblstarfactor}|}{%
+Aggiornamento del diario personale.%
+}\tabularnewline
+\cline{1-1}\cline{2-2}\cline{3-3}\multicolumn{1}{|m{60pt}|}{\centering%
+11/06/2009%
+}&\multicolumn{1}{m{60pt}|}{\centering%
+5.5%
+}&\multicolumn{1}{m{\newtblstarfactor}|}{%
+Correzioni e collaudi al business core (con QE).%
+}\tabularnewline
+\cline{1-1}\cline{2-2}\cline{3-3}\multicolumn{1}{|m{60pt}|}{\centering%
+12/06/2009%
+}&\multicolumn{1}{m{60pt}|}{\centering%
+3%
+}&\multicolumn{1}{m{\newtblstarfactor}|}{%
+Correzioni e collaudi al business core (con QE e L).%
+}\tabularnewline
+\cline{1-1}\cline{2-2}\cline{3-3}\multicolumn{1}{|m{60pt}|}{\centering%
+13/06/2009%
+}&\multicolumn{1}{m{60pt}|}{\centering%
+3%
+}&\multicolumn{1}{m{\newtblstarfactor}|}{%
+Formazione sul clustering di JBossAS.%
+}\tabularnewline
+\cline{1-1}\cline{2-2}\cline{3-3}\multicolumn{1}{|m{60pt}|}{\centering%
+15/06/2009%
+}&\multicolumn{1}{m{60pt}|}{\centering%
+9%
+}&\multicolumn{1}{m{\newtblstarfactor}|}{%
+Clusterizzazione del business: collaudi (con QE).%
+}\tabularnewline
+\cline{1-1}\cline{2-2}\cline{3-3}\multicolumn{1}{|m{60pt}|}{\centering%
+16/06/2009%
+}&\multicolumn{1}{m{60pt}|}{\centering%
+9.5%
+}&\multicolumn{1}{m{\newtblstarfactor}|}{%
+Clusterizzazione del business: collaudi (con QE).%
+}\tabularnewline
+\cline{1-1}\cline{2-2}\cline{3-3}\multicolumn{1}{|m{60pt}|}{\centering%
+17/06/2009%
+}&\multicolumn{1}{m{60pt}|}{\centering%
+10.5%
+}&\multicolumn{1}{m{\newtblstarfactor}|}{%
+Clusterizzazione del business: collaudi (con QE).%
+}\tabularnewline
+\cline{1-1}\cline{2-2}\cline{3-3}\multicolumn{1}{|m{60pt}|}{\centering%
+18/06/2009%
+}&\multicolumn{1}{m{60pt}|}{\centering%
+9%
+}&\multicolumn{1}{m{\newtblstarfactor}|}{%
+Clusterizzazione del business: collaudi (con QE).%
+}\tabularnewline
+\cline{1-1}\cline{2-2}\cline{3-3}\multicolumn{1}{|m{60pt}|}{\centering%
+19/06/2009%
+}&\multicolumn{1}{m{60pt}|}{\centering%
+1%
+}&\multicolumn{1}{m{\newtblstarfactor}|}{%
+Incontro con lo stakeholder Prof.ssa Giorgia Lodi.%
+}\tabularnewline
+\cline{1-1}\cline{2-2}\cline{3-3}\multicolumn{1}{|m{60pt}|}{\centering%
+19/06/2009%
+}&\multicolumn{1}{m{60pt}|}{\centering%
+4%
+}&\multicolumn{1}{m{\newtblstarfactor}|}{%
+Clusterizzazione del business: collaudi (con QE).%
+}\tabularnewline
+\cline{1-1}\cline{2-2}\cline{3-3}\multicolumn{1}{|m{60pt}|}{\centering%
+22/06/2009%
+}&\multicolumn{1}{m{60pt}|}{\centering%
+2%
+}&\multicolumn{1}{m{\newtblstarfactor}|}{%
+Clusterizzazione del business: collaudi (con QE).%
+}\tabularnewline
+\cline{1-1}\cline{2-2}\cline{3-3}\multicolumn{1}{|m{60pt}|}{\centering%
+23/06/2009%
+}&\multicolumn{1}{m{60pt}|}{\centering%
+7.5%
+}&\multicolumn{1}{m{\newtblstarfactor}|}{%
+Clusterizzazione del business: collaudi (con QE).%
+}\tabularnewline
+\cline{1-1}\cline{2-2}\cline{3-3}\multicolumn{1}{|m{60pt}|}{\centering%
+24/06/2009%
+}&\multicolumn{1}{m{60pt}|}{\centering%
+0.5%
+}&\multicolumn{1}{m{\newtblstarfactor}|}{%
+Aggiornamento diario personale.%
+}\tabularnewline
+\cline{1-1}\cline{2-2}\cline{3-3}\multicolumn{1}{|m{60pt}|}{\centering%
+24/06/2009%
+}&\multicolumn{1}{m{60pt}|}{\centering%
+7%
+}&\multicolumn{1}{m{\newtblstarfactor}|}{%
+Clusterizzazione del business: collaudi (con QE).%
+}\tabularnewline
+\cline{1-1}\cline{2-2}\cline{3-3}\multicolumn{1}{|m{60pt}|}{\centering%
+27/06/2009%
+}&\multicolumn{1}{m{60pt}|}{\centering%
+2%
+}&\multicolumn{1}{m{\newtblstarfactor}|}{%
+Clusterizzazione del business: collaudi e correzioni.%
+}\tabularnewline
+\cline{1-1}\cline{2-2}\cline{3-3}\multicolumn{1}{|m{60pt}|}{\centering%
+29/06/2009%
+}&\multicolumn{1}{m{60pt}|}{\centering%
+1%
+}&\multicolumn{1}{m{\newtblstarfactor}|}{%
+Bozza nuovi diagrammi business.%
+}\tabularnewline
+\cline{1-1}\cline{2-2}\cline{3-3}\multicolumn{1}{|m{60pt}|}{\centering%
+30/06/2009%
+}&\multicolumn{1}{m{60pt}|}{\centering%
+1%
+}&\multicolumn{1}{m{\newtblstarfactor}|}{%
+Bozza nuovi diagrammi business.%
+}\tabularnewline
+\cline{1-1}\cline{2-2}\cline{3-3}\multicolumn{1}{|m{60pt}|}{\centering%
+30/06/2009%
+}&\multicolumn{1}{m{60pt}|}{\centering%
+3%
+}&\multicolumn{1}{m{\newtblstarfactor}|}{%
+Schieramento sulle macchine dipartimentali: collaudi (con
+							QE).%
+}\tabularnewline
+\cline{1-1}\cline{2-2}\cline{3-3}\multicolumn{1}{|m{60pt}|}{\centering%
+01/07/2009%
+}&\multicolumn{1}{m{60pt}|}{\centering%
+4%
+}&\multicolumn{1}{m{\newtblstarfactor}|}{%
+Bozza dei contenuti della relazione: stima dello sforzo tramite punti
+							funzione (PF).%
+}\tabularnewline
+\cline{1-1}\cline{2-2}\cline{3-3}\multicolumn{1}{|m{60pt}|}{\centering%
+2/07/2009%
+}&\multicolumn{1}{m{60pt}|}{\centering%
+3%
+}&\multicolumn{1}{m{\newtblstarfactor}|}{%
+Documentazione: bozza relazione di progetto del livello
+							business.%
+}\tabularnewline
+\cline{1-1}\cline{2-2}\cline{3-3}\multicolumn{1}{|m{60pt}|}{\centering%
+2/07/2009%
+}&\multicolumn{1}{m{60pt}|}{\centering%
+2%
+}&\multicolumn{1}{m{\newtblstarfactor}|}{%
+Rifattorizzazione del livello business.%
+}\tabularnewline
+\cline{1-1}\cline{2-2}\cline{3-3}\multicolumn{1}{|m{60pt}|}{\centering%
+3/07/2009%
+}&\multicolumn{1}{m{60pt}|}{\centering%
+7%
+}&\multicolumn{1}{m{\newtblstarfactor}|}{%
+Documentazione: raffinamento diagrammi del livello business.%
+}\tabularnewline
+\cline{1-1}\cline{2-2}\cline{3-3}\multicolumn{1}{|m{60pt}|}{\centering%
+4/07/2009%
+}&\multicolumn{1}{m{60pt}|}{\centering%
+2%
+}&\multicolumn{1}{m{\newtblstarfactor}|}{%
+Bozza capitolo della documentazione di progetto (con QE): relazione
+							di progetto%
+}\tabularnewline
+\cline{1-1}\cline{2-2}\cline{3-3}\multicolumn{1}{|m{60pt}|}{\centering%
+4/07/2009%
+}&\multicolumn{1}{m{60pt}|}{\centering%
+5%
+}&\multicolumn{1}{m{\newtblstarfactor}|}{%
+Stesura capitoli della documentazione di progetto: piano di processo
+							e valutazoine dello sforzo%
+}\tabularnewline
+\cline{1-1}\cline{2-2}\cline{3-3}\multicolumn{1}{|m{60pt}|}{\centering%
 Totale%
 }&\multicolumn{1}{m{60pt}|}{\centering%
-47%
+196.75%
 }&\multicolumn{1}{m{\newtblstarfactor}|}{%
-Aggiornato al 14/05/2009%
+Aggiornato al 04/07/2009%
 }\tabularnewline
 \hline
 \end{longtable}\endgroup%
@@ -2145,7 +3840,7 @@ Aggiornato al 14/05/2009%
 }
       
 \section{Diario di Andrea Rappini}
-      
+    
 {\centering \savetablecounter \begingroup%
 \setlength{\newtblsparewidth}{\linewidth-2\tabcolsep-60pt-2\tabcolsep-60pt-2\tabcolsep-2\tabcolsep}%
 \setlength{\newtblstarfactor}{\newtblsparewidth / \real{1}}%
@@ -2387,11 +4082,242 @@ Prototipi architetturali: esposizione di una EJB come Web Service e creazione de
 Aggiornamento del diario personale.%
 }\tabularnewline
 \cline{1-1}\cline{2-2}\cline{3-3}\multicolumn{1}{|m{60pt}|}{\centering%
+24/5/09%
+}&\multicolumn{1}{m{60pt}|}{\centering%
+1.5%
+}&\multicolumn{1}{m{\newtblstarfactor}|}{%
+Configurazione strumenti di sviluppo.%
+}\tabularnewline
+\cline{1-1}\cline{2-2}\cline{3-3}\multicolumn{1}{|m{60pt}|}{\centering%
+28/5/09%
+}&\multicolumn{1}{m{60pt}|}{\centering%
+3%
+}&\multicolumn{1}{m{\newtblstarfactor}|}{%
+Progettazione del livello business (con PM).%
+}\tabularnewline
+\cline{1-1}\cline{2-2}\cline{3-3}\multicolumn{1}{|m{60pt}|}{\centering%
+29/5/09%
+}&\multicolumn{1}{m{60pt}|}{\centering%
+1%
+}&\multicolumn{1}{m{\newtblstarfactor}|}{%
+Progettazione del livello business (con PM).%
+}\tabularnewline
+\cline{1-1}\cline{2-2}\cline{3-3}\multicolumn{1}{|m{60pt}|}{\centering%
+30/5/09%
+}&\multicolumn{1}{m{60pt}|}{\centering%
+1%
+}&\multicolumn{1}{m{\newtblstarfactor}|}{%
+Progettazione del livello business.%
+}\tabularnewline
+\cline{1-1}\cline{2-2}\cline{3-3}\multicolumn{1}{|m{60pt}|}{\centering%
+3/6/09%
+}&\multicolumn{1}{m{60pt}|}{\centering%
+7.33%
+}&\multicolumn{1}{m{\newtblstarfactor}|}{%
+Progettazione e prima implementazione del livello business.%
+}\tabularnewline
+\cline{1-1}\cline{2-2}\cline{3-3}\multicolumn{1}{|m{60pt}|}{\centering%
+5/6/09%
+}&\multicolumn{1}{m{60pt}|}{\centering%
+3%
+}&\multicolumn{1}{m{\newtblstarfactor}|}{%
+Realizzazione prototipi per il livello informativo (con PM).%
+}\tabularnewline
+\cline{1-1}\cline{2-2}\cline{3-3}\multicolumn{1}{|m{60pt}|}{\centering%
+5/6/09%
+}&\multicolumn{1}{m{60pt}|}{\centering%
+3%
+}&\multicolumn{1}{m{\newtblstarfactor}|}{%
+Progettazione del livello business e analisi delle specifiche J2EE.%
+}\tabularnewline
+\cline{1-1}\cline{2-2}\cline{3-3}\multicolumn{1}{|m{60pt}|}{\centering%
+8/6/09%
+}&\multicolumn{1}{m{60pt}|}{\centering%
+6.5%
+}&\multicolumn{1}{m{\newtblstarfactor}|}{%
+Progettazione del livello business: servizi singleton.%
+}\tabularnewline
+\cline{1-1}\cline{2-2}\cline{3-3}\multicolumn{1}{|m{60pt}|}{\centering%
+9/6/09%
+}&\multicolumn{1}{m{60pt}|}{\centering%
+6%
+}&\multicolumn{1}{m{\newtblstarfactor}|}{%
+Progettazione del livello business.%
+}\tabularnewline
+\cline{1-1}\cline{2-2}\cline{3-3}\multicolumn{1}{|m{60pt}|}{\centering%
+10/6/09%
+}&\multicolumn{1}{m{60pt}|}{\centering%
+10.50%
+}&\multicolumn{1}{m{\newtblstarfactor}|}{%
+Implementazione del livello business e informativo.%
+}\tabularnewline
+\cline{1-1}\cline{2-2}\cline{3-3}\multicolumn{1}{|m{60pt}|}{\centering%
+11/6/09%
+}&\multicolumn{1}{m{60pt}|}{\centering%
+9%
+}&\multicolumn{1}{m{\newtblstarfactor}|}{%
+Implementazione e primi collaudi di integrazione.%
+}\tabularnewline
+\cline{1-1}\cline{2-2}\cline{3-3}\multicolumn{1}{|m{60pt}|}{\centering%
+12/6/09%
+}&\multicolumn{1}{m{60pt}|}{\centering%
+9%
+}&\multicolumn{1}{m{\newtblstarfactor}|}{%
+Implementazione e collaudi di integrazione.%
+}\tabularnewline
+\cline{1-1}\cline{2-2}\cline{3-3}\multicolumn{1}{|m{60pt}|}{\centering%
+13/6/09%
+}&\multicolumn{1}{m{60pt}|}{\centering%
+3%
+}&\multicolumn{1}{m{\newtblstarfactor}|}{%
+Implementazione e sviluppo di casi collaudo.%
+}\tabularnewline
+\cline{1-1}\cline{2-2}\cline{3-3}\multicolumn{1}{|m{60pt}|}{\centering%
+14/6/09%
+}&\multicolumn{1}{m{60pt}|}{\centering%
+4%
+}&\multicolumn{1}{m{\newtblstarfactor}|}{%
+Collaudi e aggiornamento del piano di qualità.%
+}\tabularnewline
+\cline{1-1}\cline{2-2}\cline{3-3}\multicolumn{1}{|m{60pt}|}{\centering%
+15/06/2009%
+}&\multicolumn{1}{m{60pt}|}{\centering%
+9%
+}&\multicolumn{1}{m{\newtblstarfactor}|}{%
+Clusterizzazione del business: collaudi (con PM).%
+}\tabularnewline
+\cline{1-1}\cline{2-2}\cline{3-3}\multicolumn{1}{|m{60pt}|}{\centering%
+16/06/2009%
+}&\multicolumn{1}{m{60pt}|}{\centering%
+9.5%
+}&\multicolumn{1}{m{\newtblstarfactor}|}{%
+Clusterizzazione del business: collaudi (con PM).%
+}\tabularnewline
+\cline{1-1}\cline{2-2}\cline{3-3}\multicolumn{1}{|m{60pt}|}{\centering%
+17/06/2009%
+}&\multicolumn{1}{m{60pt}|}{\centering%
+10.5%
+}&\multicolumn{1}{m{\newtblstarfactor}|}{%
+Clusterizzazione del business: collaudi (con PM).%
+}\tabularnewline
+\cline{1-1}\cline{2-2}\cline{3-3}\multicolumn{1}{|m{60pt}|}{\centering%
+18/06/2009%
+}&\multicolumn{1}{m{60pt}|}{\centering%
+9%
+}&\multicolumn{1}{m{\newtblstarfactor}|}{%
+Clusterizzazione del business: collaudi (con PM).%
+}\tabularnewline
+\cline{1-1}\cline{2-2}\cline{3-3}\multicolumn{1}{|m{60pt}|}{\centering%
+19/06/2009%
+}&\multicolumn{1}{m{60pt}|}{\centering%
+1%
+}&\multicolumn{1}{m{\newtblstarfactor}|}{%
+Incontro con lo stakeholder Prof.ssa Giorgia Lodi.%
+}\tabularnewline
+\cline{1-1}\cline{2-2}\cline{3-3}\multicolumn{1}{|m{60pt}|}{\centering%
+19/06/2009%
+}&\multicolumn{1}{m{60pt}|}{\centering%
+4%
+}&\multicolumn{1}{m{\newtblstarfactor}|}{%
+Clusterizzazione del business: collaudi (con PM).%
+}\tabularnewline
+\cline{1-1}\cline{2-2}\cline{3-3}\multicolumn{1}{|m{60pt}|}{\centering%
+20/6/09%
+}&\multicolumn{1}{m{60pt}|}{\centering%
+3%
+}&\multicolumn{1}{m{\newtblstarfactor}|}{%
+Implementazione: prove di schieramento e debug.%
+}\tabularnewline
+\cline{1-1}\cline{2-2}\cline{3-3}\multicolumn{1}{|m{60pt}|}{\centering%
+22/06/2009%
+}&\multicolumn{1}{m{60pt}|}{\centering%
+2%
+}&\multicolumn{1}{m{\newtblstarfactor}|}{%
+Clusterizzazione del business: collaudi (con PM).%
+}\tabularnewline
+\cline{1-1}\cline{2-2}\cline{3-3}\multicolumn{1}{|m{60pt}|}{\centering%
+23/06/2009%
+}&\multicolumn{1}{m{60pt}|}{\centering%
+7.5%
+}&\multicolumn{1}{m{\newtblstarfactor}|}{%
+Clusterizzazione del business: collaudi (con PM).%
+}\tabularnewline
+\cline{1-1}\cline{2-2}\cline{3-3}\multicolumn{1}{|m{60pt}|}{\centering%
+27/6/09%
+}&\multicolumn{1}{m{60pt}|}{\centering%
+4%
+}&\multicolumn{1}{m{\newtblstarfactor}|}{%
+Implementazione: prove di schieramento e debug.%
+}\tabularnewline
+\cline{1-1}\cline{2-2}\cline{3-3}\multicolumn{1}{|m{60pt}|}{\centering%
+29/6/09%
+}&\multicolumn{1}{m{60pt}|}{\centering%
+4%
+}&\multicolumn{1}{m{\newtblstarfactor}|}{%
+Implementazione: prove di schieramento e debug.%
+}\tabularnewline
+\cline{1-1}\cline{2-2}\cline{3-3}\multicolumn{1}{|m{60pt}|}{\centering%
+30/6/09%
+}&\multicolumn{1}{m{60pt}|}{\centering%
+4%
+}&\multicolumn{1}{m{\newtblstarfactor}|}{%
+Implementazione: modifiche al business e prove di chieramento.%
+}\tabularnewline
+\cline{1-1}\cline{2-2}\cline{3-3}\multicolumn{1}{|m{60pt}|}{\centering%
+1/7/09%
+}&\multicolumn{1}{m{60pt}|}{\centering%
+4%
+}&\multicolumn{1}{m{\newtblstarfactor}|}{%
+Documentazione: esteso il piano della qualità.%
+}\tabularnewline
+\cline{1-1}\cline{2-2}\cline{3-3}\multicolumn{1}{|m{60pt}|}{\centering%
+2/7/09%
+}&\multicolumn{1}{m{60pt}|}{\centering%
+3%
+}&\multicolumn{1}{m{\newtblstarfactor}|}{%
+Business: refattorizzazione del livello business (con PM).%
+}\tabularnewline
+\cline{1-1}\cline{2-2}\cline{3-3}\multicolumn{1}{|m{60pt}|}{\centering%
+2/7/09%
+}&\multicolumn{1}{m{60pt}|}{\centering%
+2%
+}&\multicolumn{1}{m{\newtblstarfactor}|}{%
+Documentazione: bozza relazione di progetto (con PM).%
+}\tabularnewline
+\cline{1-1}\cline{2-2}\cline{3-3}\multicolumn{1}{|m{60pt}|}{\centering%
+3/7/09%
+}&\multicolumn{1}{m{60pt}|}{\centering%
+7%
+}&\multicolumn{1}{m{\newtblstarfactor}|}{%
+Documentazione: raffinamento diagrammi business (con PM).%
+}\tabularnewline
+\cline{1-1}\cline{2-2}\cline{3-3}\multicolumn{1}{|m{60pt}|}{\centering%
+4/7/09%
+}&\multicolumn{1}{m{60pt}|}{\centering%
+2%
+}&\multicolumn{1}{m{\newtblstarfactor}|}{%
+Documentazione: bozza documentazione del business (con PM).%
+}\tabularnewline
+\cline{1-1}\cline{2-2}\cline{3-3}\multicolumn{1}{|m{60pt}|}{\centering%
+4/7/09%
+}&\multicolumn{1}{m{60pt}|}{\centering%
+4%
+}&\multicolumn{1}{m{\newtblstarfactor}|}{%
+Documentazione: stesura documentazione del livello business.%
+}\tabularnewline
+\cline{1-1}\cline{2-2}\cline{3-3}\multicolumn{1}{|m{60pt}|}{\centering%
+5/7/09%
+}&\multicolumn{1}{m{60pt}|}{\centering%
+4%
+}&\multicolumn{1}{m{\newtblstarfactor}|}{%
+Documentazione: raffinamenti al piano di qualità.%
+}\tabularnewline
+\cline{1-1}\cline{2-2}\cline{3-3}\multicolumn{1}{|m{60pt}|}{\centering%
 Totale %
 }&\multicolumn{1}{m{60pt}|}{\centering%
-53.75 %
+215.33 %
 }&\multicolumn{1}{m{\newtblstarfactor}|}{%
-Aggiornato al 15/5/2009%
+Aggiornato al 5/7/2009%
 }\tabularnewline
 \hline
 \end{longtable}\endgroup%
@@ -2781,7 +4707,7 @@ Descrizione%
 \cline{1-1}\cline{2-2}\cline{3-3}\multicolumn{1}{|m{50pt}|}{\centering%
 15/06/2009%
 }&\multicolumn{1}{m{40pt}|}{\centering%
-4%
+8%
 }&\multicolumn{1}{m{\newtblstarfactor}|}{%
   \begin{itemize}
 
@@ -2812,11 +4738,137 @@ Descrizione%
   %
 }\tabularnewline
 \cline{1-1}\cline{2-2}\cline{3-3}\multicolumn{1}{|m{50pt}|}{\centering%
+18/06/2009%
+}&\multicolumn{1}{m{40pt}|}{\centering%
+3%
+}&\multicolumn{1}{m{\newtblstarfactor}|}{%
+  \begin{itemize}
+
+\item{}  Refactoring relazione
+  
+
+\item{}  Modifiche al foglio di stile.
+  
+\end{itemize}
+  %
+}\tabularnewline
+\cline{1-1}\cline{2-2}\cline{3-3}\multicolumn{1}{|m{50pt}|}{\centering%
+24/06/2009%
+}&\multicolumn{1}{m{40pt}|}{\centering%
+5%
+}&\multicolumn{1}{m{\newtblstarfactor}|}{%
+  \begin{itemize}
+
+\item{}  Prove clusterizzazione e schieramento.
+  
+\end{itemize}
+  %
+}\tabularnewline
+\cline{1-1}\cline{2-2}\cline{3-3}\multicolumn{1}{|m{50pt}|}{\centering%
+26/06/2009%
+}&\multicolumn{1}{m{40pt}|}{\centering%
+5%
+}&\multicolumn{1}{m{\newtblstarfactor}|}{%
+  \begin{itemize}
+
+\item{}  Prove clusterizzazione e schieramento.
+  
+
+\item{}  Bugifx relazione.
+  
+\end{itemize}
+  %
+}\tabularnewline
+\cline{1-1}\cline{2-2}\cline{3-3}\multicolumn{1}{|m{50pt}|}{\centering%
+29/06/2009%
+}&\multicolumn{1}{m{40pt}|}{\centering%
+6%
+}&\multicolumn{1}{m{\newtblstarfactor}|}{%
+  \begin{itemize}
+
+\item{}  Diagrammi UML: classi, package.
+  
+
+\item{}  Prove sullo schieramento.
+  
+\end{itemize}
+  %
+}\tabularnewline
+\cline{1-1}\cline{2-2}\cline{3-3}\multicolumn{1}{|m{50pt}|}{\centering%
+1/07/2009%
+}&\multicolumn{1}{m{40pt}|}{\centering%
+5%
+}&\multicolumn{1}{m{\newtblstarfactor}|}{%
+  \begin{itemize}
+
+\item{}  Diagrammi UML: classi, package.
+  
+
+\item{}  Stesura parte presentation relazione.
+  
+\end{itemize}
+  %
+}\tabularnewline
+\cline{1-1}\cline{2-2}\cline{3-3}\multicolumn{1}{|m{50pt}|}{\centering%
+2/07/2009%
+}&\multicolumn{1}{m{40pt}|}{\centering%
+4%
+}&\multicolumn{1}{m{\newtblstarfactor}|}{%
+  \begin{itemize}
+
+\item{}  Diagrammi UML: sequence parte presentation, deployment
+  
+
+\item{}  Stesura parte presentation relazione.
+  
+
+\item{}  Modifiche alla formattazione della relazione finale.
+  
+\end{itemize}
+  %
+}\tabularnewline
+\cline{1-1}\cline{2-2}\cline{3-3}\multicolumn{1}{|m{50pt}|}{\centering%
+3/07/2009%
+}&\multicolumn{1}{m{40pt}|}{\centering%
+8%
+}&\multicolumn{1}{m{\newtblstarfactor}|}{%
+  \begin{itemize}
+
+\item{}  Diagrammi UML: correzioni e disegno.
+  
+
+\item{}  Correzioni/modifiche capitolo sugli strumenti.
+  
+
+\item{}  Correzioni e refactoring sulla relazione.
+  
+\end{itemize}
+  %
+}\tabularnewline
+\cline{1-1}\cline{2-2}\cline{3-3}\multicolumn{1}{|m{50pt}|}{\centering%
+4/07/2009%
+}&\multicolumn{1}{m{40pt}|}{\centering%
+3%
+}&\multicolumn{1}{m{\newtblstarfactor}|}{%
+  \begin{itemize}
+
+\item{}  Diagrammi UML: correzioni e disegno.
+  
+
+\item{}  Correzioni/modifiche/stesura relazione
+  
+
+\item{}  Testing
+  
+\end{itemize}
+  %
+}\tabularnewline
+\cline{1-1}\cline{2-2}\cline{3-3}\multicolumn{1}{|m{50pt}|}{\centering%
 Totale%
 }&\multicolumn{1}{m{40pt}|}{\centering%
-58 ore%
+127 ore%
 }&\multicolumn{1}{m{\newtblstarfactor}|}{%
-Fino al 8/6/2009%
+Fino al 3/7/2009%
 }\tabularnewline
 \hline
 \end{longtable}\endgroup%
@@ -2835,7 +4887,7 @@ Fino al 8/6/2009%
 Giorno%
 }&\multicolumn{1}{m{40pt}|}{\centering\bfseries%
 %
-Quantità di Ore%
+Durata (ore)%
 }&\multicolumn{1}{m{\newtblstarfactor}|}{\bfseries%
 %
 Descrizione%
@@ -3112,11 +5164,209 @@ Descrizione%
   %
 }\tabularnewline
 \cline{1-1}\cline{2-2}\cline{3-3}\multicolumn{1}{|m{50pt}|}{\centering%
+05/06/2009%
+}&\multicolumn{1}{m{40pt}|}{\centering%
+3%
+}&\multicolumn{1}{m{\newtblstarfactor}|}{%
+  \begin{itemize}
+
+\item{}  refactoring nomi G8Presentation e prima impostazione del progetto Eclipse
+  
+\end{itemize}
+  %
+}\tabularnewline
+\cline{1-1}\cline{2-2}\cline{3-3}\multicolumn{1}{|m{50pt}|}{\centering%
+07/06/2009%
+}&\multicolumn{1}{m{40pt}|}{\centering%
+4.5%
+}&\multicolumn{1}{m{\newtblstarfactor}|}{%
+  \begin{itemize}
+
+\item{}  prima implementazione della servlet Search
+  
+\end{itemize}
+  %
+}\tabularnewline
+\cline{1-1}\cline{2-2}\cline{3-3}\multicolumn{1}{|m{50pt}|}{\centering%
+08/06/2009%
+}&\multicolumn{1}{m{40pt}|}{\centering%
+4%
+}&\multicolumn{1}{m{\newtblstarfactor}|}{%
+  \begin{itemize}
+
+\item{}  restiling delle pagine JSP mediante modifica dei moduli JSPF
+  
+
+\item{}  impostazione delle rimanenti servlet: Authenticate, Disconnect, View, Update, CheckOut
+  
+\end{itemize}
+  %
+}\tabularnewline
+\cline{1-1}\cline{2-2}\cline{3-3}\multicolumn{1}{|m{50pt}|}{\centering%
+10/06/2009%
+}&\multicolumn{1}{m{40pt}|}{\centering%
+4%
+}&\multicolumn{1}{m{\newtblstarfactor}|}{%
+  \begin{itemize}
+
+\item{}  completamento definizione dell'architettura della logica di presentazione
+  
+
+\item{}  definizione POJO DataExchange utilizzato come tramite tra servlet e JSP
+  
+\end{itemize}
+  %
+}\tabularnewline
+\cline{1-1}\cline{2-2}\cline{3-3}\multicolumn{1}{|m{50pt}|}{\centering%
+11/06/2009%
+}&\multicolumn{1}{m{40pt}|}{\centering%
+5.5%
+}&\multicolumn{1}{m{\newtblstarfactor}|}{%
+  \begin{itemize}
+
+\item{}  primo test di comunicazione tra business e client mediante Search servlet e Catalogue Service
+  
+\end{itemize}
+  %
+}\tabularnewline
+\cline{1-1}\cline{2-2}\cline{3-3}\multicolumn{1}{|m{50pt}|}{\centering%
+12/06/2009%
+}&\multicolumn{1}{m{40pt}|}{\centering%
+4%
+}&\multicolumn{1}{m{\newtblstarfactor}|}{%
+  \begin{itemize}
+
+\item{}  refactoring WSDL dei webservice e conseguente rigenerazione dei client lato Presentation
+  
+
+\item{}  utilizzo delle librerie Axis client
+  
+\end{itemize}
+  %
+}\tabularnewline
+\cline{1-1}\cline{2-2}\cline{3-3}\multicolumn{1}{|m{50pt}|}{\centering%
+13/06/2009%
+}&\multicolumn{1}{m{40pt}|}{\centering%
+4.5%
+}&\multicolumn{1}{m{\newtblstarfactor}|}{%
+  \begin{itemize}
+
+\item{}  implementazione Converter lato business: from Entity to XML, from XML to Entity
+  
+\end{itemize}
+  %
+}\tabularnewline
+\cline{1-1}\cline{2-2}\cline{3-3}\multicolumn{1}{|m{50pt}|}{\centering%
+15/06/2009%
+}&\multicolumn{1}{m{40pt}|}{\centering%
+6%
+}&\multicolumn{1}{m{\newtblstarfactor}|}{%
+  \begin{itemize}
+
+\item{}  bug fixing presentazione sui file formatter.xsl, DataExchange, XsltTranformer
+  
+
+\item{}  realizzazione Dispatcher delle richieste
+  
+\end{itemize}
+  %
+}\tabularnewline
+\cline{1-1}\cline{2-2}\cline{3-3}\multicolumn{1}{|m{50pt}|}{\centering%
+17/06/2009%
+}&\multicolumn{1}{m{40pt}|}{\centering%
+5%
+}&\multicolumn{1}{m{\newtblstarfactor}|}{%
+  \begin{itemize}
+
+\item{}  modifica foglio di stile css, correzione formatter.xsl
+  
+
+\item{}  refactoring definitivo nomi e funzionalità dei componenti lato presentation
+  
+\end{itemize}
+  %
+}\tabularnewline
+\cline{1-1}\cline{2-2}\cline{3-3}\multicolumn{1}{|m{50pt}|}{\centering%
+19/06/2009%
+}&\multicolumn{1}{m{40pt}|}{\centering%
+5.5%
+}&\multicolumn{1}{m{\newtblstarfactor}|}{%
+  \begin{itemize}
+
+\item{}  bug fixing e collaudo presentazione
+  
+
+\item{}  prime prove di clustering e load balancing
+  
+\end{itemize}
+  %
+}\tabularnewline
+\cline{1-1}\cline{2-2}\cline{3-3}\multicolumn{1}{|m{50pt}|}{\centering%
+23/06/2009%
+}&\multicolumn{1}{m{40pt}|}{\centering%
+4%
+}&\multicolumn{1}{m{\newtblstarfactor}|}{%
+  \begin{itemize}
+
+\item{}  bug fixing e collaudo presentazione
+  
+\end{itemize}
+  %
+}\tabularnewline
+\cline{1-1}\cline{2-2}\cline{3-3}\multicolumn{1}{|m{50pt}|}{\centering%
+24/06/2009%
+}&\multicolumn{1}{m{40pt}|}{\centering%
+3.5%
+}&\multicolumn{1}{m{\newtblstarfactor}|}{%
+  \begin{itemize}
+
+\item{}  schieramento a stato condiviso
+  
+\end{itemize}
+  %
+}\tabularnewline
+\cline{1-1}\cline{2-2}\cline{3-3}\multicolumn{1}{|m{50pt}|}{\centering%
+26/06/2009%
+}&\multicolumn{1}{m{40pt}|}{\centering%
+4%
+}&\multicolumn{1}{m{\newtblstarfactor}|}{%
+  \begin{itemize}
+
+\item{}  collaudo clusterizzazione e prove di integrazione presentation/business, test tolleranza ai guasti lato presentazione
+  
+\end{itemize}
+  %
+}\tabularnewline
+\cline{1-1}\cline{2-2}\cline{3-3}\multicolumn{1}{|m{50pt}|}{\centering%
+30/06/2009%
+}&\multicolumn{1}{m{40pt}|}{\centering%
+4%
+}&\multicolumn{1}{m{\newtblstarfactor}|}{%
+  \begin{itemize}
+
+\item{}  collaudo e correzione bachi dell'applicazione, rifiniti controlli e gestione delle eccezioni
+  
+\end{itemize}
+  %
+}\tabularnewline
+\cline{1-1}\cline{2-2}\cline{3-3}\multicolumn{1}{|m{50pt}|}{\centering%
+02/07/2009%
+}&\multicolumn{1}{m{40pt}|}{\centering%
+6%
+}&\multicolumn{1}{m{\newtblstarfactor}|}{%
+  \begin{itemize}
+
+\item{}  piccole rifattorizzazioni, rifinita interfaccia, aggiornamento diario e screenshot applicazione
+  
+\end{itemize}
+  %
+}\tabularnewline
+\cline{1-1}\cline{2-2}\cline{3-3}\multicolumn{1}{|m{50pt}|}{\centering%
 Totale%
 }&\multicolumn{1}{m{40pt}|}{\centering%
- -{} %
+117%
 }&\multicolumn{1}{m{\newtblstarfactor}|}{%
- -{} %
+Aggiornato al 04/07/2009%
 }\tabularnewline
 \hline
 \end{longtable}\endgroup%
@@ -3128,30 +5378,13 @@ Totale%
 
 \chapter{Glossario}
 
-\section*{A}
-
-\noindent
-\begin{description}
-\item[{Acquisto}]~ 
-
-Insieme di libri selezionati per l'acquisto.
-
-
-\item[{Acquista Carrello}]~ 
-
-Sottoattività dell'attività Cassa. Quest'attività rappresenta la conferma definitiva della volontà del cliente di acquistare il contenuto del suo carrello.
-
-
-
-\end{description}
-
 \section*{C}
 
 \noindent
 \begin{description}
 \item[{Cassa (attività)}]~ 
 
-Attività che raggruppa le operazioni di visualizzazione del contenuto del carrello (attività visualizza), di modifica del contenuto (attività ModificaCarrello), e di saldo finale, detto anche acquisto definitivo od operazione di acquista carrello (attività AcquistaCarrello).
+Attività che raggruppa le operazioni di visualizzazione del contenuto del carrello (VisualizzaCarrello), di modifica del contenuto (ModificaCarrello), e di saldo finale, detto anche acquisto definitivo od operazione di acquista carrello (AcquistaCarrello).
 
 
 \item[{Carrello}]~ 
@@ -3195,5 +5428,68 @@ Utente sconosciuto al sistema.
 
 
 \end{description}
+% ------------------------------------------- 
+% Bibliography
+% ------------------------------------------- 
+\begin{btSect}{}
+
+\chapter{\bibname}
+\begin{bibgroup}
+\begin{thebibliography}{WIDELABEL}
+
+\bibitem{id1185267}
+Roger S. Pressman, \emph{Principi di Ingegneria del software}, Copyright \textnormal{\copyright} 1991 The MacGraw-{}Hill Companies, S.r.l., McGraw-{}Hill.
+
+\bibitem{id1185308}
+Ian Sommerville, \emph{Software Engineering}, Eighth Edition, 2007.
+
+\bibitem{id1185330}
+J. Arlow e I. Neustadt, \emph{ UML and the Unified Process}, 2002.
+
+\bibitem{id1185363}
+Martin Fowler, \emph{UML Distilled Third Edition }, 2003.
+
+\bibitem{id1185379}
+e Neil Pitman, \emph{UML 2.0 in a Nutshell }, 2005.
+
+\bibitem{id1185410}
+Craig Larman, \emph{Applying UML and Patterns}, 2, 2001.
+
+\bibitem{id1185433}
+Erich Gamma, Richard Helm, Ralph Johnson, e John Vlissides, \emph{Design Patterns: Elements of Reusable Object-{}Oriented Software}, 1995.
+
+\bibitem{id1185478}
+Scott Ambler, \emph{Agile Modeling}, 2002.
+
+\bibitem{id1185497}
+Scoot W. Ambler, \emph{The Agile Unified Process (AUP)}, URL:~http://www.ambysoft.com/unifiedprocess/agileUP.html, 2009.
+
+\bibitem{id1185526}
+Kent Beck, \emph{Extreme Programming Explained: Embrace Change}, 2000.
+
+\bibitem{id1185545}
+Kent Beck  e Martin Fowler, \emph{Planning Extreme Programming}, 2000.
+
+\bibitem{id1185577}
+Deepak Alur, John Crupi, e Dan Malks, \emph{Core J2EE Patterns}, 2001.
+
+\bibitem{id1185615}
+Bill Burke e Richard Monson-{}Haefel, \emph{Enterprise JavaBeans, 3.0}, May 2006.
+
+\bibitem{id1185646}
+Brian Stansberry e Galder Zamarreno, \emph{JBoss Application Server 5 Clustering Guide}, Nov 2008.
+
+\bibitem{id1185676}
+JBoss Community, \emph{JBoss Application Server Installation And Getting Started Guide}, Feb 2009.
+
+\bibitem{id1185693}
+Chris Schlager e Marc Ruhrschneck, \emph{The TaskJuggler Manual}
+
+\bibitem{id1185717}
+Norman Walsh e Leonard Muellner, \emph{DocBook}, The Definitive Guide, 2008,  http://www.docbook.org/tdg5/en/html/docbook.html .
+
+\end{thebibliography}
+\end{bibgroup}
+\end{btSect}
 
 \end{document}

@@ -43,7 +43,7 @@
                     <imageobject role="dblatex">
                         <imagedata
                             fileref="DiagrammiModellazioneBusiness/DiagrammaAttivitaGenerale.pdf"
-                            align="center" scalefit="1" depth="245pt" format="PDF"/>
+                            align="center" scalefit="1" depth="180pt" format="PDF"/>
                     </imageobject>
                 </mediaobject>
             </figure>
@@ -60,7 +60,7 @@
                     <imageobject role="dblatex">
                         <imagedata
                             fileref="DiagrammiModellazioneBusiness/DiagrammaAttivitaAcquisto.pdf"
-                            align="center" scalefit="1" depth="245pt" format="PDF"/>
+                            align="center" scalefit="1" depth="160pt" format="PDF"/>
                     </imageobject>
                 </mediaobject>
             </figure>
@@ -76,7 +76,7 @@
                     <imageobject role="dblatex">
                         <imagedata
                             fileref="DiagrammiModellazioneBusiness/DiagrammaAttivitaCassa.pdf"
-                            align="center" scalefit="1" depth="245pt" format="PDF"/>
+                            align="center" scalefit="1" depth="160pt" format="PDF"/>
                     </imageobject>
                 </mediaobject>
             </figure>
