@@ -11,11 +11,12 @@
 <title/>
     <section xml:id="diario-qe">
         <title>Diario di &pqe;</title>
-        <table>
-            <title>Diario del &rqe;</title>
+        <informaltable>
+            <!--<title>Diario del &rqe;</title>-->
             <tgroup cols="3">
-                <colspec colname="0" align="center" colwidth="60"/>
-                <colspec colname="1" align="center" colwidth="60"/>
+                <!-- Mantenete specificati i punti!! -->
+                <colspec colname="0" align="center" colwidth="60pt"/>
+                <colspec colname="1" align="center" colwidth="60pt"/>
                 <colspec colname="2" align="justify"/>
                 <!-- non modificare questo header -->
                 <thead>
@@ -373,7 +374,7 @@
                     <!-- Aggiungere nuove righe qui copiando la <row> precedente -->
                 </tbody>
             </tgroup>
-        </table>
+        </informaltable>
         <?very-hard-pagebreak?>
     </section>
 </article>
