@@ -32,7 +32,7 @@ un forte accoppiamento tra il livello web e quello business e non si sfrutta pie
                 </imageobject>
                 <imageobject role="dblatex">
                     <imagedata
-                        fileref="DiagrammiPresentation/deployment_clusters.pdf"
+                        fileref="DiagrammiModelloArchitetturaEClustering/deployment_clusters.pdf"
                         align="center" depth="550pt" format="PDF"/>
                 </imageobject>
             </mediaobject>
