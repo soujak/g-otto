@@ -195,7 +195,7 @@
                             <imageobject role="dblatex">
                                 <imagedata
                                     fileref="DiagrammiPresentation/presentation_webcontent.pdf"
-                                    align="center" depth="345pt" format="PDF"/>
+                                    align="center" depth="240pt" format="PDF"/>
                             </imageobject>
                         </mediaobject>
                     </figure>
