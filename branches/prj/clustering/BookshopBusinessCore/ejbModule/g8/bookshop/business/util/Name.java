@@ -36,5 +36,6 @@ public abstract class Name {
 	}
 	public abstract class JMX {
 		public static final String USERMANAGER_MBEAN = "g8.bookshop.business.um:service=UserManager";
+		public static final String HAG8PARTITION_MBEAN = "jboss:service=HAPartition,partition=G8Business";
 	}
 }

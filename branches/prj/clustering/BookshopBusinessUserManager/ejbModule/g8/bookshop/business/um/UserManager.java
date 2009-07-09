@@ -227,7 +227,7 @@ public class UserManager implements UserManagerMBean {
 			adaptor = (RMIAdaptor) BeanLocator.getBean(
 					Name.EJB.JMX_RMIADAPTOR);
 			ObjectName name = new ObjectName(
-					Name.JMX.USERMANAGER_MBEAN);
+					Name.JMX.HAG8PARTITION_MBEAN);
 			if (adaptor.isRegistered(name)) {
 				masterNode = ((Vector) adaptor.getAttribute(name, "CurrentView")).get(0).toString();
 			}
