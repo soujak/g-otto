@@ -18,7 +18,7 @@
                     <para> La logica di presentazione &egrave; stata implementata, in puro stile
                         Java Enterprise, utilizzando sia servlet che JSP, in modo da dividere quanto
                         pi&ugrave; possibile la parte puramente presentazionale, ovvero il
-                        codice xhtml, dalla logica di interazione. Questa scelta di utilizzare
+                        codice XHTML, dalla logica di interazione. Questa scelta di utilizzare
                         entrambe le tecnologie &egrave; il solo modo nel quale ci &egrave;
                         sembrato possibile mantenere il codice pulito da ogni traccia di markup,
                         obiettivo a cui tenevamo molto. Le JSP, d'altro canto, sono state create
@@ -31,7 +31,7 @@
                         POJO condiviso, nel quale ad esempio la servlet &egrave; solita inserire
                         i risultati di ritorno delle chiamate ai web service, prima di trasferire il
                         controllo alla JSP. La JSP a quel punto pu&ograve; comodamente leggere
-                        le informazioni dall'oggetto condivisio e inserirle adeguatamente
+                        le informazioni dall'oggetto condiviso e inserirle adeguatamente
                         formattate, nel punto corretto del codice XHTML. La formattazione dei
                         risultati XML in arrivo dal web service viene svolta all'interno dei metodi
                         getter del POJO, attraverso una trasformazione XSLT. </para>
@@ -48,8 +48,8 @@
                         alla natura del formato dei dati che vengono scambiati tramite web service
                         tra i livelli di presentazione e di business è stato possibile realizzare un
                         meccanismo di caching dei risultati delle ricerche dell'utente, basato
-                        sull'utilizzo delle sessioni http, che consente di non
-                        effettuare ulteriori invocazione ai servizi di ricerca lato business ogni
+                        sull'utilizzo delle sessioni HTTP, che consente di non
+                        effettuare ulteriori invocazioni ai servizi di ricerca lato business ogni
                         qualvolta si presenta la necessità di avere due rappresentazioni differenti
                         dello stesso risultato. Per entrare brevemente nei dettagli implementativi,
                         tale semplice operazione si realizza memorizzando in variabili di sessione
@@ -63,7 +63,7 @@
                     <!-- replicazione http -->
                     <para>Per tollerare guasti di tipo crash tra i nodi del cluster di presentazione
                         e garantire la continuità del servizio, è stato deciso di attivare il
-                        supporto per la replicazione della sessione http che offre JBoss. In
+                        supporto per la replicazione della sessione HTTP che offre JBoss. In
                         relazione a quanto accennato nella sezione precedente riguardo alla netta
                         separazione logica dei due livelli centrali, &egrave; doveroso specificare
                         che in tali sessioni non si trovano informazioni o dati utili alla gestione

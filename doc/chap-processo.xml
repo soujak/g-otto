@@ -10,7 +10,7 @@
 	<chapter xml:id="chap-processo">
 
 		<title>Piano di processo</title>
-			<para> Prima di poter presentare il piano di processo che ha guidato lo svolgimento del
+		<para> Prima di poter presentare il piano di processo che ha guidato lo svolgimento del
 			progetto, è bene soffermarsi anzitutto ad illustrare sinteticamente gli obiettivi che ne
 			hanno ispirato le scelte, poi a chiarire le modalità con le quali la pianificazione è
 			stata sviluppata e gestita. Quando, quindi, saranno illustrati il piano preventivo e
@@ -33,11 +33,11 @@
 				che goda della produzione di tali artefatti. </para>
 			<para> Il buon livello comunicativo della squadra di lavoro, l'esiguità del numero dei
 				suoi partecipanti, uniti agli obiettivi didattici del progetto hanno inoltre
-				privilegiato un piano di processo che permettesse un
-					<emphasis>alto grado di partecipazione</emphasis> della squadra alla gestione
-				del processo. Il processo quindi avrebbe dovuto essere gestito tramite
-					<emphasis>artefatti semplici e concisi</emphasis>, affinché possano essere
-				compresi e utilizzati da ogni membro del team. </para>
+				privilegiato un piano di processo che permettesse un <emphasis>alto grado di
+					partecipazione</emphasis> della squadra alla gestione del processo. Il processo
+				quindi avrebbe dovuto essere gestito tramite <emphasis>artefatti semplici e
+					concisi</emphasis>, affinché possano essere compresi e utilizzati da ogni membro
+				del team. </para>
 			<para> Queste tre caratteristiche hanno indirizzato la scelta verso un modello di
 				processo recente, poiché è risalente al vicino 2005, ma piuttosto promettente. Si
 				tratta di Agile Unified Process v1.1, pubblicato dalla Ambysoft Inc. di Scott W.
@@ -77,20 +77,19 @@
 			<title>Diagrammi di pianificazione</title>
 			<para> La pianificazione è stata gestita e organizzata anche attraverso diagrammi di
 				Gantt che potessero non solo illustrare visivamente la programmazione temporale
-				delle attività, ma anche dettagliare con minuzia le relazioni di
-				dipendenza che intercorrono fra di esse. </para>
+				delle attività, ma anche dettagliare con minuzia le relazioni di dipendenza che
+				intercorrono fra di esse. </para>
 			<para> Di seguito si riporterà anzitutto il diagramma contenente il piano preventivo di
 				processo, costruito unendo le pianificazioni realizzate all'inizio di ogni fase del
 				processo. Poi si presenterà un rapporto dell'andamento effettivo del processo,
 				realizzato nel diagramma di Gantt consuntivo del processo. </para>
-		<!-- Gantt Preventivo -->
+			<!-- Gantt Preventivo -->
 			<figure>
 				<title>Diagramma di Gant preventivo (1 di 4)</title>
 				<mediaobject>
 					<imageobject>
-						<imagedata
-							fileref="GestioneProgetto/GanttPreventivo1-v.jpg"
-							align="center" depth="750pt" format="JPG"/>
+						<imagedata fileref="GestioneProgetto/GanttPreventivo1-v.jpg" align="center"
+							depth="750pt" format="JPG"/>
 					</imageobject>
 				</mediaobject>
 			</figure>
@@ -98,9 +97,8 @@
 				<title>Diagramma di Gant preventivo (2 di 4)</title>
 				<mediaobject>
 					<imageobject>
-						<imagedata
-							fileref="GestioneProgetto/GanttPreventivo2-v.jpg"
-							align="center" depth="750pt" format="JPG"/>
+						<imagedata fileref="GestioneProgetto/GanttPreventivo2-v.jpg" align="center"
+							depth="750pt" format="JPG"/>
 					</imageobject>
 				</mediaobject>
 			</figure>
@@ -108,9 +106,8 @@
 				<title>Diagramma di Gant preventivo (3 di 4)</title>
 				<mediaobject>
 					<imageobject>
-						<imagedata
-							fileref="GestioneProgetto/GanttPreventivo3-v.jpg"
-							align="center" depth="750pt" format="JPG"/>
+						<imagedata fileref="GestioneProgetto/GanttPreventivo3-v.jpg" align="center"
+							depth="750pt" format="JPG"/>
 					</imageobject>
 				</mediaobject>
 			</figure>
@@ -118,9 +115,8 @@
 				<title>Diagramma di Gant preventivo (4 di 4)</title>
 				<mediaobject>
 					<imageobject>
-						<imagedata
-							fileref="GestioneProgetto/GanttPreventivo4-v.jpg"
-							align="center" depth="750pt" format="JPG"/>
+						<imagedata fileref="GestioneProgetto/GanttPreventivo4-v.jpg" align="center"
+							depth="750pt" format="JPG"/>
 					</imageobject>
 				</mediaobject>
 			</figure>
@@ -129,9 +125,8 @@
 				<title>Diagramma di Gant consuntivo (1 di 4)</title>
 				<mediaobject>
 					<imageobject>
-						<imagedata
-							fileref="GestioneProgetto/GanttConsuntivo1-v.jpg"
-							align="center" depth="750pt" format="JPG"/>
+						<imagedata fileref="GestioneProgetto/GanttConsuntivo1-v.jpg" align="center"
+							depth="750pt" format="JPG"/>
 					</imageobject>
 				</mediaobject>
 			</figure>
@@ -139,9 +134,8 @@
 				<title>Diagramma di Gant consuntivo (2 di 4)</title>
 				<mediaobject>
 					<imageobject>
-						<imagedata
-							fileref="GestioneProgetto/GanttConsuntivo2-v.jpg"
-							align="center" depth="750pt" format="JPG"/>
+						<imagedata fileref="GestioneProgetto/GanttConsuntivo2-v.jpg" align="center"
+							depth="750pt" format="JPG"/>
 					</imageobject>
 				</mediaobject>
 			</figure>
@@ -149,9 +143,8 @@
 				<title>Diagramma di Gant consuntivo (3 di 4)</title>
 				<mediaobject>
 					<imageobject>
-						<imagedata
-							fileref="GestioneProgetto/GanttConsuntivo3-v.jpg"
-							align="center" depth="750pt" format="JPG"/>
+						<imagedata fileref="GestioneProgetto/GanttConsuntivo3-v.jpg" align="center"
+							depth="750pt" format="JPG"/>
 					</imageobject>
 				</mediaobject>
 			</figure>
@@ -159,9 +152,8 @@
 				<title>Diagramma di Gant consuntivo (4 di 4)</title>
 				<mediaobject>
 					<imageobject>
-						<imagedata
-							fileref="GestioneProgetto/GanttConsuntivo4-v.jpg"
-							align="center" depth="750pt" format="JPG"/>
+						<imagedata fileref="GestioneProgetto/GanttConsuntivo4-v.jpg" align="center"
+							depth="750pt" format="JPG"/>
 					</imageobject>
 				</mediaobject>
 			</figure>
@@ -172,13 +164,13 @@
 				quello consuntivo, la pianificazione non può che risultare grandemente perfettibile.
 				Un'analisi più attenta rivela che gli errori di valutazione sono stati molto
 				limitati e che quindi il piano è stato elaborato con una qualità più che discreta. </para>
-			<para> Il primo e più importante errore di valutazione i tempi da dedicare alla
-				formazione implementativa, all'implementazione e al collaudo durante la fase di
-				costruzione. Sottovalutando il rischio di non padroneggiare a sufficienza bene la
-				tecnologia, si sono prese alcune scelte archietturali (in particolare quelle
-				trattate nella sezione 2.4.3) che hanno richiesto una formazione implementativa
-				estremamente dettagliata dell'application server JBoss e non prevista per quella
-				fase. </para>
+			<para> Il primo e più importante errore di valutazione &egrave; stato relativamente
+				ai tempi da dedicare alla formazione implementativa, all'implementazione e al
+				collaudo durante la fase di costruzione. Sottovalutando il rischio di non
+				padroneggiare a sufficienza bene la tecnologia, si sono prese alcune scelte
+				architetturali (in particolare quelle trattate nella sezione 2.4.3) che hanno
+				richiesto una formazione implementativa estremamente dettagliata dell'application
+				server JBoss e non prevista per quella fase. </para>
 			<para> Il secondo errore riguarda più banalmente la mancanza di esperienza nella
 				gestione di progetti secondo metodologie ingegneristiche che ha reso difficile
 				l'effettuazione di stime e di pianificazioni. Si tratta di un rischio che, pur
