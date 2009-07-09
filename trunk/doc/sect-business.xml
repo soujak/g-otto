@@ -252,7 +252,7 @@
 						master node. Nell'ipotesi in cui il master node si guastasse, il cluster ne
 						rieleggerebbe uno nuovo sul quale sarebbe avviato nuovamente il servizio.
 						Purtroppo al momento in cui si scrive, lo stato del servizio non viene
-						preservato durante la procedura di migrazione sebbene s'intravedono gli
+						preservato durante la procedura di migrazione sebbene s'intravedano gli
 						spiragli per raggiungere anche questo traguardo. </para>
 					<para> Per schierare il servizio singleton ci si è appoggiati
 							sull'<filename>HASingletonController</filename>, un servizio offerto da
