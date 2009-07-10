@@ -567,14 +567,14 @@
             </varlistentry>
         </variablelist>
         <variablelist xml:id="eclipsemetrics">
-            <title>Metrics 1.3.6</title>
+            <title>Eclipse Metrics</title>
             <varlistentry>
                 <term>Riferimento</term>
                 <listitem>
                     <para>
                         <link xmlns:ns1="http://www.w3.org/1999/xlink"
-                            ns1:href="http://metrics.sourceforge.net/"
-                            >http://metrics.sourceforge.net/</link>
+                            ns1:href="http://www.stateofflow.com/projects/16/eclipsemetrics"
+                            >http://www.stateofflow.com/projects/16/eclipsemetrics</link>
                     </para>
                 </listitem>
             </varlistentry>
@@ -587,14 +587,14 @@
             <varlistentry>
                 <term>Descrizione</term>
                 <listitem>
-                    <para>Metrics &egrave; un plugin per Eclipse che permette di calcolare metriche e analizzare dipenze. Permette di individuare cicli all'interno di pacchetti e dipendenze di tipo, e visualizzarli graficamente. Possono essere calcolate diverse metriche con deviazioni medie e standard.
+                    <para>EclipseMetrics &egrave; un plugin per Eclipse che permette di calcolare diverse metriche ad ogni build, e visualizzare le violazioni dei range specificati.
                     </para>
                 </listitem>
             </varlistentry>
             <varlistentry>
                 <term>Motivazioni della scelta</term>
                 <listitem>
-                    <para>Non sono moltissimi gli strumenti gratuiti per il calcolo delle metriche: Metrics &egrave; un plugin per Eclipse quindi &egrave; stato semplice trovarlo, e si &egrave; rivelato semplice anche utilizzarlo. Metrics &egrave; altamente personalizzabile: i valori per le metriche, e anche parte della sua interfaccia, lo sono. Il suo essere integrato in Eclipse ci ha aiutato a svolgere le diverse operazioni tutte internamente al framework. I risultati dei calcoli effettuati da Metrics possono inoltre essere esportati in xml, permettendo una loro facile trasformazione in altri formati (pdf, xhtml).
+                    <para>Non sono moltissimi gli strumenti gratuiti e validi per il calcolo delle metriche: EclipseMetrics &egrave; un plugin per Eclipse quindi &egrave; stato semplice trovarlo, e si &egrave; rivelato semplice anche utilizzarlo. Il suo essere integrato in Eclipse ci ha aiutato a svolgere le diverse operazioni tutte internamente al framework, e ricalcolare i valori ad ogni build. I risultati dei calcoli effettuati da EclipseMetrics possono inoltre essere esportati in html o cvs, permettendo una loro facile trasformazione in altri formati (pdf, xhtml).
                     </para>
                 </listitem>
             </varlistentry>
